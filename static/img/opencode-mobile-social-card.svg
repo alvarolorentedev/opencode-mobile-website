@@ -1,0 +1,25 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#09110F"/>
+  <circle cx="180" cy="110" r="220" fill="#10322C" fill-opacity="0.7"/>
+  <circle cx="1010" cy="520" r="210" fill="#153F37" fill-opacity="0.9"/>
+  <rect x="680" y="110" width="340" height="410" rx="30" fill="#0D1514" stroke="#223330" stroke-width="2"/>
+  <rect x="718" y="150" width="264" height="28" rx="14" fill="#152523"/>
+  <rect x="718" y="205" width="264" height="94" rx="18" fill="#10211F" stroke="#23413C"/>
+  <rect x="718" y="322" width="264" height="62" rx="18" fill="#10211F" stroke="#1E322F"/>
+  <rect x="718" y="398" width="264" height="62" rx="18" fill="#10211F" stroke="#1E322F"/>
+  <rect x="748" y="236" width="204" height="12" rx="6" fill="#5CD6B0" fill-opacity="0.9"/>
+  <rect x="748" y="259" width="170" height="10" rx="5" fill="#88A39E" fill-opacity="0.75"/>
+  <rect x="748" y="343" width="118" height="10" rx="5" fill="#E6F1EE" fill-opacity="0.92"/>
+  <rect x="748" y="364" width="170" height="10" rx="5" fill="#88A39E" fill-opacity="0.7"/>
+  <rect x="748" y="419" width="126" height="10" rx="5" fill="#E6F1EE" fill-opacity="0.92"/>
+  <rect x="748" y="440" width="190" height="10" rx="5" fill="#88A39E" fill-opacity="0.7"/>
+  <rect x="90" y="118" width="112" height="112" rx="28" fill="#0D1514" stroke="#2D4541" stroke-width="2"/>
+  <rect x="118" y="146" width="56" height="72" rx="16" stroke="#5CD6B0" stroke-width="4"/>
+  <path d="M132 174L122 184L132 194" stroke="#E6F1EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M160 174L170 184L160 194" stroke="#E6F1EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M146 168L141 201" stroke="#5CD6B0" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="172" cy="160" r="8" fill="#5CD6B0"/>
+  <text x="90" y="300" fill="#EAF4F1" font-family="Space Grotesk, Arial, sans-serif" font-size="72" font-weight="700">OpenCode Mobile</text>
+  <text x="90" y="372" fill="#5CD6B0" font-family="IBM Plex Sans, Arial, sans-serif" font-size="34" font-weight="600">Your coding agents, from your phone.</text>
+  <text x="90" y="436" fill="#9CB0AC" font-family="IBM Plex Sans, Arial, sans-serif" font-size="28">Review progress, inspect outputs, and manage workflows on the go.</text>
+</svg>
