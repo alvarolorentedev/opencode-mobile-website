@@ -70,6 +70,15 @@ body {
   z-index: 99999;
 }
 
+/* Force the Docusaurus mobile sidebar and its backdrop above all content
+   Use an extremely high z-index to override any stacking contexts on Chrome mobile */
+.navbar-sidebar,
+.navbar-sidebar__backdrop,
+.navbar-sidebar__items,
+.navbar-sidebar__item {
+  z-index: 2147483647 !important;
+}
+
 /* Ensure the site navigation and mobile menu overlay above page content */
 /* No custom overrides for Docusaurus navbar/menu — use default styles */
 
