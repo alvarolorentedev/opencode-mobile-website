@@ -1,7 +1,8 @@
 .heroBanner {
   padding: 4.5rem 0 2rem;
   position: relative;
-  overflow: hidden;
+  /* Allow overlays (mobile sidebar) to extend beyond the hero area */
+  overflow: visible;
 }
 
 .heroBanner::before {
@@ -70,7 +71,8 @@
 
 .previewPanel {
   position: relative;
-  z-index: 1;
+  /* keep preview visually above page content but below global overlays */
+  z-index: 0;
   padding: 1.35rem;
   border: 1px solid var(--site-border-color);
   border-radius: 1.5rem;
