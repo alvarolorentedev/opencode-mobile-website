@@ -64,15 +64,7 @@ body {
 }
 
 /* Ensure the site navigation and mobile menu overlay above page content */
-.navbar,
-.navbar__inner,
-.navbar__items,
-.theme-burger-menu,
-.navbar-sidebar,
-.menu__list {
-  position: relative;
-  z-index: 9999;
-}
+/* No custom overrides for Docusaurus navbar/menu — use default styles */
 
 .navbar__title,
 h1,
@@ -113,4 +105,19 @@ h6 {
 
 .card {
   border-radius: 1rem;
+}
+
+/* Ensure Docusaurus mobile sidebar/menu overlays page content on small screens */
+@media screen and (max-width: 996px) {
+  .navbar-sidebar,
+  .menu,
+  .menu__list,
+  .theme-burger-menu,
+  .menu__list--mobile {
+    position: fixed !important;
+    z-index: 99999 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
 }
