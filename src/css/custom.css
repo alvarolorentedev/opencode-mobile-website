@@ -63,6 +63,13 @@ body {
   border-bottom: 1px solid var(--site-border-color);
 }
 
+/* Ensure the site navbar and its sidebar render above page content in Chrome mobile */
+.navbar,
+.navbar__inner {
+  position: relative;
+  z-index: 99999;
+}
+
 /* Ensure the site navigation and mobile menu overlay above page content */
 /* No custom overrides for Docusaurus navbar/menu — use default styles */
 
@@ -107,17 +114,4 @@ h6 {
   border-radius: 1rem;
 }
 
-/* Ensure Docusaurus mobile sidebar/menu overlays page content on small screens */
-@media screen and (max-width: 996px) {
-  .navbar-sidebar,
-  .menu,
-  .menu__list,
-  .theme-burger-menu,
-  .menu__list--mobile {
-    position: fixed !important;
-    z-index: 99999 !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-  }
-}
+/* No mobile overrides — use Docusaurus defaults for sidebar/menu */
