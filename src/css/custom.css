@@ -63,21 +63,8 @@ body {
   border-bottom: 1px solid var(--site-border-color);
 }
 
-/* Ensure the site navbar and its sidebar render above page content in Chrome mobile */
-.navbar,
-.navbar__inner {
-  position: relative;
-  z-index: 99999;
-}
 
-/* Force the Docusaurus mobile sidebar and its backdrop above all content
-   Use an extremely high z-index to override any stacking contexts on Chrome mobile */
-.navbar-sidebar,
-.navbar-sidebar__backdrop,
-.navbar-sidebar__items,
-.navbar-sidebar__item {
-  z-index: 2147483647 !important;
-}
+/* No custom navbar/sidebar overrides — use Docusaurus defaults */
 
 /* Ensure the site navigation and mobile menu overlay above page content */
 /* No custom overrides for Docusaurus navbar/menu — use default styles */
