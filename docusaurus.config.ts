@@ -11,7 +11,7 @@ const config: Config = {
   },
   url: 'https://opencode-mobile.example.com',
   baseUrl: '/',
-  organizationName: 'your-org',
+  organizationName: 'alvarolorentedev',
   projectName: 'opencode-mobile',
   onBrokenLinks: 'throw',
   i18n: {
@@ -25,7 +25,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          editUrl: 'https://github.com/your-org/opencode-mobile/tree/main/',
+          editUrl: 'https://github.com/alvarolorentedev/opencode-mobile/tree/main/',
         },
         blog: false,
         theme: {
@@ -72,7 +72,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/your-org/opencode-mobile',
+          href: 'https://github.com/alvarolorentedev/opencode-mobile',
           label: 'GitHub',
           position: 'right',
         },
@@ -119,10 +119,10 @@ const config: Config = {
         {
           title: 'More',
           items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/your-org/opencode-mobile',
-            },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/alvarolorentedev/opencode-mobile',
+              },
             {
               label: 'Download Status',
               to: '/docs/getting-started',

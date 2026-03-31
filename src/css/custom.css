@@ -59,8 +59,17 @@ body {
 }
 
 .navbar {
-  backdrop-filter: blur(16px);
+  position: relative;
   border-bottom: 1px solid var(--site-border-color);
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  backdrop-filter: blur(16px);
 }
 
 
@@ -112,9 +121,8 @@ h6 {
 
 /* No mobile overrides — use Docusaurus defaults for sidebar/menu */
 
-/* Minimal fix: ensure Docusaurus mobile sidebar and backdrop overlay page content
-   This is intentionally small and only targets the two sidebar elements. */
+/* Keep the mobile navigation drawer above page content. */
 .navbar-sidebar,
 .navbar-sidebar__backdrop {
-  z-index: 999999 !important;
+  z-index: 1001;
 }

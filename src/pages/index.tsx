@@ -87,11 +87,16 @@ function HomepageHeader() {
               built for developers who already work with OpenCode.
             </p>
             <div className={styles.heroActions}>
-              <Link className="button button--primary button--lg" to="/docs/introduction">
-                Read the docs
+              <Link
+                className="button button--primary button--lg"
+                href="https://github.com/alvarolorentedev/opencode-mobile/releases/download/v1.0.0-beta/opencode-mobile.apk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download APK (beta)
               </Link>
-              <Link className="button button--outline button--lg" to="/docs/getting-started">
-                Download status
+              <Link className="button button--outline button--lg" to="/docs/introduction">
+                Read the docs
               </Link>
             </div>
           </div>
@@ -218,11 +223,16 @@ function FinalCtaSection() {
               download and release flow when the app is ready.
             </p>
           </div>
-          <Link className="button button--primary button--lg" to="/docs/getting-started">
-            Start with the docs
+          <Link
+            className="button button--primary button--lg"
+            href="https://github.com/alvarolorentedev/opencode-mobile/releases/download/v1.0.0-beta/opencode-mobile.apk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download APK (beta)
           </Link>
-          <Link className="button button--outline button--lg" to="https://github.com/your-org/opencode-mobile">
-            View GitHub
+          <Link className="button button--outline button--lg" to="/docs/getting-started">
+            Read the docs
           </Link>
         </div>
       </div>
