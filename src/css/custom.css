@@ -63,6 +63,17 @@ body {
   border-bottom: 1px solid var(--site-border-color);
 }
 
+/* Ensure the site navigation and mobile menu overlay above page content */
+.navbar,
+.navbar__inner,
+.navbar__items,
+.theme-burger-menu,
+.navbar-sidebar,
+.menu__list {
+  position: relative;
+  z-index: 9999;
+}
+
 .navbar__title,
 h1,
 h2,
