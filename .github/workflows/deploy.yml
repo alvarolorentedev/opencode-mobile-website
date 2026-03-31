@@ -1,0 +1,26 @@
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout ✨
+        uses: actions/checkout@v3      
+      - name: Install dependencies ✨
+        run: npm ci
+      - name: Build website ✨
+        run: npm run build
+        env: 
+          NODE_ENV: production
+      - name: Publish to Cloudflare Pages ✨
+        uses: cloudflare/wrangler-action@v3
+        with:
+          wranglerVersion: "4.23.0"
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy --cwd build --skip-caching --no-bundle --commit-dirty --project-name=opencode-mobile-website
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
