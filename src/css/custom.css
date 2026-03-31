@@ -111,3 +111,10 @@ h6 {
 }
 
 /* No mobile overrides — use Docusaurus defaults for sidebar/menu */
+
+/* Minimal fix: ensure Docusaurus mobile sidebar and backdrop overlay page content
+   This is intentionally small and only targets the two sidebar elements. */
+.navbar-sidebar,
+.navbar-sidebar__backdrop {
+  z-index: 999999 !important;
+}
