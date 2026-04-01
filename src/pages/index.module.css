@@ -10,16 +10,34 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top left, rgba(92, 214, 176, 0.16), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(109, 141, 255, 0.12), transparent 30%);
+    radial-gradient(circle at top left, rgba(0,0,0,0.06), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.04), transparent 30%);
   pointer-events: none;
 }
 
 .heroGrid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
   align-items: center;
+}
+
+.announcement {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.announcementText {
+  color: var(--site-text-strong);
+  font-weight: 600;
+  margin-right: 0.4rem;
+}
+
+.announcementLink {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .heroCopy {
@@ -27,18 +45,9 @@
   z-index: 1;
 }
 
+/* eyebrow removed from hero; styles kept in case used elsewhere */
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid var(--site-border-color);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--site-accent-color);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: none;
 }
 
 .heroTitle {
@@ -75,9 +84,31 @@
   z-index: 0;
   padding: 1.35rem;
   border: 1px solid var(--site-border-color);
-  border-radius: 1.5rem;
-  background: linear-gradient(180deg, rgba(15, 24, 23, 0.96), rgba(8, 13, 13, 0.96));
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  border-radius: 1.25rem;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 8px 40px rgba(12, 21, 20, 0.06);
+}
+
+.heroImageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroScreenshot {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(15,15,15,0.12);
+  border: 1px solid var(--site-border-color);
+  background: var(--ifm-background-surface-color);
+}
+
+/* Make the hero screenshot match the site's grayscale theme */
+.heroScreenshot {
+  /* convert image to neutral grayscale and tone down contrast slightly */
+  filter: grayscale(100%) contrast(0.92) brightness(0.97);
+  transition: filter 240ms ease;
 }
 
 .previewHeader {
@@ -105,9 +136,9 @@
 .previewCard {
   margin-top: 1.25rem;
   padding: 1rem;
-  border: 1px solid rgba(92, 214, 176, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 1rem;
-  background: rgba(92, 214, 176, 0.05);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .previewCard p {
@@ -154,7 +185,7 @@
 .section,
 .sectionAlt,
 .finalCtaSection {
-  padding: 2.5rem 0;
+  padding: 3rem 0; /* slightly larger vertical rhythm for clearer sections */
 }
 
 .sectionAlt {
@@ -162,8 +193,8 @@
 }
 
 .sectionHeader {
-  max-width: 40rem;
-  margin-bottom: 1.5rem;
+  max-width: 56rem; /* give headers more breathing room for longer lines */
+  margin-bottom: 1.75rem;
 }
 
 .sectionHeader h2 {
@@ -246,6 +277,11 @@
 .useCaseList {
   display: grid;
   gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.useCaseItem {
+  font-size: 0.98rem;
 }
 
 .finalCtaCard {
@@ -255,8 +291,18 @@
   align-items: center;
   padding: 1.5rem;
   background:
-    linear-gradient(180deg, rgba(18, 28, 27, 0.96), rgba(10, 16, 15, 0.96)),
+    linear-gradient(180deg, rgba(0,0,0,0.88), rgba(0,0,0,0.8)),
     rgba(255, 255, 255, 0.02);
+  color: var(--ifm-heading-color);
+}
+
+/* Make CTA readable in light mode by switching to a light surface */
+[data-theme='light'] .finalCtaCard {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95)),
+    rgba(0, 0, 0, 0.01);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: var(--ifm-heading-color);
 }
 
 @media screen and (max-width: 996px) {

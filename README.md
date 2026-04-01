@@ -57,6 +57,8 @@ npm run serve
 │       ├── index.tsx
 │       └── index.module.css
 ├── static/img/
+│   ├── favicon.ico
+│   ├── logo.png
 │   ├── logo.svg
 │   └── opencode-mobile-social-card.svg
 ├── docusaurus.config.ts
@@ -68,7 +70,7 @@ npm run serve
 
 - Update `url` in `docusaurus.config.ts` to your real production domain.
 - Replace the placeholder GitHub links in `docusaurus.config.ts` with your actual repository.
-- Swap the social card or favicon if you want branded launch assets.
+- Replace `static/img/logo.png` or `static/img/favicon.ico` if branding changes again.
 
 ## Useful commands
 

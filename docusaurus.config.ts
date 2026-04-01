@@ -44,7 +44,7 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'OpenCode Mobile gives developers a practical mobile interface for reviewing, monitoring, and managing coding agent workflows on the go.',
+          'Inspect running tasks, review diffs and logs, and approve agent-driven changes from your phone.',
       },
       {
         name: 'keywords',
@@ -55,7 +55,7 @@ const config: Config = {
       {
         property: 'og:description',
         content:
-          'Review progress, inspect outputs, and stay connected to coding workflows from your phone.',
+          'Inspect running tasks, review diffs and logs, and approve agent-driven changes from your phone.',
       },
     ],
     navbar: {

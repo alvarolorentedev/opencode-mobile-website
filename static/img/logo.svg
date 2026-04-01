@@ -1,8 +1,24 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="18" fill="#0D1514"/>
-  <rect x="15" y="10" width="34" height="44" rx="10" stroke="#5CD6B0" stroke-width="3"/>
-  <path d="M24 25L19 30L24 35" stroke="#E6F1EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40 25L45 30L40 35" stroke="#E6F1EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M31 22L28 39" stroke="#5CD6B0" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="42" cy="18" r="5" fill="#5CD6B0"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#211F1D"/>
+  <g transform="translate(70 70)">
+    <rect x="0" y="0" width="56" height="56" fill="#F5F5F5"/>
+    <rect x="316" y="0" width="56" height="56" fill="#F5F5F5"/>
+    <rect x="0" y="56" width="84" height="28" fill="#F5F5F5"/>
+    <rect x="288" y="56" width="84" height="28" fill="#F5F5F5"/>
+    <rect x="0" y="84" width="84" height="28" fill="#F5F5F5"/>
+    <rect x="288" y="84" width="84" height="28" fill="#F5F5F5"/>
+    <rect x="0" y="112" width="112" height="28" fill="#F5F5F5"/>
+    <rect x="260" y="112" width="112" height="28" fill="#F5F5F5"/>
+    <rect x="0" y="140" width="112" height="28" fill="#F5F5F5"/>
+    <rect x="260" y="140" width="112" height="28" fill="#F5F5F5"/>
+    <rect x="0" y="168" width="112" height="28" fill="#F5F5F5"/>
+    <rect x="112" y="168" width="56" height="28" fill="#F5F5F5"/>
+    <rect x="204" y="168" width="56" height="28" fill="#F5F5F5"/>
+    <rect x="260" y="168" width="112" height="28" fill="#F5F5F5"/>
+    <rect x="0" y="196" width="56" height="176" fill="#D8D8DC"/>
+    <rect x="316" y="196" width="56" height="176" fill="#D8D8DC"/>
+    <rect x="56" y="252" width="260" height="120" fill="#323232"/>
+    <rect x="140" y="196" width="92" height="28" fill="#F5F5F5"/>
+    <rect x="168" y="224" width="36" height="28" fill="#F5F5F5"/>
+  </g>
 </svg>
