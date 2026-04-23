@@ -50,7 +50,7 @@ function HomepageHeader() {
             <div className={styles.heroActions}>
               <Link
                 className="button button--primary button--lg"
-                href="https://github.com/alvarolorentedev/opencode-mobile/releases/download/v1.0.0-beta/opencode-mobile.apk"
+                href="https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -62,14 +62,12 @@ function HomepageHeader() {
             </div>
           </div>
 
-          <div className={styles.heroImageWrap}>
             {/* Right-side hero image: use the static/img path so Docusaurus serves it correctly */}
             <img
               src={useBaseUrl('img/hero.png')}
               alt="OpenCode mobile screenshot"
               className={styles.heroScreenshot}
             />
-          </div>
         </div>
       </div>
     </header>
@@ -188,7 +186,7 @@ function FinalCtaSection() {
           </div>
           <Link
             className="button button--primary button--lg"
-            href="https://github.com/alvarolorentedev/opencode-mobile/releases/download/v1.0.0-beta/opencode-mobile.apk"
+            href="https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk"
             target="_blank"
             rel="noopener noreferrer"
           >

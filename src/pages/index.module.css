@@ -89,19 +89,12 @@
   box-shadow: 0 8px 40px rgba(12, 21, 20, 0.06);
 }
 
-.heroImageWrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .heroScreenshot {
+  display: flex;
   width: 100%;
-  max-width: 520px;
-  border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(15,15,15,0.12);
-  border: 1px solid var(--site-border-color);
-  background: var(--ifm-background-surface-color);
+  height: 525px;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 /* Make the hero screenshot match the site's grayscale theme */
@@ -330,6 +323,11 @@
 @media screen and (max-width: 640px) {
   .heroTitle {
     font-size: 2.7rem;
+  }
+
+  .heroImageWrap {
+    max-width: 360px;
+    aspect-ratio: 3 / 4;
   }
 
   .previewPanel,
