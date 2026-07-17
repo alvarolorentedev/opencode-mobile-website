@@ -72,7 +72,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: 'https://github.com/alvarolorentedev/opencode-mobile/releases/download/v1.0.0-beta/opencode-mobile.apk',
+          to: 'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk',
           label: 'Download Now',
           position: 'right',
         },
