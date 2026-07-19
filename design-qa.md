@@ -1,60 +1,64 @@
-# Design QA
+# Design QA — Landing Product Imagery
 
-- Source visual truth: `/tmp/opencode-reference-mobile.png` (captured OpenCode homepage reference) plus the approved product screenshots supplied by the user.
-- Final implementation screenshot: `/tmp/opencode-mobile-redesign-final.jpg`
-- Matched comparison implementation: `/tmp/opencode-mobile-redesign-reference-size.jpg`
-- Combined comparison: `/tmp/opencode-design-comparison.jpg`
-- Additional responsive evidence: `/tmp/opencode-mobile-redesign-mobile.jpg`, `/tmp/opencode-mobile-redesign-product-mobile.jpg`, `/tmp/opencode-mobile-redesign-768.jpg`, `/tmp/opencode-mobile-redesign-1024.jpg`, and `/tmp/opencode-mobile-redesign-light.jpg`
-- Comparison viewport: 1037 × 720, dark theme, homepage hero.
-- Responsive viewports checked: 390 × 844, 768 × 900, 1024 × 900, and 1440 × 1000 in dark and light themes.
+- Source visual truth: `/Users/alvarolorente/Downloads/scteenshots/Screenshot_20260719-215511.png`, `Screenshot_20260719-215529.png`, and `Screenshot_20260719-215552.png`
+- Implementation screenshots: `/tmp/opencode-landing-hero-final.png`, `/tmp/opencode-landing-product-final.png`, and `/tmp/opencode-landing-mobile-final.png`
+- Combined comparison: `/tmp/opencode-design-qa-comparison.png`
+- Viewports: 1280 × 720 desktop and 390 × 844 mobile
+- State: dark theme, landing hero and `#product` section
 
 ## Full-view comparison evidence
 
-The combined reference/implementation image was inspected directly. Both use a warm-black editorial canvas, thin framed grid, IBM Plex Mono typography, compact square controls, restrained navigation, and a large real product surface beside concise copy. The implementation intentionally substitutes OpenCode Mobile content, mint conversion accents, and the approved Android screenshot while preserving the reference site's technical visual grammar.
+The combined comparison places the approved task-screen capture beside the corrected desktop hero and Product section. The hero and gallery now use the approved captures directly rather than a redrawn approximation. The hero keeps the task screen large enough to identify its title, session tabs, starter tasks, and mint actions. The Product section gives each real capture a dedicated portrait column with adjacent benefit-led copy.
 
-## Focused comparison evidence
+## Focused region comparison evidence
 
-The hero, mobile conversion block, mobile product section, light theme, and supplied task screenshot were opened at readable size. A separate crop was not needed: the 1037 × 720 comparison keeps the logo, navigation, headline, CTAs, border system, and product image readable, while the dedicated 390 × 844 captures show mobile wrapping and screenshot framing at native viewport size.
-
-## Fidelity ledger
-
-1. **Typography** — IBM Plex Mono is applied to homepage copy, headings, navigation, and controls. The dark hero H1 renders at 54.4px/55.5px with weight 700 at the matched viewport; hierarchy and wrapping are deliberate and unclipped.
-2. **Layout rhythm** — The hero retains the reference's split editorial frame, thin dividers, generous negative space, and product media column. The implementation adds a stacked mobile conversion layout without horizontal overflow.
-3. **Colors and tokens** — Warm black `#131111`, off-white `#f2eded`, muted gray, and low-contrast borders align with the source. Mint is intentionally limited to the community label and conversion action so the mobile product remains recognizable.
-4. **Image quality** — All visible product imagery uses the supplied app captures, optimized to responsive WebP. No placeholder, CSS-drawn, or fabricated product art is present, and no grayscale filter is applied.
-5. **Copy and content** — Above-the-fold copy matches the approved plan exactly: community relationship, headline, Android value proposition, both CTAs, and release metadata are present in the approved order.
-6. **Responsive behavior** — 390, 768, 1024, and 1440 widths were checked. Measured `scrollWidth` equals `clientWidth` at each sampled breakpoint; CTAs remain reachable and image proportions remain intact.
-7. **Theme behavior** — Dark and light themes preserve the same grid, hierarchy, contrast, and mint action treatment. The light version uses the approved warm off-white inverse rather than a generic white surface.
-8. **Interaction behavior** — Product navigation reaches `/#product`, FAQ disclosure opens and reveals its answer, and browser console inspection reports no errors.
-
-## Findings
-
-No actionable P0, P1, or P2 fidelity issues remain.
-
-Intentional deviations from the OpenCode reference:
-
-- OpenCode Mobile retains its existing logo and independent community identity rather than copying the OpenCode wordmark.
-- Mint highlights the Android conversion path and mirrors the supplied app UI.
-- The hero headline is larger than the reference to support the approved acquisition goal.
+The hero product-image region was inspected separately at 1280 × 720. Its source is exactly `/img/product/task-session.webp`, which was derived from the approved screenshot, so control geometry, typography, colors, and content are preserved. At 390 × 844 the same image renders at approximately 298 px wide with no horizontal overflow. A separate focused crop was not needed because the direct source asset and its full rendered bounds were clearly readable in the comparison.
 
 ## Comparison history
 
-- Initial implementation passed the first direct comparison with no actionable P0/P1/P2 findings, so no blocking visual-fix iteration was required.
-- Responsive and light-theme checks found no overflow, clipping, or contrast regression.
+### Initial findings
 
-## Implementation checklist
+- **P1 — Product fidelity drift:** The generated Remotion phone interface differed visibly from the real app and weakened trust.
+- **P1 — Product imagery was too small:** A landscape explainer was placed inside a portrait-oriented hero slot, making both its text and recreated controls difficult to understand.
+- **P2 — Hero conversion action fell below the 720 px viewport:** The primary CTA was not fully visible above the fold.
+- **P2 — Walkthrough poster used the wrong aspect ratio:** A portrait screenshot was cropped inside a 16:9 video element.
 
-- [x] Approved hero copy and CTA order
-- [x] Original-product visual relationship without official-product implication
-- [x] Genuine optimized product screenshots
-- [x] Desktop, tablet, and mobile layouts
-- [x] Light and dark themes
-- [x] Keyboard-focus styling and semantic headings
-- [x] FAQ and anchor interaction
-- [x] Console free of errors
+### Fixes made
+
+- Restored approved screenshots 1–3 as the hero and Product gallery assets.
+- Rebuilt the Remotion walkthrough around those real captures; Remotion now adds only large explanatory copy and motion.
+- Rebalanced hero typography and spacing so the primary CTA ends at 709 px in a 720 px viewport.
+- Rendered a dedicated 16:9 poster from the corrected Remotion composition.
+- Removed synthetic Workspace, Connection, and Chat stills from public landing and documentation surfaces.
+
+### Post-fix evidence
+
+- Hero asset: `/img/product/task-session.webp`.
+- Product assets: task, voice, and usage approved captures.
+- Walkthrough poster: `/img/product/walkthrough-poster.png`.
+- Desktop and mobile widths show no horizontal overflow.
+- Product navigation moves to `#product` with the heading visible below the sticky navigation.
+- Browser console contains no relevant warnings or errors.
+
+## Required fidelity surfaces
+
+- **Fonts and typography:** IBM Plex Mono presentation remains consistent with the landing system. Headline size was reduced only enough to preserve hierarchy and keep the CTA above the fold.
+- **Spacing and layout rhythm:** The hero is balanced as copy plus a portrait product view. The Product gallery restores three equal columns on desktop and one readable column on mobile.
+- **Colors and visual tokens:** The warm black, off-white, thin borders, and mint accent remain unchanged. Real captures preserve the app's actual mint and surface colors.
+- **Image quality and asset fidelity:** Hero and Product imagery now use the approved captures directly. No recreated UI, glyph approximations, or synthetic phone controls remain on public surfaces.
+- **Copy and content:** Product descriptions now explain the user outcome while screenshot captions and alt text identify the exact capability shown.
+
+## Interaction and accessibility checks
+
+- Primary Android CTA is visible above the fold at 1280 × 720.
+- Product navigation link reaches `#product`.
+- Video retains native controls and a matching 16:9 poster.
+- Images retain descriptive alt text.
+- Desktop and mobile layouts have no horizontal overflow.
+- Console errors/warnings: none.
 
 ## Follow-up polish
 
-No P3 item is required for handoff.
+- P3: A future sanitized Workspace or Terminal capture would allow those capabilities to appear as real product imagery too. Current documentation keeps them text-only instead of showing an inaccurate recreation.
 
 final result: passed

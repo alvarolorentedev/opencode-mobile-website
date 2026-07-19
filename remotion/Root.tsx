@@ -1,11 +1,6 @@
-import {Composition, Still} from 'remotion';
+import {Composition} from 'remotion';
 
-import {
-  ChatControlStill,
-  ConnectionStill,
-  ProductWalkthrough,
-  WorkspaceStill,
-} from './ProductExplainer';
+import {ProductWalkthrough} from './ProductExplainer';
 
 export const RemotionRoot = () => (
   <>
@@ -17,8 +12,5 @@ export const RemotionRoot = () => (
       width={1280}
       height={720}
     />
-    <Still id="ChatControl" component={ChatControlStill} width={1200} height={800} />
-    <Still id="WorkspaceTools" component={WorkspaceStill} width={1200} height={800} />
-    <Still id="SecureConnection" component={ConnectionStill} width={1200} height={800} />
   </>
 );

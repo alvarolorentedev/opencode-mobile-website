@@ -16,34 +16,34 @@ const productScreens = [
     image: 'img/product/task-session.webp',
     alt: 'OpenCode Mobile task screen showing a new coding session, task suggestions, model controls, and workspace navigation',
     label: 'Task control',
-    title: 'Start work and keep it moving',
+    title: 'Start, watch, and redirect',
     description:
-      'Launch a task, choose the active model and agent, then follow the same OpenCode session from your phone.',
+      'Send the task, see what OpenCode is doing, answer blocking requests, and review the result.',
   },
   {
     image: 'img/product/voice-mode.webp',
-    alt: 'OpenCode Mobile voice mode listening for a spoken instruction',
+    alt: 'OpenCode Mobile conversation mode listening for a spoken instruction',
     label: 'Voice mode',
     title: 'Give the next instruction naturally',
     description:
-      'Use voice input when typing a detailed follow-up is inconvenient, then return to the session with the context intact.',
+      'Speak a follow-up while away from the keyboard, then return to the same session and context.',
   },
   {
     image: 'img/product/session-usage.webp',
     alt: 'OpenCode Mobile session usage screen showing context utilization and model token usage',
     label: 'Usage visibility',
-    title: 'See the context behind the work',
+    title: 'Know what the session is using',
     description:
-      'Check context utilization, token activity, and the active provider without leaving the session.',
+      'Check context utilization, token activity, and the active model without leaving the task.',
   },
 ];
 
 const featureRows = [
-  ['01', 'Chat', 'Start tasks, continue sessions, and redirect agent work.'],
-  ['02', 'Terminal', 'Run focused commands against the connected workspace.'],
-  ['03', 'Workspaces', 'Move between projects and inspect current or previous sessions.'],
-  ['04', 'Voice', 'Speak follow-up instructions when you are away from your keyboard.'],
-  ['05', 'Usage', 'Monitor context and model activity while a task is running.'],
+  ['01', 'Start a task', 'Choose the agent and model, send useful context, then follow the work.', '/docs/guides/tasks'],
+  ['02', 'Review safely', 'Answer permissions deliberately and inspect every changed file.', '/docs/guides/approvals-and-changes'],
+  ['03', 'Reach the project', 'Find a file, make a focused patch, or run a short terminal command.', '/docs/guides/workspace-files'],
+  ['04', 'Speak a follow-up', 'Dictate one prompt or use the foreground conversation loop.', '/docs/guides/voice'],
+  ['05', 'Understand usage', 'Read context pressure, token activity, steps, and cost estimates.', '/docs/guides/usage'],
 ];
 
 const faqItems = [
@@ -122,7 +122,7 @@ function HeroSection() {
           src={heroImage}
           width={720}
           height={1616}
-          alt="OpenCode Mobile task screen showing a new coding session, task suggestions, model controls, and workspace navigation"
+          alt="OpenCode Mobile task screen showing a new session, task suggestions, model controls, and workspace navigation"
           className={styles.heroImage}
           loading="eager"
           fetchPriority="high"
@@ -140,6 +140,29 @@ function TrustStrip() {
       <span>Open source</span>
       <span>Android beta</span>
       <span>Works with OpenCode server</span>
+    </section>
+  );
+}
+
+function WalkthroughSection() {
+  const video = useBaseUrl('media/opencode-mobile-walkthrough.mp4');
+  const poster = useBaseUrl('img/product/walkthrough-poster.png');
+
+  return (
+    <section className={styles.walkthroughSection} aria-labelledby="walkthrough-title">
+      <div>
+        <p className={styles.sectionIndex}>60 seconds to understand the app</p>
+        <Heading as="h2" id="walkthrough-title">From instruction to inspected result.</Heading>
+        <p>
+          See three real app screens with simple explanations of what each one
+          helps you accomplish.
+        </p>
+        <Link to="/docs/features">Choose a capability guide</Link>
+      </div>
+      <video controls playsInline preload="metadata" poster={poster} className={styles.walkthroughVideo}>
+        <source src={video} type="video/mp4" />
+        Your browser does not support embedded video.
+      </video>
     </section>
   );
 }
@@ -177,8 +200,8 @@ function ProductGallery() {
             See the work, not just a notification.
           </Heading>
           <p>
-            OpenCode Mobile keeps the session, model, workspace, and usage
-            context visible so every action still feels connected to the real job.
+            These are the approved app captures, shown at a size where the real
+            controls and information hierarchy remain understandable.
           </p>
         </div>
       </div>
@@ -247,11 +270,14 @@ function FeaturesSection() {
       </div>
 
       <div className={styles.featureList}>
-        {featureRows.map(([number, title, description]) => (
+        {featureRows.map(([number, title, description, href]) => (
           <article key={number}>
             <span>{number}</span>
             <Heading as="h3">{title}</Heading>
-            <p>{description}</p>
+            <div>
+              <p>{description}</p>
+              <Link to={href}>How to use it</Link>
+            </div>
           </article>
         ))}
       </div>
@@ -327,6 +353,7 @@ export default function Home(): ReactNode {
       <main className={styles.landingPage}>
         <HeroSection />
         <TrustStrip />
+        <WalkthroughSection />
         <ProductGallery />
         <SetupSection />
         <FeaturesSection />

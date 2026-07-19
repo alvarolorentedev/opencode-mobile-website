@@ -84,6 +84,6 @@ The simplest mental model is: OpenCode runs the work; OpenCode Mobile is a focus
 ## Recommended learning path
 
 1. Follow [Getting Started](./getting-started.md) to install, connect, and run a first task.
-2. Use the [User Manual](./user-manual.md) for screen-by-screen workflows and safety notes.
-3. Check [Features](./features.md) for the complete capability matrix and server dependencies.
+2. Open [What Do You Want to Do?](./features.md) and choose the outcome that matches your situation.
+3. Use the [User Manual](./user-manual.md) for orientation, then open the focused capability guide from the **Use the app** sidebar.
 4. Use [Remote Access](./remote-access.md) when connecting outside your local network.

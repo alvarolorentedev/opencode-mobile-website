@@ -8,6 +8,13 @@ slug: /user-manual
 
 This manual explains how to operate OpenCode Mobile after it is connected. If you have not installed the app or connected a server yet, start with [Getting Started](./getting-started.md).
 
+<video controls playsInline preload="metadata" poster="/img/product/walkthrough-poster.png" width="100%">
+  <source src="/media/opencode-mobile-walkthrough.mp4" type="video/mp4" />
+  Your browser does not support embedded video.
+</video>
+
+Prefer to begin with a goal? Open [What Do You Want to Do?](./features.md) and choose the task that matches your situation. Each major capability also has its own step-by-step page in the **Use the app** sidebar.
+
 ## Understand the app
 
 OpenCode Mobile is a remote control surface for an OpenCode server. Your projects, sessions, models, tools, and generated changes live on the server. The phone displays that state and sends your actions back to it.
@@ -20,6 +27,20 @@ The bottom navigation has four areas:
 | **Terminal** | Run focused line-based commands in a project PTY |
 | **Workspace** | Choose projects; manage chats, files, and worktrees |
 | **Settings** | Connect the server; configure AI providers, models, notifications, voice, MCP, and diagnostics |
+
+## Capability guides
+
+- [Start and monitor tasks](./guides/tasks.md)
+- [Manage sessions](./guides/sessions.md)
+- [Handle approvals and review changes](./guides/approvals-and-changes.md)
+- [Use voice and conversation mode](./guides/voice.md)
+- [Understand session usage](./guides/usage.md)
+- [Work with workspace files](./guides/workspace-files.md)
+- [Use the terminal](./guides/terminal.md)
+- [Manage worktrees](./guides/worktrees.md)
+- [Configure providers and models](./guides/providers-and-models.md)
+- [Manage MCP and read diagnostics](./guides/mcp-and-diagnostics.md)
+- [Enable task notifications](./guides/notifications.md)
 
 ## Your first task
 

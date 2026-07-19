@@ -54,7 +54,8 @@
   min-width: 0;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(72px, 9vw, 132px) clamp(36px, 6vw, 86px);
+  padding: clamp(34px, 4vw, 54px) clamp(34px, 4vw, 52px);
+  transform: translateY(-42px);
 }
 
 .eyebrow,
@@ -68,16 +69,16 @@
 }
 
 .heroCopy h1 {
-  max-width: 13ch;
-  margin: 30px 0 0;
-  font-size: clamp(2.8rem, 5.25vw, 4.7rem);
+  max-width: none;
+  margin: 26px 0 0;
+  font-size: clamp(2.8rem, 4.7vw, 4.1rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
 }
 
 .heroDescription {
   max-width: 620px;
-  margin: 28px 0 0;
+  margin: 22px 0 0;
   color: var(--landing-muted);
   font-size: clamp(1rem, 1.35vw, 1.15rem);
   line-height: 1.75;
@@ -88,7 +89,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 34px;
+  margin-top: 26px;
 }
 
 .actionLinksCompact {
@@ -190,6 +191,48 @@
   border: 1px solid var(--landing-border);
   background: #0c1411;
   box-shadow: 0 24px 80px rgb(0 0 0 / 22%);
+}
+
+.walkthroughSection {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1.38fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 86px);
+  padding: clamp(68px, 8vw, 104px) clamp(30px, 6vw, 78px);
+  border-bottom: 1px solid var(--landing-border);
+  background: var(--landing-surface);
+}
+
+.walkthroughSection h2 {
+  margin: 26px 0 0;
+  color: var(--landing-text);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.walkthroughSection p:not(.sectionIndex) {
+  margin: 22px 0 0;
+  color: var(--landing-muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.walkthroughSection a,
+.featureList a {
+  display: inline-flex;
+  margin-top: 20px;
+  color: var(--landing-accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+.walkthroughVideo {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--landing-border);
+  background: var(--landing-bg);
 }
 
 .trustStrip {
@@ -388,6 +431,14 @@
   margin: 0;
 }
 
+.featureList article > div p {
+  margin: 0;
+}
+
+.featureList article > div a {
+  margin-top: 8px;
+}
+
 .featureList h3 {
   font-size: 1rem;
 }
@@ -515,6 +566,10 @@
     padding-inline: 40px;
   }
 
+  .walkthroughSection {
+    padding-inline: 40px;
+  }
+
   .finalCta {
     grid-template-columns: 1fr;
     align-items: start;
@@ -533,6 +588,7 @@
   .heroCopy {
     min-height: calc(100svh - 61px);
     padding: 58px 22px;
+    transform: none;
   }
 
   .heroCopy h1 {
@@ -558,6 +614,11 @@
 
   .heroImage {
     width: min(72%, 320px);
+  }
+
+  .walkthroughSection {
+    grid-template-columns: 1fr;
+    padding: 72px 22px;
   }
 
   .trustStrip {
