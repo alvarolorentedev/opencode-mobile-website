@@ -1,58 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 :root {
-  /* Monochrome (black & white) theme */
-  --ifm-color-primary: #000000;
-  --ifm-color-primary-dark: #0a0a0a;
-  --ifm-color-primary-darker: #111111;
-  --ifm-color-primary-darkest: #1a1a1a;
-  --ifm-color-primary-light: #1f1f1f;
-  --ifm-color-primary-lighter: #2a2a2a;
-  --ifm-color-primary-lightest: #333333;
-  --ifm-background-color: #f4f4f5; /* light gray page background */
-  --ifm-background-surface-color: #ffffff; /* surface / cards */
-  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
-  --ifm-footer-background-color: #111111;
-  --ifm-heading-color: #0b0b0b;
+  --ifm-color-primary: #167f62;
+  --ifm-color-primary-dark: #126d54;
+  --ifm-color-primary-darker: #10634c;
+  --ifm-color-primary-darkest: #0c4938;
+  --ifm-color-primary-light: #1b9170;
+  --ifm-color-primary-lighter: #209b79;
+  --ifm-color-primary-lightest: #31b18b;
+  --ifm-background-color: #f4f0f0;
+  --ifm-background-surface-color: #ebe6e6;
+  --ifm-navbar-background-color: rgba(244, 240, 240, 0.96);
+  --ifm-footer-background-color: #171414;
+  --ifm-heading-color: #1b1818;
   --ifm-font-family-base: 'IBM Plex Sans', sans-serif;
   --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
-  --ifm-heading-font-family: 'Space Grotesk', sans-serif;
+  --ifm-heading-font-family: 'IBM Plex Sans', sans-serif;
   --ifm-line-height-base: 1.6;
-  --ifm-global-radius: 14px;
+  --ifm-global-radius: 4px;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.04);
-  /* Grayscale palette for clear tonal separation */
-  --site-accent-color: #111111;
-  --site-border-color: rgba(15, 15, 15, 0.06);
-  --site-text-strong: #111111;
-  --site-text-muted: #555555;
-  --site-text-soft: #7a7a7a;
-  --site-panel-bg: rgba(255, 255, 255, 0.98);
-  --announcement-bg: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
-  --announcement-text: #111111;
+  --site-accent-color: #167f62;
+  --site-border-color: #cbc4c4;
+  --site-text-strong: #1b1818;
+  --site-text-muted: #5f5959;
+  --site-text-soft: #777070;
+  --site-panel-bg: #ebe6e6;
+  --announcement-bg: #ebe6e6;
+  --announcement-text: #1b1818;
 }
 
 [data-theme='dark'] {
-  /* Dark-mode grayscale */
-  --ifm-color-primary: #ffffff;
-  --ifm-color-primary-dark: #f5f5f5;
-  --ifm-color-primary-darker: #eaeaea;
-  --ifm-color-primary-darkest: #dcdcdc;
-  --ifm-color-primary-light: #ffffff;
-  --ifm-color-primary-lighter: #ffffff;
-  --ifm-color-primary-lightest: #ffffff;
-  --ifm-background-color: #0b0b0c; /* dark gray page background */
-  --ifm-background-surface-color: #0f0f10; /* dark surface */
-  --ifm-navbar-background-color: rgba(11, 11, 11, 0.95);
-  --ifm-heading-color: #f2f2f2;
+  --ifm-color-primary: #78e5c1;
+  --ifm-color-primary-dark: #61d8b1;
+  --ifm-color-primary-darker: #55cda6;
+  --ifm-color-primary-darkest: #3cae88;
+  --ifm-color-primary-light: #8eebcc;
+  --ifm-color-primary-lighter: #a0efd5;
+  --ifm-color-primary-lightest: #c8f7e7;
+  --ifm-background-color: #131111;
+  --ifm-background-surface-color: #191717;
+  --ifm-navbar-background-color: rgba(19, 17, 17, 0.96);
+  --ifm-heading-color: #f2eded;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.03);
-  --site-border-color: rgba(255, 255, 255, 0.06);
-  --site-text-strong: #f2f2f2;
-  --site-text-muted: #cfcfcf;
-  --site-text-soft: #9f9f9f;
-  --site-panel-bg: rgba(18, 18, 18, 0.9);
-  --announcement-bg: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  --announcement-text: #ffffff;
+  --site-border-color: #343030;
+  --site-text-strong: #f2eded;
+  --site-text-muted: #b8b2b2;
+  --site-text-soft: #858080;
+  --site-panel-bg: #191717;
+  --announcement-bg: #191717;
+  --announcement-text: #f2eded;
 }
 
 html {
@@ -60,14 +57,15 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top, rgba(0, 0, 0, 0.04), transparent 24%),
-    var(--ifm-background-color);
+  background: var(--ifm-background-color);
 }
 
 .navbar {
   position: relative;
+  min-height: 61px;
   border-bottom: 1px solid var(--site-border-color);
+  box-shadow: none;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .announcement {
@@ -90,7 +88,7 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px);
 }
 
 
@@ -100,6 +98,10 @@ body {
 /* No custom overrides for Docusaurus navbar/menu — use default styles */
 
 .navbar__title,
+.navbar__link {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 h1,
 h2,
 h3,
@@ -110,7 +112,7 @@ h6 {
 }
 
 .button {
-  border-radius: 999px;
+  border-radius: 4px;
   font-weight: 600;
 }
 
@@ -130,6 +132,7 @@ h6 {
 
 .footer {
   border-top: 1px solid var(--site-border-color);
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .theme-doc-sidebar-container {
@@ -137,7 +140,35 @@ h6 {
 }
 
 .card {
-  border-radius: 1rem;
+  border-radius: 4px;
+}
+
+.navbar__item.navbar-download {
+  margin-left: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  background: var(--ifm-color-primary);
+  color: #0c1713;
+}
+
+[data-theme='light'] .navbar__item.navbar-download {
+  color: #ffffff;
+}
+
+.navbar__item.navbar-download:hover,
+.navbar__item.navbar-download:focus-visible {
+  border-color: var(--site-text-strong);
+  background: var(--site-text-strong);
+  color: var(--ifm-background-color);
+  text-decoration: none;
+}
+
+.navbar__link:focus-visible,
+.navbar__brand:focus-visible,
+.navbar__item.navbar-download:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
 }
 
 /* No mobile overrides — use Docusaurus defaults for sidebar/menu */

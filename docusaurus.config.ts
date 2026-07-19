@@ -4,12 +4,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'OpenCode Mobile',
-  tagline: 'Review, monitor, and manage OpenCode workflows on the go.',
+  tagline: 'A community-built Android companion for OpenCode.',
   favicon: 'img/favicon.ico',
   future: {
     v4: true,
   },
-  url: 'https://opencode-mobile.example.com',
+  url: 'https://getopencode.app',
   baseUrl: '/',
   organizationName: 'alvarolorentedev',
   projectName: 'opencode-mobile',
@@ -35,7 +35,7 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    image: 'img/opencode-mobile-social-card.svg',
+    image: 'img/opencode-mobile-social-card.jpg',
     colorMode: {
       defaultMode: 'dark',
       respectPrefersColorScheme: true,
@@ -44,19 +44,25 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'Inspect running tasks, review diffs and logs, and approve agent-driven changes from your phone.',
+          'Start tasks, monitor sessions, use the terminal, and manage OpenCode workspaces from a community-built Android companion.',
       },
       {
         name: 'keywords',
         content:
-          'OpenCode Mobile, coding agents, developer workflow, mobile devtools, agent workflows',
+          'OpenCode Mobile, OpenCode Android, coding agent mobile app, remote developer workflow, mobile terminal',
       },
-      {name: 'theme-color', content: '#0d1514'},
+      {name: 'theme-color', content: '#131111'},
+      {
+        property: 'og:title',
+        content: 'OpenCode Mobile — Android companion for OpenCode',
+      },
       {
         property: 'og:description',
         content:
-          'Inspect running tasks, review diffs and logs, and approve agent-driven changes from your phone.',
+          'Take your OpenCode sessions with you. Start tasks, use the terminal, and manage workspaces from Android.',
       },
+      {property: 'og:type', content: 'website'},
+      {name: 'twitter:card', content: 'summary_large_image'},
     ],
     navbar: {
       title: 'OpenCode Mobile',
@@ -66,20 +72,31 @@ const config: Config = {
       },
       items: [
         {
+          href: '/#product',
+          position: 'left',
+          label: 'Product',
+        },
+        {
+          href: '/#setup',
+          position: 'left',
+          label: 'Setup',
+        },
+        {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
         },
         {
-          to: 'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk',
-          label: 'Download Now',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/alvarolorentedev/opencode-mobile',
           label: 'GitHub',
           position: 'right',
+        },
+        {
+          href: 'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk',
+          label: 'Download Android',
+          position: 'right',
+          className: 'navbar-download',
         },
       ],
     },
@@ -130,7 +147,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} OpenCode Mobile. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} OpenCode Mobile. Community-built for OpenCode.`,
     },
     prism: {
       theme: prismThemes.github,
