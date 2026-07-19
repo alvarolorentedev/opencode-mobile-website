@@ -88,13 +88,18 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          to: '/download',
+          position: 'left',
+          label: 'Download',
+        },
+        {
           href: 'https://github.com/alvarolorentedev/opencode-mobile',
           label: 'GitHub',
           position: 'right',
         },
         {
-          href: 'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk',
-          label: 'Download Android',
+          href: 'https://play.google.com/apps/testing/app.getopencode',
+          label: 'Join The Beta',
           position: 'right',
           className: 'navbar-download',
         },
@@ -141,8 +146,12 @@ const config: Config = {
                 href: 'https://github.com/alvarolorentedev/opencode-mobile',
               },
             {
-              label: 'Download Status',
-              to: '/docs/getting-started',
+              label: 'Download',
+              to: '/download',
+            },
+            {
+              label: 'Join The Beta',
+              href: 'https://play.google.com/apps/testing/app.getopencode',
             },
           ],
         },

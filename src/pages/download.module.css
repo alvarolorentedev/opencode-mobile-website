@@ -1,0 +1,327 @@
+.page {
+  --download-bg: #131111;
+  --download-surface: #191717;
+  --download-text: #f2eded;
+  --download-muted: #b8b2b2;
+  --download-soft: #858080;
+  --download-border: #343030;
+  --download-accent: #78e5c1;
+  --download-accent-text: #0c1713;
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  border-inline: 1px solid var(--download-border);
+  background: var(--download-bg);
+  color: var(--download-text);
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', monospace;
+}
+
+[data-theme='light'] .page {
+  --download-bg: #f4f0f0;
+  --download-surface: #ebe6e6;
+  --download-text: #1b1818;
+  --download-muted: #5f5959;
+  --download-soft: #777070;
+  --download-border: #cbc4c4;
+  --download-accent: #167f62;
+  --download-accent-text: #fff;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page p {
+  font-family: inherit;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  color: var(--download-text);
+}
+
+.hero {
+  padding: clamp(72px, 11vw, 140px) clamp(28px, 7vw, 84px);
+  border-bottom: 1px solid var(--download-border);
+}
+
+.kicker,
+.optionLabel {
+  margin: 0;
+  color: var(--download-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 780px;
+  margin: 28px 0 0;
+  font-size: clamp(2.65rem, 6.5vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.lede {
+  max-width: 690px;
+  margin: 28px 0 0;
+  color: var(--download-muted);
+  font-size: clamp(1rem, 1.4vw, 1.13rem);
+  line-height: 1.75;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid var(--download-border);
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.primaryAction {
+  border-color: var(--download-accent);
+  background: var(--download-accent);
+  color: var(--download-accent-text);
+}
+
+.secondaryAction {
+  color: var(--download-text);
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  border-color: var(--download-text);
+  background: var(--download-text);
+  color: var(--download-bg);
+  text-decoration: none;
+}
+
+.secondaryAction:hover,
+.secondaryAction:focus-visible {
+  border-color: var(--download-text);
+  background: var(--download-surface);
+  color: var(--download-text);
+  text-decoration: none;
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.nextLinks a:focus-visible {
+  outline: 2px solid var(--download-accent);
+  outline-offset: 3px;
+}
+
+.options,
+.requirements {
+  border-bottom: 1px solid var(--download-border);
+}
+
+.sectionHeading {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 32px;
+  padding: clamp(58px, 8vw, 92px) clamp(28px, 7vw, 84px) 44px;
+}
+
+.sectionHeading > span {
+  color: var(--download-accent);
+  font-size: 0.75rem;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.sectionHeading p {
+  margin: 18px 0 0;
+  color: var(--download-muted);
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--download-border);
+}
+
+.optionGrid article {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(34px, 5vw, 58px);
+}
+
+.optionGrid article + article {
+  border-left: 1px solid var(--download-border);
+}
+
+.optionGrid h3 {
+  margin: 28px 0 0;
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+}
+
+.optionSummary {
+  min-height: 92px;
+  margin: 16px 0 0;
+  color: var(--download-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.optionGrid ol {
+  min-height: 160px;
+  margin: 26px 0 32px;
+  padding-left: 1.4rem;
+  color: var(--download-muted);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.optionGrid li + li {
+  margin-top: 8px;
+}
+
+.optionGrid .primaryAction,
+.optionGrid .secondaryAction {
+  margin-top: auto;
+}
+
+.requirements ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--download-border);
+  list-style: none;
+}
+
+.requirements li {
+  padding: 26px clamp(28px, 5vw, 56px);
+  color: var(--download-muted);
+  font-size: 0.88rem;
+}
+
+.requirements li:nth-child(even) {
+  border-left: 1px solid var(--download-border);
+}
+
+.requirements li:nth-child(n + 3) {
+  border-top: 1px solid var(--download-border);
+}
+
+.requirements li::before {
+  content: '→';
+  margin-right: 14px;
+  color: var(--download-accent);
+}
+
+.nextStep {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 48px;
+  padding: clamp(68px, 9vw, 112px) clamp(28px, 7vw, 84px);
+  background: var(--download-surface);
+}
+
+.nextStep h2 {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.nextStep p {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: var(--download-muted);
+  line-height: 1.75;
+}
+
+.nextLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.nextLinks a {
+  color: var(--download-accent);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+@media screen and (max-width: 760px) {
+  .page {
+    width: 100%;
+    border-inline: 0;
+  }
+
+  .hero {
+    padding: 64px 22px 72px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 62px 22px 38px;
+  }
+
+  .optionGrid,
+  .requirements ul,
+  .nextStep {
+    grid-template-columns: 1fr;
+  }
+
+  .optionGrid article {
+    padding: 38px 22px;
+  }
+
+  .optionGrid article + article,
+  .requirements li:nth-child(even) {
+    border-left: 0;
+  }
+
+  .optionGrid article + article,
+  .requirements li + li {
+    border-top: 1px solid var(--download-border);
+  }
+
+  .optionSummary,
+  .optionGrid ol {
+    min-height: 0;
+  }
+
+  .requirements li {
+    padding-inline: 22px;
+  }
+
+  .nextStep {
+    align-items: start;
+    gap: 32px;
+    padding: 68px 22px;
+  }
+}

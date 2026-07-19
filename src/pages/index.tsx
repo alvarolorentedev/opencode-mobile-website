@@ -8,6 +8,7 @@ import styles from './index.module.css';
 
 const APK_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk';
+const PLAY_BETA_URL = 'https://play.google.com/apps/testing/app.getopencode';
 const GITHUB_URL = 'https://github.com/alvarolorentedev/opencode-mobile';
 const OPENCODE_URL = 'https://opencode.ai/';
 
@@ -50,7 +51,7 @@ const faqItems = [
   {
     question: 'Which devices are supported?',
     answer:
-      'The current beta is distributed as an Android APK. An iOS build is not available at this time.',
+      'The current beta is available for Android through Google Play testing or as a direct APK. An iOS build is not available at this time.',
   },
   {
     question: 'Do I need an existing OpenCode setup?',
@@ -81,10 +82,10 @@ function ActionLinks({compact = false}: {compact?: boolean}) {
     <div className={compact ? styles.actionLinksCompact : styles.actionLinks}>
       <Link
         className={styles.primaryAction}
-        href={APK_URL}
+        href={PLAY_BETA_URL}
         target="_blank"
         rel="noopener noreferrer">
-        Download Android beta
+        Join The Beta
       </Link>
       <Link
         className={styles.secondaryAction}
@@ -110,7 +111,7 @@ function HeroSection() {
           from Android—without reopening your laptop.
         </p>
         <ActionLinks />
-        <p className={styles.releaseMeta}>Android APK · Beta · Apache-2.0</p>
+        <p className={styles.releaseMeta}>Android beta · Google Play testing · Apache-2.0</p>
       </div>
 
       <figure className={styles.heroMedia}>
@@ -306,11 +307,65 @@ function RelationshipSection() {
   );
 }
 
+function DownloadSection() {
+  return (
+    <section className={styles.section} id="download">
+      <div className={styles.sectionIntro}>
+        <p className={styles.sectionIndex}>05 / Download</p>
+        <div>
+          <Heading as="h2">Choose how you want to install.</Heading>
+          <p>
+            Join the Google Play beta for the easiest updates, or download the
+            latest APK directly from GitHub for a manual installation.
+          </p>
+        </div>
+      </div>
+
+      <div className={styles.downloadOptions}>
+        <article>
+          <span className={styles.downloadLabel}>Recommended</span>
+          <Heading as="h3">Google Play beta</Heading>
+          <p>
+            Enroll with your Google account, then install and receive beta
+            updates through the Play Store.
+          </p>
+          <Link
+            className={styles.primaryAction}
+            href={PLAY_BETA_URL}
+            target="_blank"
+            rel="noopener noreferrer">
+            Join The Beta
+          </Link>
+        </article>
+        <article>
+          <span className={styles.downloadLabel}>Direct install</span>
+          <Heading as="h3">GitHub APK</Heading>
+          <p>
+            Download the latest release yourself. Android may ask you to allow
+            installation from your browser or file manager.
+          </p>
+          <Link
+            className={styles.secondaryAction}
+            href={APK_URL}
+            target="_blank"
+            rel="noopener noreferrer">
+            Download latest APK
+          </Link>
+        </article>
+      </div>
+
+      <div className={styles.downloadGuideLink}>
+        <Link to="/download">Compare installation methods and requirements</Link>
+      </div>
+    </section>
+  );
+}
+
 function FaqSection() {
   return (
     <section className={styles.section} id="faq">
       <div className={styles.sectionIntro}>
-        <p className={styles.sectionIndex}>05 / FAQ</p>
+        <p className={styles.sectionIndex}>06 / FAQ</p>
         <div>
           <Heading as="h2">Before you install.</Heading>
           <p>The practical details about platform support, access, and ownership.</p>
@@ -336,8 +391,8 @@ function FinalCtaSection() {
         <p className={styles.sectionIndex}>Ready when your server is.</p>
         <Heading as="h2">Take your next OpenCode session with you.</Heading>
         <p>
-          Install the Android beta, or visit GitHub to inspect the code and help
-          shape what comes next.
+          Join through Google Play for automatic beta updates, or visit GitHub
+          to inspect the code and help shape what comes next.
         </p>
       </div>
       <ActionLinks compact />
@@ -358,6 +413,7 @@ export default function Home(): ReactNode {
         <SetupSection />
         <FeaturesSection />
         <RelationshipSection />
+        <DownloadSection />
         <FaqSection />
         <FinalCtaSection />
       </main>

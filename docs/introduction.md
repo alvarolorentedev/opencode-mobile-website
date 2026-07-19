@@ -8,7 +8,7 @@ slug: /introduction
 
 OpenCode Mobile is a community-built mobile client for an OpenCode server. It keeps active coding work reachable from a phone without trying to turn a small screen into a full desktop IDE.
 
-The current public build is distributed for Android. It targets the current OpenCode v2 API and is designed for an OpenCode server that you control.
+The current public build is distributed for Android through Google Play testing and as a direct APK. Start on the [Download page](/download), then connect it to an OpenCode server that you control. The app targets the current OpenCode v2 API.
 
 ## What you can do
 

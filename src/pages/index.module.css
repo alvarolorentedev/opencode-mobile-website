@@ -395,7 +395,8 @@
 }
 
 .setupGrid a,
-.relationshipSection a {
+.relationshipSection a,
+.downloadGuideLink a {
   display: inline-flex;
   min-height: 44px;
   align-items: center;
@@ -403,6 +404,55 @@
   font-size: 0.84rem;
   font-weight: 600;
   text-underline-offset: 5px;
+}
+
+.downloadOptions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--landing-border);
+  border-bottom: 1px solid var(--landing-border);
+}
+
+.downloadOptions article {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(34px, 5vw, 62px);
+}
+
+.downloadOptions article + article {
+  border-left: 1px solid var(--landing-border);
+}
+
+.downloadLabel {
+  color: var(--landing-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.downloadOptions h3 {
+  margin: 32px 0 0;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+}
+
+.downloadOptions p {
+  max-width: 520px;
+  min-height: 86px;
+  margin: 16px 0 28px;
+  color: var(--landing-muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.downloadOptions .primaryAction,
+.downloadOptions .secondaryAction {
+  margin-top: auto;
+}
+
+.downloadGuideLink {
+  padding: 22px clamp(30px, 6vw, 78px);
 }
 
 .featureList {
@@ -647,14 +697,28 @@
   }
 
   .galleryGrid,
-  .setupGrid {
+  .setupGrid,
+  .downloadOptions {
     grid-template-columns: 1fr;
   }
 
   .galleryItem + .galleryItem,
-  .setupGrid li + li {
+  .setupGrid li + li,
+  .downloadOptions article + article {
     border-top: 1px solid var(--landing-border);
     border-left: 0;
+  }
+
+  .downloadOptions article {
+    padding: 40px 22px;
+  }
+
+  .downloadOptions p {
+    min-height: 0;
+  }
+
+  .downloadGuideLink {
+    padding-inline: 22px;
   }
 
   .galleryCopy {

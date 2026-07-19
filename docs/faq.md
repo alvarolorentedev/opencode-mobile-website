@@ -12,7 +12,7 @@ No. It is an open-source, community-built companion for OpenCode.
 
 ## Which devices are supported?
 
-The current public beta is distributed as an Android APK. The Expo/React Native project contains iOS support, but the website does not currently offer an iOS release.
+The current public beta is available for Android through [Google Play testing](https://play.google.com/apps/testing/app.getopencode) and as a [direct APK](/download). The Expo/React Native project contains iOS support, but the website does not currently offer an iOS release.
 
 ## Is it a general AI chatbot or mobile IDE?
 
