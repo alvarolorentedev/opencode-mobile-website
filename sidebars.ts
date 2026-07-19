@@ -4,6 +4,7 @@ const sidebars: SidebarsConfig = {
   docsSidebar: [
     'introduction',
     'getting-started',
+    'user-manual',
     'features',
     'remote-access',
     'faq',

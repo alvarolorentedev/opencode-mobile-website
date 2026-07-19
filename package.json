@@ -12,7 +12,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "video:studio": "remotion studio remotion/index.ts",
+    "video:render": "remotion render remotion/index.ts ProductWalkthrough static/media/opencode-mobile-walkthrough.mp4 --codec=h264 --crf=20",
+    "video:stills": "remotion still remotion/index.ts ChatControl static/img/explainers/chat-control.png && remotion still remotion/index.ts WorkspaceTools static/img/explainers/workspace-tools.png && remotion still remotion/index.ts SecureConnection static/img/explainers/secure-connection.png"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -27,6 +30,8 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "@remotion/cli": "^4.0.494",
+    "remotion": "^4.0.494",
     "typescript": "~5.6.2"
   },
   "browserslist": {

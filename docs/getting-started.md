@@ -6,11 +6,11 @@ slug: /getting-started
 
 # Getting Started
 
-This page covers the fastest practical path: run OpenCode in server mode, secure it, and connect from the mobile UI.
+This guide covers the shortest safe path from an OpenCode server to your first completed mobile task.
 
-## 1. Install OpenCode
+## 1. Install or update OpenCode
 
-Use one of the official install paths:
+Use an official install path:
 
 ```bash
 curl -fsSL https://opencode.ai/install | bash
@@ -22,68 +22,130 @@ Or install with npm:
 npm install -g opencode-ai
 ```
 
-## 2. Decide which mode you want
+OpenCode Mobile targets the current v2 API. Update the server before debugging an older or removed endpoint shape.
 
-OpenCode gives you two useful remote setups.
+## 2. Start the server
 
-### `opencode web`
-
-Use this when you want the built-in browser UI.
+For a dedicated mobile client, use `opencode serve`:
 
 ```bash
-OPENCODE_SERVER_USERNAME=your-user \
-OPENCODE_SERVER_PASSWORD='change-this-password' \
-opencode web --port 4096 --hostname 127.0.0.1
+export OPENCODE_SERVER_USERNAME=your-user
+export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
+
+opencode serve --hostname 127.0.0.1 --port 4096
 ```
 
-### `opencode serve`
-
-Use this when you want a headless HTTP server that a client can talk to.
+Use `opencode web` when you also want the built-in browser UI:
 
 ```bash
-OPENCODE_SERVER_USERNAME=your-user \
-OPENCODE_SERVER_PASSWORD='change-this-password' \
-opencode serve --port 4096 --hostname 127.0.0.1
+export OPENCODE_SERVER_USERNAME=your-user
+export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
+
+opencode web --hostname 127.0.0.1 --port 4096
 ```
 
-`opencode serve` is the cleaner default for a remote mobile client. `opencode web` is useful when you also want the OpenCode web UI in a browser.
+Keep a stable port so the mobile app, tunnel, and reverse proxy do not need repeated updates.
 
-## 3. Keep the server on a fixed port
+## 3. Choose a connection method
 
-Using a stable port makes tunneling and reconnecting much simpler.
+| Method | Best for | Mobile server URL |
+| --- | --- | --- |
+| Trusted LAN | Phone and server on the same private network | `http://192.168.1.20:4096` |
+| Tailscale Serve | Private access across networks | `https://machine-name.tailnet-name.ts.net` |
+| Cloudflare Tunnel | Public HTTPS endpoint without router port forwarding | `https://opencode.example.com` |
+| Reverse proxy | Existing HTTPS infrastructure or a path-prefixed deployment | `https://dev.example.com/api` |
+| SSH local forward | Advanced users with a mobile SSH client | `http://127.0.0.1:4096` |
 
-Recommended default:
+Follow [Remote Access](./remote-access.md) for exact commands and security tradeoffs.
+
+## 4. Verify the API endpoint
+
+Test the same base URL you plan to enter in the app:
 
 ```bash
-4096
+curl -u your-user:use-a-strong-password \
+  https://your-opencode-host.example/global/health
 ```
 
-## 4. Verify the server locally
-
-Before exposing anything remotely, make sure the server responds on the machine where OpenCode is running.
-
-For example:
+For a path-prefixed proxy, include the prefix:
 
 ```bash
-curl -u your-user:change-this-password http://127.0.0.1:4096/global/health
+curl -u your-user:use-a-strong-password \
+  https://your-opencode-host.example/api/global/health
 ```
 
-For a healthy server you should get a response that includes `healthy: true`.
+A healthy response includes `healthy: true` and may include the OpenCode version.
 
-## 5. Connect from the mobile app
+Do not assume that a browser-rendered page is the API base. If the root displays a web UI and the app reports a 404 or a non-API response, enter the API base URL instead—commonly the same address with `/api`.
 
-Use the settings screen shown in the screenshots:
+## 5. Connect the app
 
-1. Open `Settings`
-2. Paste the remote server URL into `Server URL`
-3. Enter the same username and password configured on the server
-4. Tap `Reconnect`
-5. Confirm the status changes to `Connected`
+1. Open **Settings**.
+2. Expand **Connection**.
+3. Enter the complete server URL, including `https://` and any required path prefix.
+4. Enter the OpenCode server username and password.
+5. Tap **Reconnect**.
+6. Confirm the card says **Connected** and review its connection message.
 
-Once connected, move to the workspace screen and choose the project that should back the current chat.
+If a password is set and Username is blank, the client uses `opencode` as the Basic-auth username. Entering the explicit server username is clearer and easier to troubleshoot.
 
-## Notes
+## 6. Select a workspace
 
-- Do not expose an unsecured OpenCode server to the internet.
-- Prefer a tunnel or reverse proxy over binding directly to a public interface.
-- Use a strong password if the server is reachable from outside your local machine.
+1. Open **Workspace**.
+2. Refresh the project catalog if needed.
+3. Select the project that should scope sessions, files, and terminal activity.
+4. Open an existing session or create a new one.
+5. Return to **Chat** and send a specific task.
+
+OpenCode Mobile remembers the selected project and last session for the next launch.
+
+## 7. Check optional capabilities
+
+After connecting, use Settings and Workspace to confirm which features the server exposes:
+
+- Provider and model discovery
+- Global realtime events
+- MCP, LSP, formatter, and health diagnostics
+- File status and VCS information
+- Experimental worktrees
+- PTY terminal support
+
+Missing optional endpoints should not prevent core session use.
+
+## 8. Complete your first task
+
+1. Open **Chat** and confirm the expected session title appears at the top.
+2. Select the agent and model above the composer.
+3. Send a small, verifiable request such as: `Inspect this workspace and summarize its purpose. Do not change files.`
+4. Watch the status in **Session** while OpenCode works.
+5. Respond if a permission or question card appears.
+6. Open **Files Changed** and confirm that the read-only task produced no edits.
+
+For your first implementation task, ask for one contained change and its related test. Review both the assistant response and **Files Changed** before accepting the result.
+
+## 9. Learn the controls
+
+Continue with the [User Manual](./user-manual.md) for:
+
+- Chat controls, attachments, commands, permissions, and session history
+- Voice dictation and hands-free conversation mode
+- Usage and context-window visibility
+- Workspace files, session lifecycle, and worktrees
+- Remote terminal behavior and limitations
+- Providers, models, MCP, diagnostics, and notifications
+
+## Security notes
+
+- Never expose an unauthenticated OpenCode server to the public internet.
+- Prefer Tailscale, Cloudflare Tunnel, or an authenticated HTTPS reverse proxy over router port forwarding.
+- Use `0.0.0.0` only for a trusted LAN and restrict the port with the host firewall.
+- Connection credentials are persisted in app storage for convenience; treat the device as containing access to your OpenCode server.
+- Rotate credentials if a tunnel URL, device, or password is compromised.
+
+## If connection still fails
+
+- Confirm the phone can reach the exact `/global/health` URL.
+- Confirm the phone is connected to the same Tailscale tailnet when using Tailscale.
+- Check the username and password against the server environment variables.
+- If the address returns HTML, 404, or a JSON parse error, use the actual API base path.
+- Upgrade to the latest mobile release. The Tailscale and path-prefix problem tracked in [issue #1](https://github.com/alvarolorentedev/opencode-mobile/issues/1) was fixed and validated with Tailscale and Cloudflare before the issue was closed.

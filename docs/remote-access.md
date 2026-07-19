@@ -6,59 +6,90 @@ slug: /remote-access
 
 # Remote Access
 
-This is the practical setup for reaching OpenCode from your phone.
+OpenCode Mobile can connect through a local address, private VPN, HTTPS tunnel, reverse proxy, or a separate SSH port forward. The app needs an OpenCode API base URL; it does not require a specific tunnel provider.
 
-## Recommended architecture
+## Connection requirements
 
-Use this shape:
+Every method supplies the same three values:
 
-1. Run OpenCode on your desktop, server, or always-on workstation
-2. Protect it with `OPENCODE_SERVER_USERNAME` and `OPENCODE_SERVER_PASSWORD`
-3. Keep OpenCode bound to `127.0.0.1`
-4. Expose it through a tunnel such as Cloudflare Tunnel
-5. Connect the mobile app to the public HTTPS URL from the tunnel
+- **Server URL:** origin plus any required API path prefix
+- **Username:** `OPENCODE_SERVER_USERNAME`
+- **Password:** `OPENCODE_SERVER_PASSWORD`
 
-That keeps the OpenCode process private on the host machine while still making it reachable remotely.
+The client normalizes a missing protocol, preserves configured path prefixes such as `/api`, adds optional HTTP Basic authentication, and scopes session, file, terminal, and event requests to the selected project.
 
-## Option A: headless server for the mobile client
+## Method 1: trusted local network
+
+Use this when the phone and OpenCode machine are on the same private Wi-Fi or LAN.
 
 ```bash
 export OPENCODE_SERVER_USERNAME=your-user
-export OPENCODE_SERVER_PASSWORD='change-this-password'
+export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
+
+opencode serve --hostname 0.0.0.0 --port 4096
+```
+
+Find the machine's private address, then enter a URL such as:
+
+```text
+http://192.168.1.20:4096
+```
+
+Allow TCP port `4096` only on the private-network firewall profile. Do not forward this port through your router or use this approach on an untrusted network.
+
+## Method 2: Tailscale Serve
+
+Tailscale keeps the OpenCode process bound to loopback while providing a private HTTPS address inside your tailnet.
+
+Start OpenCode:
+
+```bash
+export OPENCODE_SERVER_USERNAME=your-user
+export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
 
 opencode serve --hostname 127.0.0.1 --port 4096
 ```
 
-This is the simplest remote setup for a dedicated mobile client.
-
-## Option B: web UI plus mobile access
+Publish it inside the tailnet:
 
 ```bash
-export OPENCODE_SERVER_USERNAME=your-user
-export OPENCODE_SERVER_PASSWORD='change-this-password'
-
-opencode web --hostname 127.0.0.1 --port 4096
+tailscale serve --bg 4096
+tailscale serve status
 ```
 
-Use this when you also want to open the built-in web interface in a browser.
+The status output provides an address similar to:
 
-## Expose it with Cloudflare Tunnel
+```text
+https://machine-name.tailnet-name.ts.net
+|-- / proxy http://127.0.0.1:4096
+```
 
-If `cloudflared` is installed, the quickest path is:
+Install Tailscale on the phone, sign in to the same tailnet, and enter the HTTPS address in OpenCode Mobile.
+
+Verify from a tailnet-connected device:
+
+```bash
+curl -u your-user:use-a-strong-password \
+  https://machine-name.tailnet-name.ts.net/global/health
+```
+
+The failure reported in [GitHub issue #1](https://github.com/alvarolorentedev/opencode-mobile/issues/1) affected endpoints that worked in a browser but failed in the app. The fix preserves configured API prefixes and request bodies, improves invalid-URL and non-API error messages, and was validated by the maintainer with Tailscale and Cloudflare before the issue was closed. Use the latest release.
+
+## Method 3: Cloudflare Tunnel
+
+### Quick tunnel
+
+With OpenCode bound to `127.0.0.1:4096`:
 
 ```bash
 cloudflared tunnel --url http://127.0.0.1:4096
 ```
 
-Cloudflare will print a public HTTPS URL that forwards traffic to your local OpenCode server.
+Cloudflare prints a temporary public HTTPS URL. Enter that URL in the app and keep OpenCode authentication enabled.
 
-Use that HTTPS URL in the mobile app's `Server URL` field.
+### Named tunnel
 
-## Named tunnel setup
-
-For a more stable setup on your own domain, use a named Cloudflare Tunnel.
-
-Typical flow:
+For a stable hostname:
 
 ```bash
 cloudflared tunnel login
@@ -66,7 +97,7 @@ cloudflared tunnel create opencode-mobile
 cloudflared tunnel route dns opencode-mobile opencode.example.com
 ```
 
-Example config:
+Example configuration:
 
 ```yaml
 tunnel: opencode-mobile
@@ -78,51 +109,95 @@ ingress:
   - service: http_status:404
 ```
 
-Then run:
+Run it:
 
 ```bash
 cloudflared tunnel run opencode-mobile
 ```
 
-Now the mobile app can connect to `https://opencode.example.com`.
+Use `https://opencode.example.com` in the app.
 
-## Mobile app setup
+## Method 4: reverse proxy or API path prefix
 
-Based on the settings screenshot, fill in:
+OpenCode Mobile accepts a base URL with a prefix, for example:
 
-- `Server URL`: the tunnel URL, for example `https://opencode.example.com`
-- `Username`: the value from `OPENCODE_SERVER_USERNAME`
-- `Password`: the value from `OPENCODE_SERVER_PASSWORD`
+```text
+https://dev.example.com/api
+```
 
-Tap `Reconnect` and wait for the connection status to turn healthy.
+With that setting, health and session calls stay under the prefix, such as:
 
-## Workspace flow after connecting
+```text
+https://dev.example.com/api/global/health
+```
 
-After authentication succeeds:
+Terminal WebSockets also preserve the prefix and switch to `wss:` for HTTPS endpoints.
 
-1. Open the `Workspace` tab
-2. Tap `Refresh` if the project list is stale
-3. Pick the workspace that should back the chat session
-4. Return to `Chat` and start or continue the task
+Use this form when:
 
-## Security guidance
+- `/` serves a web application instead of the OpenCode API
+- A proxy mounts OpenCode under `/api` or another subpath
+- The app reports that the server returned HTML, a JSON parse error, 404, or another non-API response
 
-- Keep OpenCode bound to `127.0.0.1` when you are using a tunnel
-- Always set a server password before exposing it remotely
-- Prefer HTTPS tunnel URLs over opening a raw port on your router
-- Use a dedicated subdomain instead of reusing a broad personal domain path
-- Rotate the password if you suspect the URL or credentials were shared
+Do not append `/api` blindly. Verify the resulting `/global/health` endpoint first.
+
+## Method 5: SSH local forwarding
+
+An Android SSH client or terminal app can keep a local port forward open:
+
+```bash
+ssh -N -L 4096:127.0.0.1:4096 your-user@your-server
+```
+
+While the tunnel is active, use:
+
+```text
+http://127.0.0.1:4096
+```
+
+This transport is managed by the separate SSH client, not OpenCode Mobile. Background restrictions on the SSH app can interrupt the connection.
+
+## Security guidance by method
+
+| Method | Exposure | Minimum guidance |
+| --- | --- | --- |
+| LAN | Private network | Use auth, trusted Wi-Fi, and a private firewall rule |
+| Tailscale | Tailnet only | Keep auth enabled and restrict tailnet membership/ACLs |
+| Cloudflare Tunnel | Public HTTPS URL | Always use OpenCode auth; consider Cloudflare Access as an additional layer only after confirming API compatibility |
+| Reverse proxy | Depends on proxy | Use HTTPS, preserve streaming/WebSocket behavior, and require OpenCode auth |
+| SSH forward | Local loopback | Protect the SSH key/account and keep the forwarding client alive |
+
+Connection credentials are stored locally by the app using AsyncStorage so it can reconnect and perform supported background completion checks. This is convenient but is not equivalent to an OS secure credential store.
 
 ## Troubleshooting
 
-### Tunnel works but login fails
+### Browser works but the app does not
 
-Usually the username or password in the mobile app does not match the OpenCode server environment variables.
+1. Test the exact API health URL, not only the browser UI.
+2. Upgrade to the latest OpenCode Mobile release.
+3. If the root serves HTML, enter the API base path, commonly `/api`.
+4. Confirm that a reverse proxy forwards SSE and terminal WebSockets as well as ordinary HTTP requests.
 
-### Tunnel opens but no workspaces appear
+### Tailscale address does not connect
 
-The OpenCode process is reachable, but the server may not be running in the expected project context yet.
+- Confirm Tailscale is connected on the phone and server.
+- Confirm both devices are in the same tailnet and permitted by ACLs.
+- Run `tailscale serve status` and verify the proxy target.
+- Open the HTTPS `/global/health` URL from the phone.
 
-### Local machine works but phone cannot connect
+### Local-network address does not connect
 
-Check that the tunnel is running and that the mobile app is using the public HTTPS URL, not `localhost` or `127.0.0.1`.
+- Use the machine's LAN address, not `localhost` or `127.0.0.1`.
+- Confirm OpenCode is listening on `0.0.0.0` or the specific LAN interface.
+- Allow the port through the private-network firewall profile.
+- Disable client isolation on the Wi-Fi network if devices cannot reach each other.
+
+### Authentication fails
+
+- Match the username and password to `OPENCODE_SERVER_USERNAME` and `OPENCODE_SERVER_PASSWORD`.
+- If Password is set but Username is blank, the app defaults the Basic-auth username to `opencode`.
+- Reconnect after editing connection fields; editing alone intentionally does not start a new connection.
+
+### Connected but no workspace appears
+
+The server is reachable, but it may not expose a project catalog in the expected context. Refresh Workspace, confirm the OpenCode version, and inspect Diagnostics for endpoint availability.
