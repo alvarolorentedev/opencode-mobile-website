@@ -1,6 +1,7 @@
 ---
 id: usage
-title: Understand Session Usage
+title: OpenCode Session Usage on Android
+sidebar_label: Understand Session Usage
 slug: /guides/usage
 ---
 
@@ -32,4 +33,4 @@ Tap the usage indicator in the Chat header. The sheet summarizes the current ses
 - Choose a smaller model for routine follow-ups when appropriate.
 - Treat cost as an estimate and use the provider's billing dashboard as the source of truth.
 
-Next: [Manage sessions](./sessions.md) or [configure models](./providers-and-models.md).
+Next: [Manage sessions](./sessions.md), [configure models](./providers-and-models.md), or [start a focused task](./tasks.md).

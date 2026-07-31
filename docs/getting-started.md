@@ -1,10 +1,12 @@
 ---
 id: getting-started
-title: Getting Started
+title: Set Up OpenCode Mobile on Android
+description: Install OpenCode Mobile on Android, start and secure an OpenCode server, connect the app, select a workspace, and complete a first task.
+sidebar_label: Getting Started
 slug: /getting-started
 ---
 
-# Getting Started
+# Set up OpenCode Mobile on Android
 
 This guide covers the shortest safe path from an OpenCode server to your first completed mobile task.
 
@@ -66,6 +68,8 @@ Keep a stable port so the mobile app, tunnel, and reverse proxy do not need repe
 | SSH local forward | Advanced users with a mobile SSH client | `http://127.0.0.1:4096` |
 
 Follow [Remote Access](./remote-access.md) for exact commands and security tradeoffs.
+
+For a focused setup, use the dedicated [Tailscale guide](./guides/tailscale.md) or [Cloudflare Tunnel guide](./guides/cloudflare-tunnel.md). Compare the native client with the browser interface in [OpenCode Mobile vs OpenCode Web](./guides/mobile-vs-web.md).
 
 ## 4. Verify the API endpoint
 
@@ -158,3 +162,4 @@ Continue with the [User Manual](./user-manual.md) for:
 - Check the username and password against the server environment variables.
 - If the address returns HTML, 404, or a JSON parse error, use the actual API base path.
 - Upgrade to the latest mobile release. The Tailscale and path-prefix problem tracked in [issue #1](https://github.com/alvarolorentedev/opencode-mobile/issues/1) was fixed and validated with Tailscale and Cloudflare before the issue was closed.
+- Continue with the [connection troubleshooting checklist](./guides/troubleshooting.md) before filing a bug.

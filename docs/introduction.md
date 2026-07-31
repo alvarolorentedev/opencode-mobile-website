@@ -1,10 +1,12 @@
 ---
 id: introduction
-title: Introduction
+title: What Is OpenCode Mobile?
+description: Learn what the community-built OpenCode Android client does, how it connects to your server, which workflows it supports, and where its limits are.
+sidebar_label: Introduction
 slug: /introduction
 ---
 
-# Introduction
+# What is OpenCode Mobile?
 
 OpenCode Mobile is a community-built mobile client for an OpenCode server. It keeps active coding work reachable from a phone without trying to turn a small screen into a full desktop IDE.
 

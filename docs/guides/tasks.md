@@ -1,6 +1,7 @@
 ---
 id: tasks
-title: Start and Monitor Tasks
+title: Monitor OpenCode Tasks on Android
+sidebar_label: Start and Monitor Tasks
 slug: /guides/tasks
 ---
 
@@ -45,4 +46,4 @@ If the composer is empty while the task is running, its main action becomes **St
 - Relevant validation passed or any failure is clearly reported.
 - No permission or question is still waiting for you.
 
-Next: [Review approvals and changes](./approvals-and-changes.md) or [inspect session usage](./usage.md).
+Next: [Review approvals and changes](./approvals-and-changes.md), [inspect session usage](./usage.md), or [manage the session](./sessions.md).

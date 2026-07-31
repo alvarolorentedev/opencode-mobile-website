@@ -1,6 +1,7 @@
 ---
 id: providers-and-models
-title: Providers and Models
+title: OpenCode Providers and Models on Android
+sidebar_label: Providers and Models
 slug: /guides/providers-and-models
 ---
 
@@ -37,4 +38,4 @@ In Chat, selecting a model also selects its provider. Attachment, reasoning, inp
 - Use a faster or less expensive model for routine summaries and status checks.
 - Keep the session focused so model choice is not compensating for unrelated context.
 
-Next: [Understand usage](./usage.md) or [start a task](./tasks.md).
+Next: [Understand usage](./usage.md), [start a task](./tasks.md), or inspect [MCP and server diagnostics](./mcp-and-diagnostics.md).

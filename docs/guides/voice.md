@@ -1,6 +1,7 @@
 ---
 id: voice
-title: Voice and Conversation Mode
+title: Use Voice with OpenCode on Android
+sidebar_label: Voice and Conversation Mode
 slug: /guides/voice
 ---
 
@@ -44,4 +45,4 @@ Under **Settings → Voice & responses**, choose the recognition locale, playbac
 - Recognition quality depends on the device, language support, and background noise.
 - Always review high-impact instructions on screen before allowing changes.
 
-Next: [Configure providers and models](./providers-and-models.md).
+Next: [Configure providers and models](./providers-and-models.md), [start a task](./tasks.md), or review [permissions and changes](./approvals-and-changes.md).

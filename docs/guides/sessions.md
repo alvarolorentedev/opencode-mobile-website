@@ -1,6 +1,7 @@
 ---
 id: sessions
-title: Manage Sessions
+title: Manage OpenCode Sessions from Android
+sidebar_label: Manage Sessions
 slug: /guides/sessions
 ---
 
@@ -40,4 +41,4 @@ Forking is the safer choice when you want to preserve both directions. Revert ch
 
 Chat initially shows the newest transcript page. Tap **Load earlier messages** when you need prior decisions. Long-press a message to copy it; use the speaker action on an assistant message to hear it aloud.
 
-Next: [Start and monitor a task](./tasks.md).
+Next: [Start and monitor a task](./tasks.md), [review approvals and changes](./approvals-and-changes.md), or [understand session usage](./usage.md).

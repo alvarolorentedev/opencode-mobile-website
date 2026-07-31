@@ -1,6 +1,7 @@
 ---
 id: notifications
-title: Task Notifications
+title: OpenCode Task Notifications on Android
+sidebar_label: Task Notifications
 slug: /guides/notifications
 ---
 
@@ -25,4 +26,4 @@ Notifications are a convenience, not a guaranteed job queue. Delivery can be aff
 
 Always open Chat to verify the actual server state when a notification is missing or delayed.
 
-Next: [Start and monitor tasks](./tasks.md).
+Next: [Start and monitor tasks](./tasks.md), [manage sessions](./sessions.md), or troubleshoot [stale server state](./troubleshooting.md).

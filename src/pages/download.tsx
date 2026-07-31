@@ -14,12 +14,12 @@ const RELEASES_URL =
 export default function DownloadPage(): ReactNode {
   return (
     <Layout
-      title="Download the Android beta"
-      description="Join the OpenCode Mobile beta through Google Play or install the latest Android APK directly from GitHub.">
+      title="Download OpenCode Mobile for Android"
+      description="Download the OpenCode Android app through Google Play beta or install the latest OpenCode Mobile APK directly from its public GitHub release.">
       <main className={styles.page}>
         <header className={styles.hero}>
           <p className={styles.kicker}>OpenCode Mobile for Android</p>
-          <Heading as="h1">Choose your installation path.</Heading>
+          <Heading as="h1">Download OpenCode Mobile for Android.</Heading>
           <p className={styles.lede}>
             Google Play is the recommended way to join the beta and receive
             updates. The latest APK remains available for direct installation.
@@ -121,7 +121,9 @@ export default function DownloadPage(): ReactNode {
             </p>
           </div>
           <div className={styles.nextLinks}>
+            <Link to="/docs/opencode-android-app">Read the Android app setup guide</Link>
             <Link to="/docs/getting-started">Open the setup guide</Link>
+            <Link to="/docs/guides/remote-access-security">Review remote-access security</Link>
             <Link href={RELEASES_URL} target="_blank" rel="noopener noreferrer">
               View release notes
             </Link>

@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
-
 :root {
-  --ifm-color-primary: #167f62;
+  --ifm-color-primary: #0f6f53;
   --ifm-color-primary-dark: #126d54;
   --ifm-color-primary-darker: #10634c;
   --ifm-color-primary-darkest: #0c4938;
@@ -13,18 +11,18 @@
   --ifm-navbar-background-color: rgba(244, 240, 240, 0.96);
   --ifm-footer-background-color: #171414;
   --ifm-heading-color: #1b1818;
-  --ifm-font-family-base: 'IBM Plex Sans', sans-serif;
-  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
-  --ifm-heading-font-family: 'IBM Plex Sans', sans-serif;
+  --ifm-font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  --ifm-heading-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-line-height-base: 1.6;
   --ifm-global-radius: 4px;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.04);
-  --site-accent-color: #167f62;
+  --site-accent-color: #0f6f53;
   --site-border-color: #cbc4c4;
   --site-text-strong: #1b1818;
   --site-text-muted: #5f5959;
-  --site-text-soft: #777070;
+  --site-text-soft: #696262;
   --site-panel-bg: #ebe6e6;
   --announcement-bg: #ebe6e6;
   --announcement-text: #1b1818;
@@ -65,7 +63,7 @@ body {
   min-height: 61px;
   border-bottom: 1px solid var(--site-border-color);
   box-shadow: none;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--ifm-font-family-monospace);
 }
 
 .announcement {
@@ -99,7 +97,7 @@ body {
 
 .navbar__title,
 .navbar__link {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--ifm-font-family-monospace);
 }
 
 h1,
@@ -132,7 +130,7 @@ h6 {
 
 .footer {
   border-top: 1px solid var(--site-border-color);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--ifm-font-family-monospace);
 }
 
 .theme-doc-sidebar-container {

@@ -1,6 +1,7 @@
 ---
 id: mcp-and-diagnostics
-title: MCP and Diagnostics
+title: OpenCode MCP Diagnostics on Android
+sidebar_label: MCP and Diagnostics
 slug: /guides/mcp-and-diagnostics
 ---
 
@@ -34,4 +35,4 @@ A polling fallback means the app can continue refreshing important task state, b
 
 Missing diagnostic data can mean the endpoint is unsupported rather than broken. Confirm the server version before filing a mobile bug.
 
-Next: [Configure providers](./providers-and-models.md) or [troubleshoot remote access](../remote-access.md).
+Next: [Configure providers](./providers-and-models.md), review the [remote-access overview](../remote-access.md), or use the [connection troubleshooting checklist](./troubleshooting.md).

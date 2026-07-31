@@ -12,7 +12,7 @@
   border-inline: 1px solid var(--download-border);
   background: var(--download-bg);
   color: var(--download-text);
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, 'Liberation Mono', monospace;
 }
 
@@ -21,9 +21,9 @@
   --download-surface: #ebe6e6;
   --download-text: #1b1818;
   --download-muted: #5f5959;
-  --download-soft: #777070;
+  --download-soft: #696262;
   --download-border: #cbc4c4;
-  --download-accent: #167f62;
+  --download-accent: #0f6f53;
   --download-accent-text: #fff;
 }
 

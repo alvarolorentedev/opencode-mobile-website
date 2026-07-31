@@ -11,6 +11,7 @@ const config: Config = {
   },
   url: 'https://getopencode.app',
   baseUrl: '/',
+  trailingSlash: true,
   organizationName: 'alvarolorentedev',
   projectName: 'opencode-mobile',
   onBrokenLinks: 'throw',
@@ -25,9 +26,17 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
-          editUrl: 'https://github.com/alvarolorentedev/opencode-mobile/tree/main/',
+          editUrl:
+            'https://github.com/alvarolorentedev/opencode-mobile-website/tree/main/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: false,
+        sitemap: {
+          changefreq: null,
+          priority: null,
+          lastmod: 'date',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -45,11 +54,6 @@ const config: Config = {
         name: 'description',
         content:
           'Start tasks, monitor sessions, use the terminal, and manage OpenCode workspaces from a community-built Android companion.',
-      },
-      {
-        name: 'keywords',
-        content:
-          'OpenCode Mobile, OpenCode Android, coding agent mobile app, remote developer workflow, mobile terminal',
       },
       {name: 'theme-color', content: '#131111'},
       {
@@ -91,6 +95,11 @@ const config: Config = {
           to: '/download',
           position: 'left',
           label: 'Download',
+        },
+        {
+          to: '/about',
+          position: 'left',
+          label: 'About',
         },
         {
           href: 'https://github.com/alvarolorentedev/opencode-mobile',
@@ -136,6 +145,10 @@ const config: Config = {
               label: 'Remote Access',
               to: '/docs/remote-access',
             },
+            {
+              label: 'Changelog',
+              to: '/docs/changelog',
+            },
           ],
         },
         {
@@ -148,6 +161,14 @@ const config: Config = {
             {
               label: 'Download',
               to: '/download',
+            },
+            {
+              label: 'About & Maintainer',
+              to: '/about',
+            },
+            {
+              label: 'Security',
+              to: '/security',
             },
             {
               label: 'Join The Beta',

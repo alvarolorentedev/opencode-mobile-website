@@ -1,6 +1,7 @@
 ---
 id: worktrees
-title: Manage Worktrees
+title: Manage OpenCode Worktrees from Android
+sidebar_label: Manage Worktrees
 slug: /guides/worktrees
 ---
 
@@ -29,4 +30,4 @@ Both actions require confirmation. Check the displayed directory and branch and 
 
 Worktree management relies on experimental OpenCode endpoints. Availability and behavior may change more frequently than core session functionality. If the Tools panel has no worktree controls, the connected server may not expose them.
 
-Next: [Start a task](./tasks.md) in the intended project or [work with files](./workspace-files.md).
+Next: [Start a task](./tasks.md) in the intended project, [work with files](./workspace-files.md), or review [permissions and changes](./approvals-and-changes.md).

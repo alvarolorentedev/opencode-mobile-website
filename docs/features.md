@@ -1,14 +1,15 @@
 ---
 id: features
-title: What Do You Want to Do?
+title: OpenCode Mobile Features and Guides
+description: Choose an OpenCode Mobile workflow for Android tasks, sessions, approvals, voice, files, terminal access, providers, diagnostics, or remote access.
 slug: /features
 ---
 
-# What do you want to do?
+# OpenCode Mobile features and workflow guides
 
 Start with the outcome you need. Each guide explains when the capability is useful, the exact mobile workflow, what you should see, and the important limitations.
 
-<video controls playsInline preload="metadata" poster="/img/product/walkthrough-poster.png" width="100%">
+<video controls playsInline preload="none" poster="/img/product/walkthrough-poster.avif" width="1280" height="720">
   <source src="/media/opencode-mobile-walkthrough.mp4" type="video/mp4" />
   Your browser does not support embedded video.
 </video>

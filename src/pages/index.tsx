@@ -2,6 +2,7 @@ import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import Head from '@docusaurus/Head';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import styles from './index.module.css';
@@ -11,6 +12,56 @@ const APK_URL =
 const PLAY_BETA_URL = 'https://play.google.com/apps/testing/app.getopencode';
 const GITHUB_URL = 'https://github.com/alvarolorentedev/opencode-mobile';
 const OPENCODE_URL = 'https://opencode.ai/';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://getopencode.app/#website',
+      url: 'https://getopencode.app/',
+      name: 'OpenCode Mobile',
+      description:
+        'Documentation and downloads for the community-built OpenCode Android app.',
+      inLanguage: 'en',
+      publisher: {'@id': 'https://getopencode.app/#organization'},
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://getopencode.app/#organization',
+      name: 'OpenCode Mobile',
+      url: 'https://getopencode.app/',
+      logo: 'https://getopencode.app/img/logo.png',
+      founder: {'@id': 'https://getopencode.app/#maintainer'},
+      sameAs: [GITHUB_URL],
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://getopencode.app/#maintainer',
+      name: 'Alvaro Lorente',
+      url: 'https://github.com/alvarolorentedev',
+      sameAs: ['https://github.com/alvarolorentedev'],
+    },
+    {
+      '@type': 'MobileApplication',
+      '@id': 'https://getopencode.app/#app',
+      name: 'OpenCode Mobile',
+      description:
+        'A community-built Android companion for controlling sessions on an OpenCode server.',
+      operatingSystem: 'Android',
+      applicationCategory: 'DeveloperApplication',
+      isAccessibleForFree: true,
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      downloadUrl: 'https://getopencode.app/download/',
+      codeRepository: GITHUB_URL,
+      author: {'@id': 'https://getopencode.app/#maintainer'},
+    },
+  ],
+};
 
 const productScreens = [
   {
@@ -105,7 +156,7 @@ function HeroSection() {
     <header className={styles.hero}>
       <div className={styles.heroCopy}>
         <p className={styles.eyebrow}>Community-built companion for OpenCode</p>
-        <Heading as="h1">Your OpenCode sessions, from anywhere.</Heading>
+        <Heading as="h1">OpenCode Mobile for Android.</Heading>
         <p className={styles.heroDescription}>
           Start tasks, check progress, use the terminal, and manage workspaces
           from Android—without reopening your laptop.
@@ -147,7 +198,7 @@ function TrustStrip() {
 
 function WalkthroughSection() {
   const video = useBaseUrl('media/opencode-mobile-walkthrough.mp4');
-  const poster = useBaseUrl('img/product/walkthrough-poster.png');
+  const poster = useBaseUrl('img/product/walkthrough-poster.avif');
 
   return (
     <section className={styles.walkthroughSection} aria-labelledby="walkthrough-title">
@@ -160,7 +211,14 @@ function WalkthroughSection() {
         </p>
         <Link to="/docs/features">Choose a capability guide</Link>
       </div>
-      <video controls playsInline preload="metadata" poster={poster} className={styles.walkthroughVideo}>
+      <video
+        controls
+        playsInline
+        preload="none"
+        width={1280}
+        height={720}
+        poster={poster}
+        className={styles.walkthroughVideo}>
         <source src={video} type="video/mp4" />
         Your browser does not support embedded video.
       </video>
@@ -252,6 +310,13 @@ function SetupSection() {
           <Link to="/docs/getting-started">Open the complete setup guide</Link>
         </li>
       </ol>
+      <nav className={styles.topicLinks} aria-label="OpenCode Mobile setup guides">
+        <Link to="/docs/opencode-android-app">Android app setup and download</Link>
+        <Link to="/docs/guides/use-opencode-from-phone">Use OpenCode from a phone</Link>
+        <Link to="/docs/guides/tailscale">Connect with Tailscale</Link>
+        <Link to="/docs/guides/cloudflare-tunnel">Connect with Cloudflare Tunnel</Link>
+        <Link to="/docs/guides/mobile-vs-web">Compare the app with OpenCode Web</Link>
+      </nav>
     </section>
   );
 }
@@ -402,21 +467,28 @@ function FinalCtaSection() {
 
 export default function Home(): ReactNode {
   return (
-    <Layout
-      title="Android companion for OpenCode"
-      description="OpenCode Mobile is a community-built Android companion for starting tasks, monitoring sessions, using the terminal, and managing OpenCode workspaces remotely.">
-      <main className={styles.landingPage}>
-        <HeroSection />
-        <TrustStrip />
-        <WalkthroughSection />
-        <ProductGallery />
-        <SetupSection />
-        <FeaturesSection />
-        <RelationshipSection />
-        <DownloadSection />
-        <FaqSection />
-        <FinalCtaSection />
-      </main>
-    </Layout>
+    <>
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Head>
+      <Layout
+        title="OpenCode Android App"
+        description="Use OpenCode from Android to start tasks, monitor sessions, review changes, access files, and run focused terminal commands on your own OpenCode server.">
+        <main className={styles.landingPage}>
+          <HeroSection />
+          <TrustStrip />
+          <WalkthroughSection />
+          <ProductGallery />
+          <SetupSection />
+          <FeaturesSection />
+          <RelationshipSection />
+          <DownloadSection />
+          <FaqSection />
+          <FinalCtaSection />
+        </main>
+      </Layout>
+    </>
   );
 }

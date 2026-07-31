@@ -13,7 +13,7 @@
   border-inline: 1px solid var(--landing-border);
   background: var(--landing-bg);
   color: var(--landing-text);
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, 'Liberation Mono', monospace;
 }
 
@@ -23,9 +23,9 @@
   --landing-surface-strong: #e2dcdc;
   --landing-text: #1b1818;
   --landing-muted: #5f5959;
-  --landing-soft: #777070;
+  --landing-soft: #696262;
   --landing-border: #cbc4c4;
-  --landing-accent: #167f62;
+  --landing-accent: #0f6f53;
   --landing-accent-text: #ffffff;
 }
 
@@ -257,6 +257,7 @@
   border-bottom: 1px solid var(--landing-border);
 }
 
+.walkthroughSection,
 .sectionIntro {
   display: grid;
   grid-template-columns: minmax(160px, 0.36fr) minmax(0, 1fr);
@@ -402,6 +403,22 @@
   align-items: center;
   color: var(--landing-accent);
   font-size: 0.84rem;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+
+.topicLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding: 22px clamp(30px, 6vw, 78px);
+  border-top: 1px solid var(--landing-border);
+}
+
+.topicLinks a {
+  min-height: 44px;
+  color: var(--landing-accent);
+  font-size: 0.82rem;
   font-weight: 600;
   text-underline-offset: 5px;
 }
@@ -696,17 +713,32 @@
     font-size: clamp(2rem, 9vw, 2.75rem);
   }
 
-  .galleryGrid,
   .setupGrid,
   .downloadOptions {
     grid-template-columns: 1fr;
   }
 
-  .galleryItem + .galleryItem,
+  .galleryGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .galleryItem {
+    flex: 0 0 min(88vw, 380px);
+    scroll-snap-align: start;
+  }
+
   .setupGrid li + li,
   .downloadOptions article + article {
     border-top: 1px solid var(--landing-border);
     border-left: 0;
+  }
+
+  .galleryItem + .galleryItem {
+    border-top: 0;
+    border-left: 1px solid var(--landing-border);
   }
 
   .downloadOptions article {
@@ -718,6 +750,11 @@
   }
 
   .downloadGuideLink {
+    padding-inline: 22px;
+  }
+
+  .topicLinks {
+    display: grid;
     padding-inline: 22px;
   }
 

@@ -1,6 +1,7 @@
 ---
 id: approvals-and-changes
-title: Approvals and Changes
+title: Review OpenCode Changes on Android
+sidebar_label: Approvals and Changes
 slug: /guides/approvals-and-changes
 ---
 
@@ -40,4 +41,4 @@ The diff is a focused mobile review surface, not a replacement for repository te
 
 Pending interactions are refreshed from both realtime events and server list APIs. If one vanishes, it may already have been answered elsewhere. Refresh the session before assuming it was lost.
 
-Next: [Edit a workspace file](./workspace-files.md) or [manage sessions](./sessions.md).
+Next: [Edit a workspace file](./workspace-files.md), [manage sessions](./sessions.md), or review the [remote-access security model](./remote-access-security.md).

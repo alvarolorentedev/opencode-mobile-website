@@ -1,6 +1,6 @@
 # OpenCode Mobile Website
 
-Marketing and starter docs site for OpenCode Mobile, built with Docusaurus and TypeScript.
+Public website, Android download path, and maintained product documentation for [OpenCode Mobile](https://getopencode.app/), built with Docusaurus and TypeScript.
 
 ## Stack
 
@@ -50,7 +50,9 @@ npm run serve
 │   ├── introduction.md
 │   ├── getting-started.md
 │   ├── features.md
-│   └── faq.md
+│   ├── remote-access.md
+│   ├── user-manual.md
+│   └── guides/
 ├── src/
 │   ├── css/custom.css
 │   └── pages/
@@ -66,11 +68,14 @@ npm run serve
 └── package.json
 ```
 
-## Notes before deploy
+## Production deployment requirements
 
-- Update `url` in `docusaurus.config.ts` to your real production domain.
-- Replace the placeholder GitHub links in `docusaurus.config.ts` with your actual repository.
-- Replace `static/img/logo.png` or `static/img/favicon.ico` if branding changes again.
+- Build output: `build/`
+- Canonical origin: `https://getopencode.app/`
+- Redirect `https://www.getopencode.app/*` to `https://getopencode.app/:splat` with a Cloudflare Redirect Rule or Bulk Redirect. Cloudflare Pages `_redirects` does not support hostname-level redirects.
+- Keep Docusaurus `trailingSlash: true`; Cloudflare Pages serves directory output at trailing-slash URLs.
+- `static/_headers` sets long-lived asset caching and baseline security headers.
+- `static/robots.txt` advertises the sitemap.
 
 ## Useful commands
 

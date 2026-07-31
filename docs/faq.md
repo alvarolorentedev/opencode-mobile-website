@@ -1,6 +1,7 @@
 ---
 id: faq
 title: FAQ
+description: Answers about OpenCode Mobile Android support, installation, server compatibility, remote access, security, providers, privacy, support, and project ownership.
 slug: /faq
 ---
 

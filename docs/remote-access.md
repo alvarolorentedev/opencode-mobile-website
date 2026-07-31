@@ -1,12 +1,16 @@
 ---
 id: remote-access
-title: Remote Access
+title: Access OpenCode Remotely from Android
+description: Connect OpenCode Mobile to your server through a trusted LAN, Tailscale, Cloudflare Tunnel, reverse proxy, API prefix, or SSH port forward.
+sidebar_label: Remote Access Overview
 slug: /remote-access
 ---
 
-# Remote Access
+# Access OpenCode remotely from Android
 
 OpenCode Mobile can connect through a local address, private VPN, HTTPS tunnel, reverse proxy, or a separate SSH port forward. The app needs an OpenCode API base URL; it does not require a specific tunnel provider.
+
+For step-by-step setup, open the [Tailscale guide](./guides/tailscale.md) or [Cloudflare Tunnel guide](./guides/cloudflare-tunnel.md). Read the [remote-access security model](./guides/remote-access-security.md) before publishing any endpoint.
 
 ## Connection requirements
 
@@ -201,3 +205,5 @@ Connection credentials are stored locally by the app using AsyncStorage so it ca
 ### Connected but no workspace appears
 
 The server is reachable, but it may not expose a project catalog in the expected context. Refresh Workspace, confirm the OpenCode version, and inspect Diagnostics for endpoint availability.
+
+If the connection still fails, use the complete [OpenCode Mobile troubleshooting checklist](./guides/troubleshooting.md).

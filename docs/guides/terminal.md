@@ -1,10 +1,12 @@
 ---
 id: terminal
-title: Use the Terminal
+title: Use the OpenCode Terminal from Android
+description: Run focused OpenCode project commands from Android and understand the mobile terminal's PTY, WebSocket, and full-screen program limitations.
+sidebar_label: Use the Terminal
 slug: /guides/terminal
 ---
 
-# Use the terminal
+# Use the OpenCode terminal from Android
 
 Use Terminal for a focused command such as checking Git status, running a test, reading a short log, or invoking a project script.
 
@@ -34,4 +36,4 @@ If input appears ineffective, confirm that the command does not require an inter
 
 Terminal support depends on compatible OpenCode PTY endpoints and a working project-scoped WebSocket through your proxy or tunnel.
 
-Next: [Troubleshoot remote access](../remote-access.md) or [work with files](./workspace-files.md).
+Next: [Troubleshoot the connection](./troubleshooting.md), review [remote-access options](../remote-access.md), or [work with files](./workspace-files.md).

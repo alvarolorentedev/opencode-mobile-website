@@ -1,6 +1,7 @@
 ---
 id: workspace-files
-title: Work with Files
+title: Edit OpenCode Workspace Files from Android
+sidebar_label: Work with Files
 slug: /guides/workspace-files
 ---
 
@@ -32,4 +33,4 @@ Reopen the file, incorporate the current version, and try again. Binary or base6
 
 Mobile file editing works well for a typo, configuration value, or small documentation adjustment. For multi-file refactors, use Chat to describe the goal and review the diff, or return to a desktop editor.
 
-Next: [Review approvals and changes](./approvals-and-changes.md) or [use worktrees](./worktrees.md).
+Next: [Review approvals and changes](./approvals-and-changes.md), [use worktrees](./worktrees.md), or run a focused [terminal command](./terminal.md).
