@@ -32,6 +32,10 @@ const config: Config = {
           showLastUpdateTime: true,
         },
         blog: false,
+        gtag: {
+          trackingID: 'G-WS6H4XMXGG',
+          anonymizeIP: true,
+        },
         sitemap: {
           changefreq: null,
           priority: null,
