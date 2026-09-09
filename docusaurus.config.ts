@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'OpenCode Mobile',
-  tagline: 'A community-built Android companion for OpenCode.',
+  tagline: 'A community-built mobile companion for OpenCode.',
   favicon: 'img/favicon.ico',
   future: {
     v4: true,
@@ -57,17 +57,17 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'Start tasks, monitor sessions, use the terminal, and manage OpenCode workspaces from a community-built Android companion.',
+          'Start tasks, monitor sessions, use the terminal, and manage OpenCode workspaces from a community-built mobile companion.',
       },
       {name: 'theme-color', content: '#131111'},
       {
         property: 'og:title',
-        content: 'OpenCode Mobile — Android companion for OpenCode',
+        content: 'OpenCode Mobile — mobile companion for OpenCode',
       },
       {
         property: 'og:description',
         content:
-          'Take your OpenCode sessions with you. Start tasks, use the terminal, and manage workspaces from Android.',
+          'Take your OpenCode sessions with you. Start tasks, use the terminal, and manage workspaces from Android or iOS.',
       },
       {property: 'og:type', content: 'website'},
       {name: 'twitter:card', content: 'summary_large_image'},
@@ -113,6 +113,12 @@ const config: Config = {
         {
           href: 'https://play.google.com/store/apps/details?id=app.getopencode',
           label: 'Download Android',
+          position: 'right',
+          className: 'navbar-download',
+        },
+        {
+          href: 'https://testflight.apple.com/',
+          label: 'Join iOS beta',
           position: 'right',
           className: 'navbar-download',
         },
@@ -177,6 +183,10 @@ const config: Config = {
             {
               label: 'Download Android',
               href: 'https://play.google.com/store/apps/details?id=app.getopencode',
+            },
+            {
+              label: 'Join iOS beta',
+              href: 'https://testflight.apple.com/',
             },
           ],
         },

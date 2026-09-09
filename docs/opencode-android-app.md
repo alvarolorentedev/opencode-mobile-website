@@ -1,25 +1,26 @@
 ---
 id: opencode-android-app
-title: OpenCode Android App — Setup and Download
-description: Download the community-built OpenCode Android app, connect it to your own server, understand the requirements, and choose a secure remote-access method.
+title: OpenCode Mobile App — Setup and Download
+description: Download the community-built OpenCode app for Android or iOS, connect it to your own server, understand the requirements, and choose a secure remote-access method.
 slug: /opencode-android-app
 last_update:
   author: Alvaro Lorente
   date: 2026-07-31
 ---
 
-# OpenCode Android app: setup and download
+# OpenCode Mobile app: setup and download
 
-OpenCode Mobile is an independent Android client for an OpenCode server that you run. It lets you start and monitor coding tasks, review permissions and changes, manage sessions and workspaces, inspect files, and run focused terminal commands from a phone.
+OpenCode Mobile is an independent Android and iOS client for an OpenCode server that you run. It lets you start and monitor coding tasks, review permissions and changes, manage sessions and workspaces, inspect files, and run focused terminal commands from a phone.
 
 It is not an official OpenCode product, a hosted AI service, or a replacement for the OpenCode server.
 
-## Download the Android app
+## Download the app
 
 Use the [OpenCode Mobile download page](/download/) to choose one of two installation paths:
 
 - **Google Play:** recommended for automatic updates through the Play Store.
 - **Direct APK:** downloaded from the project's public [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) when Play testing is unavailable or you prefer manual installation.
+- **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/) on an iPhone or iPad.
 
 The current release history and source code are public. Do not install APK files reposted by unrelated download sites.
 
@@ -27,13 +28,13 @@ The current release history and source code are public. Do not install APK files
 
 You need:
 
-1. An Android device.
+1. An Android device or iPhone/iPad.
 2. A current OpenCode installation on a computer or server that owns the workspace.
 3. OpenCode running in server mode.
-4. A secure network route from Android to that server.
+4. A secure network route from the app to that server.
 5. The server URL and configured HTTP Basic-auth credentials.
 
-The shortest complete workflow is in [Set Up OpenCode Mobile on Android](./getting-started.md).
+The shortest complete workflow is in [Set Up OpenCode Mobile](./getting-started.md).
 
 ## Start an OpenCode server
 
@@ -51,7 +52,7 @@ Never publish an unauthenticated OpenCode port to the internet.
 
 ## App versus browser access
 
-Use OpenCode Mobile when you want a native Android control surface, voice input, app-level notifications, project/session navigation, and compact access to files and terminal commands. Use `opencode web` when you want the browser UI or do not want to install a client.
+Use OpenCode Mobile when you want a native mobile control surface, voice input, app-level notifications, project/session navigation, and compact access to files and terminal commands. Use `opencode web` when you want the browser UI or do not want to install a client.
 
 The complete tradeoff is documented in [OpenCode Mobile vs OpenCode Web](./guides/mobile-vs-web.md).
 

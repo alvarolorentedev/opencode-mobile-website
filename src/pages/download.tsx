@@ -8,21 +8,22 @@ import styles from './download.module.css';
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=app.getopencode';
 const APK_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk';
+const TESTFLIGHT_URL = 'https://testflight.apple.com/';
 const RELEASES_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases';
 
 export default function DownloadPage(): ReactNode {
   return (
     <Layout
-      title="Download OpenCode Mobile for Android"
-      description="Download the OpenCode Android app through Google Play or install the latest OpenCode Mobile APK directly from its public GitHub release.">
+      title="Download OpenCode Mobile for Android and iOS"
+      description="Download OpenCode Mobile through Google Play or GitHub on Android, or join the iOS beta through TestFlight.">
       <main className={styles.page}>
         <header className={styles.hero}>
-          <p className={styles.kicker}>OpenCode Mobile for Android</p>
-          <Heading as="h1">Download OpenCode Mobile for Android.</Heading>
+          <p className={styles.kicker}>OpenCode Mobile for Android and iOS</p>
+          <Heading as="h1">Download OpenCode Mobile.</Heading>
           <p className={styles.lede}>
-            Google Play is the recommended way to join and receive
-            updates. The latest APK remains available for direct installation.
+            Install on Android through Google Play or a direct APK, or join the
+            iOS beta through TestFlight.
           </p>
           <div className={styles.actions}>
             <Link
@@ -39,6 +40,13 @@ export default function DownloadPage(): ReactNode {
               rel="noopener noreferrer">
               Download latest APK
             </Link>
+            <Link
+              className={styles.secondaryAction}
+              href={TESTFLIGHT_URL}
+              target="_blank"
+              rel="noopener noreferrer">
+              Join iOS TestFlight
+            </Link>
           </div>
         </header>
 
@@ -46,8 +54,8 @@ export default function DownloadPage(): ReactNode {
           <div className={styles.sectionHeading}>
             <span>01</span>
             <div>
-              <Heading as="h2" id="install-options">Two supported ways to install</Heading>
-              <p>Both options install the same community-built Android companion.</p>
+              <Heading as="h2" id="install-options">Three ways to install</Heading>
+              <p>Choose the Android release path or join the iOS beta.</p>
             </div>
           </div>
 
@@ -70,6 +78,27 @@ export default function DownloadPage(): ReactNode {
                 target="_blank"
                 rel="noopener noreferrer">
                 Download From Google Play
+              </Link>
+            </article>
+
+            <article>
+              <p className={styles.optionLabel}>iOS beta</p>
+              <Heading as="h3">TestFlight</Heading>
+              <p className={styles.optionSummary}>
+                Best when you use an iPhone or iPad and want to receive the
+                current beta build and its updates.
+              </p>
+              <ol>
+                <li>Install TestFlight from the App Store if needed.</li>
+                <li>Open the OpenCode Mobile TestFlight release.</li>
+                <li>Install the beta and complete the same server setup.</li>
+              </ol>
+              <Link
+                className={styles.secondaryAction}
+                href={TESTFLIGHT_URL}
+                target="_blank"
+                rel="noopener noreferrer">
+                Join iOS TestFlight
               </Link>
             </article>
 
@@ -105,7 +134,7 @@ export default function DownloadPage(): ReactNode {
             </div>
           </div>
           <ul>
-            <li>An Android device</li>
+            <li>An Android device or iPhone/iPad</li>
             <li>A running OpenCode server</li>
             <li>A secure route from your phone to that server</li>
             <li>Your server URL and authentication details</li>
@@ -117,11 +146,11 @@ export default function DownloadPage(): ReactNode {
             <Heading as="h2">Installed? Connect your server next.</Heading>
             <p>
               Follow the onboarding guide to run OpenCode, choose a secure
-              connection method, and sign in from Android.
+              connection method, and sign in from the app.
             </p>
           </div>
           <div className={styles.nextLinks}>
-            <Link to="/docs/opencode-android-app">Read the Android app setup guide</Link>
+            <Link to="/docs/opencode-android-app">Read the mobile app setup guide</Link>
             <Link to="/docs/getting-started">Open the setup guide</Link>
             <Link to="/docs/guides/remote-access-security">Review remote-access security</Link>
             <Link href={RELEASES_URL} target="_blank" rel="noopener noreferrer">

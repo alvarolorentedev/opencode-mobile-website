@@ -1,12 +1,12 @@
 ---
 id: getting-started
-title: Set Up OpenCode Mobile on Android
-description: Install OpenCode Mobile on Android, start and secure an OpenCode server, connect the app, select a workspace, and complete a first task.
+title: Set Up OpenCode Mobile
+description: Install OpenCode Mobile on Android or iOS, start and secure an OpenCode server, connect the app, select a workspace, and complete a first task.
 sidebar_label: Getting Started
 slug: /getting-started
 ---
 
-# Set up OpenCode Mobile on Android
+# Set up OpenCode Mobile
 
 This guide covers the shortest safe path from an OpenCode server to your first completed mobile task.
 
@@ -16,8 +16,9 @@ Use the [Download page](/download) to choose an installation method:
 
 - **Google Play (recommended):** join the testing program, then install and receive updates through Google Play.
 - **Direct GitHub APK:** download and install the latest release manually. Android may ask you to allow installation from your browser or file manager.
+- **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/) and install the beta on an iPhone or iPad.
 
-Both methods install the latest Android release. The rest of this guide explains how to connect it to your OpenCode server.
+The Android options install the latest Android release; TestFlight installs the iOS beta. The rest of this guide explains how to connect either app to your OpenCode server.
 
 ## 1. Install or update OpenCode
 

@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: What Is OpenCode Mobile?
-description: Learn what the community-built OpenCode Android client does, how it connects to your server, which workflows it supports, and where its limits are.
+description: Learn what the community-built OpenCode mobile app does, how it connects to your server, which workflows it supports, and where its limits are.
 sidebar_label: Introduction
 slug: /introduction
 ---
@@ -10,7 +10,7 @@ slug: /introduction
 
 OpenCode Mobile is a community-built mobile client for an OpenCode server. It keeps active coding work reachable from a phone without trying to turn a small screen into a full desktop IDE.
 
-The current public build is distributed for Android through Google Play testing and as a direct APK. Start on the [Download page](/download), then connect it to an OpenCode server that you control. The app targets the current OpenCode v2 API.
+The current build is distributed for Android through Google Play testing and as a direct APK, and for iOS through [TestFlight](https://testflight.apple.com/). Start on the [Download page](/download), then connect it to an OpenCode server that you control. The app targets the current OpenCode v2 API.
 
 ## What you can do
 
@@ -20,7 +20,7 @@ The current public build is distributed for Android through Google Play testing 
 - Send prompts, attachments, and server-provided slash commands
 - Choose agents, models, reasoning behavior, and approval defaults
 - Use voice dictation or the hands-free conversation loop
-- Receive task-completion notifications on supported Android builds
+- Receive task-completion notifications on supported native builds
 - Inspect server health, realtime status, MCP, LSP, and formatter diagnostics
 - Work with project files, worktrees, MCP servers, and a compact remote terminal when the connected server supports them
 

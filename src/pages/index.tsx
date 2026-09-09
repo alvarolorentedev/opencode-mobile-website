@@ -10,6 +10,7 @@ import styles from './index.module.css';
 const APK_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk';
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=app.getopencode';
+const TESTFLIGHT_URL = 'https://testflight.apple.com/';
 const GITHUB_URL = 'https://github.com/alvarolorentedev/opencode-mobile';
 const OPENCODE_URL = 'https://opencode.ai/';
 
@@ -22,7 +23,7 @@ const structuredData = {
       url: 'https://getopencode.app/',
       name: 'OpenCode Mobile',
       description:
-        'Documentation and downloads for the community-built OpenCode Android app.',
+        'Documentation and downloads for the community-built OpenCode mobile app.',
       inLanguage: 'en',
       publisher: {'@id': 'https://getopencode.app/#organization'},
     },
@@ -47,8 +48,8 @@ const structuredData = {
       '@id': 'https://getopencode.app/#app',
       name: 'OpenCode Mobile',
       description:
-        'A community-built Android companion for controlling sessions on an OpenCode server.',
-      operatingSystem: 'Android',
+        'A community-built mobile companion for controlling sessions on an OpenCode server.',
+      operatingSystem: 'Android, iOS',
       applicationCategory: 'DeveloperApplication',
       isAccessibleForFree: true,
       offers: {
@@ -102,7 +103,7 @@ const faqItems = [
   {
     question: 'Which devices are supported?',
     answer:
-      'The current release is available for Android through Google Play or as a direct APK. An iOS build is not available at this time.',
+      'The current release is available for Android through Google Play or a direct APK, and as an iOS beta through TestFlight.',
   },
   {
     question: 'Do I need an existing OpenCode setup?',
@@ -140,6 +141,13 @@ function ActionLinks({compact = false}: {compact?: boolean}) {
       </Link>
       <Link
         className={styles.secondaryAction}
+        href={TESTFLIGHT_URL}
+        target="_blank"
+        rel="noopener noreferrer">
+        Join iOS TestFlight
+      </Link>
+      <Link
+        className={styles.secondaryAction}
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer">
@@ -156,13 +164,13 @@ function HeroSection() {
     <header className={styles.hero}>
       <div className={styles.heroCopy}>
         <p className={styles.eyebrow}>Community-built companion for OpenCode</p>
-        <Heading as="h1">OpenCode Mobile for Android.</Heading>
+        <Heading as="h1">OpenCode Mobile for Android and iOS.</Heading>
         <p className={styles.heroDescription}>
           Start tasks, check progress, use the terminal, and manage workspaces
-          from Android—without reopening your laptop.
+          from your phone—without reopening your laptop.
         </p>
         <ActionLinks />
-        <p className={styles.releaseMeta}>Android release · Google Play · Apache-2.0</p>
+        <p className={styles.releaseMeta}>Android release · iOS TestFlight beta · Apache-2.0</p>
       </div>
 
       <figure className={styles.heroMedia}>
@@ -190,7 +198,7 @@ function TrustStrip() {
     <section className={styles.trustStrip} aria-label="Product facts">
       <span>Community-built</span>
       <span>Open source</span>
-      <span>Android</span>
+      <span>Android and iOS</span>
       <span>Works with OpenCode server</span>
     </section>
   );
@@ -305,13 +313,13 @@ function SetupSection() {
         </li>
         <li>
           <span className={styles.stepNumber}>03</span>
-          <Heading as="h3">Connect Android</Heading>
+          <Heading as="h3">Connect the app</Heading>
           <p>Enter the protected server URL, choose a workspace, and continue.</p>
           <Link to="/docs/getting-started">Open the complete setup guide</Link>
         </li>
       </ol>
       <nav className={styles.topicLinks} aria-label="OpenCode Mobile setup guides">
-        <Link to="/docs/opencode-android-app">Android app setup and download</Link>
+        <Link to="/docs/opencode-android-app">Mobile app setup and download</Link>
         <Link to="/docs/guides/use-opencode-from-phone">Use OpenCode from a phone</Link>
         <Link to="/docs/guides/tailscale">Connect with Tailscale</Link>
         <Link to="/docs/guides/cloudflare-tunnel">Connect with Cloudflare Tunnel</Link>
@@ -380,8 +388,8 @@ function DownloadSection() {
         <div>
           <Heading as="h2">Choose how you want to install.</Heading>
           <p>
-            Join through Google Play for the easiest updates, or download the
-            latest APK directly from GitHub for a manual installation.
+            Install Android through Google Play or GitHub, or join the iOS beta
+            through TestFlight.
           </p>
         </div>
       </div>
@@ -400,6 +408,21 @@ function DownloadSection() {
             target="_blank"
             rel="noopener noreferrer">
             Download From Google Play
+          </Link>
+        </article>
+        <article>
+          <span className={styles.downloadLabel}>iOS beta</span>
+          <Heading as="h3">TestFlight</Heading>
+          <p>
+            Install the iOS beta with TestFlight and receive beta updates from
+            the project release channel.
+          </p>
+          <Link
+            className={styles.secondaryAction}
+            href={TESTFLIGHT_URL}
+            target="_blank"
+            rel="noopener noreferrer">
+            Join iOS TestFlight
           </Link>
         </article>
         <article>
@@ -456,8 +479,8 @@ function FinalCtaSection() {
         <p className={styles.sectionIndex}>Ready when your server is.</p>
         <Heading as="h2">Take your next OpenCode session with you.</Heading>
         <p>
-          Join through Google Play for automatic updates, or visit GitHub
-          to inspect the code and help shape what comes next.
+          Install on Android or join the iOS beta, then visit GitHub to inspect
+          the code and help shape what comes next.
         </p>
       </div>
       <ActionLinks compact />
@@ -474,8 +497,8 @@ export default function Home(): ReactNode {
         </script>
       </Head>
       <Layout
-        title="OpenCode Android App"
-        description="Use OpenCode from Android to start tasks, monitor sessions, review changes, access files, and run focused terminal commands on your own OpenCode server.">
+        title="OpenCode Mobile App"
+        description="Use OpenCode from Android or iOS to start tasks, monitor sessions, review changes, access files, and run focused terminal commands on your own OpenCode server.">
         <main className={styles.landingPage}>
           <HeroSection />
           <TrustStrip />

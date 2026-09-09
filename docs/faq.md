@@ -1,7 +1,7 @@
 ---
 id: faq
 title: FAQ
-description: Answers about OpenCode Mobile Android support, installation, server compatibility, remote access, security, providers, privacy, support, and project ownership.
+description: Answers about OpenCode Mobile platform support, installation, server compatibility, remote access, security, providers, privacy, support, and project ownership.
 slug: /faq
 ---
 
@@ -13,7 +13,7 @@ No. It is an open-source, community-built companion for OpenCode.
 
 ## Which devices are supported?
 
-The current version is available for Android through [Google Play](https://play.google.com/store/apps/details?id=app.getopencode) and as a [direct APK](/download). The Expo/React Native project contains iOS support, but the website does not currently offer an iOS release.
+The current version is available for Android through [Google Play](https://play.google.com/store/apps/details?id=app.getopencode) and as a [direct APK](/download). The iOS beta is available through [TestFlight](https://testflight.apple.com/).
 
 ## Is it a general AI chatbot or mobile IDE?
 

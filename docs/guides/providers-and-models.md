@@ -30,7 +30,7 @@ Some OAuth methods ask you to paste an authorization code back into the app. Rem
 
 Expand a configured provider and enable the models you want available in Chat. Disabling a model removes clutter from the picker; it does not delete the provider.
 
-In Chat, selecting a model also selects its provider. Attachment, reasoning, input-modality, context, and tool capabilities are discovered from the server. If an attachment action is unavailable, select a model that advertises attachment support.
+In Chat, the searchable picker groups models by provider, and selecting a model also selects its provider. Attachment, reasoning, input-modality, context, and tool capabilities are discovered from the server. If an attachment action is unavailable, select a model that advertises attachment support.
 
 ## Pick for the job
 
