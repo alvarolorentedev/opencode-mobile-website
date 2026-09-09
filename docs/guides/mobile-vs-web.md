@@ -14,8 +14,8 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 
 | Need | OpenCode Mobile | OpenCode Web |
 | --- | --- | --- |
-| Installation | Android beta or APK | No client installation |
-| Updates | Play beta or new APK | Updated with the server |
+| Installation | Android or APK | No client installation |
+| Updates | Play or new APK | Updated with the server |
 | Session monitoring | Native mobile workflow | Browser workflow |
 | Voice follow-ups | Dictation and foreground conversation mode | Depends on browser UI |
 | Task notifications | Supported Android completion alerts | Depends on browser/background behavior |
@@ -28,7 +28,7 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 - you regularly check or redirect sessions away from your desk;
 - native navigation, voice input, or Android notifications matter;
 - you want a focused control surface instead of a complete desktop-style UI;
-- you are comfortable installing a community-built beta.
+- you are comfortable installing a community-built version.
 
 ## Choose OpenCode Web when
 

@@ -18,7 +18,7 @@ It is not an official OpenCode product, a hosted AI service, or a replacement fo
 
 Use the [OpenCode Mobile download page](/download/) to choose one of two installation paths:
 
-- **Google Play beta:** recommended for automatic updates through the Play Store.
+- **Google Play:** recommended for automatic updates through the Play Store.
 - **Direct APK:** downloaded from the project's public [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) when Play testing is unavailable or you prefer manual installation.
 
 The current release history and source code are public. Do not install APK files reposted by unrelated download sites.

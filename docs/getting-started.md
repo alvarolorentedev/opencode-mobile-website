@@ -14,10 +14,10 @@ This guide covers the shortest safe path from an OpenCode server to your first c
 
 Use the [Download page](/download) to choose an installation method:
 
-- **Google Play beta (recommended):** join the testing program, then install and receive beta updates through Google Play.
+- **Google Play (recommended):** join the testing program, then install and receive updates through Google Play.
 - **Direct GitHub APK:** download and install the latest release manually. Android may ask you to allow installation from your browser or file manager.
 
-Both methods install the Android beta. The rest of this guide explains how to connect it to your OpenCode server.
+Both methods install the latest Android release. The rest of this guide explains how to connect it to your OpenCode server.
 
 ## 1. Install or update OpenCode
 

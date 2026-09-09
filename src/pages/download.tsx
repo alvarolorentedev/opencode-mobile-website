@@ -5,7 +5,7 @@ import Heading from '@theme/Heading';
 
 import styles from './download.module.css';
 
-const PLAY_BETA_URL = 'https://play.google.com/apps/testing/app.getopencode';
+const PLAY_URL = 'https://play.google.com/store/apps/details?id=app.getopencode';
 const APK_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk';
 const RELEASES_URL =
@@ -15,22 +15,22 @@ export default function DownloadPage(): ReactNode {
   return (
     <Layout
       title="Download OpenCode Mobile for Android"
-      description="Download the OpenCode Android app through Google Play beta or install the latest OpenCode Mobile APK directly from its public GitHub release.">
+      description="Download the OpenCode Android app through Google Play or install the latest OpenCode Mobile APK directly from its public GitHub release.">
       <main className={styles.page}>
         <header className={styles.hero}>
           <p className={styles.kicker}>OpenCode Mobile for Android</p>
           <Heading as="h1">Download OpenCode Mobile for Android.</Heading>
           <p className={styles.lede}>
-            Google Play is the recommended way to join the beta and receive
+            Google Play is the recommended way to join and receive
             updates. The latest APK remains available for direct installation.
           </p>
           <div className={styles.actions}>
             <Link
               className={styles.primaryAction}
-              href={PLAY_BETA_URL}
+              href={PLAY_URL}
               target="_blank"
               rel="noopener noreferrer">
-              Join The Beta
+              Download From Google Play
             </Link>
             <Link
               className={styles.secondaryAction}
@@ -54,22 +54,22 @@ export default function DownloadPage(): ReactNode {
           <div className={styles.optionGrid}>
             <article>
               <p className={styles.optionLabel}>Recommended</p>
-              <Heading as="h3">Google Play beta</Heading>
+              <Heading as="h3">Google Play</Heading>
               <p className={styles.optionSummary}>
-                Best when you want a familiar installation and automatic beta
+                Best when you want a familiar installation and automatic
                 updates through Google Play.
               </p>
               <ol>
-                <li>Open the beta testing page with your Google account.</li>
-                <li>Join the testing program.</li>
+                <li>Open the Google Play page with your Google account.</li>
                 <li>Install OpenCode Mobile from Google Play.</li>
+                <li>Open the app and complete the setup.</li>
               </ol>
               <Link
                 className={styles.primaryAction}
-                href={PLAY_BETA_URL}
+                href={PLAY_URL}
                 target="_blank"
                 rel="noopener noreferrer">
-                Join The Beta
+                Download From Google Play
               </Link>
             </article>
 

@@ -111,8 +111,8 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://play.google.com/apps/testing/app.getopencode',
-          label: 'Join The Beta',
+          href: 'https://play.google.com/store/apps/details?id=app.getopencode',
+          label: 'Download Android',
           position: 'right',
           className: 'navbar-download',
         },
@@ -175,8 +175,8 @@ const config: Config = {
               to: '/security',
             },
             {
-              label: 'Join The Beta',
-              href: 'https://play.google.com/apps/testing/app.getopencode',
+              label: 'Download Android',
+              href: 'https://play.google.com/store/apps/details?id=app.getopencode',
             },
           ],
         },

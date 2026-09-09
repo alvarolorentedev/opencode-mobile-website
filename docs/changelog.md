@@ -37,7 +37,7 @@ These values describe the current public source at the time this page was update
 
 ## Support boundaries
 
-- Android is the currently distributed public beta platform.
+- Android is the currently distributed public platform.
 - The repository contains iOS-capable project code, but this website does not offer an iOS release.
 - Experimental worktrees, PTYs, MCP management, diagnostics, and some lifecycle actions depend on server capabilities.
 - The mobile terminal is a focused line console, not a complete VT terminal emulator.

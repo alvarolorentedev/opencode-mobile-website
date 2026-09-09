@@ -9,7 +9,7 @@ import styles from './index.module.css';
 
 const APK_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk';
-const PLAY_BETA_URL = 'https://play.google.com/apps/testing/app.getopencode';
+const PLAY_URL = 'https://play.google.com/store/apps/details?id=app.getopencode';
 const GITHUB_URL = 'https://github.com/alvarolorentedev/opencode-mobile';
 const OPENCODE_URL = 'https://opencode.ai/';
 
@@ -102,7 +102,7 @@ const faqItems = [
   {
     question: 'Which devices are supported?',
     answer:
-      'The current beta is available for Android through Google Play testing or as a direct APK. An iOS build is not available at this time.',
+      'The current release is available for Android through Google Play or as a direct APK. An iOS build is not available at this time.',
   },
   {
     question: 'Do I need an existing OpenCode setup?',
@@ -133,10 +133,10 @@ function ActionLinks({compact = false}: {compact?: boolean}) {
     <div className={compact ? styles.actionLinksCompact : styles.actionLinks}>
       <Link
         className={styles.primaryAction}
-        href={PLAY_BETA_URL}
+        href={PLAY_URL}
         target="_blank"
         rel="noopener noreferrer">
-        Join The Beta
+        Download From Google Play
       </Link>
       <Link
         className={styles.secondaryAction}
@@ -162,7 +162,7 @@ function HeroSection() {
           from Android—without reopening your laptop.
         </p>
         <ActionLinks />
-        <p className={styles.releaseMeta}>Android beta · Google Play testing · Apache-2.0</p>
+        <p className={styles.releaseMeta}>Android release · Google Play · Apache-2.0</p>
       </div>
 
       <figure className={styles.heroMedia}>
@@ -190,7 +190,7 @@ function TrustStrip() {
     <section className={styles.trustStrip} aria-label="Product facts">
       <span>Community-built</span>
       <span>Open source</span>
-      <span>Android beta</span>
+      <span>Android</span>
       <span>Works with OpenCode server</span>
     </section>
   );
@@ -380,7 +380,7 @@ function DownloadSection() {
         <div>
           <Heading as="h2">Choose how you want to install.</Heading>
           <p>
-            Join the Google Play beta for the easiest updates, or download the
+            Join through Google Play for the easiest updates, or download the
             latest APK directly from GitHub for a manual installation.
           </p>
         </div>
@@ -389,17 +389,17 @@ function DownloadSection() {
       <div className={styles.downloadOptions}>
         <article>
           <span className={styles.downloadLabel}>Recommended</span>
-          <Heading as="h3">Google Play beta</Heading>
+          <Heading as="h3">Google Play</Heading>
           <p>
-            Enroll with your Google account, then install and receive beta
+            Enroll with your Google account, then install and receive
             updates through the Play Store.
           </p>
           <Link
             className={styles.primaryAction}
-            href={PLAY_BETA_URL}
+            href={PLAY_URL}
             target="_blank"
             rel="noopener noreferrer">
-            Join The Beta
+            Download From Google Play
           </Link>
         </article>
         <article>
@@ -456,7 +456,7 @@ function FinalCtaSection() {
         <p className={styles.sectionIndex}>Ready when your server is.</p>
         <Heading as="h2">Take your next OpenCode session with you.</Heading>
         <p>
-          Join through Google Play for automatic beta updates, or visit GitHub
+          Join through Google Play for automatic updates, or visit GitHub
           to inspect the code and help shape what comes next.
         </p>
       </div>
