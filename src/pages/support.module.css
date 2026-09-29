@@ -78,7 +78,7 @@
 }
 
 .primaryOptions {
-  align-items: start;
+  align-items: stretch;
   border-bottom: 1px solid var(--support-border);
 }
 

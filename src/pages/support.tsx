@@ -150,7 +150,6 @@ export default function SupportPage(): ReactNode {
                   src={kofiEmbedUrl}
                   loading="lazy"
                 />
-                
               </>
             ) : (
               <p className={styles.unavailable}>Ko-fi link unavailable.</p>
