@@ -144,19 +144,13 @@ export default function SupportPage(): ReactNode {
             <p>Support the project through Ko-fi.</p>
             {kofiUrl && kofiEmbedUrl ? (
               <>
-                <a
-                  className={styles.secondaryAction}
-                  href={kofiUrl}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  Support on Ko-fi
-                </a>
                 <iframe
                   className={styles.kofiPanel}
                   title="Ko-fi tip panel for OpenCode Mobile"
                   src={kofiEmbedUrl}
                   loading="lazy"
                 />
+                
               </>
             ) : (
               <p className={styles.unavailable}>Ko-fi link unavailable.</p>
