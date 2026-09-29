@@ -1,8 +1,10 @@
 ---
 import '../styles/tokens.css';
+import '../styles/nav.css';
 import '../styles/marketing.css';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import ThemeScript from '../components/ThemeScript.astro';
 import { SITE, SOCIAL_CARD, siteStructuredData } from '../lib/site';
 
 const fm = (Astro.props.frontmatter ?? {}) as {
@@ -38,20 +40,7 @@ const GA_ID = 'G-WS6H4XMXGG';
     <meta property="og:image:alt" content="OpenCode Mobile" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={SOCIAL_CARD} />
-    <script is:inline>
-      (() => {
-        let stored = null;
-        try {
-          stored = localStorage.getItem('starlight-theme');
-        } catch {}
-        const theme =
-          stored ||
-          (window.matchMedia('(prefers-color-scheme: light)').matches
-            ? 'light'
-            : 'dark');
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
+    <ThemeScript />
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     <script is:inline define:vars={{ GA_ID }}>
       window.dataLayer = window.dataLayer || [];

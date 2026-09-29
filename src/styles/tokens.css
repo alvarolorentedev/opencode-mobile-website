@@ -59,3 +59,18 @@
   --ocm-gray-6: #e2dcdc;
   --ocm-gray-7: #f4f0f0;
 }
+
+/*
+ * Short aliases used by the shared header (`nav.css`) and the marketing
+ * layout. Defined here so both can be loaded together or independently.
+ */
+:root {
+  --mk-bg: var(--ocm-bg);
+  --mk-surface: var(--ocm-surface);
+  --mk-text: var(--ocm-text);
+  --mk-muted: var(--ocm-muted);
+  --mk-soft: var(--ocm-soft);
+  --mk-border: var(--ocm-border);
+  --mk-accent: var(--ocm-accent);
+  --mk-accent-text: var(--ocm-accent-text);
+}

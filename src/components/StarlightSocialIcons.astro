@@ -4,6 +4,9 @@ import { downloadLink, githubLink, navLinks } from '../lib/nav';
 ---
 
 <ul class="site-links sl-flex">
+  <li class="site-links__search">
+    <button type="button" data-search-open>Search</button>
+  </li>
   {
     navLinks.map((link) => (
       <li>
@@ -25,11 +28,26 @@ import { downloadLink, githubLink, navLinks } from '../lib/nav';
 <style>
   @layer starlight.core {
     .site-links {
+      flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
       margin: 0;
       padding: 0;
       list-style: none;
+    }
+    .site-links__search {
+      flex-basis: 100%;
+    }
+    .site-links__search button {
+      width: 100%;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid var(--sl-color-gray-5);
+      border-radius: 0.5rem;
+      background: var(--sl-color-black);
+      color: var(--sl-color-white);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
     }
     .site-links a {
       color: var(--sl-color-gray-2);

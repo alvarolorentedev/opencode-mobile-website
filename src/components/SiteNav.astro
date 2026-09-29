@@ -1,10 +1,21 @@
 ---
 import SiteSearch from './SiteSearch.astro';
-import ThemeSelect from './ThemeSelect.astro';
 import { downloadLink, githubLink, navLinks } from '../lib/nav';
+
+interface Props {
+  /**
+   * `marketing` renders the sticky top bar used by the public pages.
+   * `docs` renders inside Starlight's fixed header shell and defers the
+   * mobile navigation to Starlight's sidebar drawer.
+   */
+  variant?: 'marketing' | 'docs';
+}
+
+const { variant = 'marketing' } = Astro.props;
+const isDocs = variant === 'docs';
 ---
 
-<nav class="site-nav" aria-label="Main">
+<nav class:list={['site-nav', isDocs && 'site-nav--docs']} aria-label="Main">
   <div class="site-nav__inner">
     <a class="site-nav__brand" href="/">
       <img src="/img/logo.svg" alt="" width="28" height="28" />
@@ -43,33 +54,25 @@ import { downloadLink, githubLink, navLinks } from '../lib/nav';
       </a>
 
       <a class="site-nav__cta" href={downloadLink.href}>{downloadLink.label}</a>
-
-      <div class="site-nav__menu-theme">
-        <ThemeSelect />
-      </div>
     </div>
 
-    <div class="site-nav__end">
-      <ThemeSelect />
-
-      <button
-        class="site-nav__burger"
-        id="site-menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-menu"
-        aria-label="Open main menu"
-      >
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <path
-            d="M4 7h16M4 12h16M4 17h16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"></path>
-        </svg>
-      </button>
-    </div>
+    <button
+      class="site-nav__burger"
+      id="site-menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Open main menu"
+    >
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path
+          d="M4 7h16M4 12h16M4 17h16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"></path>
+      </svg>
+    </button>
   </div>
 </nav>
 
@@ -99,37 +102,6 @@ import { downloadLink, githubLink, navLinks } from '../lib/nav';
       if (event.key === 'Escape' && menu?.classList.contains('is-open')) {
         closeMenu();
       }
-    });
-
-    const root = document.documentElement;
-    const themeSelects = document.querySelectorAll('[data-theme-select]');
-
-    const applyTheme = (value) => {
-      try {
-        if (value === 'auto') localStorage.removeItem('starlight-theme');
-        else localStorage.setItem('starlight-theme', value);
-      } catch {}
-      root.dataset.theme =
-        value === 'auto'
-          ? window.matchMedia('(prefers-color-scheme: light)').matches
-            ? 'light'
-            : 'dark'
-          : value;
-    };
-
-    let stored = 'auto';
-    try {
-      stored = localStorage.getItem('starlight-theme') || 'auto';
-    } catch {}
-
-    themeSelects.forEach((select) => {
-      select.value = stored;
-      select.addEventListener('change', () => {
-        applyTheme(select.value);
-        themeSelects.forEach((other) => {
-          other.value = select.value;
-        });
-      });
     });
   })();
 </script>

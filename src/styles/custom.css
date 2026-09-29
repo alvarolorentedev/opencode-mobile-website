@@ -8,6 +8,9 @@
   --sl-font: var(--ocm-font-sans);
   --sl-font-mono: var(--ocm-font-mono);
 
+  /* The shared SiteNav is slightly taller than Starlight's default header. */
+  --sl-nav-height: 4rem;
+
   --sl-color-white: var(--ocm-gray-1);
   --sl-color-gray-1: var(--ocm-gray-1);
   --sl-color-gray-2: var(--ocm-gray-2);
@@ -49,4 +52,26 @@
 
 :root[data-theme='dark'] .theme-screenshot-dark {
   display: block;
+}
+
+/*
+ * The docs header renders the shared `SiteNav` component inside Starlight's
+ * fixed header shell. Reset the shell chrome so the shared nav controls its
+ * own layout, and defer mobile navigation to Starlight's sidebar drawer.
+ */
+.header {
+  padding: 0;
+}
+
+.site-nav--docs {
+  position: static;
+  z-index: auto;
+  border-bottom: 0;
+  background: transparent;
+}
+
+@media (max-width: 1100px) {
+  .site-nav--docs .site-nav__burger {
+    display: none;
+  }
 }

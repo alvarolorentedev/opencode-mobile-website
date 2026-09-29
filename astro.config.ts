@@ -37,10 +37,17 @@ export default defineConfig({
         },
       ],
       components: {
+        Header: './src/components/StarlightHeader.astro',
         Head: './src/components/StarlightHead.astro',
         SocialIcons: './src/components/StarlightSocialIcons.astro',
+        ThemeProvider: './src/components/StarlightThemeProvider.astro',
+        ThemeSelect: './src/components/StarlightThemeSelect.astro',
       },
-      customCss: ['./src/styles/tokens.css', './src/styles/custom.css'],
+      customCss: [
+        './src/styles/tokens.css',
+        './src/styles/nav.css',
+        './src/styles/custom.css',
+      ],
       sidebar: [
         { label: 'Introduction', link: '/docs/introduction/' },
         {

@@ -1,0 +1,23 @@
+---
+/**
+ * Applies the system color scheme and keeps it in sync with OS changes.
+ * Inlined to avoid a flash of the wrong theme; the site has no manual
+ * theme control, so any previously stored preference is discarded.
+ */
+---
+
+<script is:inline>
+  (() => {
+    try {
+      localStorage.removeItem('starlight-theme');
+    } catch {}
+    const query = window.matchMedia('(prefers-color-scheme: light)');
+    const apply = () => {
+      document.documentElement.dataset.theme = query.matches ? 'light' : 'dark';
+    };
+    apply();
+    query.addEventListener?.('change', apply);
+    // Keep Starlight's API surface intact for any component that references it.
+    window.StarlightThemeProvider = { updatePickers() {} };
+  })();
+</script>
