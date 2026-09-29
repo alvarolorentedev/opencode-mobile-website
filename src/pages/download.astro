@@ -1,0 +1,167 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import styles from './download.module.css';
+import {
+  APK_URL,
+  PLAY_URL,
+  RELEASES_URL,
+  TESTFLIGHT_URL,
+} from '../lib/site';
+
+const title = 'Download OpenCode Mobile for Android and iOS';
+const description =
+  'Download OpenCode Mobile through Google Play or GitHub on Android, or join the iOS beta through TestFlight.';
+
+const installOptions = [
+  {
+    label: 'Recommended',
+    heading: 'Google Play',
+    summary:
+      'Best when you want a familiar installation and automatic updates through Google Play.',
+    steps: [
+      'Open the Google Play page with your Google account.',
+      'Install OpenCode Mobile from Google Play.',
+      'Open the app and complete the setup.',
+    ],
+    action: { label: 'Download From Google Play', href: PLAY_URL, primary: true },
+  },
+  {
+    label: 'iOS beta',
+    heading: 'TestFlight',
+    summary:
+      'Best when you use an iPhone or iPad and want to receive the current beta build and its updates.',
+    steps: [
+      'Install TestFlight from the App Store if needed.',
+      'Open the OpenCode Mobile TestFlight release.',
+      'Install the beta and complete the same server setup.',
+    ],
+    action: { label: 'Join iOS TestFlight', href: TESTFLIGHT_URL, primary: false },
+  },
+  {
+    label: 'Manual installation',
+    heading: 'Direct APK from GitHub',
+    summary:
+      'Best when Google Play testing is unavailable or you prefer to install release files yourself.',
+    steps: [
+      'Download the latest APK from the project release.',
+      'Allow installs from that source if Android asks.',
+      'Open the APK and confirm the installation.',
+    ],
+    action: { label: 'Download latest APK', href: APK_URL, primary: false },
+  },
+];
+
+const nextLinks = [
+  { label: 'Read the mobile app setup guide', href: '/docs/opencode-android-app/', external: false },
+  { label: 'Open the setup guide', href: '/docs/getting-started/', external: false },
+  { label: 'Review remote-access security', href: '/docs/guides/remote-access-security/', external: false },
+  { label: 'View release notes', href: RELEASES_URL, external: true },
+];
+---
+
+<MarketingLayout title={title} description={description}>
+  <main class={styles.page}>
+    <header class={styles.hero}>
+      <p class={styles.kicker}>OpenCode Mobile for Android and iOS</p>
+      <h1>Download OpenCode Mobile.</h1>
+      <p class={styles.lede}>
+        Install on Android through Google Play or a direct APK, or join the iOS
+        beta through TestFlight.
+      </p>
+      <div class={styles.actions}>
+        <a
+          class={styles.primaryAction}
+          href={PLAY_URL}
+          target="_blank"
+          rel="noopener noreferrer">Download From Google Play</a
+        >
+        <a
+          class={styles.secondaryAction}
+          href={APK_URL}
+          target="_blank"
+          rel="noopener noreferrer">Download latest APK</a
+        >
+        <a
+          class={styles.secondaryAction}
+          href={TESTFLIGHT_URL}
+          target="_blank"
+          rel="noopener noreferrer">Join iOS TestFlight</a
+        >
+      </div>
+    </header>
+
+    <section class={styles.options} aria-labelledby="install-options">
+      <div class={styles.sectionHeading}>
+        <span>01</span>
+        <div>
+          <h2 id="install-options">Three ways to install</h2>
+          <p>Choose the Android release path or join the iOS beta.</p>
+        </div>
+      </div>
+
+      <div class={styles.optionGrid}>
+        {
+          installOptions.map((option) => (
+            <article>
+              <p class={styles.optionLabel}>{option.label}</p>
+              <h3>{option.heading}</h3>
+              <p class={styles.optionSummary}>{option.summary}</p>
+              <ol>
+                {option.steps.map((step) => (
+                  <li>{step}</li>
+                ))}
+              </ol>
+              <a
+                class={option.action.primary ? styles.primaryAction : styles.secondaryAction}
+                href={option.action.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {option.action.label}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class={styles.requirements} aria-labelledby="requirements">
+      <div class={styles.sectionHeading}>
+        <span>02</span>
+        <div>
+          <h2 id="requirements">What you need</h2>
+          <p>The app is a client for an OpenCode server you control.</p>
+        </div>
+      </div>
+      <ul>
+        <li>An Android device or iPhone/iPad</li>
+        <li>A running OpenCode server</li>
+        <li>A secure route from your phone to that server</li>
+        <li>Your server URL and authentication details</li>
+      </ul>
+    </section>
+
+    <section class={styles.nextStep}>
+      <div>
+        <h2>Installed? Connect your server next.</h2>
+        <p>
+          Follow the onboarding guide to run OpenCode, choose a secure
+          connection method, and sign in from the app.
+        </p>
+      </div>
+      <div class={styles.nextLinks}>
+        {
+          nextLinks.map((link) => (
+            <a
+              href={link.href}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              target={link.external ? '_blank' : undefined}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</MarketingLayout>

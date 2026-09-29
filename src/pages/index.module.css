@@ -1,32 +1,19 @@
 .landingPage {
-  --landing-bg: #131111;
-  --landing-surface: #191717;
-  --landing-surface-strong: #201d1d;
-  --landing-text: #f2eded;
-  --landing-muted: #b8b2b2;
-  --landing-soft: #858080;
-  --landing-border: #343030;
-  --landing-accent: #78e5c1;
-  --landing-accent-text: #0c1713;
+  --landing-bg: var(--ocm-bg);
+  --landing-surface: var(--ocm-surface);
+  --landing-surface-strong: var(--ocm-surface-strong);
+  --landing-text: var(--ocm-text);
+  --landing-muted: var(--ocm-muted);
+  --landing-soft: var(--ocm-soft);
+  --landing-border: var(--ocm-border);
+  --landing-accent: var(--ocm-accent);
+  --landing-accent-text: var(--ocm-accent-text);
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   border-inline: 1px solid var(--landing-border);
   background: var(--landing-bg);
   color: var(--landing-text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', monospace;
-}
-
-[data-theme='light'] .landingPage {
-  --landing-bg: #f4f0f0;
-  --landing-surface: #ebe6e6;
-  --landing-surface-strong: #e2dcdc;
-  --landing-text: #1b1818;
-  --landing-muted: #5f5959;
-  --landing-soft: #696262;
-  --landing-border: #cbc4c4;
-  --landing-accent: #0f6f53;
-  --landing-accent-text: #ffffff;
+  font-family: var(--ocm-font-sans);
 }
 
 .landingPage h1,
@@ -55,7 +42,6 @@
   flex-direction: column;
   justify-content: center;
   padding: clamp(34px, 4vw, 54px) clamp(34px, 4vw, 52px);
-  transform: translateY(-42px);
 }
 
 .eyebrow,
@@ -719,15 +705,7 @@
   }
 
   .galleryGrid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-  }
-
-  .galleryItem {
-    flex: 0 0 min(88vw, 380px);
-    scroll-snap-align: start;
+    grid-template-columns: 1fr;
   }
 
   .setupGrid li + li,
@@ -737,8 +715,8 @@
   }
 
   .galleryItem + .galleryItem {
-    border-top: 0;
-    border-left: 1px solid var(--landing-border);
+    border-top: 1px solid var(--landing-border);
+    border-left: 0;
   }
 
   .downloadOptions article {
@@ -784,9 +762,18 @@
   }
 
   .featureList article {
-    grid-template-columns: 42px minmax(90px, 0.35fr) minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: start;
+    gap: 8px 14px;
     padding: 22px;
+  }
+
+  .featureList article > div {
+    grid-column: 2;
+  }
+
+  .featureList h3 {
+    margin-top: 2px;
   }
 
   .relationshipSection,
@@ -814,11 +801,11 @@
   }
 
   .featureList article {
-    grid-template-columns: 36px 1fr;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 6px 12px;
   }
 
   .featureList p {
-    grid-column: 2;
     line-height: 1.6;
   }
 }

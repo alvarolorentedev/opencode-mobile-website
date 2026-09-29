@@ -1,18 +1,16 @@
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import {createElement} from 'react';
-import {renderToStaticMarkup} from 'react-dom/server';
-import {QRCodeSVG} from 'qrcode.react';
+import QRCode from 'qrcode';
 
-import {copyAddress} from '../src/utils/copyAddress.mjs';
+import { copyAddress } from '../src/lib/copyAddress.mjs';
 
 const wallets = JSON.parse(
   await readFile(new URL('../src/data/cryptoDonations.json', import.meta.url), 'utf8'),
 );
 
 test('Bitcoin config has the public address and amount-free Bitcoin URI', () => {
-  const bitcoin = wallets.find(({symbol}) => symbol === 'BTC');
+  const bitcoin = wallets.find(({ symbol }) => symbol === 'BTC');
   assert.ok(bitcoin);
   assert.equal(bitcoin.name, 'Bitcoin');
   assert.equal(bitcoin.address, 'bc1qsp889wm0ehu5xrsq9zv6607qkxzvxgkvxnfsux');
@@ -22,7 +20,7 @@ test('Bitcoin config has the public address and amount-free Bitcoin URI', () => 
 });
 
 test('Ethereum config has the public address and amount-free Ethereum URI', () => {
-  const ethereum = wallets.find(({symbol}) => symbol === 'ETH');
+  const ethereum = wallets.find(({ symbol }) => symbol === 'ETH');
   assert.ok(ethereum);
   assert.equal(ethereum.name, 'Ethereum');
   assert.equal(ethereum.address, '0x99d784b3844A883030332D690a7A2ef59aaA547e');
@@ -31,17 +29,10 @@ test('Ethereum config has the public address and amount-free Ethereum URI', () =
   assert.doesNotMatch(ethereum.paymentUri, /amount=/i);
 });
 
-test('QRs render locally from the configured payment URIs', () => {
+test('QR codes render as local SVG from the configured payment URIs', async () => {
   for (const wallet of wallets) {
-    const markup = renderToStaticMarkup(
-      createElement(QRCodeSVG, {
-        value: wallet.paymentUri,
-        size: 240,
-        level: 'M',
-        marginSize: 4,
-      }),
-    );
-    assert.match(markup, /^<svg/);
+    const markup = await QRCode.toString(wallet.paymentUri, { type: 'svg' });
+    assert.match(markup, /^<\?xml|<svg/);
     assert.match(markup, /<path/);
   }
 });

@@ -1,6 +1,8 @@
 ---
 title: Terms & Conditions
 description: Read the terms governing use of OpenCode Mobile, including its open-source license, acceptable use, liability, changes, and contact details.
+layout: ../layouts/MarketingLayout.astro
+prose: true
 ---
 
 # Terms & Conditions

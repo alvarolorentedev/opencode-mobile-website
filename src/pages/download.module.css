@@ -1,30 +1,18 @@
 .page {
-  --download-bg: #131111;
-  --download-surface: #191717;
-  --download-text: #f2eded;
-  --download-muted: #b8b2b2;
-  --download-soft: #858080;
-  --download-border: #343030;
-  --download-accent: #78e5c1;
-  --download-accent-text: #0c1713;
+  --download-bg: var(--ocm-bg);
+  --download-surface: var(--ocm-surface);
+  --download-text: var(--ocm-text);
+  --download-muted: var(--ocm-muted);
+  --download-soft: var(--ocm-soft);
+  --download-border: var(--ocm-border);
+  --download-accent: var(--ocm-accent);
+  --download-accent-text: var(--ocm-accent-text);
   width: min(1100px, calc(100% - 32px));
   margin: 0 auto;
   border-inline: 1px solid var(--download-border);
   background: var(--download-bg);
   color: var(--download-text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', monospace;
-}
-
-[data-theme='light'] .page {
-  --download-bg: #f4f0f0;
-  --download-surface: #ebe6e6;
-  --download-text: #1b1818;
-  --download-muted: #5f5959;
-  --download-soft: #696262;
-  --download-border: #cbc4c4;
-  --download-accent: #0f6f53;
-  --download-accent-text: #fff;
+  font-family: var(--ocm-font-sans);
 }
 
 .page h1,

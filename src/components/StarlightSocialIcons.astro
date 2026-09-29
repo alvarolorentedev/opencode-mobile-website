@@ -1,0 +1,42 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+import { downloadLink, githubLink, navLinks } from '../lib/nav';
+
+const links = [...navLinks, downloadLink];
+---
+
+<ul class="site-links sl-flex">
+  {
+    links.map((link) => (
+      <li>
+        <a href={link.href}>{link.label}</a>
+      </li>
+    ))
+  }
+  <li>
+    <a href={githubLink.href} rel="me">
+      <span class="sr-only">{githubLink.label}</span>
+      <Icon name="github" />
+    </a>
+  </li>
+</ul>
+
+<style>
+  @layer starlight.core {
+    .site-links {
+      gap: 1rem;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .site-links a {
+      color: var(--sl-color-gray-2);
+      font-size: var(--sl-text-sm);
+      text-decoration: none;
+    }
+    .site-links a:hover {
+      color: var(--sl-color-white);
+    }
+  }
+</style>

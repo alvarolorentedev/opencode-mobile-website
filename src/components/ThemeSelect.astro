@@ -1,0 +1,20 @@
+---
+// Theme control that mirrors Starlight's picker. Supports multiple instances
+// (desktop header + mobile menu) via the `data-theme-select` attribute.
+---
+
+<label class="site-nav__theme">
+  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+    <path
+      d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linejoin="round"></path>
+  </svg>
+  <select data-theme-select aria-label="Color theme">
+    <option value="auto">Auto</option>
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
+  </select>
+</label>

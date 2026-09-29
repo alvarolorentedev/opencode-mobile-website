@@ -1,30 +1,18 @@
 .page {
-  --support-bg: #131111;
-  --support-surface: #191717;
-  --support-text: #f2eded;
-  --support-muted: #b8b2b2;
-  --support-soft: #858080;
-  --support-border: #343030;
-  --support-accent: #78e5c1;
-  --support-accent-text: #0c1713;
+  --support-bg: var(--ocm-bg);
+  --support-surface: var(--ocm-surface);
+  --support-text: var(--ocm-text);
+  --support-muted: var(--ocm-muted);
+  --support-soft: var(--ocm-soft);
+  --support-border: var(--ocm-border);
+  --support-accent: var(--ocm-accent);
+  --support-accent-text: var(--ocm-accent-text);
   width: min(1100px, calc(100% - 32px));
   margin: 0 auto;
   border-inline: 1px solid var(--support-border);
   background: var(--support-bg);
   color: var(--support-text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', monospace;
-}
-
-[data-theme='light'] .page {
-  --support-bg: #f4f0f0;
-  --support-surface: #ebe6e6;
-  --support-text: #1b1818;
-  --support-muted: #5f5959;
-  --support-soft: #696262;
-  --support-border: #cbc4c4;
-  --support-accent: #0f6f53;
-  --support-accent-text: #fff;
+  font-family: var(--ocm-font-sans);
 }
 
 .page h1,
@@ -341,6 +329,11 @@
 }
 
 @media (max-width: 700px) {
+  .page {
+    width: 100%;
+    border-inline: 0;
+  }
+
   .primaryOptions,
   .cryptoGrid {
     grid-template-columns: 1fr;

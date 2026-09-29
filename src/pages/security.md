@@ -1,6 +1,8 @@
 ---
 title: OpenCode Mobile Security
 description: Understand OpenCode Mobile credentials, remote-access risks, safe deployment requirements, and how to report a security issue privately.
+layout: ../layouts/MarketingLayout.astro
+prose: true
 last_update:
   author: Alvaro Lorente
   date: 2026-07-31

@@ -1,6 +1,8 @@
 ---
 title: Privacy Policy
 description: Read the OpenCode Mobile privacy policy, including data collection, security, children, changes, consent, and contact information.
+layout: ../layouts/MarketingLayout.astro
+prose: true
 ---
 
 # Privacy Policy

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://getopencode.app/sitemap.xml
+Sitemap: https://getopencode.app/sitemap-index.xml

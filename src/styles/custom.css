@@ -1,0 +1,52 @@
+/*
+ * Starlight theme: maps Starlight's design tokens to the shared OpenCode
+ * Mobile tokens defined in `tokens.css` so the docs match the marketing
+ * pages. Unlayered rules here override Starlight's layered defaults.
+ */
+
+:root {
+  --sl-font: var(--ocm-font-sans);
+  --sl-font-mono: var(--ocm-font-mono);
+
+  --sl-color-white: var(--ocm-gray-1);
+  --sl-color-gray-1: var(--ocm-gray-1);
+  --sl-color-gray-2: var(--ocm-gray-2);
+  --sl-color-gray-3: var(--ocm-gray-3);
+  --sl-color-gray-4: var(--ocm-gray-4);
+  --sl-color-gray-5: var(--ocm-gray-5);
+  --sl-color-gray-6: var(--ocm-gray-6);
+  --sl-color-gray-7: var(--ocm-gray-7);
+  --sl-color-black: var(--ocm-gray-7);
+
+  --sl-color-accent-low: var(--ocm-accent-low);
+  --sl-color-accent: var(--ocm-accent);
+  --sl-color-accent-high: var(--ocm-accent-high);
+
+  --sl-color-text: var(--ocm-gray-1);
+  --sl-color-bg: var(--ocm-bg);
+  --sl-color-bg-nav: var(--ocm-surface);
+  --sl-color-bg-sidebar: var(--ocm-surface);
+  --sl-color-bg-inline-code: var(--ocm-gray-5);
+  --sl-color-hairline: var(--ocm-border);
+  --sl-color-hairline-light: var(--ocm-gray-5);
+  --sl-color-hairline-shade: var(--ocm-bg);
+}
+
+.theme-screenshot-light,
+.theme-screenshot-dark {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.theme-screenshot-dark {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-screenshot-light {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-screenshot-dark {
+  display: block;
+}

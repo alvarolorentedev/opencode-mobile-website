@@ -1,0 +1,92 @@
+---
+import {
+  GITHUB_URL,
+  GITHUB_WEBSITE_URL,
+  PLAY_URL,
+  TESTFLIGHT_URL,
+} from '../lib/site';
+import { githubSponsorsUrl } from '../lib/support';
+
+const columns = [
+  {
+    title: 'Docs',
+    items: [
+      { label: 'Documentation', href: '/docs/' },
+      { label: 'Introduction', href: '/docs/introduction/' },
+      { label: 'Getting Started', href: '/docs/getting-started/' },
+      { label: 'FAQ', href: '/docs/faq/' },
+    ],
+  },
+  {
+    title: 'Product',
+    items: [
+      { label: 'Features', href: '/docs/features/' },
+      { label: 'Remote Access', href: '/docs/remote-access/' },
+      { label: 'Changelog', href: '/docs/changelog/' },
+      { label: 'Download', href: '/download/' },
+    ],
+  },
+  {
+    title: 'More',
+    items: [
+      { label: 'GitHub', href: GITHUB_URL, external: true },
+      { label: 'Website source', href: GITHUB_WEBSITE_URL, external: true },
+      { label: 'About', href: '/about/' },
+      { label: 'Sponsor', href: '/support/' },
+      { label: 'Security', href: '/security/' },
+      ...(githubSponsorsUrl
+        ? [{ label: 'GitHub Sponsors', href: githubSponsorsUrl, external: true }]
+        : []),
+    ],
+  },
+];
+
+const downloadItems = [
+  { label: 'Download Android', href: PLAY_URL },
+  { label: 'Join iOS beta', href: TESTFLIGHT_URL },
+];
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    {
+      columns.map((column) => (
+        <div>
+          <h2>{column.title}</h2>
+          <ul>
+            {column.items.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  rel={(item as { external?: boolean }).external
+                    ? 'noopener noreferrer'
+                    : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    <div>
+      <h2>Install</h2>
+      <ul>
+        {
+          downloadItems.map((item) => (
+            <li>
+              <a href={item.href} rel="noopener noreferrer">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <p class="site-footer__copy">
+    Copyright &copy; {new Date().getFullYear()} OpenCode Mobile. Community-built for
+    OpenCode.
+  </p>
+</footer>

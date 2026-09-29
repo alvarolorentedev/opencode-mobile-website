@@ -1,0 +1,78 @@
+---
+import '../styles/tokens.css';
+import '../styles/marketing.css';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { SITE, SOCIAL_CARD, siteStructuredData } from '../lib/site';
+
+const fm = (Astro.props.frontmatter ?? {}) as {
+  title?: string;
+  description?: string;
+  prose?: boolean;
+};
+const title = fm.title ?? (Astro.props.title as string | undefined);
+const description =
+  fm.description ?? (Astro.props.description as string | undefined);
+const prose = fm.prose === true;
+
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const fullTitle = title ? `${title} | OpenCode Mobile` : 'OpenCode Mobile';
+const GA_ID = 'G-WS6H4XMXGG';
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/img/favicon.ico" />
+    <meta name="theme-color" content="#131111" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={SOCIAL_CARD} />
+    <meta property="og:image:alt" content="OpenCode Mobile" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={SOCIAL_CARD} />
+    <script is:inline>
+      (() => {
+        let stored = null;
+        try {
+          stored = localStorage.getItem('starlight-theme');
+        } catch {}
+        const theme =
+          stored ||
+          (window.matchMedia('(prefers-color-scheme: light)').matches
+            ? 'light'
+            : 'dark');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    </script>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(siteStructuredData)}
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteNav />
+    <main id="main" data-pagefind-body>
+      {prose ? <article class="prose"><slot /></article> : <slot />}
+    </main>
+    <SiteFooter />
+  </body>
+</html>

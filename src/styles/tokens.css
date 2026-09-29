@@ -1,0 +1,61 @@
+/*
+ * Single source of truth for the OpenCode Mobile design tokens.
+ * Loaded by both the Starlight docs shell (via `customCss`) and the
+ * marketing pages (via `MarketingLayout`).
+ */
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --ocm-font-sans: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --ocm-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  --ocm-bg: #131111;
+  --ocm-surface: #191717;
+  --ocm-surface-strong: #201d1d;
+  --ocm-text: #f2eded;
+  --ocm-muted: #b8b2b2;
+  --ocm-soft: #858080;
+  --ocm-border: #343030;
+  --ocm-accent: #78e5c1;
+  --ocm-accent-low: #102e25;
+  --ocm-accent-high: #c8f7e7;
+  --ocm-accent-text: #0c1713;
+  --ocm-radius: 4px;
+
+  /* Neutral ramp: 1 = strongest text, 7 = background */
+  --ocm-gray-1: #f2eded;
+  --ocm-gray-2: #c9c3c3;
+  --ocm-gray-3: #a49e9e;
+  --ocm-gray-4: #6f6969;
+  --ocm-gray-5: #343030;
+  --ocm-gray-6: #191717;
+  --ocm-gray-7: #131111;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --ocm-bg: #f4f0f0;
+  --ocm-surface: #ebe6e6;
+  --ocm-surface-strong: #e2dcdc;
+  --ocm-text: #1b1818;
+  --ocm-muted: #5f5959;
+  --ocm-soft: #696262;
+  --ocm-border: #cbc4c4;
+  --ocm-accent: #0f6f53;
+  --ocm-accent-low: #cdebdf;
+  --ocm-accent-high: #0c4938;
+  --ocm-accent-text: #ffffff;
+
+  --ocm-gray-1: #1b1818;
+  --ocm-gray-2: #5f5959;
+  --ocm-gray-3: #696262;
+  --ocm-gray-4: #8a8484;
+  --ocm-gray-5: #cbc4c4;
+  --ocm-gray-6: #e2dcdc;
+  --ocm-gray-7: #f4f0f0;
+}

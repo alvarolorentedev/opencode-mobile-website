@@ -1,6 +1,8 @@
 ---
 title: About OpenCode Mobile and its maintainer
 description: Learn who builds OpenCode Mobile, how the mobile app relates to OpenCode, and where its source, releases, testing evidence, and support channels live.
+layout: ../layouts/MarketingLayout.astro
+prose: true
 last_update:
   author: Alvaro Lorente
   date: 2026-07-31

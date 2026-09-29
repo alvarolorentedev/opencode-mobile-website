@@ -1,0 +1,400 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import styles from './index.module.css';
+import {
+  APK_URL,
+  GITHUB_URL,
+  OPENCODE_URL,
+  PLAY_URL,
+  TESTFLIGHT_URL,
+} from '../lib/site';
+
+const title = 'OpenCode Mobile App';
+const description =
+  'Use OpenCode from Android or iOS to start tasks, monitor sessions, review changes, access files, and run focused terminal commands on your own OpenCode server.';
+
+const productScreens = [
+  {
+    image: '/img/product/task-session.webp',
+    alt: 'OpenCode Mobile task screen showing a new coding session, task suggestions, model controls, and workspace navigation',
+    label: 'Task control',
+    title: 'Start, watch, and redirect',
+    description:
+      'Send the task, see what OpenCode is doing, answer blocking requests, and review the result.',
+  },
+  {
+    image: '/img/product/voice-mode.webp',
+    alt: 'OpenCode Mobile conversation mode listening for a spoken instruction',
+    label: 'Voice mode',
+    title: 'Give the next instruction naturally',
+    description:
+      'Speak a follow-up while away from the keyboard, then return to the same session and context.',
+  },
+  {
+    image: '/img/product/session-usage.webp',
+    alt: 'OpenCode Mobile session usage screen showing context utilization and model token usage',
+    label: 'Usage visibility',
+    title: 'Know what the session is using',
+    description:
+      'Check context utilization, token activity, and the active model without leaving the task.',
+  },
+];
+
+const featureRows = [
+  ['01', 'Start a task', 'Choose the agent and model, send useful context, then follow the work.', '/docs/guides/tasks/'],
+  ['02', 'Review safely', 'Answer permissions deliberately and inspect every changed file.', '/docs/guides/approvals-and-changes/'],
+  ['03', 'Reach the project', 'Find a file, make a focused patch, or run a short terminal command.', '/docs/guides/workspace-files/'],
+  ['04', 'Speak a follow-up', 'Dictate one prompt or use the foreground conversation loop.', '/docs/guides/voice/'],
+  ['05', 'Understand usage', 'Read context pressure, token activity, steps, and cost estimates.', '/docs/guides/usage/'],
+];
+
+const faqItems = [
+  {
+    question: 'Which devices are supported?',
+    answer:
+      'The current release is available for Android through Google Play or a direct APK, and as an iOS beta through TestFlight.',
+  },
+  {
+    question: 'Do I need an existing OpenCode setup?',
+    answer:
+      'Yes. OpenCode Mobile connects to an OpenCode server and works with its sessions and workspaces; it does not replace the server.',
+  },
+  {
+    question: 'How should I expose my OpenCode server?',
+    answer:
+      'Keep OpenCode bound locally, enable username and password authentication, and use a secure HTTPS tunnel or reverse proxy. The setup guide covers the recommended flow.',
+  },
+  {
+    question: 'Is OpenCode Mobile an official OpenCode product?',
+    answer:
+      'No. It is an open-source, community-built companion that works with OpenCode. OpenCode and its trademarks belong to their respective owners.',
+  },
+  {
+    question: 'Where can I report a problem or contribute?',
+    answer:
+      'The source, releases, and issue tracker are public on GitHub. Stars, bug reports, and pull requests all help the project grow.',
+  },
+];
+---
+
+<MarketingLayout title={title} description={description}>
+  <div class={styles.landingPage}>
+    <header class={styles.hero}>
+      <div class={styles.heroCopy}>
+        <p class={styles.eyebrow}>Community-built companion for OpenCode</p>
+        <h1>OpenCode Mobile for Android and iOS.</h1>
+        <p class={styles.heroDescription}>
+          Start tasks, check progress, use the terminal, and manage workspaces
+          from your phone—without reopening your laptop.
+        </p>
+        <div class={styles.actionLinks}>
+          <a
+            class={styles.primaryAction}
+            href={PLAY_URL}
+            target="_blank"
+            rel="noopener noreferrer">Download From Google Play</a
+          >
+          <a
+            class={styles.secondaryAction}
+            href={TESTFLIGHT_URL}
+            target="_blank"
+            rel="noopener noreferrer">Join iOS TestFlight</a
+          >
+          <a
+            class={styles.secondaryAction}
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer">Star on GitHub</a
+          >
+        </div>
+        <p class={styles.releaseMeta}>
+          Android release · iOS TestFlight beta · Apache-2.0
+        </p>
+      </div>
+
+      <figure class={styles.heroMedia}>
+        <div class={styles.mediaHeader}>
+          <span>OpenCode Mobile</span>
+          <span>Live session control</span>
+        </div>
+        <img
+          src="/img/product/task-session.webp"
+          width="720"
+          height="1616"
+          alt="OpenCode Mobile task screen showing a new session, task suggestions, model controls, and workspace navigation"
+          class={styles.heroImage}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption>Start, inspect, and redirect real OpenCode work.</figcaption>
+      </figure>
+    </header>
+
+    <section class={styles.trustStrip} aria-label="Product facts">
+      <span>Community-built</span>
+      <span>Open source</span>
+      <span>Android and iOS</span>
+      <span>Works with OpenCode server</span>
+    </section>
+
+    <section class={styles.walkthroughSection} aria-labelledby="walkthrough-title">
+      <div>
+        <p class={styles.sectionIndex}>60 seconds to understand the app</p>
+        <h2 id="walkthrough-title">From instruction to inspected result.</h2>
+        <p>
+          See three real app screens with simple explanations of what each one
+          helps you accomplish.
+        </p>
+        <a href="/docs/features/">Choose a capability guide</a>
+      </div>
+      <video
+        controls
+        playsinline
+        preload="none"
+        width="1280"
+        height="720"
+        poster="/img/product/walkthrough-poster.avif"
+        class={styles.walkthroughVideo}
+      >
+        <source src="/media/opencode-mobile-walkthrough.mp4" type="video/mp4" />
+        Your browser does not support embedded video.
+      </video>
+    </section>
+
+    <section class={styles.section}>
+      <div class={styles.sectionIntro}>
+        <p class={styles.sectionIndex}>01 / Product</p>
+        <div>
+          <h2 id="product">See the work, not just a notification.</h2>
+          <p>
+            These are the approved app captures, shown at a size where the real
+            controls and information hierarchy remain understandable.
+          </p>
+        </div>
+      </div>
+
+      <div class={styles.galleryGrid}>
+        {
+          productScreens.map((screen) => (
+            <article class={styles.galleryItem}>
+              <div class={styles.galleryCopy}>
+                <span>{screen.label}</span>
+                <h3>{screen.title}</h3>
+                <p>{screen.description}</p>
+              </div>
+              <div class={styles.screenshotFrame}>
+                <img
+                  src={screen.image}
+                  width="720"
+                  height="1616"
+                  alt={screen.alt}
+                  loading="lazy"
+                />
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class={styles.section}>
+      <div class={styles.sectionIntro}>
+        <p class={styles.sectionIndex}>02 / Setup</p>
+        <div>
+          <h2 id="setup">Connect in three deliberate steps.</h2>
+          <p>
+            Your code stays on your machine. The mobile app connects to the
+            OpenCode server you control.
+          </p>
+        </div>
+      </div>
+
+      <ol class={styles.setupGrid}>
+        <li>
+          <span class={styles.stepNumber}>01</span>
+          <h3>Run OpenCode</h3>
+          <p>Start a headless server on the machine that owns your workspace.</p>
+          <code>opencode serve --port 4096</code>
+        </li>
+        <li>
+          <span class={styles.stepNumber}>02</span>
+          <h3>Expose it securely</h3>
+          <p>Add authentication and route it through an HTTPS tunnel or proxy.</p>
+          <code>cloudflared tunnel --url localhost:4096</code>
+        </li>
+        <li>
+          <span class={styles.stepNumber}>03</span>
+          <h3>Connect the app</h3>
+          <p>Enter the protected server URL, choose a workspace, and continue.</p>
+          <a href="/docs/getting-started/">Open the complete setup guide</a>
+        </li>
+      </ol>
+      <nav class={styles.topicLinks} aria-label="OpenCode Mobile setup guides">
+        <a href="/docs/opencode-android-app/">Mobile app setup and download</a>
+        <a href="/docs/guides/use-opencode-from-phone/">Use OpenCode from a phone</a>
+        <a href="/docs/guides/tailscale/">Connect with Tailscale</a>
+        <a href="/docs/guides/cloudflare-tunnel/">Connect with Cloudflare Tunnel</a>
+        <a href="/docs/guides/mobile-vs-web/">Compare the app with OpenCode Web</a>
+      </nav>
+    </section>
+
+    <section class={styles.section}>
+      <div class={styles.sectionIntro}>
+        <p class={styles.sectionIndex}>03 / Control surface</p>
+        <div>
+          <h2>The useful parts of your workflow, kept close.</h2>
+          <p>
+            Built for quick interventions and honest visibility—not for squeezing
+            a desktop IDE onto a smaller screen.
+          </p>
+        </div>
+      </div>
+
+      <div class={styles.featureList}>
+        {
+          featureRows.map(([number, heading, text, href]) => (
+            <article>
+              <span>{number}</span>
+              <h3>{heading}</h3>
+              <div>
+                <p>{text}</p>
+                <a href={href}>How to use it</a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class={styles.relationshipSection}>
+      <div>
+        <p class={styles.sectionIndex}>04 / Relationship</p>
+        <h2>Built for OpenCode. Not a replacement for it.</h2>
+      </div>
+      <div>
+        <p>
+          OpenCode Mobile is an independent, community-built client. It connects
+          to the open-source coding agent you already run and keeps that work
+          reachable when you step away from your desk.
+        </p>
+        <a href={OPENCODE_URL} target="_blank" rel="noopener noreferrer">
+          Explore the original OpenCode product
+        </a>
+      </div>
+    </section>
+
+    <section class={styles.section} id="download">
+      <div class={styles.sectionIntro}>
+        <p class={styles.sectionIndex}>05 / Download</p>
+        <div>
+          <h2>Choose how you want to install.</h2>
+          <p>
+            Install Android through Google Play or GitHub, or join the iOS beta
+            through TestFlight.
+          </p>
+        </div>
+      </div>
+
+      <div class={styles.downloadOptions}>
+        <article>
+          <span class={styles.downloadLabel}>Recommended</span>
+          <h3>Google Play</h3>
+          <p>
+            Enroll with your Google account, then install and receive updates
+            through the Play Store.
+          </p>
+          <a
+            class={styles.primaryAction}
+            href={PLAY_URL}
+            target="_blank"
+            rel="noopener noreferrer">Download From Google Play</a
+          >
+        </article>
+        <article>
+          <span class={styles.downloadLabel}>iOS beta</span>
+          <h3>TestFlight</h3>
+          <p>
+            Install the iOS beta with TestFlight and receive beta updates from
+            the project release channel.
+          </p>
+          <a
+            class={styles.secondaryAction}
+            href={TESTFLIGHT_URL}
+            target="_blank"
+            rel="noopener noreferrer">Join iOS TestFlight</a
+          >
+        </article>
+        <article>
+          <span class={styles.downloadLabel}>Direct install</span>
+          <h3>GitHub APK</h3>
+          <p>
+            Download the latest release yourself. Android may ask you to allow
+            installation from your browser or file manager.
+          </p>
+          <a
+            class={styles.secondaryAction}
+            href={APK_URL}
+            target="_blank"
+            rel="noopener noreferrer">Download latest APK</a
+          >
+        </article>
+      </div>
+
+      <div class={styles.downloadGuideLink}>
+        <a href="/download/">Compare installation methods and requirements</a>
+      </div>
+    </section>
+
+    <section class={styles.section} id="faq">
+      <div class={styles.sectionIntro}>
+        <p class={styles.sectionIndex}>06 / FAQ</p>
+        <div>
+          <h2>Before you install.</h2>
+          <p>The practical details about platform support, access, and ownership.</p>
+        </div>
+      </div>
+
+      <div class={styles.faqList}>
+        {
+          faqItems.map((item) => (
+            <details>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class={styles.finalCta}>
+      <div>
+        <p class={styles.sectionIndex}>Ready when your server is.</p>
+        <h2>Take your next OpenCode session with you.</h2>
+        <p>
+          Install on Android or join the iOS beta, then visit GitHub to inspect
+          the code and help shape what comes next.
+        </p>
+      </div>
+      <div class={styles.actionLinksCompact}>
+        <a
+          class={styles.primaryAction}
+          href={PLAY_URL}
+          target="_blank"
+          rel="noopener noreferrer">Download From Google Play</a
+        >
+        <a
+          class={styles.secondaryAction}
+          href={TESTFLIGHT_URL}
+          target="_blank"
+          rel="noopener noreferrer">Join iOS TestFlight</a
+        >
+        <a
+          class={styles.secondaryAction}
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer">Star on GitHub</a
+        >
+      </div>
+    </section>
+  </div>
+</MarketingLayout>

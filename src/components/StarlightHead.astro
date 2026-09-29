@@ -1,0 +1,40 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+import {
+  docsStructuredData,
+  faqStructuredData,
+  SITE,
+} from '../lib/site';
+import { faqItemsFromMarkdown } from '../lib/faq.mjs';
+
+const route = Astro.locals.starlightRoute;
+const { entry, id } = route;
+
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const markdownUrl = new URL(`${id}.md`, SITE).href;
+const rawLastUpdated = route.lastUpdated ?? entry.data.lastUpdated;
+const lastUpdated =
+  rawLastUpdated instanceof Date ? rawLastUpdated : undefined;
+
+const schemas: object[] = [
+  docsStructuredData({
+    title: entry.data.title,
+    description: entry.data.description,
+    url: canonical,
+    lastUpdated,
+  }),
+];
+
+if (id === 'docs/faq' && entry.body) {
+  const items = faqItemsFromMarkdown(entry.body);
+  if (items.length > 0) schemas.push(faqStructuredData(items));
+}
+---
+
+<Default />
+<link rel="alternate" type="text/markdown" href={markdownUrl} />
+{
+  schemas.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}

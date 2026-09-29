@@ -1,0 +1,177 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import styles from './support.module.css';
+import cryptoDonations from '../data/cryptoDonations.json';
+import { qrSvg } from '../lib/qr';
+import { githubSponsorsUrl, kofiEmbedUrl, kofiUrl } from '../lib/support';
+
+const title = 'Support OpenCode Mobile';
+const description =
+  'Support the development of OpenCode Mobile through GitHub Sponsors, Ko-fi, or direct cryptocurrency donations.';
+
+const wallets = await Promise.all(
+  cryptoDonations.map(async (wallet) => ({
+    ...wallet,
+    qr: await qrSvg(wallet.paymentUri),
+  })),
+);
+---
+
+<MarketingLayout title={title} description={description}>
+  <main class={styles.page}>
+    <header class={styles.intro}>
+      <p class={styles.kicker}>Community supported</p>
+      <h1>Support OpenCode Mobile.</h1>
+      <p>
+        OpenCode Mobile is independently maintained, free, and open source. Your
+        support helps sustain ongoing development and maintenance.
+      </p>
+    </header>
+
+    <section class={styles.primaryOptions} aria-label="Easy ways to support">
+      <article class={styles.primaryCard}>
+        <p class={styles.label}>Direct support</p>
+        <h2>GitHub Sponsors</h2>
+        <p>
+          Help fund development, maintenance, Android and iOS releases, testing,
+          infrastructure, and related project costs.
+        </p>
+        {
+          githubSponsorsUrl ? (
+            <a
+              class={styles.primaryAction}
+              href={githubSponsorsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-support-event="support_github_sponsor_click"
+            >
+              Sponsor on GitHub
+            </a>
+          ) : (
+            <p class={styles.unavailable}>GitHub Sponsors link unavailable.</p>
+          )
+        }
+      </article>
+
+      <article class={styles.primaryCard}>
+        <p class={styles.label}>One-time or recurring</p>
+        <h2>Ko-fi</h2>
+        <p>Support the project through Ko-fi.</p>
+        {
+          kofiUrl && kofiEmbedUrl ? (
+            <iframe
+              class={styles.kofiPanel}
+              title="Ko-fi tip panel for OpenCode Mobile"
+              src={kofiEmbedUrl}
+              loading="lazy"
+            />
+          ) : (
+            <p class={styles.unavailable}>Ko-fi link unavailable.</p>
+          )
+        }
+      </article>
+    </section>
+
+    <section class={styles.cryptoSection} id="crypto" aria-labelledby="crypto-title">
+      <div class={styles.cryptoIntro}>
+        <p class={styles.sectionIndex}>Alternative support</p>
+        <h2 id="crypto-title">Support with crypto</h2>
+        <p>Prefer a direct donation? Choose the asset and network carefully.</p>
+      </div>
+
+      <div class={styles.cryptoGrid}>
+        {
+          wallets.map((wallet) => (
+            <article
+              class={`${styles.cryptoCard} ${styles[wallet.symbol.toLowerCase()]}`}
+            >
+              <header class={styles.cryptoHeader}>
+                {wallet.symbol === 'BTC' ? (
+                  <svg class={styles.bitcoinIcon} viewBox="0 0 48 48" aria-hidden="true">
+                    <circle cx="24" cy="24" r="23" />
+                    <text x="24" y="33" text-anchor="middle">
+                      ₿
+                    </text>
+                  </svg>
+                ) : (
+                  <svg class={styles.ethereumIcon} viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="m24 1 15 24-15 9L9 25 24 1Z" />
+                    <path d="m24 37 15-9-15 19L9 28l15 9Z" />
+                  </svg>
+                )}
+                <div>
+                  <h3>{wallet.name}</h3>
+                  <span class={styles.symbol}>{wallet.symbol}</span>
+                </div>
+              </header>
+
+              <div class={styles.qrFrame} set:html={wallet.qr} />
+
+              <p class={styles.network}>{wallet.network} network only</p>
+              <code class={styles.address}>{wallet.address}</code>
+              <button
+                class={styles.copyButton}
+                type="button"
+                data-copy-address={wallet.address}
+                data-copy-symbol={wallet.symbol}
+                data-copy-status={`crypto-status-${wallet.symbol}`}
+              >
+                Copy address
+              </button>
+              <span
+                class={styles.copyStatus}
+                id={`crypto-status-${wallet.symbol}`}
+                role="status"
+                aria-live="polite"
+              />
+            </article>
+          ))
+        }
+      </div>
+
+      <p class={styles.irreversibleWarning}>
+        Crypto transactions are irreversible. Please verify the network and
+        wallet address before sending.
+      </p>
+    </section>
+  </main>
+</MarketingLayout>
+
+<script>
+  import { copyAddress } from '../lib/copyAddress.mjs';
+
+  type GtagWindow = Window & { gtag?: (...args: unknown[]) => void };
+  const track = (name: string, params?: Record<string, string>) => {
+    const gtag = (window as GtagWindow).gtag;
+    if (typeof gtag === 'function') gtag('event', name, params);
+  };
+
+  track('crypto_support_view');
+
+  for (const button of document.querySelectorAll<HTMLButtonElement>(
+    '[data-copy-address]',
+  )) {
+    button.addEventListener('click', async () => {
+      const address = button.dataset.copyAddress ?? '';
+      const symbol = button.dataset.copySymbol ?? '';
+      const status = document.getElementById(button.dataset.copyStatus ?? '');
+      try {
+        await copyAddress(address);
+        button.textContent = 'Copied';
+        if (status) status.textContent = `${symbol} address copied.`;
+        track('crypto_address_copy', { asset: symbol });
+      } catch {
+        button.textContent = 'Copy failed';
+        if (status) status.textContent = 'Clipboard access failed. Please try again.';
+      }
+    });
+  }
+
+  for (const link of document.querySelectorAll<HTMLAnchorElement>(
+    '[data-support-event]',
+  )) {
+    link.addEventListener('click', () => {
+      track(link.dataset.supportEvent ?? 'support_click');
+    });
+  }
+</script>
