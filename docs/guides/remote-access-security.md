@@ -1,14 +1,14 @@
 ---
 id: remote-access-security
-title: Secure OpenCode Remote Access from Android
+title: Secure OpenCode Remote Access from Mobile
 description: Threat-model an OpenCode mobile connection, protect server credentials, compare private and public routes, and respond to a lost device or exposed endpoint.
 slug: /guides/remote-access-security
 last_update:
   author: Alvaro Lorente
-  date: 2026-07-31
+  date: 2026-09-29
 ---
 
-# Secure OpenCode remote access from Android
+# Secure OpenCode remote access from mobile
 
 An OpenCode server may read and change source files, execute commands, and invoke configured AI providers. Remote access therefore creates a privileged path into a development machine. HTTPS alone does not make that path safe.
 
@@ -33,7 +33,7 @@ An OpenCode server may read and change source files, execute commands, and invok
 
 ## Credential handling
 
-OpenCode Mobile persists connection values in app storage so it can reconnect. Treat the Android device as holding access to the development server. Use device encryption and a strong screen lock, and rotate the OpenCode password after a device is lost or transferred.
+On native iOS and Android builds, non-secret connection details use app storage and the server password uses `expo-secure-store`. Treat the device as holding access to the development server. Use device encryption and a strong screen lock, and rotate the OpenCode password after a device is lost or transferred. Browser builds cannot persist passwords through native secure storage.
 
 Do not reuse an AI-provider API key as the OpenCode server password. Provider authentication and server connection authentication protect different systems.
 

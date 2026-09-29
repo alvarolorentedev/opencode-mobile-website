@@ -1,6 +1,6 @@
 ---
 id: providers-and-models
-title: OpenCode Providers and Models on Android
+title: OpenCode Providers and Models on Mobile
 sidebar_label: Providers and Models
 slug: /guides/providers-and-models
 ---

@@ -1,6 +1,6 @@
 ---
 id: usage
-title: OpenCode Session Usage on Android
+title: OpenCode Session Usage on Mobile
 sidebar_label: Understand Session Usage
 slug: /guides/usage
 ---
@@ -13,7 +13,10 @@ Use session usage when a conversation is becoming long, a model feels expensive,
 
 Tap the usage indicator in the Chat header. The sheet summarizes the current session and active model.
 
-![Session usage showing context utilization and token activity](/img/product/session-usage.webp)
+The usage sheet follows the website’s current color theme.
+
+<img className="theme-screenshot-light" src="/img/docs/session-usage-light.webp" alt="Session usage and token activity in OpenCode Mobile, light theme" />
+<img className="theme-screenshot-dark" src="/img/docs/session-usage-dark.webp" alt="Session usage and token activity in OpenCode Mobile, dark theme" />
 
 ## Read the numbers
 

@@ -1,24 +1,24 @@
 ---
 id: mobile-vs-web
-title: OpenCode Mobile vs OpenCode Web on Android
-description: Compare the native OpenCode Android client with OpenCode Web across installation, sessions, voice, notifications, files, terminal use, and remote access.
+title: OpenCode Mobile vs OpenCode Web
+description: Compare the native OpenCode client for Android and iOS with OpenCode Web across installation, sessions, voice, notifications, files, terminal use, and remote access.
 slug: /guides/mobile-vs-web
 last_update:
   author: Alvaro Lorente
-  date: 2026-07-31
+  date: 2026-09-29
 ---
 
-# OpenCode Mobile vs OpenCode Web on Android
+# OpenCode Mobile vs OpenCode Web
 
 Both interfaces can reach an OpenCode server from a phone. Choose based on the workflow, not on the assumption that an installed app is automatically better.
 
 | Need | OpenCode Mobile | OpenCode Web |
 | --- | --- | --- |
-| Installation | Android or APK | No client installation |
-| Updates | Play or new APK | Updated with the server |
+| Installation | Android: Play or APK; iOS: TestFlight | No client installation |
+| Updates | Play, new APK, or TestFlight | Updated with the server |
 | Session monitoring | Native mobile workflow | Browser workflow |
 | Voice follow-ups | Dictation and foreground conversation mode | Depends on browser UI |
-| Task notifications | Supported Android completion alerts | Depends on browser/background behavior |
+| Task notifications | Native completion alerts on supported builds | Not supported by the app's background monitor |
 | Focused files and terminal | Native compact surfaces | Browser-provided surfaces |
 | Server requirement | OpenCode server/API | `opencode web` server |
 | Remote route | LAN, VPN, tunnel, proxy, SSH forward | Same network choices |
@@ -26,7 +26,7 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 ## Choose OpenCode Mobile when
 
 - you regularly check or redirect sessions away from your desk;
-- native navigation, voice input, or Android notifications matter;
+- native navigation, voice input, or device notifications matter;
 - you want a focused control surface instead of a complete desktop-style UI;
 - you are comfortable installing a community-built version.
 
@@ -43,4 +43,4 @@ Use `opencode web` when you want the browser UI and API from the same server. De
 
 Regardless of the client, do not expose an unauthenticated server publicly. Use the [remote-access overview](../remote-access.md) and [security guide](./remote-access-security.md).
 
-To try the native client, follow the [OpenCode Android app setup](../opencode-android-app.md). If an existing deployment returns HTML or 404 responses, use the [troubleshooting checklist](./troubleshooting.md).
+To try the native client, follow the [OpenCode Mobile app setup](../opencode-android-app.md). If an existing deployment returns HTML or 404 responses, use the [troubleshooting checklist](./troubleshooting.md).

@@ -1,6 +1,6 @@
 ---
 id: mcp-and-diagnostics
-title: OpenCode MCP Diagnostics on Android
+title: OpenCode MCP Diagnostics on Mobile
 sidebar_label: MCP and Diagnostics
 slug: /guides/mcp-and-diagnostics
 ---

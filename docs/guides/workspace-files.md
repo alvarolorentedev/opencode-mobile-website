@@ -1,6 +1,6 @@
 ---
 id: workspace-files
-title: Edit OpenCode Workspace Files from Android
+title: Edit OpenCode Workspace Files from Mobile
 sidebar_label: Work with Files
 slug: /guides/workspace-files
 ---
@@ -17,6 +17,13 @@ Use the Files panel to inspect a project or make a small, deliberate text correc
 4. Tap a result to load its current server content.
 
 The panel can also show the current version-control branch and changed-file count when the server supplies them.
+
+Edit and Save patch appear only on compatible OpenCode 1.x (V1) servers; OpenCode 2.x (V2) currently does not expose the file-save API used by the app. If editing is unavailable, use Chat to request the change and review its diff.
+
+The file view follows the website’s current color theme.
+
+<img className="theme-screenshot-light" src="/img/docs/workspace-files-light.webp" alt="Open workspace file in OpenCode Mobile, light theme" />
+<img className="theme-screenshot-dark" src="/img/docs/workspace-files-dark.webp" alt="Open workspace file in OpenCode Mobile, dark theme" />
 
 ## Make a focused edit
 

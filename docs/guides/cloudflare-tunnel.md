@@ -1,11 +1,11 @@
 ---
 id: cloudflare-tunnel
 title: OpenCode Mobile with Cloudflare Tunnel
-description: Route an authenticated localhost OpenCode server through a temporary or named Cloudflare Tunnel and connect securely from Android.
+description: Route an authenticated localhost OpenCode server through a temporary or named Cloudflare Tunnel and connect securely from a mobile device.
 slug: /guides/cloudflare-tunnel
 last_update:
   author: Alvaro Lorente
-  date: 2026-07-31
+  date: 2026-09-29
 ---
 
 # Connect OpenCode Mobile with Cloudflare Tunnel

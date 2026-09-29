@@ -176,3 +176,14 @@ h6 {
 .navbar-sidebar__backdrop {
   z-index: 1001;
 }
+
+.theme-screenshot-light,
+.theme-screenshot-dark {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.theme-screenshot-dark { display: none; }
+[data-theme='dark'] .theme-screenshot-light { display: none; }
+[data-theme='dark'] .theme-screenshot-dark { display: block; }

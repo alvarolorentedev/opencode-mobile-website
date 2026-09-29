@@ -1,6 +1,6 @@
 ---
 id: sessions
-title: Manage OpenCode Sessions from Android
+title: Manage OpenCode Sessions from Mobile
 sidebar_label: Manage Sessions
 slug: /guides/sessions
 ---
@@ -17,13 +17,15 @@ The app remembers the last session used for each project. Switching projects cha
 
 ## Keep the list useful
 
-In **Workspace → Chats**, open the menu beside a session to:
+In **Workspace → Chats**, open the menu beside a session to use the actions supported by your server:
 
 - **Rename** it with a clear outcome-oriented title.
 - **Archive** finished work without deleting its history.
 - **Restore** an archived session when work resumes.
 - **Delete** a session permanently.
 - **Share** it with a public URL or **Unshare** it later.
+
+Archive, restore, and share controls are currently available on the OpenCode 1.x (V1) contract. They are hidden when connected to OpenCode 2.x (V2), which does not expose those actions.
 
 Before sharing, review the transcript for source code, credentials, internal URLs, customer information, or other sensitive context.
 

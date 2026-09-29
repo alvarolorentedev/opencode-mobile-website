@@ -34,7 +34,7 @@ Or install with npm:
 npm install -g opencode-ai
 ```
 
-OpenCode Mobile targets the current v2 API. Update the server before debugging an older or removed endpoint shape.
+OpenCode Mobile detects and supports the OpenCode 1.x (V1) and 2.x (V2) API contracts when it connects. Keep the server current; removed legacy endpoints are not supported, and available actions vary by contract.
 
 ## 2. Start the server
 
@@ -94,22 +94,15 @@ Do not assume that a browser-rendered page is the API base. If the root displays
 
 ## 5. Connect the app
 
-1. Open **Settings**.
-2. Expand **Connection**.
-3. Enter the complete server URL, including `https://` and any required path prefix.
-4. Enter the OpenCode server username and password.
-5. Tap **Reconnect**.
-6. Confirm the card says **Connected** and review its connection message.
+On first launch, onboarding guides you through **Welcome**, **Connect**, **Workspace**, **Preferences**, **Permissions**, and **Ready**. In **Connect**, enter the complete server URL, including `https://` and any required path prefix, then test and connect. Add the OpenCode server username and password if authentication is configured.
+
+After onboarding, update the same values in **Settings → Connection** and reconnect. Confirm the connection status says **Connected**.
 
 If a password is set and Username is blank, the client uses `opencode` as the Basic-auth username. Entering the explicit server username is clearer and easier to troubleshoot.
 
 ## 6. Select a workspace
 
-1. Open **Workspace**.
-2. Refresh the project catalog if needed.
-3. Select the project that should scope sessions, files, and terminal activity.
-4. Open an existing session or create a new one.
-5. Return to **Chat** and send a specific task.
+Choose the project during onboarding or later in **Workspace**. Refresh the catalog if needed, then open an existing session or create one. The selected project scopes sessions, files, and terminal activity.
 
 OpenCode Mobile remembers the selected project and last session for the next launch.
 
@@ -153,7 +146,7 @@ Continue with the [User Manual](./user-manual.md) for:
 - Never expose an unauthenticated OpenCode server to the public internet.
 - Prefer Tailscale, Cloudflare Tunnel, or an authenticated HTTPS reverse proxy over router port forwarding.
 - Use `0.0.0.0` only for a trusted LAN and restrict the port with the host firewall.
-- Connection credentials are persisted in app storage for convenience; treat the device as containing access to your OpenCode server.
+- On native iOS and Android builds, connection passwords are stored with `expo-secure-store`; non-secret connection details use app storage. Treat the device as containing access to your OpenCode server. Browser builds cannot persist passwords through native secure storage.
 - Rotate credentials if a tunnel URL, device, or password is compromised.
 
 ## If connection still fails

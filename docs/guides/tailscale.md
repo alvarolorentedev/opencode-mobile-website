@@ -1,11 +1,11 @@
 ---
 id: tailscale
 title: Connect OpenCode Mobile with Tailscale
-description: Keep OpenCode bound to localhost and connect the Android app through a private Tailscale Serve HTTPS address without opening a router port.
+description: Keep OpenCode bound to localhost and connect the mobile app through a private Tailscale Serve HTTPS address without opening a router port.
 slug: /guides/tailscale
 last_update:
   author: Alvaro Lorente
-  date: 2026-07-31
+  date: 2026-09-29
 ---
 
 # Connect OpenCode Mobile with Tailscale
@@ -31,9 +31,9 @@ tailscale serve status
 
 The status output should show an HTTPS hostname forwarding to `http://127.0.0.1:4096`.
 
-## 3. Connect Android
+## 3. Connect the phone
 
-1. Install Tailscale on Android.
+1. Install Tailscale on Android or iOS.
 2. Sign in to the same tailnet used by the OpenCode machine.
 3. Confirm Tailscale is connected.
 4. Enter the complete `https://...ts.net` address in OpenCode Mobile.
@@ -55,7 +55,7 @@ If this fails, fix Tailscale Serve, device membership, ACLs, or OpenCode authent
 - **Phone is on the internet but not the tailnet:** open Tailscale and reconnect it.
 - **Hostname opens a web interface but the API fails:** use the correct API base path, potentially `/api`.
 - **Serve points at the wrong port:** compare `tailscale serve status` with the OpenCode port.
-- **ACL rejection:** allow the Android identity to reach the serving device and port.
+- **ACL rejection:** allow the phone’s identity to reach the serving device and port.
 - **Old mobile build:** update before diagnosing a path-prefix bug; the fix was validated in [issue #1](https://github.com/alvarolorentedev/opencode-mobile/issues/1).
 
 Review the [security model](./remote-access-security.md), the broader [remote-access overview](../remote-access.md), and the [troubleshooting checklist](./troubleshooting.md).

@@ -5,27 +5,28 @@ description: Check the current OpenCode Mobile release, public changelog, OpenCo
 slug: /changelog
 last_update:
   author: Alvaro Lorente
-  date: 2026-07-31
+  date: 2026-09-29
 ---
 
 # OpenCode Mobile releases and compatibility
 
-The current source identifies OpenCode Mobile as version **1.0.12** and targets the current OpenCode v2 SDK contract. The website does not promise compatibility with older endpoint shapes removed by OpenCode.
+The latest public release is **1.0.34**, published September 29, 2026. The current source package declares **1.0.35**, which is not listed as a public release at this check. The app detects and supports the OpenCode 1.x (V1) and 2.x (V2) API contracts; feature availability varies by contract and server capabilities.
 
 ## Release history
 
 | Release | Published | Details |
 | --- | --- | --- |
-| 1.0.10 | August 14, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.10) |
-| 1.0.8 | July 21, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.8) |
-| 1.0.7 | July 19, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.7) |
-| 1.0.3 beta | July 18, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.3) |
+| 1.0.34 | September 29, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.34) |
+| 1.0.32 | September 29, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.32) |
+| 1.0.31 | September 28, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.31) |
+| 1.0.30 | September 28, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.30) |
+| 1.0.29 | September 27, 2026 | [Release and comparison](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.29) |
 
 The canonical release history is always [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases). Update through Google Play testing when possible or install the latest APK from that repository.
 
 ## Current updates
 
-- The iOS build now has a dedicated bundle identifier, signed release workflow, and [TestFlight beta](https://testflight.apple.com/join/ddcE5Wzz) distribution path.
+- iOS distribution uses a dedicated signed release workflow and the [TestFlight beta](https://testflight.apple.com/join/ddcE5Wzz).
 - The Chat model picker is searchable and groups configured models by provider.
 - The current iOS build includes the required photo-library explanation for attaching selected images.
 
@@ -33,19 +34,20 @@ The canonical release history is always [GitHub Releases](https://github.com/alv
 
 | Component | Current project declaration |
 | --- | --- |
-| OpenCode client contract | Current v2 SDK API |
+| App source package | `1.0.35` |
+| OpenCode client contracts | OpenCode 1.x (V1) and 2.x (V2), detected at connection |
 | `@opencode-ai/sdk` | `^1.18.3` |
-| Expo | `~54.0.37` |
-| React Native | `0.81.5` |
-| React | `19.1.0` |
+| Expo | `^57.0.24` |
+| React Native | `0.86.3` |
+| React | `19.2.3` |
 | License | Apache-2.0 |
 
-These values describe the current public source at the time this page was updated. Inspect the [application package file](https://github.com/alvarolorentedev/opencode-mobile/blob/main/package.json) for the exact current declaration.
+These values describe the current source package, not the latest published release. Inspect the [application package file](https://github.com/alvarolorentedev/opencode-mobile/blob/main/package.json) for the exact declaration; consult [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) for shipped versions.
 
 ## Support boundaries
 
-- Android is distributed through Google Play and direct APK releases.
-- The iOS beta is distributed through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz).
+- Android is distributed through Google Play and direct APK releases; iOS is distributed through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz).
+- The app detects the OpenCode 1.x and 2.x API contracts; server-dependent actions are hidden when unsupported.
 - Experimental worktrees, PTYs, MCP management, diagnostics, and some lifecycle actions depend on server capabilities.
 - The mobile terminal is a focused line console, not a complete VT terminal emulator.
 - OpenCode Mobile is independent and community-built, not an official OpenCode product.

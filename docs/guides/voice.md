@@ -1,6 +1,6 @@
 ---
 id: voice
-title: Use Voice with OpenCode on Android
+title: Use Voice with OpenCode Mobile
 sidebar_label: Voice and Conversation Mode
 slug: /guides/voice
 ---

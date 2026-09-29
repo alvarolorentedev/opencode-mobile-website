@@ -1,7 +1,7 @@
 ---
 id: features
 title: OpenCode Mobile Features and Guides
-description: Choose an OpenCode Mobile workflow for Android tasks, sessions, approvals, voice, files, terminal access, providers, diagnostics, or remote access.
+description: Choose an OpenCode Mobile workflow for mobile tasks, sessions, approvals, voice, files, terminal access, providers, diagnostics, or remote access.
 slug: /features
 ---
 
@@ -56,7 +56,7 @@ Use [MCP and Diagnostics](./guides/mcp-and-diagnostics.md) to manage MCP servers
 
 ## I want to leave while a task runs
 
-Use [Task Notifications](./guides/notifications.md) to enable Android alerts, adjust system/battery settings, and understand when delivery may be delayed.
+Use [Task Notifications](./guides/notifications.md) to enable native alerts, adjust platform settings, and understand when delivery may be delayed.
 
 ## I cannot connect to the server
 

@@ -1,12 +1,12 @@
 ---
 id: terminal
-title: Use the OpenCode Terminal from Android
-description: Run focused OpenCode project commands from Android and understand the mobile terminal's PTY, WebSocket, and full-screen program limitations.
+title: Use the OpenCode Terminal from Mobile
+description: Run focused OpenCode project commands from a mobile device and understand the terminal's PTY, WebSocket, and full-screen program limitations.
 sidebar_label: Use the Terminal
 slug: /guides/terminal
 ---
 
-# Use the OpenCode terminal from Android
+# Use the OpenCode terminal from mobile
 
 Use Terminal for a focused command such as checking Git status, running a test, reading a short log, or invoking a project script.
 
@@ -27,6 +27,11 @@ npm test
 npm run typecheck
 tail -n 80 path/to/log
 ```
+
+The terminal output follows the website’s current color theme.
+
+<img className="theme-screenshot-light" src="/img/docs/terminal-light.webp" alt="Terminal command output in OpenCode Mobile, light theme" />
+<img className="theme-screenshot-dark" src="/img/docs/terminal-dark.webp" alt="Terminal command output in OpenCode Mobile, dark theme" />
 
 ## What it is not
 

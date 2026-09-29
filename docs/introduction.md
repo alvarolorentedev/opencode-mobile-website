@@ -10,7 +10,7 @@ slug: /introduction
 
 OpenCode Mobile is a community-built mobile client for an OpenCode server. It keeps active coding work reachable from a phone without trying to turn a small screen into a full desktop IDE.
 
-The current build is distributed for Android through Google Play testing and as a direct APK, and for iOS through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz). Start on the [Download page](/download), then connect it to an OpenCode server that you control. The app targets the current OpenCode v2 API.
+The app is distributed for Android through Google Play testing and as a direct APK, and for iOS through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz). Start on the [Download page](/download), then connect it to an OpenCode server that you control. The client detects and supports the OpenCode 1.x (V1) and 2.x (V2) API contracts; available actions depend on the contract and server capabilities.
 
 ## What you can do
 
@@ -43,8 +43,8 @@ The terminal is available only when the connected OpenCode server exposes the re
 Workspace keeps project and session context together. Depending on server capabilities, you can:
 
 - Select a project and reopen its remembered session
-- Create, rename, archive, restore, share, or delete sessions
-- Search, read, and edit text files with conflict checks
+- Create, rename, or delete sessions; archive, restore, and share actions depend on the server contract
+- Search and read text files; edit them with conflict checks when the server supports saving
 - Inspect changed-file counts and the current VCS branch
 - Create and manage experimental worktrees
 
@@ -77,7 +77,7 @@ See [Remote Access](./remote-access.md) for complete examples.
 
 - OpenCode Mobile is not an official OpenCode product.
 - It is not a generic consumer chatbot or a replacement for a full IDE.
-- Server URL, username, and password are persisted locally for convenience using app storage; this is not equivalent to an operating-system secure credential store.
+- On native iOS and Android builds, non-secret connection details use app storage and server passwords use `expo-secure-store`. Browser builds cannot persist passwords through native secure storage.
 - Server features vary. Experimental worktrees, terminal PTYs, MCP management, diagnostics, and some lifecycle actions require compatible OpenCode endpoints.
 - Older removed API shapes are not compatibility targets. Use a current OpenCode server and the latest mobile release.
 

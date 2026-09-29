@@ -7,7 +7,7 @@ slug: /user-manual
 
 # OpenCode Mobile user manual
 
-This manual is the navigation hub for operating OpenCode Mobile after installation. It deliberately avoids repeating every control documented in the focused guides. If the app is not connected yet, start with [Set Up OpenCode Mobile on Android](./getting-started.md).
+This manual is the navigation hub for operating OpenCode Mobile after installation. It deliberately avoids repeating every control documented in the focused guides. If the app is not connected yet, start with [Set Up OpenCode Mobile](./getting-started.md).
 
 <video controls playsInline preload="none" poster="/img/product/walkthrough-poster.avif" width="1280" height="720">
   <source src="/media/opencode-mobile-walkthrough.mp4" type="video/mp4" />
@@ -28,7 +28,7 @@ This prevents the most expensive mobile mistake: sending a valid instruction to 
 
 Use [Start and Monitor OpenCode Tasks](./guides/tasks.md) to choose an agent and model, write a useful instruction, attach context, follow progress, stop a bad direction, and decide whether the result is complete.
 
-Use [Manage OpenCode Sessions](./guides/sessions.md) to switch, rename, archive, restore, delete, share, fork, or revert work threads. Keep one outcome per session so context usage and review remain understandable.
+Use [Manage OpenCode Sessions](./guides/sessions.md) to switch, rename, delete, fork, or revert work threads. Archive, restore, and share actions depend on the server contract. Keep one outcome per session so context usage and review remain understandable.
 
 ## Permissions, questions, and changes
 
@@ -40,7 +40,7 @@ Treat permissions as security decisions. Read the requested action, active proje
 
 [Use Voice with OpenCode](./guides/voice.md) for a reviewed dictated prompt or the foreground conversation loop. Voice input does not remove the need to inspect high-impact instructions on screen.
 
-[OpenCode Task Notifications](./guides/notifications.md) covers Android completion alerts, battery restrictions, app lifecycle limits, and the difference between a notification and authoritative server state.
+[OpenCode Task Notifications](./guides/notifications.md) covers native completion alerts, Android battery restrictions, app lifecycle limits, and the difference between a notification and authoritative server state.
 
 ## Usage, models, and providers
 
@@ -56,7 +56,7 @@ Treat permissions as security decisions. Read the requested action, active proje
 
 ## Mobile terminal
 
-[Use the OpenCode Terminal from Android](./guides/terminal.md) for focused, non-interactive commands such as tests, Git status, and short logs. It is a line-oriented project console, not a complete VT terminal emulator.
+[Use the OpenCode Terminal from Mobile](./guides/terminal.md) for focused, non-interactive commands such as tests, Git status, and short logs. It is a line-oriented project console, not a complete VT terminal emulator.
 
 ## MCP and diagnostics
 
@@ -70,7 +70,7 @@ If the app returns HTML, 404, authentication errors, missing workspaces, stale r
 
 ## Product and support information
 
-- [OpenCode Android app setup and download](./opencode-android-app.md)
+- [OpenCode Mobile app setup and download](./opencode-android-app.md)
 - [OpenCode Mobile vs OpenCode Web](./guides/mobile-vs-web.md)
 - [Releases and compatibility](./changelog.md)
 - [Frequently asked questions](./faq.md)

@@ -1,6 +1,6 @@
 ---
 id: worktrees
-title: Manage OpenCode Worktrees from Android
+title: Manage OpenCode Worktrees from Mobile
 sidebar_label: Manage Worktrees
 slug: /guides/worktrees
 ---

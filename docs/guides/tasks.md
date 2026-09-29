@@ -1,15 +1,18 @@
 ---
 id: tasks
-title: Monitor OpenCode Tasks on Android
+title: Monitor OpenCode Tasks on Mobile
 sidebar_label: Start and Monitor Tasks
 slug: /guides/tasks
 ---
 
 # Start and monitor tasks
 
-Use Chat when you need to start work from your phone, check whether an existing task is progressing, or give OpenCode its next instruction.
+Use Chat to start work from your phone, check whether a task is progressing, or give OpenCode its next instruction.
 
-![OpenCode Mobile Chat screen showing a new task, session controls, and the message composer](/img/product/task-session.webp)
+The screenshot follows the website’s current color theme.
+
+<img className="theme-screenshot-light" src="/img/docs/task-session-light.webp" alt="Completed task in OpenCode Mobile, light theme" />
+<img className="theme-screenshot-dark" src="/img/docs/task-session-dark.webp" alt="Completed task in OpenCode Mobile, dark theme" />
 
 ## Before you start
 

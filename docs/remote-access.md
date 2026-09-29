@@ -1,12 +1,12 @@
 ---
 id: remote-access
-title: Access OpenCode Remotely from Android
+title: Access OpenCode Remotely from Mobile
 description: Connect OpenCode Mobile to your server through a trusted LAN, Tailscale, Cloudflare Tunnel, reverse proxy, API prefix, or SSH port forward.
 sidebar_label: Remote Access Overview
 slug: /remote-access
 ---
 
-# Access OpenCode remotely from Android
+# Access OpenCode remotely from mobile
 
 OpenCode Mobile can connect through a local address, private VPN, HTTPS tunnel, reverse proxy, or a separate SSH port forward. The app needs an OpenCode API base URL; it does not require a specific tunnel provider.
 
@@ -147,7 +147,7 @@ Do not append `/api` blindly. Verify the resulting `/global/health` endpoint fir
 
 ## Method 5: SSH local forwarding
 
-An Android SSH client or terminal app can keep a local port forward open:
+A mobile SSH client or terminal app can keep a local port forward open:
 
 ```bash
 ssh -N -L 4096:127.0.0.1:4096 your-user@your-server
@@ -171,7 +171,7 @@ This transport is managed by the separate SSH client, not OpenCode Mobile. Backg
 | Reverse proxy | Depends on proxy | Use HTTPS, preserve streaming/WebSocket behavior, and require OpenCode auth |
 | SSH forward | Local loopback | Protect the SSH key/account and keep the forwarding client alive |
 
-Connection credentials are stored locally by the app using AsyncStorage so it can reconnect and perform supported background completion checks. This is convenient but is not equivalent to an OS secure credential store.
+On native iOS and Android builds, non-secret connection details use app storage and server passwords use `expo-secure-store`. Pending notification records contain the server URL and username but not the password. Browser builds cannot persist passwords through native secure storage.
 
 ## Troubleshooting
 

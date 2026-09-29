@@ -21,7 +21,7 @@ No. It is a workspace-aware control surface for an OpenCode server. It includes 
 
 ## Which OpenCode version should I use?
 
-Use a current release. The client targets the current OpenCode v2 SDK contract and does not maintain compatibility with older removed endpoint shapes.
+Use a current release. The client detects and supports OpenCode 1.x (V1) and 2.x (V2) API contracts. Feature availability varies by contract; older removed endpoint shapes are not supported.
 
 ## Should I run `opencode web` or `opencode serve`?
 
@@ -59,7 +59,7 @@ Yes. The client preserves a configured path prefix for generated SDK requests, m
 
 ## Where are connection credentials stored?
 
-Server URL, username, and password are persisted locally with AsyncStorage so the app can reconnect. Pending notification tracking may also retain the connection information needed for a background completion check. This is not equivalent to an operating-system secure credential store.
+On native iOS and Android builds, non-secret connection details use app storage and server passwords use `expo-secure-store`. Pending notification records contain the server URL and username but not the password. Browser builds cannot persist passwords through native secure storage.
 
 ## What happens if realtime events disconnect?
 
@@ -71,7 +71,7 @@ No. It is a compact line console backed by OpenCode PTYs. It sends newline-termi
 
 ## Can I edit files from the app?
 
-Current compatible servers can expose text-file editing through the Workspace tools. The app re-reads the file before save and rejects the update if the server copy changed. Binary/base64 files are read-only.
+Compatible OpenCode 1.x (V1) servers can expose text-file editing through Workspace. OpenCode 2.x (V2) currently does not expose file-save in the app. When saving is supported, the app re-reads the file and rejects the update if the server copy changed. Binary/base64 files are read-only.
 
 ## Do all servers support worktrees, terminal, MCP, and diagnostics?
 
