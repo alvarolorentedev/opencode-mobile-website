@@ -65,7 +65,7 @@ video {
   position: static;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 0.75rem 0;
@@ -103,7 +103,7 @@ video {
   align-items: center;
   flex-shrink: 0;
   gap: 1rem;
-  margin: 0 0 0 auto;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -122,11 +122,12 @@ video {
 .site-nav__search {
   display: inline-flex;
   align-items: center;
-  flex: 1 1 15rem;
-  min-width: 5rem;
-  max-width: 15rem;
+  flex: 1 1 auto;
+  min-width: 12rem;
+  max-width: 36rem;
   gap: 0.5rem;
   min-height: 2.5rem;
+  margin-inline: 1.5rem;
   padding: 0.4rem 0.5rem 0.4rem 0.75rem;
   border: 1px solid var(--mk-border);
   border-radius: 0.5rem;
@@ -159,6 +160,7 @@ video {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  margin-left: auto;
   color: var(--mk-text);
 }
 
@@ -241,7 +243,7 @@ video {
   cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .site-nav__inner {
     justify-content: space-between;
   }
@@ -310,6 +312,7 @@ video {
   }
 
   .site-nav__github {
+    margin-left: 0;
     padding: 0.85rem 0;
     border-bottom: 1px solid var(--mk-border);
   }
