@@ -17,7 +17,7 @@ The project is built and maintained by [Alvaro Lorente](https://github.com/alvar
 ## Evidence of first-hand work
 
 - The [application source](https://github.com/alvarolorentedev/opencode-mobile) is public under the Apache-2.0 license.
-- Builds are published through [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases), Google Play testing, and the [iOS TestFlight beta](https://testflight.apple.com/).
+- Builds are published through [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases), Google Play testing, and the [iOS TestFlight beta](https://testflight.apple.com/join/ddcE5Wzz).
 - Bugs and compatibility reports are tracked in the [public issue tracker](https://github.com/alvarolorentedev/opencode-mobile/issues).
 - The remote-access flow has been tested with Tailscale, Cloudflare Tunnel, path-prefixed API deployments, realtime events, and OpenCode health endpoints. The related fixes and verification are recorded in [issue #1](https://github.com/alvarolorentedev/opencode-mobile/issues/1).
 - This website and its documentation have their own [public source repository](https://github.com/alvarolorentedev/opencode-mobile-website).

@@ -13,7 +13,7 @@ No. It is an open-source, community-built companion for OpenCode.
 
 ## Which devices are supported?
 
-The current version is available for Android through [Google Play](https://play.google.com/store/apps/details?id=app.getopencode) and as a [direct APK](/download). The iOS beta is available through [TestFlight](https://testflight.apple.com/).
+The current version is available for Android through [Google Play](https://play.google.com/store/apps/details?id=app.getopencode) and as a [direct APK](/download). The iOS beta is available through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz).
 
 ## Is it a general AI chatbot or mobile IDE?
 

@@ -25,7 +25,7 @@ The canonical release history is always [GitHub Releases](https://github.com/alv
 
 ## Current updates
 
-- The iOS build now has a dedicated bundle identifier, signed release workflow, and [TestFlight beta](https://testflight.apple.com/) distribution path.
+- The iOS build now has a dedicated bundle identifier, signed release workflow, and [TestFlight beta](https://testflight.apple.com/join/ddcE5Wzz) distribution path.
 - The Chat model picker is searchable and groups configured models by provider.
 - The current iOS build includes the required photo-library explanation for attaching selected images.
 
@@ -45,7 +45,7 @@ These values describe the current public source at the time this page was update
 ## Support boundaries
 
 - Android is distributed through Google Play and direct APK releases.
-- The iOS beta is distributed through [TestFlight](https://testflight.apple.com/).
+- The iOS beta is distributed through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz).
 - Experimental worktrees, PTYs, MCP management, diagnostics, and some lifecycle actions depend on server capabilities.
 - The mobile terminal is a focused line console, not a complete VT terminal emulator.
 - OpenCode Mobile is independent and community-built, not an official OpenCode product.

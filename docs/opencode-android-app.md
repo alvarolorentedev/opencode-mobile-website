@@ -20,7 +20,7 @@ Use the [OpenCode Mobile download page](/download/) to choose one of two install
 
 - **Google Play:** recommended for automatic updates through the Play Store.
 - **Direct APK:** downloaded from the project's public [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) when Play testing is unavailable or you prefer manual installation.
-- **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/) on an iPhone or iPad.
+- **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/join/ddcE5Wzz) on an iPhone or iPad.
 
 The current release history and source code are public. Do not install APK files reposted by unrelated download sites.
 

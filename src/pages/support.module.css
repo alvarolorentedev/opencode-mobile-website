@@ -1,0 +1,358 @@
+.page {
+  --support-bg: #131111;
+  --support-surface: #191717;
+  --support-text: #f2eded;
+  --support-muted: #b8b2b2;
+  --support-soft: #858080;
+  --support-border: #343030;
+  --support-accent: #78e5c1;
+  --support-accent-text: #0c1713;
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  border-inline: 1px solid var(--support-border);
+  background: var(--support-bg);
+  color: var(--support-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', monospace;
+}
+
+[data-theme='light'] .page {
+  --support-bg: #f4f0f0;
+  --support-surface: #ebe6e6;
+  --support-text: #1b1818;
+  --support-muted: #5f5959;
+  --support-soft: #696262;
+  --support-border: #cbc4c4;
+  --support-accent: #0f6f53;
+  --support-accent-text: #fff;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page p {
+  font-family: inherit;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  color: var(--support-text);
+}
+
+.intro {
+  padding: clamp(72px, 11vw, 140px) clamp(28px, 7vw, 84px);
+  border-bottom: 1px solid var(--support-border);
+}
+
+.kicker,
+.label,
+.sectionIndex {
+  margin: 0;
+  color: var(--support-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  max-width: 780px;
+  margin: 28px 0 0;
+  font-size: clamp(2.65rem, 6.5vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.intro > p:last-child {
+  max-width: 690px;
+  margin: 28px 0 0;
+  color: var(--support-muted);
+  font-size: clamp(1rem, 1.4vw, 1.13rem);
+  line-height: 1.75;
+}
+
+.primaryOptions,
+.cryptoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.primaryOptions {
+  align-items: start;
+  border-bottom: 1px solid var(--support-border);
+}
+
+.primaryCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(34px, 5vw, 58px);
+  background: var(--support-surface);
+}
+
+.primaryCard + .primaryCard {
+  border-left: 1px solid var(--support-border);
+}
+
+.primaryCard h2 {
+  margin: 28px 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.primaryCard > p:not(.label) {
+  color: var(--support-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.primaryCard > p:nth-of-type(2) {
+  margin-top: 18px;
+}
+
+.primaryAction,
+.secondaryAction,
+.copyButton {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 12px 18px;
+  border: 1px solid var(--support-border);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primaryAction {
+  border-color: var(--support-accent);
+  background: var(--support-accent);
+  color: var(--support-accent-text);
+}
+
+.secondaryAction,
+.copyButton {
+  background: transparent;
+  color: var(--support-text);
+}
+
+.kofiPanel {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 670px;
+  margin-top: 00px;
+  padding: 0px;
+  border: 0;
+  background: var(--support-bg);
+}
+
+[data-theme='dark'] .kofiPanel {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.primaryAction:hover,
+.primaryAction:focus-visible {
+  border-color: var(--support-text);
+  background: var(--support-text);
+  color: var(--support-bg);
+  text-decoration: none;
+}
+
+.secondaryAction:hover,
+.secondaryAction:focus-visible,
+.copyButton:hover,
+.copyButton:focus-visible {
+  border-color: var(--support-text);
+  background: var(--support-bg);
+  color: var(--support-text);
+  text-decoration: none;
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.copyButton:focus-visible {
+  outline: 2px solid var(--support-accent);
+  outline-offset: 3px;
+}
+
+.unavailable {
+  margin-top: auto;
+  color: var(--support-soft) !important;
+  font-size: 0.8rem !important;
+}
+
+.cryptoSection {
+  padding: clamp(58px, 8vw, 92px) clamp(28px, 7vw, 84px);
+}
+
+.cryptoIntro h2 {
+  margin: 18px 0 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.cryptoIntro > p:last-child {
+  margin: 16px 0 0;
+  color: var(--support-muted);
+}
+
+.cryptoGrid {
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.cryptoCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--support-border);
+  background: var(--support-surface);
+}
+
+.btc {
+  border-top: 3px solid #f3a712;
+}
+
+.eth {
+  border-top: 3px solid #8798f5;
+}
+
+.cryptoHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cryptoHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.bitcoinIcon,
+.ethereumIcon {
+  display: block;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+}
+
+.bitcoinIcon circle {
+  fill: #f3a712;
+}
+
+.bitcoinIcon text {
+  fill: #fff;
+  font-family: system-ui, sans-serif;
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.ethereumIcon {
+  fill: #8798f5;
+}
+
+.ethereumIcon path:last-child {
+  opacity: 0.65;
+}
+
+.symbol {
+  display: inline-block;
+  margin-top: 3px;
+  color: var(--support-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.qrFrame {
+  display: flex;
+  width: 100%;
+  min-height: 272px;
+  align-items: center;
+  justify-content: center;
+  margin: 22px 0 18px;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.qrFrame svg {
+  display: block;
+  width: min(100%, 240px);
+  height: auto;
+  shape-rendering: crispEdges;
+}
+
+.network {
+  align-self: stretch;
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid var(--support-border);
+  color: var(--support-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.address {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid var(--support-border);
+  color: var(--support-text);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  white-space: normal;
+  user-select: all;
+}
+
+.copyButton {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.copyStatus {
+  min-height: 1.4rem;
+  margin-top: 8px;
+  color: var(--support-accent);
+  font-size: 0.78rem;
+}
+
+.irreversibleWarning {
+  margin: 26px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--support-accent);
+  background: var(--support-surface);
+  color: var(--support-muted);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 700px) {
+  .primaryOptions,
+  .cryptoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .primaryCard + .primaryCard {
+    border-top: 1px solid var(--support-border);
+    border-left: 0;
+  }
+
+  .qrFrame {
+    min-height: auto;
+  }
+
+}

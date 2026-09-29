@@ -77,11 +77,26 @@ npm run serve
 - `static/_headers` sets long-lived asset caching and baseline security headers.
 - `static/robots.txt` advertises the sitemap.
 
+## Support links
+
+These environment variables can override the support link defaults in the
+website build environment:
+
+- `GITHUB_SPONSORS_URL`: defaults to `https://github.com/sponsors/alvarolorentedev`.
+- `KOFI_URL`: defaults to `https://ko-fi.com/alvarolorentedev`.
+
+Only HTTPS URLs are accepted. The Ko-fi tip panel URL is derived from the
+configured Ko-fi profile URL.
+
+Crypto wallet addresses, networks, and payment URIs are centralized in
+`src/data/cryptoDonations.json`.
+
 ## Useful commands
 
 ```bash
 npm start
 npm run build
+npm test
 npm run serve
 npm run typecheck
 ```

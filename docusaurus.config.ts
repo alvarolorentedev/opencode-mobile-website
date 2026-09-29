@@ -2,6 +2,33 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+function httpsUrl(value: string | undefined): string | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function kofiWidgetUrl(value: string | null): string | null {
+  if (!value) return null;
+  const url = new URL(value);
+  url.pathname = `${url.pathname.replace(/\/+$/, '')}/`;
+  url.search = '?hidefeed=true&widget=true&embed=true&preview=true';
+  url.hash = '';
+  return url.href;
+}
+
+const githubSponsorsUrl = httpsUrl(
+  process.env.GITHUB_SPONSORS_URL || 'https://github.com/sponsors/alvarolorentedev',
+);
+const kofiUrl = httpsUrl(
+  process.env.KOFI_URL || 'https://ko-fi.com/alvarolorentedev',
+);
+const kofiEmbedUrl = kofiWidgetUrl(kofiUrl);
+
 const config: Config = {
   title: 'OpenCode Mobile',
   tagline: 'A community-built mobile companion for OpenCode.',
@@ -14,6 +41,12 @@ const config: Config = {
   trailingSlash: true,
   organizationName: 'alvarolorentedev',
   projectName: 'opencode-mobile',
+  clientModules: ['./src/clientModules/gtag-guard.ts'],
+  customFields: {
+    githubSponsorsUrl,
+    kofiUrl,
+    kofiEmbedUrl,
+  },
   onBrokenLinks: 'throw',
   i18n: {
     defaultLocale: 'en',
@@ -106,6 +139,11 @@ const config: Config = {
           label: 'About',
         },
         {
+          to: '/support',
+          position: 'left',
+          label: 'Support',
+        },
+        {
           href: 'https://github.com/alvarolorentedev/opencode-mobile',
           label: 'GitHub',
           position: 'right',
@@ -117,7 +155,7 @@ const config: Config = {
           className: 'navbar-download',
         },
         {
-          href: 'https://testflight.apple.com/',
+          href: 'https://testflight.apple.com/join/ddcE5Wzz',
           label: 'Join iOS beta',
           position: 'right',
           className: 'navbar-download',
@@ -177,6 +215,13 @@ const config: Config = {
               to: '/about',
             },
             {
+              label: 'Support',
+              to: '/support',
+            },
+            ...(githubSponsorsUrl
+              ? [{label: 'Sponsor', href: githubSponsorsUrl}]
+              : []),
+            {
               label: 'Security',
               to: '/security',
             },
@@ -186,7 +231,7 @@ const config: Config = {
             },
             {
               label: 'Join iOS beta',
-              href: 'https://testflight.apple.com/',
+              href: 'https://testflight.apple.com/join/ddcE5Wzz',
             },
           ],
         },

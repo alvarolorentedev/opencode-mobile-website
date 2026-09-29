@@ -8,7 +8,7 @@ import styles from './download.module.css';
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=app.getopencode';
 const APK_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases/latest/download/opencode-mobile.apk';
-const TESTFLIGHT_URL = 'https://testflight.apple.com/';
+const TESTFLIGHT_URL = 'https://testflight.apple.com/join/ddcE5Wzz';
 const RELEASES_URL =
   'https://github.com/alvarolorentedev/opencode-mobile/releases';
 

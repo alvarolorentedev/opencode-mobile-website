@@ -16,7 +16,7 @@ Use the [Download page](/download) to choose an installation method:
 
 - **Google Play (recommended):** join the testing program, then install and receive updates through Google Play.
 - **Direct GitHub APK:** download and install the latest release manually. Android may ask you to allow installation from your browser or file manager.
-- **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/) and install the beta on an iPhone or iPad.
+- **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/join/ddcE5Wzz) and install the beta on an iPhone or iPad.
 
 The Android options install the latest Android release; TestFlight installs the iOS beta. The rest of this guide explains how to connect either app to your OpenCode server.
 

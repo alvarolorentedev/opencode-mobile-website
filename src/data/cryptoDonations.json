@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "address": "bc1qsp889wm0ehu5xrsq9zv6607qkxzvxgkvxnfsux",
+    "network": "Bitcoin",
+    "paymentUri": "bitcoin:bc1qsp889wm0ehu5xrsq9zv6607qkxzvxgkvxnfsux"
+  },
+  {
+    "name": "Ethereum",
+    "symbol": "ETH",
+    "address": "0x99d784b3844A883030332D690a7A2ef59aaA547e",
+    "network": "Ethereum",
+    "paymentUri": "ethereum:0x99d784b3844A883030332D690a7A2ef59aaA547e"
+  }
+]
