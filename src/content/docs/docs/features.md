@@ -4,8 +4,8 @@ description: Choose an OpenCode Mobile workflow for mobile tasks, sessions, appr
 ---
 Start with the outcome you need. Each guide explains when the capability is useful, the exact mobile workflow, what you should see, and the important limitations.
 
-<video controls playsInline preload="none" poster="/img/product/walkthrough-poster.avif" width="1280" height="720">
-  <source src="/media/opencode-mobile-walkthrough.mp4" type="video/mp4" />
+<video controls playsInline preload="none" poster="/img/product/opencode-mobile-poster.avif" width="1280" height="720">
+  <source src="/media/opencode-mobile-promo.mp4" type="video/mp4" />
   Your browser does not support embedded video.
 </video>
 

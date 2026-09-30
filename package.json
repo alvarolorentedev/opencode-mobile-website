@@ -12,7 +12,7 @@
     "test": "node --test",
     "typecheck": "astro check",
     "video:studio": "remotion studio remotion/index.ts",
-    "video:render": "remotion render remotion/index.ts ProductWalkthrough static/media/opencode-mobile-walkthrough.mp4 --codec=h264 --crf=20 --public-dir=static && remotion still remotion/index.ts ProductWalkthrough static/img/product/walkthrough-poster.png --frame=60 --public-dir=static",
+    "video:render": "remotion render remotion/index.ts ProductWalkthrough static/media/opencode-mobile-promo.mp4 --codec=h264 --crf=20 --public-dir=static && remotion still remotion/index.ts ProductWalkthrough static/img/product/opencode-mobile-poster.avif --frame=60 --public-dir=static",
     "video:typecheck": "tsc -p remotion/tsconfig.json"
   },
   "dependencies": {

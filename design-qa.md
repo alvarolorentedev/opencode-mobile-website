@@ -35,7 +35,7 @@ The hero product-image region was inspected separately at 1280 × 720. Its sourc
 
 - Hero asset: `/img/product/task-session.webp`.
 - Product assets: task, voice, and usage approved captures.
-- Walkthrough poster: `/img/product/walkthrough-poster.png`.
+- Walkthrough poster: `/img/product/opencode-mobile-poster.avif`.
 - Desktop and mobile widths show no horizontal overflow.
 - Product navigation moves to `#product` with the heading visible below the sticky navigation.
 - Browser console contains no relevant warnings or errors.
