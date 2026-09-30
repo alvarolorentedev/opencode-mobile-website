@@ -8,7 +8,7 @@ export const navLinks = [
   { label: 'Get Started', href: '/docs/getting-started/' },
   { label: 'Docs', href: '/docs/' },
   { label: 'Features', href: '/docs/features/' },
-  { label: 'Sponsor', href: '/support/' },
+  { label: 'Support', href: '/support/' },
 ];
 
 export const downloadLink = { label: 'Download', href: '/download/' };
