@@ -1,28 +1,43 @@
 ---
 title: Manage OpenCode Sessions from Mobile
-description: Switch, create, rename, archive, restore, fork, or revert OpenCode sessions from the mobile app.
+description: Search, switch, favorite, rename, archive, restore, share, delete, fork, or revert OpenCode sessions from the mobile app.
+lastUpdated: 2026-10-19
 ---
+
 Sessions separate different pieces of work. Use them like focused work threads: one goal, its discussion, and its resulting changes.
 
-## Switch or create
+## Open the Chats library
 
-Tap the title at the top of **Chat** to open the session picker. Choose an existing session or tap **+** for a new one. You can also create and open sessions from **Workspace → Chats**.
+Tap the session title at the top of **Chat** to open **Chats**. From there you can:
+
+- search the active, favorite, or archived list;
+- switch to an existing session or create a new one;
+- open a session from another project;
+- favorite a session for quick access;
+- hide subagent chats;
+- use row actions supported by the connected server.
+
+The library’s **Running & recent** group shows up to four sessions from the whole connection, running ones first. Selecting one switches to its project and opens it in one tap.
 
 The app remembers the last session used for each project. Switching projects changes which sessions are shown.
 
-## Keep the list useful
+## Create, rename, and organize
 
-In **Workspace → Chats**, open the menu beside a session to use the actions supported by your server:
+In the Chats library:
 
-- **Rename** it with a clear outcome-oriented title.
-- **Archive** finished work without deleting its history.
-- **Restore** an archived session when work resumes.
-- **Delete** a session permanently.
-- **Share** it with a public URL or **Unshare** it later.
+- **New chat** starts a new session in the active project.
+- **Rename** gives the session a clear outcome-oriented title.
+- **Favorite** keeps a session accessible across projects.
+- **Archive** hides finished work without deleting its history.
+- **Restore** brings an archived session back when work resumes.
+- **Delete** permanently removes a session after confirmation.
+- **Share** creates a public URL when the server supports sharing; **Unshare** removes it later.
 
-Archive, restore, and share controls are currently available on the OpenCode 1.x (V1) contract. They are hidden when connected to OpenCode 2.x (V2), which does not expose those actions.
+Archive, restore, and share actions currently depend on the OpenCode 1.x (V1) contract. They are hidden on OpenCode 2.x (V2), which does not expose those actions. Delete, rename, create, fork, and revert remain available where the server supports them.
 
-Before sharing, review the transcript for source code, credentials, internal URLs, customer information, or other sensitive context.
+Project-scoped row actions are offered only for sessions in the active project. Sessions from other projects can still be opened and favorited; the app switches project first.
+
+Before sharing, review the transcript for source code, credentials, internal URLs, customer information, or other sensitive context. Anyone with a share link may be able to view the session.
 
 ## Explore a different direction
 
@@ -37,5 +52,9 @@ Forking is the safer choice when you want to preserve both directions. Revert ch
 ## Find older context
 
 Chat initially shows the newest transcript page. Tap **Load earlier messages** when you need prior decisions. Long-press a message to copy it; use the speaker action on an assistant message to hear it aloud.
+
+## Session links
+
+A session can be opened from a notification, quick action, or deep link. See [Deep links](/docs/guides/deep-links/) for the link format and behavior.
 
 Next: [Start and monitor a task](/docs/guides/tasks/), [review approvals and changes](/docs/guides/approvals-and-changes/), or [understand session usage](/docs/guides/usage/).

@@ -13,6 +13,7 @@
 /*.md
   Content-Type: text/markdown; charset=utf-8
   Cache-Control: public, max-age=3600, must-revalidate
+  X-Robots-Tag: noindex
 
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains

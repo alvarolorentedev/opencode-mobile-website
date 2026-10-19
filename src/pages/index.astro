@@ -16,7 +16,7 @@ const description =
 const productScreens = [
   {
     image: '/img/product/task-session.webp',
-    alt: 'OpenCode Mobile task screen showing a new coding session, task suggestions, model controls, and workspace navigation',
+    alt: 'OpenCode Mobile task screen showing a new coding session, task suggestions, model controls, and project navigation',
     label: 'Task control',
     title: 'Start, watch, and redirect',
     description:
@@ -57,7 +57,7 @@ const faqItems = [
   {
     question: 'Do I need an existing OpenCode setup?',
     answer:
-      'Yes. OpenCode Mobile connects to an OpenCode server and works with its sessions and workspaces; it does not replace the server.',
+      'Yes. OpenCode Mobile connects to an OpenCode server and works with its sessions and projects; it does not replace the server.',
   },
   {
     question: 'How should I expose my OpenCode server?',
@@ -84,7 +84,7 @@ const faqItems = [
         <p class={styles.eyebrow}>Community-built companion for OpenCode</p>
         <h1>OpenCode Mobile for Android and iOS.</h1>
         <p class={styles.heroDescription}>
-          Start tasks, check progress, use the terminal, and manage workspaces
+          Start tasks, check progress, use the terminal, and manage projects
           from your phone—without reopening your laptop.
         </p>
         <div class={styles.actionLinks}>
@@ -124,7 +124,7 @@ const faqItems = [
           src="/img/product/task-session.webp"
           width="720"
           height="1616"
-          alt="OpenCode Mobile task screen showing a new session, task suggestions, model controls, and workspace navigation"
+          alt="OpenCode Mobile task screen showing a new session, task suggestions, model controls, and project navigation"
           class={styles.heroImage}
           loading="eager"
           fetchpriority="high"
@@ -215,7 +215,7 @@ const faqItems = [
         <li>
           <span class={styles.stepNumber}>01</span>
           <h3>Run OpenCode</h3>
-          <p>Start a headless server on the machine that owns your workspace.</p>
+          <p>Start a headless server on the machine that owns your project.</p>
           <code>opencode serve --port 4096</code>
         </li>
         <li>
@@ -227,7 +227,7 @@ const faqItems = [
         <li>
           <span class={styles.stepNumber}>03</span>
           <h3>Connect the app</h3>
-          <p>Enter the protected server URL, choose a workspace, and continue.</p>
+          <p>Enter the protected server URL, choose a project, and continue.</p>
           <a href="/docs/getting-started/">Open the complete setup guide</a>
         </li>
       </ol>

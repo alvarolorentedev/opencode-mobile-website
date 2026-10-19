@@ -11,7 +11,7 @@ function outputPath(route) {
   return new URL(`../build/${clean ? `${clean}/` : ''}index.html`, import.meta.url);
 }
 
-test('every pre-migration route still builds (no SEO regression)', async () => {
+test('every documented route still builds (no SEO regression)', async () => {
   const missing = [];
   for (const route of baseline) {
     try {

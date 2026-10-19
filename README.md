@@ -58,12 +58,18 @@ npm run preview
 ├── astro.config.ts            # Astro + Starlight configuration
 ├── src/
 │   ├── content/docs/docs/     # Documentation (served at /docs/**)
-│   │   ├── introduction.md
-│   │   ├── getting-started.md
-│   │   ├── features.md
-│   │   ├── remote-access.md
-│   │   ├── user-manual.md
 │   │   ├── index.md           # /docs/ hub
+│   │   ├── introduction.md
+│   │   ├── opencode-android-app.md
+│   │   ├── getting-started.md
+│   │   ├── connections.md
+│   │   ├── cloud-link.md
+│   │   ├── remote-access.md
+│   │   ├── features.md
+│   │   ├── user-manual.md
+│   │   ├── changelog.md
+│   │   ├── faq.md
+│   │   ├── for-ai-agents.md
 │   │   └── guides/
 │   ├── pages/                 # Home, download, support, and legal/info pages
 │   ├── layouts/               # MarketingLayout for non-docs pages
@@ -80,8 +86,14 @@ Documentation lives in `src/content/docs/docs/` so Starlight serves it under `/d
 
 - `llms.txt`, `llms-small.txt`, and `llms-full.txt` are generated at build time.
 - Topic-specific context files are generated under `/_llms-txt/`.
-- Every documentation page is also available as raw Markdown at `<url>.md` (for example `/docs/getting-started.md`), and each page links to it with `<link rel="alternate" type="text/markdown">`.
-- Structured data is emitted for the site (`WebSite`, `Organization`, `Person`, `MobileApplication`) and documentation (`TechArticle`).
+- A post-build integration makes internal llms links absolute and replaces the plugin’s incorrect “official documentation” notes.
+- `/docs/for-ai-agents/` publishes canonical facts and machine-readable entry points for assistants.
+- Every documentation page is also available as raw Markdown at `<url>.md` (for example `/docs/getting-started.md`) with canonical frontmatter. Raw Markdown is marked `X-Robots-Tag: noindex` so the HTML page remains the search canonical.
+- Structured data is emitted for the site (`WebSite`, `Organization`, `Person`, `MobileApplication`), documentation (`TechArticle`), the docs hub (`CollectionPage`), breadcrumbs, and the FAQ (`FAQPage`).
+
+## Content maintenance
+
+Read [`CONTENT_GUIDE.md`](./CONTENT_GUIDE.md) before adding or rewriting documentation. It defines the page roles, terminology, SEO rules, and the source-of-truth order for checking behavior against the app repository.
 
 ## Production deployment requirements
 

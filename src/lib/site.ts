@@ -56,10 +56,17 @@ export const siteStructuredData = {
       },
       downloadUrl: `${SITE}/download/`,
       codeRepository: GITHUB_URL,
+      sameAs: [GITHUB_URL],
       author: { '@id': `${SITE}/#maintainer` },
     },
   ],
 };
+
+function articleDates(input: { lastUpdated?: Date }) {
+  return input.lastUpdated
+    ? { dateModified: input.lastUpdated.toISOString().slice(0, 10) }
+    : {};
+}
 
 export function docsStructuredData(input: {
   title: string;
@@ -70,26 +77,59 @@ export function docsStructuredData(input: {
   return {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
+    '@id': `${input.url}#article`,
     headline: input.title,
     description: input.description,
     url: input.url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': input.url },
     inLanguage: 'en',
-    ...(input.lastUpdated
-      ? { dateModified: input.lastUpdated.toISOString().slice(0, 10) }
-      : {}),
-    isPartOf: {
-      '@type': 'SoftwareApplication',
-      name: 'OpenCode Mobile',
-      applicationCategory: 'DeveloperApplication',
-      operatingSystem: 'Android, iOS',
-      url: `${SITE}/`,
-      codeRepository: GITHUB_URL,
-    },
+    ...articleDates(input),
+    image: SOCIAL_CARD,
+    isPartOf: { '@id': `${SITE}/#website` },
+    about: { '@id': `${SITE}/#app` },
+    publisher: { '@id': `${SITE}/#organization` },
     author: {
       '@type': 'Organization',
       name: 'OpenCode Mobile',
       url: `${SITE}/`,
     },
+    license: 'https://www.apache.org/licenses/LICENSE-2.0',
+  };
+}
+
+export function docsHubStructuredData(input: {
+  title: string;
+  description: string;
+  url: string;
+  lastUpdated?: Date;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${input.url}#collection`,
+    name: input.title,
+    description: input.description,
+    url: input.url,
+    inLanguage: 'en',
+    ...articleDates(input),
+    isPartOf: { '@id': `${SITE}/#website` },
+    about: { '@id': `${SITE}/#app` },
+    publisher: { '@id': `${SITE}/#organization` },
+  };
+}
+
+export function breadcrumbStructuredData(
+  items: { name: string; url: string }[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }
 

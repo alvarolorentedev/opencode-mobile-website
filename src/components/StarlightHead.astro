@@ -1,8 +1,11 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
 import {
+  breadcrumbStructuredData,
+  docsHubStructuredData,
   docsStructuredData,
   faqStructuredData,
+  siteStructuredData,
   SITE,
 } from '../lib/site';
 import { faqItemsFromMarkdown } from '../lib/faq.mjs';
@@ -15,14 +18,28 @@ const markdownUrl = new URL(`${id}.md`, SITE).href;
 const rawLastUpdated = route.lastUpdated ?? entry.data.lastUpdated;
 const lastUpdated =
   rawLastUpdated instanceof Date ? rawLastUpdated : undefined;
+const isDocsIndex = id === 'docs';
 
 const schemas: object[] = [
-  docsStructuredData({
-    title: entry.data.title,
-    description: entry.data.description,
-    url: canonical,
-    lastUpdated,
-  }),
+  siteStructuredData,
+  isDocsIndex
+    ? docsHubStructuredData({
+        title: entry.data.title,
+        description: entry.data.description,
+        url: canonical,
+        lastUpdated,
+      })
+    : docsStructuredData({
+        title: entry.data.title,
+        description: entry.data.description,
+        url: canonical,
+        lastUpdated,
+      }),
+  breadcrumbStructuredData([
+    { name: 'Home', url: `${SITE}/` },
+    { name: 'Documentation', url: `${SITE}/docs/` },
+    ...(isDocsIndex ? [] : [{ name: entry.data.title, url: canonical }]),
+  ]),
 ];
 
 if (id === 'docs/faq' && entry.body) {
@@ -33,6 +50,17 @@ if (id === 'docs/faq' && entry.body) {
 
 <Default />
 <link rel="alternate" type="text/markdown" href={markdownUrl} />
+<link rel="alternate" type="text/plain" href={`${SITE}/llms.txt`} />
+<meta name="twitter:title" content={entry.data.title} />
+<meta name="twitter:description" content={entry.data.description} />
+{
+  lastUpdated && (
+    <meta
+      property="article:modified_time"
+      content={lastUpdated.toISOString()}
+    />
+  )
+}
 {
   schemas.map((schema) => (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />

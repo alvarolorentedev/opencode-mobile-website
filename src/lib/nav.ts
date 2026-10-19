@@ -7,7 +7,7 @@ import { GITHUB_URL } from './site';
 export const navLinks = [
   { label: 'Get Started', href: '/docs/getting-started/' },
   { label: 'Docs', href: '/docs/' },
-  { label: 'Features', href: '/docs/features/' },
+  { label: 'Guides', href: '/docs/features/' },
   { label: 'Support', href: '/support/' },
 ];
 

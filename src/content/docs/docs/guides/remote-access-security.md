@@ -1,7 +1,7 @@
 ---
 title: Secure OpenCode Remote Access from Mobile
 description: Threat-model an OpenCode mobile connection, protect server credentials, compare private and public routes, and respond to a lost device or exposed endpoint.
-lastUpdated: 2026-09-29
+lastUpdated: 2026-10-19
 ---
 An OpenCode server may read and change source files, execute commands, and invoke configured AI providers. Remote access therefore creates a privileged path into a development machine. HTTPS alone does not make that path safe.
 
@@ -26,7 +26,13 @@ An OpenCode server may read and change source files, execute commands, and invok
 
 ## Credential handling
 
-On native iOS and Android builds, non-secret connection details use app storage and the server password uses `expo-secure-store`. Treat the device as holding access to the development server. Use device encryption and a strong screen lock, and rotate the OpenCode password after a device is lost or transferred. Browser builds cannot persist passwords through native secure storage.
+On native iOS and Android builds, non-secret connection details use app storage and server passwords use Keychain/Keystore-backed secure storage. Treat the device as holding access to the development server. Use device encryption and a strong screen lock, and rotate the OpenCode password after a device is lost or transferred. Browser builds cannot persist passwords through native secure storage.
+
+Multiple saved connections each have their own stored password. Editing a connection does not reconnect it automatically, so a stale connection can remain active until you choose **Reconnect**.
+
+Local QR codes and Cloud Link pairing links are credentials. Do not paste them into public issues, logs, chat messages, or screenshots. If a code or link is exposed, run a fresh pairing flow or revoke the machine where available.
+
+Cloud Link adds an optional managed route and store subscription. Review the [Cloud Link page](/docs/cloud-link/) and the [privacy policy](/privacy-policy/) before using it. Cloud Link does not change the fact that your prompts and source code are sent to the OpenCode server you select.
 
 Do not reuse an AI-provider API key as the OpenCode server password. Provider authentication and server connection authentication protect different systems.
 

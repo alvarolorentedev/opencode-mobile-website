@@ -1,7 +1,7 @@
 ---
 title: How to Use OpenCode from Your Phone
 description: Run OpenCode on your computer and safely control its sessions, permissions, files, voice input, and terminal commands from a mobile device.
-lastUpdated: 2026-09-29
+lastUpdated: 2026-10-19
 ---
 The reliable architecture is simple: OpenCode runs on the machine that owns your project, while your phone acts as a remote control. Do not move the repository, model credentials, build tools, and complete development environment onto the phone unless on-device development is your explicit goal.
 
@@ -20,18 +20,21 @@ This keeps execution close to the real workspace while making approvals and foll
 
 1. [Download OpenCode Mobile](/download/).
 2. Start an authenticated OpenCode server on `127.0.0.1:4096`.
-3. Choose [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), or another [remote-access method](/docs/remote-access/).
+3. Choose [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), [local QR](/docs/connections/), [Cloud Link](/docs/cloud-link/), or another [remote-access method](/docs/remote-access/).
 4. Test the server's `/global/health` endpoint from the phone's network.
-5. Enter the full API base URL, username, and password in the app.
+5. Add a connection in the app with the full API base URL, username, and password, or scan a local QR code.
 6. Select the project and confirm the expected session before sending work.
+
+You can save multiple servers and switch between them in **Settings → Connection**. The app keeps each server's projects, remembered sessions, favorites, and notification records separate.
 
 ## Good mobile workflows
 
 - Check whether a long task is still progressing.
 - Answer a permission or product question.
-- Review the changed-file summary before accepting completion.
-- Send a short follow-up or dictate it with voice input.
-- Inspect a specific file or run a non-interactive test command.
+- Review Turn, Uncommitted, or Branch changes before accepting completion.
+- Send a short follow-up, steer a running turn, or dictate it with voice input.
+- Inspect a specific file, save a focused edit, or run a test command in the project terminal.
+- Share a screenshot, document, or link from another app into a chat on Android.
 - Switch or archive sessions while keeping each thread focused.
 
 Use the desktop when a change requires broad code navigation, prolonged terminal interaction, complex conflict resolution, or detailed visual review.

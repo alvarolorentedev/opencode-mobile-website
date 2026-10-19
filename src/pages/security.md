@@ -5,7 +5,7 @@ layout: ../layouts/MarketingLayout.astro
 prose: true
 last_update:
   author: Alvaro Lorente
-  date: 2026-07-31
+  date: 2026-10-19
 ---
 
 # OpenCode Mobile security
@@ -15,10 +15,10 @@ OpenCode Mobile connects to a development server that may access source code, te
 ## Security model
 
 - Your OpenCode server runs on infrastructure you control.
-- The mobile client connects directly to the server URL you configure.
-- OpenCode username and password values are persisted in app storage for reconnection. This is convenient, but it is not equivalent to a hardware-backed credential vault.
-- The project does not operate a proxy that receives your OpenCode sessions.
-- Optional tunnels, VPNs, reverse proxies, and AI providers have their own security and privacy policies.
+- The mobile client connects directly to the server URL you configure, or through an optional Cloud Link tunnel you pair with.
+- Server passwords are stored in Keychain/Keystore-backed secure storage on native builds. Non-secret connection metadata remains in app storage. Treat the device as privileged access to the server.
+- The project does not store your OpenCode prompts or source code as part of normal direct connections. Optional Cloud Link processes only the data needed to verify a subscription and pair a machine; see the [privacy policy](/privacy-policy/).
+- Optional tunnels, VPNs, reverse proxies, Cloud Link, and AI providers have their own security and privacy policies.
 
 ## Required deployment practices
 
