@@ -150,7 +150,7 @@ export default defineConfig({
           description:
             'Community-built Android and iOS client for an OpenCode server you run. Covers installation, configuration, remote access, security, and troubleshooting.',
           details:
-            'OpenCode Mobile is not an official OpenCode product. It connects to a self-hosted OpenCode server. Start with the documentation hub, then follow the getting-started or remote-access material as needed.',
+            'OpenCode Mobile is an independent, community-built project. It is not built by the OpenCode team, is not endorsed by them, and is not affiliated with them in any way. It connects to a self-hosted OpenCode server. Start with the documentation hub, then follow the getting-started or remote-access material as needed.',
           optionalLinks: [
             {
               label: 'Documentation hub',

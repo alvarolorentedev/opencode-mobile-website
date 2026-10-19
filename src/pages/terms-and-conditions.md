@@ -11,6 +11,13 @@ These terms and conditions apply to the Opencode app for mobile devices, togethe
 
 By downloading or using the Application, you agree to these Terms and Conditions. You should read them carefully before using the Application.
 
+## Independent project
+
+OpenCode Mobile is an independent, community-built project. It is not built by
+the OpenCode team, is not endorsed by them, and is not affiliated with them in
+any way. "OpenCode" is used only to describe the software this app works with.
+OpenCode and its trademarks belong to their respective owners.
+
 ## License to use the Application
 
 This Application is distributed as open source software under the applicable open source license. Your use, reproduction, and distribution of the Application are governed by the terms of that license.

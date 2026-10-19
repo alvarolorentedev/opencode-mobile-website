@@ -1,5 +1,11 @@
 # OpenCode Mobile Website
 
+> **Not affiliated with OpenCode.** OpenCode Mobile is an independent,
+> community-built project. It is not built by the OpenCode team, is not endorsed
+> by them, and is not affiliated with them in any way. "OpenCode" is used only to
+> describe the software this site is about. OpenCode and its trademarks belong to
+> their respective owners.
+
 Public website, Android/iOS download path, and maintained product documentation for [OpenCode Mobile](https://getopencode.app/), built with Astro and Starlight.
 
 ## Stack

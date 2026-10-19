@@ -11,6 +11,13 @@ This privacy policy applies to the Opencode app for mobile devices, together wit
 
 OpenCode Mobile is a client for an OpenCode server that you choose and control (for example, your own computer or a server you set up). Where your data goes depends on which connection you use, as explained below.
 
+## Independent project
+
+OpenCode Mobile is an independent, community-built project. It is not built by
+the OpenCode team, is not endorsed by them, and is not affiliated with them in
+any way. "OpenCode" is used only to describe the software this app works with.
+OpenCode and its trademarks belong to their respective owners.
+
 ## Where your data goes
 
 There are two separate paths, and they are handled differently:

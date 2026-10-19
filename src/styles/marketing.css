@@ -85,11 +85,19 @@ video {
   text-decoration: underline;
 }
 
+.site-footer__disclaimer {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 1rem 0 0;
+  border-top: 1px solid currentColor;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
 .site-footer__copy {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 1rem 0 2rem;
-  border-top: 1px solid currentColor;
+  padding: 0.5rem 0 2rem;
   font-size: 0.85rem;
   opacity: 0.75;
 }

@@ -139,6 +139,14 @@
   font-size: 0.75rem;
 }
 
+.affiliationNote {
+  max-width: 52ch;
+  margin: 10px 0 0;
+  color: var(--landing-soft);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
 .heroMedia {
   display: grid;
   min-width: 0;
