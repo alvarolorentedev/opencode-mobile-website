@@ -139,6 +139,8 @@ A healthy response includes `healthy: true` and may include the OpenCode version
 
 Follow [Remote Access](/docs/remote-access/) for the exact commands and security tradeoffs. Use the dedicated [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), [local network](/docs/guides/local-network/), or [Cloud Link](/docs/cloud-link/) guide for the route you choose.
 
+Cloud Link is a separate connector product. See the [OpenCode Cloud Link website](https://opencodecloud.link/) for connector downloads, platform support, and pricing.
+
 ## 5. Connect the app
 
 On first launch, onboarding walks through these steps:

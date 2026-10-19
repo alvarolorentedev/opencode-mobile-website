@@ -20,7 +20,7 @@ OpenCode 2 is the current primary target. It uses the shared background service 
 
 ## Recent product milestones
 
-- **Cloud Link** with connector QR pairing, subscription recovery, machines, exposed services, and port/root-service management.
+- **Cloud Link** with connector QR pairing, subscription recovery, machines, exposed services, and port/root-service management. See the [OpenCode Cloud Link website](https://opencodecloud.link/).
 - **Local QR pairing** with `opencode pair`, separate from Cloud Link.
 - **Multiple saved connections** with switching, editing, and per-connection state.
 - **Projects** with opened-project tracking, project picker, files, worktrees, and per-project sessions.

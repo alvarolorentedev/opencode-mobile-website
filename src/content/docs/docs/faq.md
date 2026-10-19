@@ -60,7 +60,7 @@ See [Remote access](/docs/remote-access/) and [Add or switch connections](/docs/
 
 **Local QR** is a free same-network setup shortcut for OpenCode 2. Start the shared service with `opencode service start`, run `opencode pair`, scan the one-time code, and the app saves the connection. The server must be reachable from the phone, not only from `localhost`. Links expire after five minutes.
 
-**Cloud Link** is an optional paid remote-access service for App Store and Google Play installs. It uses a desktop connector and a subscription to provide a managed route over the internet. It is not available in direct APK, F-Droid/FOSS, or web builds.
+**Cloud Link** is an optional paid remote-access service for App Store and Google Play installs. It uses a desktop connector and a subscription to provide a managed route over the internet. It is not available in direct APK, F-Droid/FOSS, or web builds. See the [OpenCode Cloud Link website](https://opencodecloud.link/) for connector downloads, platform support, and pricing.
 
 ## Can I save more than one server?
 

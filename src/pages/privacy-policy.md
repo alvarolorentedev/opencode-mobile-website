@@ -28,7 +28,7 @@ There are two separate paths, and they are handled differently:
 
 ## Cloud Link (optional paid service)
 
-Cloud Link lets you access your own OpenCode machine remotely without configuring your own network tunnel. To provide it, the Cloud Link service processes the minimum data needed to verify your subscription and securely pair your device:
+Cloud Link lets you access your own OpenCode machine remotely without configuring your own network tunnel. Product details, downloads, and platform support are available on the [OpenCode Cloud Link website](https://opencodecloud.link/). To provide the service, Cloud Link processes the minimum data needed to verify your subscription and securely pair your device:
 
 * **Purchase or transaction proof** used to verify an active subscription: on Google Play this is the store purchase token; on the App Store this is the signed StoreKit transaction. It is sent to the Cloud Link service so it can confirm the purchase with the store.
 * **Pseudonymous service and session identifiers** required to associate your subscription entitlement and Cloud Link access, such as the account/session identifiers, authentication token, entitlement list, and expiry times issued by the Cloud Link service.

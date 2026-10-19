@@ -59,7 +59,7 @@ Use [Notifications](/docs/guides/notifications/) to enable completion and needs-
 
 - [Add or switch connections](/docs/connections/) — manual setup, local QR pairing on OpenCode 2, saved profiles, and Cloud Link.
 - [Remote access](/docs/remote-access/) — compare LAN, Tailscale, Cloudflare Tunnel, reverse proxy, SSH, and Cloud Link.
-- [Cloud Link](/docs/cloud-link/) — managed remote access with a store subscription.
+- [Cloud Link](/docs/cloud-link/) — managed remote access with a store subscription. See the [Cloud Link website](https://opencodecloud.link/) for connector downloads and pricing.
 
 ## I want to send content from another app
 

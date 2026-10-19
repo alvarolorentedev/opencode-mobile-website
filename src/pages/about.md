@@ -28,6 +28,8 @@ The project is built and maintained by [Alvaro Lorente](https://github.com/alvar
 
 OpenCode runs the agents, models, tools, sessions, and project operations. OpenCode Mobile is a focused control surface for starting, monitoring, and reviewing that work from your phone. It is deliberately not presented as a general chatbot, a complete mobile IDE, or a desktop terminal replacement.
 
+Optional managed remote access is available through [OpenCode Cloud Link](https://opencodecloud.link/), which runs a connector on the user's machine and pairs it with the mobile app.
+
 Read the [mobile app setup guide](/docs/opencode-android-app/), review the [security model](/security/), or inspect the [current release history](/docs/changelog/).
 
 ## Contact and support

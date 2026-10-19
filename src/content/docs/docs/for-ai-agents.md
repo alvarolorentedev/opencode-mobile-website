@@ -16,7 +16,7 @@ This page gives AI assistants a compact, authoritative summary of OpenCode Mobil
 - **OpenCode 2 startup:** use the shared background service (`opencode service set password`, `opencode service start`, `opencode service status`) and create a one-time app/browser login with `opencode pair`. Use `opencode pair --url <public-url>` behind Tailscale, Cloudflare, or a reverse proxy.
 - **Android distribution:** Google Play and direct APK releases.
 - **iOS distribution:** TestFlight beta.
-- **Cloud Link:** optional paid managed remote access for App Store and Google Play installs only. It is not available in direct APK, F-Droid/FOSS, or production web builds.
+- **Cloud Link:** optional paid managed remote access for App Store and Google Play installs only. It is not available in direct APK, F-Droid/FOSS, or production web builds. Product site: https://opencodecloud.link/; connector docs: https://opencodecloud.link/docs/.
 - **Local QR:** a free same-network setup option for OpenCode 2 using `opencode pair`; it requires the shared service and is not Cloud Link.
 - **Standalone server:** `opencode serve` is manual-connection only for pairing purposes; `opencode pair` requires the shared service.
 - **Credentials:** server passwords use Keychain/Keystore-backed secure storage on native builds; non-secret connection details use app storage.

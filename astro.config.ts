@@ -247,7 +247,7 @@ export default defineConfig({
           description:
             'Community-built Android and iOS client for an OpenCode server you run. Covers installation, connections, Cloud Link, chats, projects, terminal, voice, notifications, security, and troubleshooting.',
           details:
-            'OpenCode Mobile is an independent, community-built project. It is not built by the OpenCode team, is not endorsed by them, and is not affiliated with them in any way. It connects to a self-hosted OpenCode server. The app supports OpenCode 1.x (V1) and 2.x (V2) API contracts, with feature availability depending on the server contract and capabilities. Android is distributed through Google Play and direct APK releases; iOS is distributed through TestFlight. Cloud Link is an optional paid remote-access service available only in store-installed iOS and Android builds. Start with the documentation hub, then use the getting-started and connections material as needed.',
+            'OpenCode Mobile is an independent, community-built project. It is not built by the OpenCode team, is not endorsed by them, and is not affiliated with them in any way. It connects to a self-hosted OpenCode server. OpenCode 2 is the current primary target and supports the quickest setup through the shared service (`opencode service start`) and one-time pairing (`opencode pair`). OpenCode 1.x remains supported with manual connections. Feature availability depends on the server contract and capabilities. Android is distributed through Google Play and direct APK releases; iOS is distributed through TestFlight. Cloud Link is an optional paid remote-access service available only in store-installed iOS and Android builds, with product details at https://opencodecloud.link/. Start with the documentation hub, then use the getting-started and connections material as needed.',
           optionalLinks: [
             {
               label: 'Documentation hub',
@@ -263,6 +263,11 @@ export default defineConfig({
               label: 'Source code and releases',
               url: 'https://github.com/alvarolorentedev/opencode-mobile',
               description: 'the open-source mobile client and its release history',
+            },
+            {
+              label: 'OpenCode Cloud Link',
+              url: 'https://opencodecloud.link/',
+              description: 'connector downloads, platform support, pricing, and Cloud Link documentation',
             },
             {
               label: 'For AI assistants',

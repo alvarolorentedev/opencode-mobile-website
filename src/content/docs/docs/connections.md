@@ -66,7 +66,7 @@ Pairing requires the shared service. A standalone `opencode serve` process must 
 
 ## Add a Cloud Link machine
 
-Cloud Link is the managed option. It requires an app installed from the App Store or Google Play, an active subscription, and the Cloud Link connector running on the computer. Direct APK, F-Droid/FOSS, and web builds do not show the Cloud Link section.
+Cloud Link is the managed option. It requires an app installed from the App Store or Google Play, an active subscription, and the Cloud Link connector running on the computer. Download the connector and review platform support at the [OpenCode Cloud Link website](https://opencodecloud.link/). Direct APK, F-Droid/FOSS, and web builds do not show the Cloud Link section.
 
 Open **Settings → Cloud Link**, then follow the guided steps to subscribe or restore access, scan the connector QR code, approve the connection on the computer, and connect. See [Cloud Link](/docs/cloud-link/) for the full flow and limits.
 

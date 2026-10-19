@@ -107,6 +107,17 @@ test('new documentation entry points exist and are linked from the hub', async (
   }
 });
 
+test('Cloud Link docs reference the product website', async () => {
+  for (const file of ['cloud-link.md', 'getting-started.md', 'connections.md', 'remote-access.md', 'faq.md']) {
+    const contents = await readFile(new URL(file, docsRoot), 'utf8');
+    assert.match(
+      contents,
+      /https:\/\/opencodecloud\.link\//,
+      `${file} is missing a reference to the Cloud Link website`,
+    );
+  }
+});
+
 test('generated llms files use absolute links and corrected project notes', async () => {
   const llms = await readFile(new URL('../build/llms.txt', import.meta.url), 'utf8');
   assert.doesNotMatch(llms, /official documentation/i);

@@ -17,13 +17,13 @@ OpenCode Mobile connects to a development server that may access source code, te
 - Your OpenCode server runs on infrastructure you control.
 - The mobile client connects directly to the server URL you configure, or through an optional Cloud Link tunnel you pair with.
 - Server passwords are stored in Keychain/Keystore-backed secure storage on native builds. Non-secret connection metadata remains in app storage. Treat the device as privileged access to the server.
-- The project does not store your OpenCode prompts or source code as part of normal direct connections. Optional Cloud Link processes only the data needed to verify a subscription and pair a machine; see the [privacy policy](/privacy-policy/).
-- Optional tunnels, VPNs, reverse proxies, Cloud Link, and AI providers have their own security and privacy policies.
+- The project does not store your OpenCode prompts or source code as part of normal direct connections. Optional Cloud Link processes only the data needed to verify a subscription and pair a machine; see the [privacy policy](/privacy-policy/) and [Cloud Link security documentation](https://opencodecloud.link/docs/security/).
+- Optional tunnels, VPNs, reverse proxies, Cloud Link, and AI providers have their own security and privacy policies. For Cloud Link product details, see the [OpenCode Cloud Link website](https://opencodecloud.link/).
 
 ## Required deployment practices
 
 1. Keep OpenCode bound to `127.0.0.1` unless a trusted private network specifically requires another interface.
-2. Configure `OPENCODE_SERVER_USERNAME` and a strong `OPENCODE_SERVER_PASSWORD`.
+2. Set a strong OpenCode password with `opencode service set password` on OpenCode 2, or `OPENCODE_SERVER_PASSWORD` on a standalone/V1 server.
 3. Prefer Tailscale, an authenticated HTTPS reverse proxy, or a carefully configured Cloudflare Tunnel.
 4. Never expose an unauthenticated OpenCode port through router forwarding or a public tunnel.
 5. Review permission requests and file changes before approving high-impact work.

@@ -6,6 +6,8 @@ lastUpdated: 2026-10-19
 
 Cloud Link is an optional managed remote-access service for OpenCode Mobile. It connects the app to a Cloud Link connector running on your computer, so you can reach an OpenCode machine without configuring your own VPN, tunnel, or reverse proxy.
 
+See the [OpenCode Cloud Link website](https://opencodecloud.link/) for connector downloads, platform support, pricing, and product documentation.
+
 Cloud Link is **not** an official OpenCode service. It is part of the independent OpenCode Mobile project. It is also different from the free local QR pairing flow: local QR works on the same network, while Cloud Link is designed for access over the internet.
 
 ## Who Cloud Link is for
@@ -86,6 +88,19 @@ Older connectors may support only path services on the legacy port. The app show
 | Cloud Link | Internet | Store subscription | Connector + subscription + QR | Managed access without your own tunnel |
 
 If you already run Tailscale successfully, you do not need Cloud Link.
+
+## Cloud Link resources
+
+- [OpenCode Cloud Link website](https://opencodecloud.link/) — product overview, downloads, and pricing
+- [Download the Cloud Link connector](https://opencodecloud.link/download/) — macOS, Windows, and Linux
+- [Cloud Link pricing](https://opencodecloud.link/#pricing) — current store subscription details
+- [Cloud Link documentation](https://opencodecloud.link/docs/) — connector install, settings, and troubleshooting
+- [How Cloud Link works](https://opencodecloud.link/how-to/) — connection and security model
+- [Quick start](https://opencodecloud.link/docs/getting-started/) — install the connector and connect a phone
+- [Pair with OpenCode Mobile](https://opencodecloud.link/docs/pairing/) — connector-side pairing details
+- [Exposed services](https://opencodecloud.link/docs/exposed-services/) — publish local dev servers and dashboards
+- [Security and privacy](https://opencodecloud.link/docs/security/) — Cloud Link trust boundaries
+- [Cloud Link FAQ](https://opencodecloud.link/#faq) — common product questions
 
 ## Security and privacy
 

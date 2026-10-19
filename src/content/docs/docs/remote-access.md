@@ -72,7 +72,7 @@ For a decision-focused comparison, see [Use OpenCode from your phone](/docs/guid
 These are different features:
 
 - **Local QR** is a free, same-network setup shortcut on OpenCode 2. Start the shared service with `opencode service start`, run `opencode pair`, and scan the one-time code. The server must be reachable from the phone; a link containing only `localhost` will not work unless the phone owns that loopback route. Links expire after five minutes.
-- **Cloud Link** is an optional paid remote-access service for store-installed iOS and Android builds. It uses a desktop connector and a subscription to provide a managed route. It is not available in direct APK, F-Droid/FOSS, or web builds.
+- **Cloud Link** is an optional paid remote-access service for store-installed iOS and Android builds. It uses a desktop connector and a subscription to provide a managed route. It is not available in direct APK, F-Droid/FOSS, or web builds. See the [OpenCode Cloud Link website](https://opencodecloud.link/) for downloads, platform support, and pricing.
 
 If you already have Tailscale or a reliable tunnel, you do not need Cloud Link.
 
