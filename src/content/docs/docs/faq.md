@@ -18,11 +18,29 @@ No. It is a focused mobile control surface for an OpenCode server. It includes p
 
 ## Which OpenCode version should I use?
 
-Use a current release. The client detects and supports OpenCode 1.x (V1) and 2.x (V2) API contracts. Feature availability varies by contract; older removed endpoint shapes are not supported. See [Releases and compatibility](/docs/changelog/).
+Use OpenCode 2, the current primary target. It supports the quickest setup through the shared service and `opencode pair`. The client also detects and supports OpenCode 1.x (V1) API contracts with manual connections. Feature availability varies by contract; older removed endpoint shapes are not supported. See [Releases and compatibility](/docs/changelog/).
+
+## How do I start OpenCode 2 for OpenCode Mobile?
+
+OpenCode 2 normally uses the shared background service:
+
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service set port 4096
+opencode service start
+opencode service status
+opencode pair
+```
+
+Scan the QR code or paste the pairing link into the app. The link expires after five minutes and works once. For a remote URL, use `opencode pair --url https://your-host.example`.
+
+If you run a standalone `opencode serve` process instead, connect manually with the URL and password; pairing requires the shared service.
 
 ## Should I run `opencode web` or `opencode serve`?
 
-Use `opencode serve` when the mobile client is the main consumer. Use `opencode web` when you also want the browser UI. If the browser UI occupies the root URL, the API may be mounted at a path such as `/api`; enter that complete API base URL in the app.
+On OpenCode 2, you normally do not need `opencode web`: the web UI is served by the same server, and `opencode pair` prints a link you can open in a browser. Use `opencode serve` when you want a foreground standalone server, such as on an always-on host or under a process supervisor.
+
+On OpenCode 1.x, use `opencode serve` for the API or `opencode web` when you also want the browser UI. Connect either V1 server manually.
 
 ## Which connection methods work?
 
@@ -40,7 +58,7 @@ See [Remote access](/docs/remote-access/) and [Add or switch connections](/docs/
 
 ## What is the difference between local QR and Cloud Link?
 
-**Local QR** is a free same-network setup shortcut for OpenCode 2. Run `opencode pair`, scan the code, and the app saves the connection. The server must be reachable from the phone, not only from `localhost`.
+**Local QR** is a free same-network setup shortcut for OpenCode 2. Start the shared service with `opencode service start`, run `opencode pair`, scan the one-time code, and the app saves the connection. The server must be reachable from the phone, not only from `localhost`. Links expire after five minutes.
 
 **Cloud Link** is an optional paid remote-access service for App Store and Google Play installs. It uses a desktop connector and a subscription to provide a managed route over the internet. It is not available in direct APK, F-Droid/FOSS, or web builds.
 

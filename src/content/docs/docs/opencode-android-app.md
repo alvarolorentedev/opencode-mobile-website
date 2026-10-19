@@ -26,7 +26,7 @@ You need:
 2. A current OpenCode installation on a computer or server that owns the project.
 3. OpenCode running in server mode.
 4. A network route from the phone to that server.
-5. The server URL and configured HTTP Basic-auth credentials, if authentication is enabled.
+5. A one-time pairing link/QR from OpenCode 2, or a server URL and password for manual setup.
 
 The complete setup is in [Set Up OpenCode Mobile](/docs/getting-started/). The in-app connection choices are explained in [Add or switch connections](/docs/connections/).
 
@@ -48,15 +48,38 @@ The iOS build is a beta. Features that depend on native iOS integrations may lag
 
 ## Start an OpenCode server
 
-Keep the service bound to loopback when using a tunnel, VPN, or local reverse proxy:
+OpenCode 2 is the current primary target. Install it with the v2 installer:
 
 ```bash
-export OPENCODE_SERVER_USERNAME=your-user
-export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
-opencode serve --hostname 127.0.0.1 --port 4096
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
 
-Use `opencode web` instead when you also want the browser UI. Then connect through [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), a [reverse proxy](/docs/guides/reverse-proxy/), or another method in the [remote-access overview](/docs/remote-access/).
+Start the shared background service, set a password, and create a pairing link:
+
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service set port 4096
+opencode service start
+opencode service status
+opencode pair
+```
+
+Scan the printed QR code in the app, or paste the pairing link. Pairing links expire after five minutes and work once.
+
+For access through [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), or a [reverse proxy](/docs/guides/reverse-proxy/), keep the service on loopback and pass the public URL to the pairing command:
+
+```bash
+opencode pair --url https://your-opencode-host.example
+```
+
+If you need a foreground server instead, use `opencode serve`:
+
+```bash
+OPENCODE_SERVER_PASSWORD='use-a-strong-password' \
+  opencode serve --hostname 127.0.0.1 --port 4096
+```
+
+Pairing requires the shared service; connect to a standalone `opencode serve` process manually with its URL and password. OpenCode 1.x uses `opencode serve` or `opencode web` and also connects manually.
 
 Never publish an unauthenticated OpenCode port to the internet.
 
@@ -72,7 +95,7 @@ After onboarding, use **Settings → Connection** to add or switch saved servers
 
 ## App versus browser access
 
-Use OpenCode Mobile when you want native navigation, voice input, notifications, sharing from other apps, home-screen widgets, and saved server profiles. Use `opencode web` when you want the browser interface or do not want to install a client.
+Use OpenCode Mobile when you want native navigation, voice input, notifications, sharing from other apps, home-screen widgets, and saved server profiles. Use the OpenCode web UI when you want the browser interface: in OpenCode 2, open a link printed by `opencode pair`; in OpenCode 1.x, run `opencode web`.
 
 The complete tradeoff is documented in [OpenCode Mobile vs OpenCode Web](/docs/guides/mobile-vs-web/).
 

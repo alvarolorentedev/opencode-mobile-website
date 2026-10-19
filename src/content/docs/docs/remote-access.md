@@ -23,7 +23,35 @@ Every manual route supplies the same three values:
 - **Username:** `OPENCODE_SERVER_USERNAME`
 - **Password:** `OPENCODE_SERVER_PASSWORD`
 
-The client normalizes a missing protocol, preserves configured path prefixes such as `/api`, adds optional HTTP Basic authentication, and scopes session, file, terminal, and event requests to the selected project.
+The client normalizes a missing protocol, preserves configured path prefixes such as `/api`, adds optional HTTP Basic authentication, and scopes session, file, terminal, and event requests to the selected project. The OpenCode 2 shared service uses the username `opencode` by default; its password is the one set with `opencode service set password`.
+
+## Start OpenCode for mobile
+
+| OpenCode version | Recommended start | App connection |
+| --- | --- | --- |
+| **OpenCode 2 shared service** | `opencode service start`, then `opencode pair` | Scan the QR code or paste the pairing link |
+| **OpenCode 2 standalone** | `opencode serve --hostname 127.0.0.1 --port 4096` | Enter the URL and password manually |
+| **OpenCode 1.x** | `opencode serve` for the API, or `opencode web` for the browser UI | Enter the URL and password manually |
+
+For OpenCode 2, set the service password before pairing:
+
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service set port 4096
+opencode service start
+opencode service status
+opencode pair
+```
+
+The pair command prints a one-time link and QR code. Pairing links expire after five minutes and work once. When the hostname changes, restart the service before pairing again.
+
+For a remote URL behind Tailscale, Cloudflare Tunnel, or a reverse proxy, create the pair link with that public origin:
+
+```bash
+opencode pair --url https://your-opencode-host.example
+```
+
+Pairing requires the shared background service. A standalone `opencode serve` process must be connected manually.
 
 ## Choose a route
 
@@ -43,7 +71,7 @@ For a decision-focused comparison, see [Use OpenCode from your phone](/docs/guid
 
 These are different features:
 
-- **Local QR** is a free, same-network setup shortcut on OpenCode 2 servers that support pairing. Run `opencode pair` on the computer and scan the code. The server must be reachable from the phone; a code containing only `localhost` will not work.
+- **Local QR** is a free, same-network setup shortcut on OpenCode 2. Start the shared service with `opencode service start`, run `opencode pair`, and scan the one-time code. The server must be reachable from the phone; a link containing only `localhost` will not work unless the phone owns that loopback route. Links expire after five minutes.
 - **Cloud Link** is an optional paid remote-access service for store-installed iOS and Android builds. It uses a desktop connector and a subscription to provide a managed route. It is not available in direct APK, F-Droid/FOSS, or web builds.
 
 If you already have Tailscale or a reliable tunnel, you do not need Cloud Link.

@@ -1,7 +1,7 @@
 ---
 title: Connect OpenCode Mobile Through a Reverse Proxy or API Prefix
-description: Point OpenCode Mobile at an OpenCode server mounted behind a reverse proxy or under an API path prefix such as /api.
-lastUpdated: 2026-09-29
+description: Point OpenCode Mobile at an OpenCode 2 server mounted behind a reverse proxy or under an API path prefix such as /api, with pair or manual setup.
+lastUpdated: 2026-10-19
 ---
 
 OpenCode Mobile accepts a base URL with a prefix, for example:
@@ -25,6 +25,28 @@ Terminal WebSockets also preserve the prefix and switch to `wss:` for HTTPS endp
 - The app reports that the server returned HTML, a JSON parse error, 404, or another non-API response
 
 Do not append `/api` blindly. Verify the resulting `/global/health` endpoint first.
+
+## Pair through the proxy
+
+Start the OpenCode 2 shared service on loopback behind the proxy:
+
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service set hostname 127.0.0.1
+opencode service set port 4096
+opencode service start
+opencode service status
+```
+
+Create the pairing link with the public proxy URL:
+
+```bash
+opencode pair --url https://dev.example.com/api
+```
+
+Scan the QR code in OpenCode Mobile, or paste the link. Pairing links expire after five minutes and work once.
+
+If you use a standalone `opencode serve` process or OpenCode 1.x, connect manually with the complete API base and password instead. Pairing requires the OpenCode 2 shared service.
 
 ## Proxy requirements
 

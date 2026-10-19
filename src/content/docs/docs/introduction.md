@@ -6,7 +6,7 @@ lastUpdated: 2026-10-19
 
 OpenCode Mobile is a community-built mobile client for an OpenCode server. It keeps active coding work reachable from a phone without trying to turn a small screen into a full desktop IDE.
 
-The app is distributed for Android through Google Play and direct APK releases, and for iOS through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz). Start on the [Download page](/download/), then connect it to an OpenCode server that you control. The client detects and supports the OpenCode 1.x (V1) and 2.x (V2) API contracts; available actions depend on the contract and server capabilities.
+The app is distributed for Android through Google Play and direct APK releases, and for iOS through [TestFlight](https://testflight.apple.com/join/ddcE5Wzz). Start on the [Download page](/download/), then connect it to an OpenCode server that you control. OpenCode 2 is the current primary target and supports the quickest setup through `opencode service start` and `opencode pair`. The client still detects and supports OpenCode 1.x (V1) servers with manual connections; available actions depend on the contract and server capabilities.
 
 ## What you can do
 

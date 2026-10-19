@@ -30,7 +30,7 @@ On native iOS and Android builds, non-secret connection details use app storage 
 
 Multiple saved connections each have their own stored password. Editing a connection does not reconnect it automatically, so a stale connection can remain active until you choose **Reconnect**.
 
-Local QR codes and Cloud Link pairing links are credentials. Do not paste them into public issues, logs, chat messages, or screenshots. If a code or link is exposed, run a fresh pairing flow or revoke the machine where available.
+OpenCode 2 `opencode pair` links and Cloud Link pairing links are credentials. They expire quickly and work once, but still grant access while valid. Do not paste them into public issues, logs, chat messages, or screenshots. If a link is exposed, create a fresh pairing link or revoke the machine where available.
 
 Cloud Link adds an optional managed route and store subscription. Review the [Cloud Link page](/docs/cloud-link/) and the [privacy policy](/privacy-policy/) before using it. Cloud Link does not change the fact that your prompts and source code are sent to the OpenCode server you select.
 

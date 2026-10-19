@@ -69,6 +69,18 @@ test('documentation does not contain known stale claims', async () => {
   }
 });
 
+test('setup docs prioritize the OpenCode 2 shared service and pairing', async () => {
+  const setup = await readFile(
+    new URL('getting-started.md', docsRoot),
+    'utf8',
+  );
+  assert.match(setup, /opencode service start/);
+  assert.match(setup, /opencode service status/);
+  assert.match(setup, /opencode pair/);
+  assert.match(setup, /opencode serve/);
+  assert.match(setup, /OpenCode 2 is the current primary target/);
+});
+
 test('new documentation entry points exist and are linked from the hub', async () => {
   const required = [
     'connections.md',

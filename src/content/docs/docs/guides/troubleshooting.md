@@ -24,11 +24,15 @@ Debug the connection from the server outward. Reinstalling the app before provin
 
 ## 1. Confirm versions and server mode
 
-Update OpenCode Mobile and use a current OpenCode release. Start `opencode serve` for a dedicated API or `opencode web` when you also need the browser UI.
+Update OpenCode Mobile and use a current OpenCode release. OpenCode 2 is the primary target and normally runs as a shared background service:
 
 ```bash
 opencode --version
+opencode service status
+opencode api get /api/info
 ```
+
+Start it with `opencode service start` if needed. For a foreground server, use `opencode serve`; OpenCode 1.x also supports `opencode web` for the browser UI. Pairing requires the OpenCode 2 shared service, so a standalone server uses manual connection details.
 
 Check **Settings → Advanced → Diagnostics** for the OpenCode version, health status, realtime state, and last app error.
 
@@ -45,7 +49,7 @@ Expected: a successful HTTP response containing OpenCode health data.
 
 - **HTML response:** you probably entered the web UI rather than the API base.
 - **404:** check whether the API is mounted below `/api` or another prefix.
-- **401/403:** verify `OPENCODE_SERVER_USERNAME` and `OPENCODE_SERVER_PASSWORD`, or Cloud Link access.
+- **401/403:** for OpenCode 2, verify the password set with `opencode service set password`; for a standalone or V1 server, verify `OPENCODE_SERVER_USERNAME` and `OPENCODE_SERVER_PASSWORD`. For Cloud Link, check subscription access.
 - **Timeout/DNS failure:** fix the network, tunnel, VPN, or hostname before changing the app.
 
 ## 3. Check the selected transport
@@ -60,12 +64,15 @@ For a [local network](/docs/guides/local-network/) connection, use the machine's
 
 ## 4. Local QR pairing
 
-- Run `opencode pair` again if the code expired or was already used.
+- Confirm `opencode service status` shows a running OpenCode 2 service.
+- Run `opencode pair` again if the link expired or was already used. Links expire after five minutes and work once.
+- If pairing is disabled, run `opencode service unset disabled`; pairing requires the shared service.
 - Confirm the server listens on an address reachable from the phone, not only `localhost`.
-- If the app reports a loopback-only code, follow its guidance and bind the server to a trusted reachable interface.
-- Confirm both devices are on the same network and that the camera permission is allowed.
+- If the app reports a loopback-only link, bind the service to a trusted reachable interface and pair again.
+- For a public URL, create the link with `opencode pair --url https://your-host.example`.
+- Confirm both devices are on the same network and that camera permission is allowed.
 
-See [Add or switch connections](/docs/connections/) for the full flow.
+A standalone `opencode serve` process cannot pair; use manual URL and password instead. See [Add or switch connections](/docs/connections/) for the full flow.
 
 ## 5. Cloud Link
 

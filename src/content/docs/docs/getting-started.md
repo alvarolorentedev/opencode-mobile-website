@@ -1,17 +1,17 @@
 ---
 title: Set Up OpenCode Mobile
-description: Install OpenCode Mobile, start and secure an OpenCode server, connect with a URL, local QR code, or Cloud Link, and complete your first task.
+description: Install OpenCode Mobile, start an OpenCode 2 server, pair with a QR code, connect from Android or iOS, and complete your first task.
 lastUpdated: 2026-10-19
 ---
 
-This guide covers the shortest safe path from an OpenCode server to your first completed mobile task.
+This guide covers the shortest safe path from an OpenCode server to your first completed mobile task. OpenCode 2 is the current primary target; the app also supports OpenCode 1.x servers with manual connections.
 
 ## What you need
 
 - An Android device or iPhone/iPad.
 - A computer or server running a current OpenCode version.
 - A network route from the phone to the server: local network, VPN, tunnel, reverse proxy, SSH forward, or Cloud Link.
-- The server URL and the username/password configured for OpenCode, if authentication is enabled.
+- The server URL and password, or a one-time pairing link/QR code.
 
 ## 1. Install OpenCode Mobile
 
@@ -23,73 +23,94 @@ Use the [Download page](/download/) to choose an installation method:
 
 The Android options install the latest Android release; TestFlight installs the iOS beta. See [Download and install](/docs/opencode-android-app/) for platform-specific details.
 
-## 2. Start the server
+## 2. Install or update OpenCode
 
-For a dedicated mobile client, use `opencode serve`:
+For OpenCode 2, use the current v2 installer:
+
+```bash
+curl -fsSL https://opencode.ai/v2/install | bash
+```
+
+Or install the CLI with npm:
+
+```bash
+npm install -g @opencode/cli
+```
+
+Confirm the installed major version:
+
+```bash
+opencode --version
+```
+
+If you deliberately use an OpenCode 1.x server, install it with the 1.x installer (`https://opencode.ai/install` or `opencode-ai` on npm) and use the V1 startup note below.
+
+## 3. Start OpenCode
+
+### Recommended: OpenCode 2 shared service and pairing
+
+OpenCode 2 normally runs a shared background server. Start it explicitly, confirm its address, and create a pairing link:
+
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service set port 4096
+opencode service start
+opencode service status
+opencode pair
+```
+
+`opencode pair` prints a one-time link and a QR code. Scan the QR code from OpenCode Mobile, or paste the pairing link into the app. Pairing links expire after five minutes and work once.
+
+If the phone is on the same trusted LAN, bind the service to a reachable interface before pairing:
+
+```bash
+opencode service set hostname 0.0.0.0
+opencode service start
+opencode pair
+```
+
+Only do this on a trusted network and protect the server with a password. For access through Tailscale, Cloudflare Tunnel, or a reverse proxy, keep the service on loopback and pair with the public URL. If you changed the hostname for LAN access, set it back and restart before pairing:
+
+```bash
+opencode service set hostname 127.0.0.1
+opencode service start
+opencode pair --url https://your-opencode-host.example
+```
+
+OpenCode 2 also supports `opencode pair --remote`, which exposes the server through an OpenTunnel address after an explicit confirmation. This is separate from Cloud Link. Treat the tunnel like any other public endpoint and review the [remote-access security guidance](/docs/guides/remote-access-security/).
+
+### Standalone server
+
+`opencode serve` runs the same server in the foreground instead of through the shared background service:
+
+```bash
+OPENCODE_SERVER_PASSWORD='use-a-strong-password' \
+  opencode serve --hostname 127.0.0.1 --port 4096
+```
+
+Use this for an always-on host, a service supervisor, Docker, or a deliberately dedicated server. Pairing requires the shared service, so connect to a standalone server manually with its URL and password.
+
+### OpenCode 1.x
+
+On OpenCode 1.x, start `opencode serve` for the API, or `opencode web` when you also want the browser UI:
 
 ```bash
 export OPENCODE_SERVER_USERNAME=your-user
 export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
-
 opencode serve --hostname 127.0.0.1 --port 4096
 ```
 
-Use `opencode web` when you also want the built-in browser UI:
+Connect V1 servers manually. Local QR pairing is an OpenCode 2 feature.
+
+### Verify the server
+
+With the shared service running:
 
 ```bash
-export OPENCODE_SERVER_USERNAME=your-user
-export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
-
-opencode web --hostname 127.0.0.1 --port 4096
+opencode api get /api/info
 ```
 
-Keep a stable port so the app, tunnel, and reverse proxy do not need repeated updates. OpenCode Mobile detects OpenCode 1.x (V1) and 2.x (V2) contracts and shows the actions the connected server supports.
-
-## 3. Choose a connection route
-
-| Route | Best for | Phone-side URL or action |
-| --- | --- | --- |
-| Trusted LAN | Phone and server on the same private network | `http://192.168.1.20:4096` |
-| Local QR | Quick setup on the same network (OpenCode 2) | Run `opencode pair` and scan |
-| Tailscale | Private access across networks | `https://machine-name.tailnet-name.ts.net` |
-| Cloudflare Tunnel | Public HTTPS without router port forwarding | `https://opencode.example.com` |
-| Reverse proxy | Existing HTTPS infrastructure or a path prefix | `https://dev.example.com/api` |
-| SSH local forward | Advanced users with a mobile SSH client | `http://127.0.0.1:4096` |
-| Cloud Link | Managed access with a store subscription | Scan the connector QR |
-
-Follow [Remote Access](/docs/remote-access/) for exact commands and security tradeoffs. Use the dedicated [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), [local network](/docs/guides/local-network/), or [Cloud Link](/docs/cloud-link/) guide for the route you choose.
-
-## 4. Connect the app
-
-On first launch, onboarding walks through these steps:
-
-1. **Welcome** — continue into setup.
-2. **Permissions** — optionally enable notifications and voice input.
-3. **Connect** — add a server connection.
-4. **Project** — choose an OpenCode project.
-5. **Ready** — review the setup and start.
-
-In **Connect**, the Add connection chooser offers:
-
-- **Scan QR code** — on an OpenCode 2 server, run `opencode pair` on the computer and scan the code. The phone and server must be on a reachable network; a code containing only `localhost` cannot work from the phone.
-- **Manual** — enter a name (optional), the complete server URL, username, and password.
-- **Cloud Link** — pair with a managed connector when the app was installed from the App Store or Google Play and an active subscription is available.
-
-For manual setup, include `https://` and any required path prefix. If a password is set and Username is blank, the client uses `opencode` as the Basic-auth username. Entering the explicit server username is clearer and easier to troubleshoot.
-
-You can skip permissions, connection, or project during onboarding and configure them later in **Settings → Connection** and the **Projects** tab. Editing a saved connection does not reconnect automatically; use **Reconnect** when you want to apply the change.
-
-See [Add or switch connections](/docs/connections/) for saved profiles, local QR details, Cloud Link, and switching servers.
-
-## 5. Select a project
-
-Choose the project during onboarding or later in **Projects**. Refresh the catalog if needed, then open an existing chat or create one.
-
-The selected project scopes chats, files, and terminal activity. OpenCode Mobile remembers the selected project and the last session used for it. If the project does not appear, confirm the server reported it or add the server directory from the project picker.
-
-## 6. Verify the API endpoint
-
-Test the same base URL you plan to enter in the app:
+For a manual or external connection, test the exact API base from the phone's network:
 
 ```bash
 curl -u your-user:use-a-strong-password \
@@ -103,7 +124,48 @@ curl -u your-user:use-a-strong-password \
   https://your-opencode-host.example/api/global/health
 ```
 
-A healthy response includes `healthy: true` and may include the OpenCode version. Do not assume that a browser-rendered page is the API base. If the root displays a web UI and the app reports a 404 or a non-API response, enter the API base URL instead—commonly the same address with `/api`.
+A healthy response includes `healthy: true` and may include the OpenCode version. If the root displays a web UI and the app reports a 404 or a non-API response, enter the API base URL instead—commonly the same address with `/api`.
+
+## 4. Choose a connection route
+
+| Route | Best for | Phone-side action |
+| --- | --- | --- |
+| Local network | Phone and server on the same private network | Scan `opencode pair`, or enter the LAN URL |
+| Tailscale | Private access across networks | Scan a pair link created with `--url`, or enter the `ts.net` URL |
+| Cloudflare Tunnel | Public HTTPS without router port forwarding | Scan a pair link created with `--url`, or enter the tunnel URL |
+| Reverse proxy | Existing HTTPS infrastructure or a path prefix | Scan a pair link created with `--url`, or enter the API base |
+| SSH local forward | Advanced users with a mobile SSH client | Enter `http://127.0.0.1:4096` manually |
+| Cloud Link | Managed access with a store subscription | Scan the connector QR |
+
+Follow [Remote Access](/docs/remote-access/) for the exact commands and security tradeoffs. Use the dedicated [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), [local network](/docs/guides/local-network/), or [Cloud Link](/docs/cloud-link/) guide for the route you choose.
+
+## 5. Connect the app
+
+On first launch, onboarding walks through these steps:
+
+1. **Welcome** — continue into setup.
+2. **Permissions** — optionally enable notifications and voice input.
+3. **Connect** — add a server connection.
+4. **Project** — choose an OpenCode project.
+5. **Ready** — review the setup and start.
+
+In **Connect**, the Add connection chooser offers:
+
+- **Scan QR code** — scan the link printed by `opencode pair`. The link must contain an address the phone can reach; a loopback-only link will not work across devices unless the phone itself owns that loopback route.
+- **Manual** — enter a name (optional), the complete server URL, username, and password.
+- **Cloud Link** — pair with a managed connector when the app was installed from the App Store or Google Play and an active subscription is available.
+
+For manual setup, include `https://` and any required path prefix. If a password is set and Username is blank, the client uses `opencode` as the Basic-auth username. Entering the explicit server username is clearer and easier to troubleshoot.
+
+You can skip permissions, connection, or project during onboarding and configure them later in **Settings → Connection** and the **Projects** tab. Editing a saved connection does not reconnect automatically; use **Reconnect** when you want to apply the change.
+
+See [Add or switch connections](/docs/connections/) for saved profiles, pairing details, Cloud Link, and switching servers.
+
+## 6. Select a project
+
+Choose the project during onboarding or later in **Projects**. Refresh the catalog if needed, then open an existing chat or create one.
+
+The selected project scopes chats, files, and terminal activity. OpenCode Mobile remembers the selected project and the last session used for it. If the project does not appear, confirm the server reported it or add the server directory from the project picker.
 
 ## 7. Complete your first task
 
@@ -136,16 +198,19 @@ Missing optional endpoints should not prevent core chat use. See [Releases and c
 - Never expose an unauthenticated OpenCode server to the public internet.
 - Prefer Tailscale, Cloudflare Tunnel, or an authenticated HTTPS reverse proxy over router port forwarding.
 - Use `0.0.0.0` only for a trusted LAN and restrict the port with the host firewall.
+- Set a strong OpenCode service password. Pairing links are credentials: they expire quickly and work once, but they still grant access while valid.
 - On native iOS and Android builds, connection passwords are stored in Keychain/Keystore-backed secure storage; non-secret connection details use app storage.
 - Treat the device as containing access to your OpenCode server. Rotate credentials if a tunnel URL, device, or password is compromised.
 - Cloud Link is optional. Review the [privacy policy](/privacy-policy/) before subscribing.
 
 ## If connection still fails
 
-- Confirm the phone can reach the exact `/global/health` URL.
+- Confirm the phone can reach the exact API URL.
+- Run `opencode service status` and `opencode api get /api/info` on the server.
 - Confirm the phone is connected to the same Tailscale tailnet when using Tailscale.
-- Check the username and password against the server environment variables.
-- For local QR, confirm the server is reachable beyond `localhost`.
+- Check the password against `opencode service set password` or the `OPENCODE_SERVER_PASSWORD` environment variable.
+- For local pairing, run `opencode pair` again if the link expired or was already used.
+- For a standalone `opencode serve` process, connect manually; pairing requires the shared service.
 - If the address returns HTML, 404, or a JSON parse error, use the actual API base path.
 - Update to the latest mobile release and check **Settings → Advanced → Diagnostics**.
 - Continue with the [connection troubleshooting checklist](/docs/guides/troubleshooting/) before filing a bug.

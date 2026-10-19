@@ -32,12 +32,19 @@ After the address is entered, the app probes the server without switching the ac
 
 ## Add a local QR connection
 
-Local QR pairing is an OpenCode 2 flow. On the computer running OpenCode, run `opencode pair`.
-2. Keep both devices on a network where they can reach each other.
-3. In the app, open **Settings → Connection → Add connection → Scan QR code**.
-4. Scan the code. A successful scan saves the profile and connects automatically.
+Local QR pairing is an OpenCode 2 flow and requires the shared background service. On the computer running OpenCode:
 
-The server must listen on an address the phone can reach. A code containing only `localhost` or `127.0.0.1` cannot work from another device. If the app reports a loopback-only code, follow its guidance, for example:
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service set port 4096
+opencode service start
+opencode service status
+opencode pair
+```
+
+`opencode pair` prints a one-time link and QR code. In the app, open **Settings → Connection → Add connection → Scan QR code** and scan it. A successful scan saves the profile and connects automatically. Links expire after five minutes and work once.
+
+The server must listen on an address the phone can reach. If the phone is on the same trusted LAN, bind the shared service before pairing:
 
 ```bash
 opencode service set hostname 0.0.0.0
@@ -45,9 +52,17 @@ opencode service start
 opencode pair
 ```
 
-Only expose the server on a trusted network. Local QR pairing does not require a Cloud Link subscription. Camera scanning is available on native builds; FOSS builds omit the camera module and keep manual entry.
+A link containing only `localhost` or `127.0.0.1` cannot work from another device. Only expose the server on a trusted network. Local QR pairing does not require a Cloud Link subscription. Camera scanning is available on native builds; FOSS builds omit the camera module and keep manual entry.
 
-If the code is invalid or expired, run `opencode pair` again. A failed save or connection keeps the redeemed credential so you can retry without pairing again.
+For a public Tailscale, Cloudflare, or reverse-proxy URL, keep the service on loopback and create the link with that origin:
+
+```bash
+opencode service set hostname 127.0.0.1
+opencode service start
+opencode pair --url https://your-opencode-host.example
+```
+
+Pairing requires the shared service. A standalone `opencode serve` process must be connected manually. If the code is invalid or expired, run `opencode pair` again. A failed save or connection keeps the redeemed credential so you can retry without pairing again.
 
 ## Add a Cloud Link machine
 

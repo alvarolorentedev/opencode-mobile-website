@@ -22,9 +22,9 @@ OpenCode Mobile is **not** an official OpenCode product, a hosted AI service, or
 ## The shortest safe path
 
 1. **[Install the app](/docs/opencode-android-app/)** from Google Play, the direct APK, or TestFlight.
-2. **[Start OpenCode with authentication](/docs/getting-started/#2-start-the-server)** on the machine that owns your project.
-3. **[Connect the app](/docs/getting-started/#4-connect-the-app)** with a URL, local QR code, or Cloud Link.
-4. **[Select a project](/docs/getting-started/#5-select-a-project)** and send a small, verifiable task.
+2. **[Start OpenCode 2 and pair](/docs/getting-started/#3-start-opencode)** on the machine that owns your project.
+3. **[Connect the app](/docs/getting-started/#5-connect-the-app)** with a QR code, manual URL, or Cloud Link.
+4. **[Select a project](/docs/getting-started/#6-select-a-project)** and send a small, verifiable task.
 
 If you only need the app on the same trusted network, the [local network guide](/docs/guides/local-network/) is the shortest route. For access outside your network, compare [Tailscale, Cloudflare Tunnel, a reverse proxy, SSH, and Cloud Link](/docs/remote-access/).
 

@@ -66,6 +66,11 @@ export default defineConfig({
   site: SITE,
   output: 'static',
   trailingSlash: 'always',
+  // The testing deployment is served through this hostname. This only affects
+  // `astro dev` and `astro preview`; the production build is static.
+  server: {
+    allowedHosts: ['landing.alvarolorente.dev'],
+  },
   outDir: './build',
   publicDir: './static',
   integrations: [

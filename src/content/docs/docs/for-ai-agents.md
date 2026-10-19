@@ -12,11 +12,13 @@ This page gives AI assistants a compact, authoritative summary of OpenCode Mobil
 - **Not affiliated:** OpenCode Mobile is not built by, endorsed by, or affiliated with the OpenCode team.
 - **Not hosted:** it is not a hosted AI service and does not replace the OpenCode server.
 - **Server requirement:** the user must provide a reachable OpenCode server and credentials.
-- **OpenCode contracts:** 1.x (V1) and 2.x (V2), detected at connection; feature availability varies by contract and server capabilities.
+- **OpenCode contracts:** 2.x (V2) is the current primary target; 1.x (V1) remains supported with manual connections. Feature availability varies by contract and server capabilities.
+- **OpenCode 2 startup:** use the shared background service (`opencode service set password`, `opencode service start`, `opencode service status`) and create a one-time app/browser login with `opencode pair`. Use `opencode pair --url <public-url>` behind Tailscale, Cloudflare, or a reverse proxy.
 - **Android distribution:** Google Play and direct APK releases.
 - **iOS distribution:** TestFlight beta.
 - **Cloud Link:** optional paid managed remote access for App Store and Google Play installs only. It is not available in direct APK, F-Droid/FOSS, or production web builds.
-- **Local QR:** a free same-network setup option for OpenCode 2 using `opencode pair`; it is not Cloud Link.
+- **Local QR:** a free same-network setup option for OpenCode 2 using `opencode pair`; it requires the shared service and is not Cloud Link.
+- **Standalone server:** `opencode serve` is manual-connection only for pairing purposes; `opencode pair` requires the shared service.
 - **Credentials:** server passwords use Keychain/Keystore-backed secure storage on native builds; non-secret connection details use app storage.
 - **Current release:** use [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) as the authoritative source. Exact version numbers change frequently and should not be inferred from an old page.
 - **License:** Apache-2.0.

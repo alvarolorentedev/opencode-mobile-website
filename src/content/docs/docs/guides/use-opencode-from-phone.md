@@ -19,11 +19,13 @@ This keeps execution close to the real workspace while making approvals and foll
 ## Set it up
 
 1. [Download OpenCode Mobile](/download/).
-2. Start an authenticated OpenCode server on `127.0.0.1:4096`.
+2. Set a password and start OpenCode 2's shared service: `opencode service set password '…'`, `opencode service start`, then `opencode service status`.
 3. Choose [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), [local QR](/docs/connections/), [Cloud Link](/docs/cloud-link/), or another [remote-access method](/docs/remote-access/).
-4. Test the server's `/global/health` endpoint from the phone's network.
-5. Add a connection in the app with the full API base URL, username, and password, or scan a local QR code.
+4. Create a one-time login with `opencode pair`, or test the server's `/global/health` endpoint for a manual connection.
+5. Scan the pairing QR code, or add the full API base URL and password manually.
 6. Select the project and confirm the expected session before sending work.
+
+A standalone `opencode serve` process works too, but pairing requires the shared service, so use manual connection details.
 
 You can save multiple servers and switch between them in **Settings → Connection**. The app keeps each server's projects, remembered sessions, favorites, and notification records separate.
 

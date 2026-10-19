@@ -18,7 +18,7 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 | Focused files and terminal | Native project surfaces | Browser-provided surfaces |
 | Saved server profiles | Multiple connections with in-app switching | Usually one browser origin at a time |
 | Remote route | LAN, VPN, tunnel, proxy, SSH forward, or Cloud Link | Same network choices, without Cloud Link management |
-| Server requirement | OpenCode server/API | `opencode web` server |
+| Server requirement | OpenCode server/API | OpenCode 2 server; V1 `opencode web` |
 
 ## Choose OpenCode Mobile when
 
@@ -38,7 +38,9 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 
 ## They can coexist
 
-Use `opencode web` when you want the browser UI and API from the same server. Depending on the deployment, the API may be at the origin or below a prefix such as `/api`. OpenCode Mobile must receive the API base, not merely a URL that returns an HTML page.
+Use the OpenCode web UI when you want the browser interface. In OpenCode 2, run the shared service and open a link printed by `opencode pair`; the web UI is served by the same server. In OpenCode 1.x, use `opencode web` when you want the browser UI and API from the same server.
+
+Depending on the deployment, the API may be at the origin or below a prefix such as `/api`. OpenCode Mobile must receive the API base, not merely a URL that returns an HTML page.
 
 Regardless of the client, do not expose an unauthenticated server publicly. Use the [remote-access overview](/docs/remote-access/) and [security guide](/docs/guides/remote-access-security/).
 

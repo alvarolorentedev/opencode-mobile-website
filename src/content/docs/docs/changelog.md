@@ -6,7 +6,7 @@ lastUpdated: 2026-10-19
 
 The latest public release at the time of this review is **v1.0.81**, published **October 18, 2026**. Use [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) as the authoritative source for the current version and complete release notes.
 
-OpenCode Mobile detects and supports the OpenCode 1.x (V1) and 2.x (V2) API contracts. Feature availability also depends on the capabilities the connected server exposes.
+OpenCode 2 is the current primary target. It uses the shared background service and one-time `opencode pair` links for the quickest app setup. OpenCode 1.x (V1) remains supported with manual connections. Feature availability also depends on the capabilities the connected server exposes.
 
 ## Recent releases
 
@@ -59,7 +59,7 @@ These values describe the current source and recent release. Inspect the [applic
 | LSP and formatter diagnostics | Yes | No | Other diagnostics remain available |
 | Worktrees | Yes | Yes | Reset and start command are V1-only |
 | MCP lifecycle and OAuth | Yes | Yes | Persistent config writes differ by contract |
-| Local QR pairing | No | Yes | Same-network only; requires `opencode pair` and native camera |
+| Local QR pairing | No | Yes | Same-network only; requires the shared service, `opencode pair`, and native camera |
 | Cloud Link | Independent | Independent | Store installs only; subscription required |
 | Android inbound sharing | Yes | Yes | Android only |
 | Android home widgets | Yes | Yes | Android only |

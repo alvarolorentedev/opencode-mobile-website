@@ -37,8 +37,9 @@ Do not copy implementation docs into the website. Translate them into user-facin
 - Use **Chat** for the main tab. Use **Chats** for the session library. The active chat has **Session** and **Files Changed** tabs.
 - Use **Cloud Link** for the optional managed remote-access service. Do not call it Connect.
 - Distinguish **local QR pairing** (`opencode pair`, same network, free) from **Cloud Link QR pairing** (managed connector, subscription).
-- Use **OpenCode 1.x (V1)** and **OpenCode 2.x (V2)** for contracts.
-- Use **server password**, not “app password,” for `OPENCODE_SERVER_PASSWORD`.
+- Use **OpenCode 1.x (V1)** and **OpenCode 2.x (V2)** for contracts. Present OpenCode 2 as the current primary target.
+- For OpenCode 2, document the shared service (`opencode service start`), one-time pairing (`opencode pair`), and the fact that a standalone `opencode serve` process requires manual connection details.
+- Use **server password**, not “app password,” for `OPENCODE_SERVER_PASSWORD`; the V2 shared service password is set with `opencode service set password`.
 - Use **xterm-based terminal**, not “line console” or “full VT emulator.”
 
 ## Page template
