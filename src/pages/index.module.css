@@ -292,11 +292,12 @@
 .galleryItem {
   display: grid;
   min-width: 0;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr auto;
+  border-left: 1px solid transparent;
 }
 
 .galleryItem + .galleryItem {
-  border-left: 1px solid var(--landing-border);
+  border-left-color: var(--landing-border);
 }
 
 .galleryCopy {
@@ -336,6 +337,8 @@
   display: block;
   width: min(100%, 304px);
   height: auto;
+  aspect-ratio: 1290 / 2796;
+  object-fit: cover;
   border: 1px solid var(--landing-border);
   background: #0c1411;
 }
