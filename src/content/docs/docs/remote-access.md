@@ -1,7 +1,7 @@
 ---
 title: Access OpenCode Remotely from Mobile
 description: Connect OpenCode Mobile through a trusted LAN, local QR pairing, Tailscale, Cloudflare Tunnel, reverse proxy, SSH forward, or Cloud Link.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 OpenCode Mobile can connect through a local address, private VPN, HTTPS tunnel, reverse proxy, SSH forward, or managed Cloud Link machine. The app needs an OpenCode API base URL; it does not require a specific tunnel provider.
@@ -22,6 +22,8 @@ Every manual route supplies the same three values:
 - **Server URL:** origin plus any required API path prefix
 - **Username:** `OPENCODE_SERVER_USERNAME`
 - **Password:** `OPENCODE_SERVER_PASSWORD`
+
+Manual connections can also attach custom HTTP headers for a gateway, trust a private CA for that `host:port`, or sign in through OIDC. Local QR and Cloud Link profiles do not carry custom headers or a custom CA.
 
 The client normalizes a missing protocol, preserves configured path prefixes such as `/api`, adds optional HTTP Basic authentication, and scopes session, file, terminal, and event requests to the selected project. The OpenCode 2 shared service uses the username `opencode` by default; its password is the one set with `opencode service set password`.
 
@@ -82,12 +84,12 @@ If you already have Tailscale or a reliable tunnel, you do not need Cloud Link.
 | --- | --- | --- |
 | LAN | Private network | Use auth, trusted Wi-Fi, and a private firewall rule |
 | Tailscale | Tailnet only | Keep auth enabled and restrict tailnet membership/ACLs |
-| Cloudflare Tunnel | Public HTTPS URL | Always use OpenCode auth; consider Cloudflare Access only after confirming API compatibility |
+| Cloudflare Tunnel | Public HTTPS URL | Always use OpenCode auth; Cloudflare Access works with a manual connection's custom headers |
 | Reverse proxy | Depends on proxy | Use HTTPS, preserve streaming/WebSocket behavior, and require OpenCode auth |
 | SSH forward | Local loopback | Protect the SSH key/account and keep the forwarding client alive |
 | Cloud Link | Managed tunnel | Protect the store account and device; review the Cloud Link privacy details |
 
-On native iOS and Android builds, non-secret connection details use app storage and server passwords use Keychain/Keystore-backed secure storage. Pending notification records contain the server URL and username but not the password. Browser builds cannot persist passwords through native secure storage.
+On native iOS and Android builds, non-secret connection details use app storage. Server passwords, custom header values, CA material, and OIDC tokens use Keychain/Keystore-backed secure storage. Pending notification records contain the server URL and username but not the password. Browser builds cannot persist credentials through native secure storage.
 
 ## Troubleshooting
 
@@ -106,7 +108,7 @@ On native iOS and Android builds, non-secret connection details use app storage 
 
 ### Connected but no project appears
 
-The server is reachable, but it may not expose a project catalog in the expected context. Refresh **Projects**, confirm the OpenCode version, and inspect **Settings → Advanced → Diagnostics** for endpoint availability.
+The server is reachable, but it may not expose a project catalog in the expected context. Refresh **Projects**, confirm the OpenCode version, and inspect **Settings → Diagnostics** for endpoint availability.
 
 ### Local QR will not pair
 

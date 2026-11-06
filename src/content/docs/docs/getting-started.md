@@ -1,14 +1,14 @@
 ---
 title: Set Up OpenCode Mobile
 description: Install OpenCode Mobile, start an OpenCode 2 server, pair with a QR code, connect from Android or iOS, and complete your first task.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
-This guide covers the shortest safe path from an OpenCode server to your first completed mobile task. OpenCode 2 is the current primary target; the app also supports OpenCode 1.x servers with manual connections.
+This guide covers the shortest safe path from an OpenCode server to your first completed mobile task. OpenCode 2 is the current primary target; the app also supports OpenCode 1.x servers with manual connections for the core surface.
 
 ## What you need
 
-- An Android device or iPhone/iPad.
+- An Android device (64-bit ARM) or iPhone/iPad.
 - A computer or server running a current OpenCode version.
 - A network route from the phone to the server: local network, VPN, tunnel, reverse proxy, SSH forward, or Cloud Link.
 - The server URL and password, or a one-time pairing link/QR code.
@@ -18,7 +18,7 @@ This guide covers the shortest safe path from an OpenCode server to your first c
 Use the [Download page](/download/) to choose an installation method:
 
 - **Google Play (recommended):** install and receive updates through Google Play.
-- **Direct GitHub APK:** download and install the latest release manually.
+- **Direct GitHub APK:** download and install the latest release manually. Android release artifacts are arm64-v8a only.
 - **iOS TestFlight beta:** join the [OpenCode Mobile TestFlight release](https://testflight.apple.com/join/ddcE5Wzz) and install the beta.
 
 The Android options install the latest Android release; TestFlight installs the iOS beta. See [Download and install](/docs/opencode-android-app/) for platform-specific details.
@@ -100,7 +100,7 @@ export OPENCODE_SERVER_PASSWORD='use-a-strong-password'
 opencode serve --hostname 127.0.0.1 --port 4096
 ```
 
-Connect V1 servers manually. Local QR pairing is an OpenCode 2 feature.
+Connect V1 servers manually. Local QR pairing is an OpenCode 2 feature. V1 is maintained for the feature intersection with V2; archive/share, title summarization, worktree reset, LSP/formatter diagnostics, and the composer auto-approve/saved-rules surfaces are not available.
 
 ### Verify the server
 
@@ -148,52 +148,63 @@ On first launch, onboarding walks through these steps:
 1. **Welcome** — continue into setup.
 2. **Permissions** — optionally enable notifications and voice input.
 3. **Connect** — add a server connection.
-4. **Project** — choose an OpenCode project.
-5. **Ready** — review the setup and start.
+4. **AI & providers** — optionally configure providers, models, and automatic routing.
+5. **Project** — choose a server project or add a folder.
+6. **General** — choose the interface language and, on V2, prompt delivery.
+7. **Voice & responses** — choose how you talk and hear replies.
+8. **Privacy** — choose local diagnostics and, when available, optional remote telemetry.
+9. **Ready** — review the setup and start.
+
+The AI and Project steps appear after a connection exists, so a first run that skips the server sees fewer steps. Every step has a Skip action.
 
 In **Connect**, the Add connection chooser offers:
 
 - **Scan QR code** — scan the link printed by `opencode pair`. The link must contain an address the phone can reach; a loopback-only link will not work across devices unless the phone itself owns that loopback route.
-- **Manual** — enter a name (optional), the complete server URL, username, and password.
+- **Manual** — enter a name (optional), the complete server URL, username, and password. Manual connections can also add custom HTTP headers, a custom CA certificate, or OpenID Connect.
 - **Cloud Link** — pair with a managed connector when the app was installed from the App Store or Google Play and an active subscription is available.
 
 For manual setup, include `https://` and any required path prefix. If a password is set and Username is blank, the client uses `opencode` as the Basic-auth username. Entering the explicit server username is clearer and easier to troubleshoot.
 
 You can skip permissions, connection, or project during onboarding and configure them later in **Settings → Connection** and the **Projects** tab. Editing a saved connection does not reconnect automatically; use **Reconnect** when you want to apply the change.
 
-See [Add or switch connections](/docs/connections/) for saved profiles, pairing details, Cloud Link, and switching servers.
+See [Add or switch connections](/docs/connections/) for saved profiles, pairing details, custom headers, certificates, OIDC, Cloud Link, and switching servers.
 
 ## 6. Select a project
 
-Choose the project during onboarding or later in **Projects**. Refresh the catalog if needed, then open an existing chat or create one.
+Choose the project during onboarding or later in **Projects**. The picker lists the projects the server reports, in server order. Search filters the list; **Add project** opens a server folder browser with a manual path fallback.
 
-The selected project scopes chats, files, and terminal activity. OpenCode Mobile remembers the selected project and the last session used for it. If the project does not appear, confirm the server reported it or add the server directory from the project picker.
+The selected project scopes chats, files, and terminal activity. The app remembers the last session used for each project. If a project does not appear, confirm the server reported it or add the server directory from the project picker.
+
+To hide a server project on this device only, use its archive action. On OpenCode 2, **Archived on OpenCode** shows server-archived projects as read-only with a location-based restore. See [Projects](/docs/guides/projects/).
 
 ## 7. Complete your first task
 
-1. Open **Chat** and confirm the expected session title appears at the top.
+1. Open **Chat** and confirm the expected session title and project appear at the top.
 2. Select the agent and model above the composer.
 3. Send a small, verifiable request such as: `Inspect this project and summarize its purpose. Do not change files.`
-4. Watch the **Session** tab while OpenCode works.
+4. Watch the transcript while OpenCode works.
 5. Respond if a permission or question card appears.
-6. Open **Files Changed** and confirm that the read-only task produced no edits.
+6. Tap the change chip above the composer and confirm that the read-only task produced no edits.
 
-For your first implementation task, ask for one contained change and its related test. Review both the assistant response and **Files Changed** before accepting the result.
+For your first implementation task, ask for one contained change and its related test. Review both the assistant response and the changes overlay before accepting the result.
 
 ## 8. Check optional capabilities
 
-After connecting, use **Settings → Advanced → Diagnostics** and the **Projects** tab to confirm which features the server exposes:
+After connecting, use **Settings → Diagnostics** and the **Projects** tab to confirm which features the server exposes:
 
-- Provider and model discovery
+- Provider and model discovery, variants, and automatic model routing
 - Global realtime events
-- MCP, LSP, formatter, and health diagnostics
+- MCP, health, network, and app-error diagnostics
+- Extension management on OpenCode 2
 - File status and VCS information
+- Device-local project archive and, on V2, server-archived projects
 - Experimental worktrees
 - PTY terminal support
-- Session archive, share, and title summarization on V1
-- Saved approval rules on V2
+- V2 media preview, downloads, and file copy/move/rename/delete
+- V2 saved approval rules and composer auto-approve
+- V2 plugin GUI panels
 
-Missing optional endpoints should not prevent core chat use. See [Releases and compatibility](/docs/changelog/) for the V1/V2 capability differences.
+Missing optional endpoints should not prevent core chat use. See [Releases and compatibility](/docs/changelog/) for the current contract differences.
 
 ## Security notes
 
@@ -201,7 +212,7 @@ Missing optional endpoints should not prevent core chat use. See [Releases and c
 - Prefer Tailscale, Cloudflare Tunnel, or an authenticated HTTPS reverse proxy over router port forwarding.
 - Use `0.0.0.0` only for a trusted LAN and restrict the port with the host firewall.
 - Set a strong OpenCode service password. Pairing links are credentials: they expire quickly and work once, but they still grant access while valid.
-- On native iOS and Android builds, connection passwords are stored in Keychain/Keystore-backed secure storage; non-secret connection details use app storage.
+- On native iOS and Android builds, connection passwords, custom header values, CA material, and OIDC tokens use secure storage; non-secret connection details use app storage.
 - Treat the device as containing access to your OpenCode server. Rotate credentials if a tunnel URL, device, or password is compromised.
 - Cloud Link is optional. Review the [privacy policy](/privacy-policy/) before subscribing.
 
@@ -214,5 +225,8 @@ Missing optional endpoints should not prevent core chat use. See [Releases and c
 - For local pairing, run `opencode pair` again if the link expired or was already used.
 - For a standalone `opencode serve` process, connect manually; pairing requires the shared service.
 - If the address returns HTML, 404, or a JSON parse error, use the actual API base path.
-- Update to the latest mobile release and check **Settings → Advanced → Diagnostics**.
+- If a gateway returns 401 or 403, check the connection's custom headers.
+- If a certificate is rejected, confirm it covers the same `host:port` and has not expired.
+- If OIDC expires, confirm the issuer and redirect URI, then sign in again.
+- Update to the latest mobile release and check **Settings → Diagnostics**.
 - Continue with the [connection troubleshooting checklist](/docs/guides/troubleshooting/) before filing a bug.

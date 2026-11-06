@@ -45,7 +45,7 @@ export const siteStructuredData = {
       '@id': `${SITE}/#app`,
       name: 'OpenCode Mobile',
       description:
-        'A community-built mobile companion for controlling sessions on an OpenCode server.',
+        'A community-built mobile companion for chats, review, voice, files, extensions, and terminal work on an OpenCode server.',
       operatingSystem: 'Android, iOS',
       applicationCategory: 'DeveloperApplication',
       isAccessibleForFree: true,

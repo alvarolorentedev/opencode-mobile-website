@@ -1,7 +1,7 @@
 ---
 title: How to Use OpenCode from Your Phone
 description: Run OpenCode on your computer and safely control its sessions, permissions, files, voice input, and terminal commands from a mobile device.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 The reliable architecture is simple: OpenCode runs on the machine that owns your project, while your phone acts as a remote control. Do not move the repository, model credentials, build tools, and complete development environment onto the phone unless on-device development is your explicit goal.
 
@@ -27,7 +27,7 @@ This keeps execution close to the real workspace while making approvals and foll
 
 A standalone `opencode serve` process works too, but pairing requires the shared service, so use manual connection details.
 
-You can save multiple servers and switch between them in **Settings → Connection**. The app keeps each server's projects, remembered sessions, favorites, and notification records separate.
+You can save multiple servers and switch between them in **Settings → Connection**. Projects and sessions come from the active server, while favorites, notification records, and terminal state are scoped to the connection.
 
 ## Good mobile workflows
 
@@ -37,7 +37,7 @@ You can save multiple servers and switch between them in **Settings → Connecti
 - Send a short follow-up, steer a running turn, or dictate it with voice input.
 - Inspect a specific file, save a focused edit, or run a test command in the project terminal.
 - Share a screenshot, document, or link from another app into a chat on Android.
-- Switch or archive sessions while keeping each thread focused.
+- Switch, favorite, rename, fork, or delete sessions while keeping each thread focused.
 
 Use the desktop when a change requires broad code navigation, prolonged terminal interaction, complex conflict resolution, or detailed visual review.
 

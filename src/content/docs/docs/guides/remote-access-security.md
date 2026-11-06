@@ -1,7 +1,7 @@
 ---
 title: Secure OpenCode Remote Access from Mobile
 description: Threat-model an OpenCode mobile connection, protect server credentials, compare private and public routes, and respond to a lost device or exposed endpoint.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 An OpenCode server may read and change source files, execute commands, and invoke configured AI providers. Remote access therefore creates a privileged path into a development machine. HTTPS alone does not make that path safe.
 
@@ -13,6 +13,7 @@ An OpenCode server may read and change source files, execute commands, and invok
 - A proxy forwards normal HTTP but breaks or exposes realtime and terminal traffic.
 - A user approves a dangerous tool action without reviewing the active project or session.
 - A temporary tunnel URL is pasted into a public issue, log, or screenshot.
+- An untrusted plugin or MCP server is installed without reviewing what runs on the OpenCode host.
 
 ## Minimum controls
 
@@ -26,9 +27,13 @@ An OpenCode server may read and change source files, execute commands, and invok
 
 ## Credential handling
 
-On native iOS and Android builds, non-secret connection details use app storage and server passwords use Keychain/Keystore-backed secure storage. Treat the device as holding access to the development server. Use device encryption and a strong screen lock, and rotate the OpenCode password after a device is lost or transferred. Browser builds cannot persist passwords through native secure storage.
+On native iOS and Android builds, non-secret connection details use app storage. Server passwords, custom header values, custom CA material, and OIDC access or refresh tokens use Keychain/Keystore-backed secure storage. Treat the device as holding access to the development server. Use device encryption and a strong screen lock, and rotate the OpenCode password after a device is lost or transferred. Browser builds cannot persist credentials through native secure storage.
+
+A custom CA is trusted only for one connection's `host:port`; it does not become a device-wide trust anchor. OIDC sign-in uses the system browser with PKCE, never an embedded WebView.
 
 Multiple saved connections each have their own stored password. Editing a connection does not reconnect it automatically, so a stale connection can remain active until you choose **Reconnect**.
+
+Extensions and plugins execute code on the OpenCode host. Install only targets you trust, review plugin and MCP changes before saving, and treat extension editing as server administration.
 
 OpenCode 2 `opencode pair` links and Cloud Link pairing links are credentials. They expire quickly and work once, but still grant access while valid. Do not paste them into public issues, logs, chat messages, or screenshots. If a link is exposed, create a fresh pairing link or revoke the machine where available.
 

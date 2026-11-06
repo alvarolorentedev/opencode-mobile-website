@@ -1,7 +1,7 @@
 ---
 title: Connect OpenCode Mobile with Tailscale
 description: Keep OpenCode on loopback, publish it through Tailscale Serve, and pair the mobile app with a private HTTPS address without opening a router port.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Tailscale is the preferred default when only your own devices need remote access. It keeps the route inside your tailnet, provides a stable private HTTPS hostname, and avoids opening a router port.

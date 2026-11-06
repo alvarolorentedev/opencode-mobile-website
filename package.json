@@ -13,6 +13,7 @@
     "typecheck": "astro check",
     "video:studio": "remotion studio remotion/index.ts",
     "video:render": "remotion render remotion/index.ts ProductWalkthrough static/media/opencode-mobile-promo.mp4 --codec=h264 --crf=20 --public-dir=static && remotion still remotion/index.ts ProductWalkthrough static/img/product/opencode-mobile-poster.avif --frame=60 --public-dir=static",
+    "video:promo-2026": "remotion render remotion/index.ts PromoVideo2026 static/media/opencode-mobile-promo-2026.mp4 --codec=h264 --crf=20 --public-dir=static && remotion still remotion/index.ts PromoVideo2026 static/img/product/opencode-mobile-poster-2026.png --frame=180 --public-dir=static && ffmpeg -y -i static/img/product/opencode-mobile-poster-2026.png -c:v libaom-av1 -still-picture 1 -crf 32 -b:v 0 static/img/product/opencode-mobile-poster-2026.avif && rm static/img/product/opencode-mobile-poster-2026.png",
     "video:typecheck": "tsc -p remotion/tsconfig.json"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "@astrojs/check": "^0.9.10",
     "@remotion/cli": "^4.0.494",
     "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
     "qrcode": "^1.5.4",
     "remotion": "^4.0.494",
     "starlight-links-validator": "^0.26.0",

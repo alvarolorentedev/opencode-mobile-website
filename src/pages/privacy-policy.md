@@ -26,6 +26,29 @@ There are two separate paths, and they are handled differently:
 
 2. **OpenCode Mobile / Cloud Link infrastructure.** Only the optional Cloud Link subscription service sends data to infrastructure operated for OpenCode Mobile, as described in the next section. If you do not use Cloud Link, the Application sends nothing to OpenCode Mobile infrastructure beyond normal network protocol data (such as your ephemeral IP address) needed to establish a connection, which is not retained or used for tracking.
 
+## Voice and audio
+
+OpenCode Mobile offers two voice-input paths:
+
+* **System speech** uses the operating system's speech recognizer and its text-to-speech engine. Audio and recognition results are handled by the device platform and its speech provider under that provider's policy.
+* **On-device voice** is opt-in. Wake-word detection, speaker verification, and speech recognition run on the device after the required models are downloaded. In this mode, the Application does not send voice audio to a speech vendor. Model downloads contact the configured download source.
+
+Conversation mode is foreground-only. It does not record in the background, and it pauses when a permission or question needs on-screen input.
+
+## Diagnostics and optional telemetry
+
+Diagnostics are local-first. The Application records structured logs, spans, and metrics on the device by default, bounded to about seven days or 10 MB. You can disable local recording, inspect the events, export a sanitized ZIP report, or clear the history from Settings.
+
+When the build is configured with an OTLP backend, you can separately enable or disable remote crash reports and usage telemetry. Remote reporting is optional and applies only to new events. It sends unhandled or fatal JavaScript error data and a minimal server-contract counter; it does not send prompts, source code, file contents, or session text. Native hard crashes and ANRs are not captured, and remote JavaScript stacks are not symbolically resolved.
+
+## Connection credentials and extras
+
+Connection profiles can include custom HTTP headers, a custom CA certificate, and OpenID Connect tokens. Passwords, header values, CA material, and OIDC access or refresh tokens are stored with Keychain/Keystore-backed secure storage on native builds; non-secret profile metadata uses app storage. A custom CA is trusted only for the configured server's `host:port`. Notification records store the server URL and username, never the password.
+
+## Automatic model routing
+
+If automatic model routing uses the on-device classifier, the prompt is classified locally and is not sent to a speech or classification vendor. If it uses the OpenCode server classifier, the classifier prompt is sent to the selected model on the OpenCode server you configured, before the main prompt. The Application does not log or retain prompts or classifier results for training.
+
 ## Cloud Link (optional paid service)
 
 Cloud Link lets you access your own OpenCode machine remotely without configuring your own network tunnel. Product details, downloads, and platform support are available on the [OpenCode Cloud Link website](https://opencodecloud.link/). To provide the service, Cloud Link processes the minimum data needed to verify your subscription and securely pair your device:
@@ -73,7 +96,7 @@ The Service Provider may update this Privacy Policy from time to time. The Servi
 
 Previous versions of this Privacy Policy will be maintained and made available upon request by contacting the Service Provider at contact@getopencode.app.
 
-This privacy policy is effective as of 2026-10-06
+This privacy policy is effective as of 2026-11-06
 
 ## Your consent
 

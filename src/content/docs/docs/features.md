@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Features and Guides
-description: Choose an OpenCode Mobile workflow for tasks, sessions, approvals, voice, files, terminal, providers, Cloud Link, sharing, widgets, or remote access.
-lastUpdated: 2026-10-19
+description: Choose an OpenCode Mobile workflow for tasks, sessions, approvals, voice, files, terminal, providers, extensions, Cloud Link, sharing, or remote access.
+lastUpdated: 2026-11-06
 ---
 
 Start with the outcome you need. Each guide explains when the capability is useful, the exact mobile workflow, what you should see, and the important limitations.
@@ -17,7 +17,7 @@ Use [Start and monitor tasks](/docs/guides/tasks/) to choose an agent and model,
 
 ## I want to continue or reorganize existing work
 
-Use [Chats and sessions](/docs/guides/sessions/) to search, switch, favorite, rename, share, archive, restore, delete, fork, or revert sessions without losing track of the active project. The Chats library also shows running and recent sessions across the whole connection.
+Use [Chats and sessions](/docs/guides/sessions/) to search, switch, favorite, rename, delete, fork, or revert sessions without losing track of the active project. The library groups chats by server and project and shows running and recent sessions across the connection.
 
 ## OpenCode is waiting for me
 
@@ -25,15 +25,15 @@ Use [Approvals and changes](/docs/guides/approvals-and-changes/) to understand p
 
 ## I cannot conveniently type
 
-Use [Voice](/docs/guides/voice/) to dictate a reviewed draft or run the foreground listen → submit → wait → speak loop.
+Use [Voice](/docs/guides/voice/) to dictate a reviewed draft or run the wake-word conversation loop. System speech and On-device voice are separate input modes, and playback can use a system or on-device voice.
 
 ## The session is getting long or expensive
 
 Use [Session usage](/docs/guides/usage/) to interpret context utilization, input/output/reasoning tokens, cache activity, steps, and provider cost estimates.
 
-## I need to inspect or adjust a file
+## I need to inspect, move, or adjust a file
 
-Use [Project files](/docs/guides/workspace-files/) to search the active project, read a file, and save a small text patch. File editing is available on both OpenCode 1.x and 2.x contracts, with a conflict check before saving.
+Use [Project files](/docs/guides/workspace-files/) to search the active project, read a file, preview media, download a file, move or rename entries on OpenCode 2, and save a small text patch. File editing is available on both contracts, with a conflict check before saving.
 
 ## I need to run a command
 
@@ -41,15 +41,23 @@ Use [Terminal](/docs/guides/terminal/) for tests, status checks, short logs, and
 
 ## I need isolated parallel work
 
-Use [Worktrees](/docs/guides/worktrees/) to create, reset, or remove experimental OpenCode worktrees safely.
+Use [Worktrees](/docs/guides/worktrees/) to create, select, and remove experimental OpenCode worktrees safely.
 
 ## A model is missing or a provider needs sign-in
 
-Use [Providers and models](/docs/guides/providers-and-models/) to distinguish server authentication from AI-provider authentication, complete OAuth/manual setup, manage multiple provider accounts, and control which models appear in Chat.
+Use [Providers and models](/docs/guides/providers-and-models/) to distinguish server authentication from AI-provider authentication, complete OAuth/manual setup, manage multiple provider accounts, choose model variants, and control which models appear in Chat.
+
+## I want the app to choose the model
+
+Use [Automatic model routing](/docs/guides/auto-model-routing/) to classify each prompt as Simple, Standard, or Complex and map each tier to a model, with an on-device or OpenCode server classifier.
+
+## I need to change server configuration
+
+Use [Manage extensions](/docs/guides/extensions/) to edit MCP servers, plugins, agents, skills, and slash commands for a project or the whole server, and to open plugin GUI panels in Chat.
 
 ## Tools or realtime updates are not behaving as expected
 
-Use [MCP and diagnostics](/docs/guides/mcp-and-diagnostics/) to manage MCP servers and inspect OpenCode health, realtime fallback, LSP, formatter, network, and app-error information.
+Use [MCP and diagnostics](/docs/guides/mcp-and-diagnostics/) to manage runtime MCP servers on OpenCode 1.x, read OpenCode 2 MCP state, and inspect health, realtime fallback, network behavior, local logs, and app errors.
 
 ## I want to leave while a task runs
 
@@ -57,7 +65,7 @@ Use [Notifications](/docs/guides/notifications/) to enable completion and needs-
 
 ## I want to connect or switch servers
 
-- [Add or switch connections](/docs/connections/) — manual setup, local QR pairing on OpenCode 2, saved profiles, and Cloud Link.
+- [Add or switch connections](/docs/connections/) — manual setup, local QR pairing on OpenCode 2, custom headers, custom certificates, OIDC, saved profiles, and Cloud Link.
 - [Remote access](/docs/remote-access/) — compare LAN, Tailscale, Cloudflare Tunnel, reverse proxy, SSH, and Cloud Link.
 - [Cloud Link](/docs/cloud-link/) — managed remote access with a store subscription. See the [Cloud Link website](https://opencodecloud.link/) for connector downloads and pricing.
 
@@ -71,8 +79,8 @@ Use [Quick actions and widgets](/docs/guides/quick-actions-and-widgets/) for lau
 
 ## I want to configure or customize the app
 
-Use [Settings and customization](/docs/guides/settings/) for connection profiles, providers, model visibility, notifications, voice, appearance, language, updates, MCP, diagnostics, and approvals.
+Use [Settings and customization](/docs/guides/settings/) for the searchable settings map: appearance, chat behavior, voice, notifications, language, connections, providers, extensions, approvals, diagnostics, updates, and support.
 
 ## I cannot connect to the server
 
-Use [Troubleshooting](/docs/guides/troubleshooting/) to work through authentication, local QR, Cloud Link, HTML/404 responses, realtime updates, terminal WebSockets, and missing projects.
+Use [Troubleshooting](/docs/guides/troubleshooting/) to work through authentication, local QR, custom headers, certificates, OIDC, Cloud Link, HTML/404 responses, realtime updates, terminal WebSockets, and missing projects.

@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile App — Setup and Download
 description: Download OpenCode Mobile for Android or iOS, install the APK or TestFlight beta, and connect it to your own OpenCode server.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 OpenCode Mobile is an independent Android and iOS client for an OpenCode server that you run. It lets you start and monitor coding tasks, review permissions and changes, manage projects and sessions, inspect files, and use a project terminal from a phone.
@@ -22,7 +22,7 @@ Do not install APK files reposted by unrelated download sites. The current relea
 
 You need:
 
-1. An Android device or iPhone/iPad.
+1. An Android device (64-bit ARM) or iPhone/iPad.
 2. A current OpenCode installation on a computer or server that owns the project.
 3. OpenCode running in server mode.
 4. A network route from the phone to that server.
@@ -35,7 +35,8 @@ The complete setup is in [Set Up OpenCode Mobile](/docs/getting-started/). The i
 ### Android
 
 1. Open the [download page](/download/) and choose Google Play or the direct APK.
-2. If Android asks, allow installation from your browser or file manager for the APK path.
+2. Confirm the device is 64-bit ARM (arm64-v8a). Release artifacts do not support 32-bit-only Android devices.
+3. If Android asks, allow installation from your browser or file manager for the APK path.
 3. Open OpenCode Mobile and continue with onboarding.
 
 ### iOS
@@ -85,10 +86,10 @@ Never publish an unauthenticated OpenCode port to the internet.
 
 ## Connect the app
 
-On first launch, onboarding walks through **Welcome**, **Permissions**, **Connect**, **Project**, and **Ready**. In **Connect**, choose:
+On first launch, onboarding walks through **Welcome**, **Permissions**, **Connect**, **AI & providers**, **Project**, **General**, **Voice & responses**, **Privacy**, and **Ready**. The AI and Project steps appear after a connection exists, and every step can be skipped. In **Connect**, choose:
 
 - **Scan QR code** for a local OpenCode 2 pairing code created by `opencode pair`
-- **Manual** for a server URL, username, and password
+- **Manual** for a server URL, username, and password, with optional custom headers, a custom certificate, or OIDC
 - **Cloud Link** for a managed remote machine, when available in a store-installed build
 
 After onboarding, use **Settings → Connection** to add or switch saved servers. See [Add or switch connections](/docs/connections/).
@@ -114,7 +115,7 @@ Use the [troubleshooting checklist](/docs/guides/troubleshooting/) for authentic
 
 ## Update or remove the app
 
-- **Google Play:** updates are delivered by the store. The app can also check for available updates in **Settings → Advanced → Update checks**.
+- **Google Play:** updates are delivered by the store. Supported builds can also start a flexible background download and wait for an explicit **Restart** tap. Configure checks in **Settings → About & support → Update checks**.
 - **Direct APK:** install a newer APK from GitHub Releases over the existing app.
 - **iOS TestFlight:** install the latest TestFlight build when it appears.
 - Removing the app removes local settings and saved credentials. It does not delete data from your OpenCode server or cancel a Cloud Link subscription.

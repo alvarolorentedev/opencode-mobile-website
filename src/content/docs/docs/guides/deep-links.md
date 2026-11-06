@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Deep Links and Session Links
 description: Open a specific OpenCode Mobile session from a custom-scheme or web link, understand connection scoping, and handle errors.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 OpenCode Mobile can open a specific session from a deep link. Notifications, quick actions, and some shared links use the same resolver.
@@ -26,7 +26,7 @@ The app:
 
 The link does not carry a server identity. It resolves against the active connection. A saved notification or quick-action link may include a connection scope so the app can switch servers first.
 
-Archived sessions are not reachable through a session deep link; restore the session first.
+Sessions the server excludes, such as archived or deleted sessions, are not reachable through a session deep link. Restore or unarchive the session on the server first.
 
 ## Web path
 
@@ -53,15 +53,15 @@ Common causes:
 
 Cloud Link pairing links use a different format and include a pairing identifier and token. Treat them as credentials. Do not paste them into public issues, logs, or screenshots. See [Cloud Link](/docs/cloud-link/).
 
-## Create a session link
+## Session links in the app
 
-Use the share action in the Chats library when the server supports session sharing. Sharing creates a public session URL; it is different from the local app deep link. Review the session for sensitive content before sharing.
+Notifications, quick actions, widgets, and external links create the session link for you. The current app does not publish a public session share URL from the Chats library. Treat a copied session link like any other credential-bearing route.
 
 ## Security
 
 - Deep links can open a session but cannot approve permissions or submit prompts.
 - A link does not bypass server authentication.
-- Pairing links and share links can grant access or expose content; handle them as sensitive.
-- If a link is exposed, revoke the share or rotate the relevant credentials.
+- Pairing links and session links can grant access or expose content; handle them as sensitive.
+- If a link is exposed, rotate the relevant credentials or revoke the Cloud Link machine.
 
 Next: [Chats and sessions](/docs/guides/sessions/), [notifications](/docs/guides/notifications/), or [Cloud Link](/docs/cloud-link/).

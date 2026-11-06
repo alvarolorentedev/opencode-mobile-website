@@ -1,7 +1,7 @@
 ---
 title: Connect OpenCode Mobile with SSH Port Forwarding
 description: Keep an OpenCode 2 server bound to loopback and reach it from a mobile SSH client with a local port forward.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 A mobile SSH client or terminal app can keep a local port forward open:

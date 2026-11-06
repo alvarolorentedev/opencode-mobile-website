@@ -11,48 +11,61 @@ import {
 
 const title = 'OpenCode Mobile App';
 const description =
-  'Use OpenCode from Android or iOS to start tasks, monitor sessions, review changes, access files, and run focused terminal commands on your own OpenCode server.';
+  'Use OpenCode from Android or iOS to start tasks, review changes, use voice, browse files, run terminal commands, and manage server extensions on your own OpenCode server.';
 
 const productScreens = [
   {
-    image: '/img/product/task-session.webp',
-    alt: 'OpenCode Mobile task screen showing a new coding session, task suggestions, model controls, and project navigation',
+    image: '/img/product/promo-chat.webp',
+    width: 1290,
+    height: 2796,
+    alt: 'OpenCode Mobile chat with a completed coding task, changed-file chip, model, and composer controls',
     label: 'Task control',
     title: 'Start, watch, and redirect',
     description:
-      'Send the task, see what OpenCode is doing, answer blocking requests, and review the result.',
+      'Send the task, follow the activity timeline, answer blocking requests, and review the changed files.',
   },
   {
-    image: '/img/product/voice-mode.webp',
-    alt: 'OpenCode Mobile conversation mode listening for a spoken instruction',
-    label: 'Voice mode',
-    title: 'Give the next instruction naturally',
+    image: '/img/product/promo-diff.webp',
+    width: 1290,
+    height: 2796,
+    alt: 'OpenCode Mobile changes overlay showing per-file additions and deletions',
+    label: 'Review',
+    title: 'Review before you accept',
     description:
-      'Speak a follow-up while away from the keyboard, then return to the same session and context.',
+      'Open the change chip to inspect Turn, Uncommitted, or Branch diffs file by file.',
   },
   {
-    image: '/img/product/session-usage.webp',
-    alt: 'OpenCode Mobile session usage screen showing context utilization and model token usage',
-    label: 'Usage visibility',
-    title: 'Know what the session is using',
+    image: '/img/product/promo-plugin-gui.webp',
+    width: 1500,
+    height: 3240,
+    alt: 'OpenCode Mobile plugin GUI panel showing a workflow graph inside the app',
+    label: 'Extensions',
+    title: 'Your server, in reach',
     description:
-      'Check context utilization, token activity, and the active model without leaving the task.',
+      'Manage MCPs, plugins, agents, skills, and commands, and open plugin panels inside the app.',
   },
 ];
 
 const featureRows = [
   ['01', 'Start a task', 'Choose the agent and model, send useful context, then follow the work.', '/docs/guides/tasks/'],
   ['02', 'Review safely', 'Answer permissions deliberately and inspect every changed file.', '/docs/guides/approvals-and-changes/'],
-  ['03', 'Reach the project', 'Find a file, make a focused patch, or run a short terminal command.', '/docs/guides/workspace-files/'],
-  ['04', 'Speak a follow-up', 'Dictate one prompt or use the foreground conversation loop.', '/docs/guides/voice/'],
+  ['03', 'Reach the project', 'Find a file, preview media, move entries, or run a short terminal command.', '/docs/guides/workspace-files/'],
+  ['04', 'Speak a follow-up', 'Dictate one prompt or use the wake-word conversation loop, with an on-device option.', '/docs/guides/voice/'],
   ['05', 'Understand usage', 'Read context pressure, token activity, steps, and cost estimates.', '/docs/guides/usage/'],
+  ['06', 'Manage the server', 'Edit MCPs, plugins, agents, skills, and commands, then open plugin panels.', '/docs/guides/extensions/'],
+  ['07', 'Right-size the model', 'Classify each prompt and route it to a simple, standard, or complex model.', '/docs/guides/auto-model-routing/'],
 ];
 
 const faqItems = [
   {
     question: 'Which devices are supported?',
     answer:
-      'The current release is available for Android through Google Play or a direct APK, and as an iOS beta through TestFlight.',
+      'The current release is available for 64-bit ARM Android through Google Play or a direct APK, and as an iOS beta through TestFlight. 32-bit-only Android devices are unsupported.',
+  },
+  {
+    question: 'Which OpenCode version works best?',
+    answer:
+      'OpenCode 2 is the primary target and enables extensions, plugin panels, media previews, file actions, composer mentions, and automatic routing. OpenCode 1.x is supported with manual connections for the core chat, project, file, and terminal surface.',
   },
   {
     question: 'Do I need an existing OpenCode setup?',
@@ -63,6 +76,11 @@ const faqItems = [
     question: 'How should I expose my OpenCode server?',
     answer:
       'Keep OpenCode bound locally, enable username and password authentication, and use a secure HTTPS tunnel or reverse proxy. The setup guide covers the recommended flow.',
+  },
+  {
+    question: 'Can I manage the server from the app?',
+    answer:
+      'On OpenCode 2, Settings → Extensions manages MCP servers, plugins, agents, skills, and slash commands. Installed plugins can also expose GUI panels inside Chat.',
   },
   {
     question: 'Is OpenCode Mobile an official OpenCode product?',
@@ -84,8 +102,9 @@ const faqItems = [
         <p class={styles.eyebrow}>Community-built companion for OpenCode</p>
         <h1>OpenCode Mobile for Android and iOS.</h1>
         <p class={styles.heroDescription}>
-          Start tasks, check progress, use the terminal, and manage projects
-          from your phone—without reopening your laptop.
+          Start tasks, check progress, use the terminal, review changes, and
+          manage projects and extensions from your phone—without reopening your
+          laptop.
         </p>
         <div class={styles.actionLinks}>
           <a
@@ -121,10 +140,10 @@ const faqItems = [
           <span>Live session control</span>
         </div>
         <img
-          src="/img/product/task-session.webp"
-          width="720"
-          height="1616"
-          alt="OpenCode Mobile task screen showing a new session, task suggestions, model controls, and project navigation"
+          src="/img/product/promo-chat.webp"
+          width="1290"
+          height="2796"
+          alt="OpenCode Mobile chat with a completed coding task, changed-file chip, model, and composer controls"
           class={styles.heroImage}
           loading="eager"
           fetchpriority="high"
@@ -145,8 +164,8 @@ const faqItems = [
         <p class={styles.sectionIndex}>30 seconds to understand the app</p>
         <h2 id="walkthrough-title">From instruction to inspected result.</h2>
         <p>
-          See three real app screens with simple explanations of what each one
-          helps you accomplish.
+          See chat, progress, review, terminal, files, plugin panels, server settings,
+          and voice in motion, with a simple explanation of each.
         </p>
         <a href="/docs/features/">Choose a capability guide</a>
       </div>
@@ -187,8 +206,8 @@ const faqItems = [
               <div class={styles.screenshotFrame}>
                 <img
                   src={screen.image}
-                  width="720"
-                  height="1616"
+                  width={screen.width}
+                  height={screen.height}
                   alt={screen.alt}
                   loading="lazy"
                 />

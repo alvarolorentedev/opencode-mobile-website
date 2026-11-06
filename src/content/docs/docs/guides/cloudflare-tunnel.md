@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile with Cloudflare Tunnel
 description: Route an authenticated localhost OpenCode 2 server through a temporary or named Cloudflare Tunnel and pair or connect securely from mobile.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Cloudflare Tunnel provides a public HTTPS address without router port forwarding. Because the hostname is publicly reachable, OpenCode authentication is mandatory. Use Tailscale instead when access only needs to work between your own devices.

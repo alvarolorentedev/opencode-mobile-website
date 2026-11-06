@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile vs OpenCode Web
 description: Compare the native OpenCode client for Android and iOS with OpenCode Web across installation, sessions, voice, notifications, sharing, widgets, and remote access.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Both interfaces can reach an OpenCode server from a phone. Choose based on the workflow, not on the assumption that an installed app is automatically better.
@@ -10,12 +10,14 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 | --- | --- | --- |
 | Installation | Android: Play or APK; iOS: TestFlight | No client installation |
 | Updates | Play, new APK, TestFlight, or in-app update check | Updated with the server |
-| Session monitoring | Native mobile workflow | Browser workflow |
-| Voice follow-ups | Dictation and foreground conversation mode | Depends on browser UI |
+| Session monitoring | Native mobile workflow with changes chip and activity runs | Browser workflow |
+| Voice follow-ups | Dictation and wake-word conversation mode, with optional on-device models | Depends on browser UI |
+| Model selection | Models, variants, per-agent memory, and automatic routing | Server/browser workflow |
+| Server configuration | Extensions for MCPs, plugins, agents, skills, and commands (V2) | Server configuration UI |
 | Task notifications | Native completion and needs-input alerts | Not supported by the app's background monitor |
 | Share into the app | Android share sheet | Browser share target depends on the browser |
 | Home-screen access | Quick actions; Android widgets | Bookmarks or installed browser shortcut |
-| Focused files and terminal | Native project surfaces | Browser-provided surfaces |
+| Focused files and terminal | Native project surfaces, media previews, and file actions (V2) | Browser-provided surfaces |
 | Saved server profiles | Multiple connections with in-app switching | Usually one browser origin at a time |
 | Remote route | LAN, VPN, tunnel, proxy, SSH forward, or Cloud Link | Same network choices, without Cloud Link management |
 | Server requirement | OpenCode server/API | OpenCode 2 server; V1 `opencode web` |

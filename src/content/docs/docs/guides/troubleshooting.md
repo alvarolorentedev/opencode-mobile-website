@@ -1,7 +1,7 @@
 ---
 title: Fix OpenCode Mobile Connection Problems
 description: Diagnose OpenCode Mobile authentication, local QR, Cloud Link, HTML and 404 responses, Tailscale, Cloudflare, proxies, realtime updates, and missing projects.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Debug the connection from the server outward. Reinstalling the app before proving the API is reachable usually wastes time.
@@ -12,12 +12,14 @@ Debug the connection from the server outward. Reinstalling the app before provin
 | --- | --- |
 | Server URL cannot be reached | Network route, firewall, VPN, tunnel, or wrong address |
 | HTML page, 404, or JSON parse error | Wrong API base or missing `/api` prefix |
-| 401 or 403 | Server username/password or Cloud Link access |
+| 401 or 403 | Server username/password, custom gateway headers, OIDC, or Cloud Link access |
+| Certificate rejected | Custom CA does not match the host, expired, or not trusted |
+| OIDC sign-in loops | Issuer, client ID, scopes, redirect URI, or revoked refresh grant |
 | Connected but no project appears | Project catalog, server context, or permission |
 | Messages update only after refresh | SSE blocked or polling fallback |
 | Terminal fails while chat works | PTY endpoint or WebSocket forwarding |
 | File save is rejected | File changed, editing unsupported, or V2 conflict |
-| Model is missing | Provider configuration or model visibility |
+| Model is missing | Provider configuration, model visibility, or routing |
 | Local QR fails | Loopback-only address, expired code, or different networks |
 | Cloud Link is missing or inactive | Store install, subscription, connector, or environment |
 | Notifications are delayed | Battery optimization, iOS scheduling, or app lifecycle |
@@ -34,7 +36,7 @@ opencode api get /api/info
 
 Start it with `opencode service start` if needed. For a foreground server, use `opencode serve`; OpenCode 1.x also supports `opencode web` for the browser UI. Pairing requires the OpenCode 2 shared service, so a standalone server uses manual connection details.
 
-Check **Settings → Advanced → Diagnostics** for the OpenCode version, health status, realtime state, and last app error.
+Check **Settings → Diagnostics** for the OpenCode version, health status, realtime state, network behavior, local logs, and last app error.
 
 ## 2. Test the exact API base
 
@@ -51,6 +53,13 @@ Expected: a successful HTTP response containing OpenCode health data.
 - **404:** check whether the API is mounted below `/api` or another prefix.
 - **401/403:** for OpenCode 2, verify the password set with `opencode service set password`; for a standalone or V1 server, verify `OPENCODE_SERVER_USERNAME` and `OPENCODE_SERVER_PASSWORD`. For Cloud Link, check subscription access.
 - **Timeout/DNS failure:** fix the network, tunnel, VPN, or hostname before changing the app.
+
+### Gateway headers, certificates, and OIDC
+
+- **401 or 403 behind Cloudflare Access, Authelia, or oauth2-proxy:** confirm the connection's custom header names and values, then reconnect. Local QR and Cloud Link profiles do not carry custom headers.
+- **Certificate rejected:** import the correct PEM or DER certificate for the same `host:port`, confirm it has not expired, and reconnect. The custom CA is hidden and cleared on OpenCode 1.x.
+- **OIDC loops or expires:** confirm the issuer, client ID, scopes, token header, and registered redirect URI. A revoked refresh grant requires **Sign in again**; a temporary provider outage should preserve the session.
+- **OIDC is unavailable:** it requires HTTPS except for loopback development, and Cloud Link connections do not offer it.
 
 ## 3. Check the selected transport
 
@@ -91,8 +100,11 @@ See [Cloud Link](/docs/cloud-link/) for setup, machines, and exposed services.
 - **Messages update only after refresh:** inspect realtime status and proxy support for the event stream.
 - **Terminal fails but chat works:** verify project PTY endpoints and WebSocket forwarding. Terminal support is optional.
 - **File save fails:** reopen the file, check that the connected contract supports editing, and retry after resolving the conflict.
-- **A model is missing:** provider authentication and model visibility are server settings; use [Providers and models](/docs/guides/providers-and-models/).
-- **MCP or diagnostics are missing:** the connected server may not expose those optional endpoints.
+- **File actions are missing:** copy, move, rename, and delete require OpenCode 2 and the server shell utilities.
+- **A model is missing:** provider authentication and model visibility are server settings; use [Providers and models](/docs/guides/providers-and-models/) or [Automatic model routing](/docs/guides/auto-model-routing/).
+- **Extensions are missing:** extension management requires OpenCode 2. On V1, use the MCP tab under Diagnostics.
+- **Diagnostics are missing:** the connected server may not expose those optional endpoints.
+- **Voice recognition fails:** check the permission, locale, recognizer availability, and on-device model status in **Settings → Voice & audio**.
 
 ## 7. Collect a useful bug report
 

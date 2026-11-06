@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Quick Actions and Android Widgets
 description: Use launcher quick actions and Android home-screen widgets to reach recent OpenCode chats, approvals, and plan progress.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 OpenCode Mobile can surface recent work outside the app. Quick actions are available on iOS and Android; home-screen widgets are Android-only.
@@ -31,7 +31,7 @@ Widgets use the app’s existing realtime and polling data. They show the last s
 
 ### Privacy
 
-Android supports **Show widget previews** under **Settings → Advanced → General**. When disabled, reply, request, and plan text is removed from snapshots and placed widgets; titles, counts, and status remain.
+Android supports **Show widget previews** under **Settings → Notifications**. When disabled, reply, request, and plan text is removed from snapshots and placed widgets; titles, counts, and status remain.
 
 Widgets do not include approve, deny, reply, abort, or auto-approve controls. Tapping a widget opens the app, where the action can be reviewed.
 

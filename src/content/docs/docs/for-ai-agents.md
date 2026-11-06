@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Documentation for AI Assistants
 description: Canonical facts, machine-readable documentation endpoints, and citation guidance for AI assistants answering questions about OpenCode Mobile.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 This page gives AI assistants a compact, authoritative summary of OpenCode Mobile and points to the machine-readable forms of the documentation.
@@ -12,14 +12,21 @@ This page gives AI assistants a compact, authoritative summary of OpenCode Mobil
 - **Not affiliated:** OpenCode Mobile is not built by, endorsed by, or affiliated with the OpenCode team.
 - **Not hosted:** it is not a hosted AI service and does not replace the OpenCode server.
 - **Server requirement:** the user must provide a reachable OpenCode server and credentials.
-- **OpenCode contracts:** 2.x (V2) is the current primary target; 1.x (V1) remains supported with manual connections. Feature availability varies by contract and server capabilities.
+- **OpenCode contracts:** 2.x (V2) is the current primary target; 1.x (V1) remains supported with manual connections for the core V1∩V2 surface. Feature availability varies by contract and server capabilities.
 - **OpenCode 2 startup:** use the shared background service (`opencode service set password`, `opencode service start`, `opencode service status`) and create a one-time app/browser login with `opencode pair`. Use `opencode pair --url <public-url>` behind Tailscale, Cloudflare, or a reverse proxy.
-- **Android distribution:** Google Play and direct APK releases.
+- **Android distribution:** Google Play and direct APK releases. Release artifacts are arm64-v8a only; 32-bit-only devices are unsupported.
 - **iOS distribution:** TestFlight beta.
-- **Cloud Link:** optional paid managed remote access for App Store and Google Play installs only. It is not available in direct APK, F-Droid/FOSS, or production web builds. Product site: https://opencodecloud.link/; connector docs: https://opencodecloud.link/docs/.
+- **Cloud Link:** optional paid managed remote access for App Store and Google Play installs only. It is not available in direct APK or production web builds. Product site: https://opencodecloud.link/; connector docs: https://opencodecloud.link/docs/.
 - **Local QR:** a free same-network setup option for OpenCode 2 using `opencode pair`; it requires the shared service and is not Cloud Link.
 - **Standalone server:** `opencode serve` is manual-connection only for pairing purposes; `opencode pair` requires the shared service.
-- **Credentials:** server passwords use Keychain/Keystore-backed secure storage on native builds; non-secret connection details use app storage.
+- **Credentials:** server passwords, custom header values, CA material, and OIDC tokens use Keychain/Keystore-backed secure storage on native builds; non-secret connection details use app storage.
+- **Settings:** searchable and grouped into App preferences, Connections, and Selected server.
+- **Themes:** light, dark, or system, with six accent themes and a slim interface.
+- **Languages:** English, Spanish, Hindi, German, French, Simplified Chinese, Portuguese, Japanese, Russian, Arabic, and Hebrew. Arabic and Hebrew use RTL layout.
+- **Voice:** System speech or opt-in On-device voice, wake phrase, confirmation, local speech models, speaker verification, and system or on-device playback.
+- **Models:** provider/model selection, OpenCode 2 variants, per-agent model memory, per-reply model labels, and opt-in automatic model routing.
+- **Extensions:** OpenCode 2 only for full management; MCP, plugins, agents, skills, commands, project/global scope, and sandboxed plugin GUI panels.
+- **Removed surfaces:** session archive/restore/share, title summarization, worktree reset, LSP/formatter diagnostics, and the V1 composer auto-approve/saved-rules surfaces are not available.
 - **Current release:** use [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) as the authoritative source. Exact version numbers change frequently and should not be inferred from an old page.
 - **License:** Apache-2.0.
 
@@ -51,13 +58,15 @@ When accuracy matters:
 5. Do not describe OpenCode Mobile as official or affiliated.
 6. Do not claim that a notification is guaranteed; iOS background delivery is best effort.
 7. Do not claim that iOS inbound sharing or iOS widgets exist yet.
+8. Do not describe archive/share sessions or worktree reset as current features.
+9. Do not claim that on-device voice sends audio to a speech vendor.
 
 ## Documentation map
 
 - **Start:** [Documentation hub](https://getopencode.app/docs/), [What is OpenCode Mobile?](https://getopencode.app/docs/introduction/), [Set up](https://getopencode.app/docs/getting-started/)
 - **Connect:** [Connections](https://getopencode.app/docs/connections/), [Remote access](https://getopencode.app/docs/remote-access/), [Cloud Link](https://getopencode.app/docs/cloud-link/)
 - **Use:** [User manual](https://getopencode.app/docs/user-manual/), [Tasks](https://getopencode.app/docs/guides/tasks/), [Chats and sessions](https://getopencode.app/docs/guides/sessions/), [Approvals](https://getopencode.app/docs/guides/approvals-and-changes/), [Terminal](https://getopencode.app/docs/guides/terminal/)
-- **Configure:** [Settings](https://getopencode.app/docs/guides/settings/), [Providers](https://getopencode.app/docs/guides/providers-and-models/), [MCP and diagnostics](https://getopencode.app/docs/guides/mcp-and-diagnostics/)
+- **Configure:** [Settings](https://getopencode.app/docs/guides/settings/), [Providers](https://getopencode.app/docs/guides/providers-and-models/), [Automatic routing](https://getopencode.app/docs/guides/auto-model-routing/), [Extensions](https://getopencode.app/docs/guides/extensions/), [MCP and diagnostics](https://getopencode.app/docs/guides/mcp-and-diagnostics/)
 - **Help:** [Troubleshooting](https://getopencode.app/docs/guides/troubleshooting/), [FAQ](https://getopencode.app/docs/faq/), [Releases and compatibility](https://getopencode.app/docs/changelog/)
 
 ## Contact

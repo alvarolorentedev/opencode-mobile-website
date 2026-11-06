@@ -1,7 +1,7 @@
 ---
 title: Review OpenCode Changes on Mobile
 description: Answer OpenCode permissions and questions, review Turn, Uncommitted, or Branch diffs, and manage saved approval rules in the mobile app.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Use this workflow when OpenCode needs permission, asks a product question, or has produced code that you want to inspect before continuing.
@@ -16,7 +16,7 @@ A permission card describes the requested operation and may include a command, p
 
 Read the request before deciding. Prefer **Allow once** for destructive commands, unfamiliar projects, external network access, and paths outside the selected project.
 
-On compatible OpenCode 1.x (V1) servers, the composer approval toggle updates configuration for common permissions such as editing, shell commands, web fetches, loop detection, and external directories. V2 servers expose saved approval rules instead: open **Settings → Approvals** to review or remove rules created by **Always allow**.
+On OpenCode 2, the composer has an auto-approve control. **Settings → Approvals** lists saved rules created by **Always allow**; removing a rule makes the server ask again. OpenCode 1.x does not expose auto-approve or saved approval rules.
 
 The approval view follows the website’s current color theme.
 
@@ -25,7 +25,7 @@ The approval view follows the website’s current color theme.
 
 ## Answer a question
 
-Question cards can allow one choice, multiple choices, or a custom response. On V2 servers, forms can also include booleans, numbers, external links, required fields, defaults, and conditional fields.
+Question cards can allow one choice, multiple choices, or a custom response. On OpenCode 2, forms can also include booleans, numbers, external links, required fields, defaults, and conditional fields.
 
 - Answer in the order presented and submit.
 - Drafts survive dismissal and reopening.
@@ -36,7 +36,9 @@ Conversation mode pauses for permissions and questions because they require deli
 
 ## Review changed files
 
-Chat’s **Files Changed** tab can show three diff scopes. Use the source control in the diff overlay to switch:
+Chat no longer uses a separate **Files Changed** tab. A centered change chip above the composer shows the file count and additions/deletions. Tap it to open the review overlay.
+
+The overlay's source button offers three diff scopes:
 
 | Scope | What it shows |
 | --- | --- |
@@ -48,15 +50,13 @@ When more than one turn has a recorded diff, the Turn scope lets you choose an e
 
 To review:
 
-1. Open **Files Changed** in Chat.
+1. Tap the change chip above the composer.
 2. Compare the changed-file count with the task scope.
 3. Expand each file and review added and removed lines.
-4. Switch scope when you need the working tree or branch view.
-5. Return to **Session** and ask for a correction when something is unexpected.
+4. Use the source button to switch to the working tree or branch view.
+5. Close the overlay and ask for a correction when something is unexpected.
 
-The diff is a focused mobile review surface, not a replacement for repository tests, a desktop code review, or version-control safeguards.
-
-The diff view follows the website’s current color theme.
+The overlay follows the website’s current color theme.
 
 <img class="theme-screenshot-light" src="/img/docs/file-changes-light.webp" alt="Expanded file diff in OpenCode Mobile, light theme" />
 <img class="theme-screenshot-dark" src="/img/docs/file-changes-dark.webp" alt="Expanded file diff in OpenCode Mobile, dark theme" />

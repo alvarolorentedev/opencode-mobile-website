@@ -1,7 +1,7 @@
 ---
 title: OpenCode Task Notifications on Mobile
 description: Enable OpenCode completion and needs-input notifications on Android and iOS, and understand background delivery limits.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Use notifications when you want to leave the app while a task runs and receive an alert when the tracked session finishes, fails, or needs input.
@@ -10,7 +10,7 @@ Use notifications when you want to leave the app while a task runs and receive a
 
 1. Open **Settings → Notifications**.
 2. Request notification permission when the operating system asks.
-3. Refresh the status and confirm it is enabled.
+3. Return to the app; the section re-reads permission and background status when it opens and when the app returns to the foreground.
 4. If necessary, open the device’s notification settings and allow OpenCode Mobile.
 
 On Android, also review battery optimization and battery-saver settings if alerts are delayed; some devices aggressively suspend background work. The section links directly to the relevant system settings where supported.

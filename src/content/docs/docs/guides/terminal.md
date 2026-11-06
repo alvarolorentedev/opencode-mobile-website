@@ -1,7 +1,7 @@
 ---
 title: Use the OpenCode Terminal from Mobile
 description: Use the xterm-based project terminal in OpenCode Mobile, including PTY tickets, full-screen programs, keyboard controls, and limits.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Use **Terminal** for a focused command such as checking Git status, running a test, reading a short log, or invoking a project script. The terminal is backed by a project PTY and an xterm-based renderer, so it handles far more than a single-line command box.
@@ -22,9 +22,11 @@ The terminal preserves the configured API path prefix, switches `http`/`https` t
 - ANSI/VT cursor behavior and common terminal escape sequences
 - Alternate-screen programs and full-screen terminal UIs
 - Up to 10,000 lines of scrollback per opened terminal
-- Resize events when the mobile layout changes
+- Resize events when the mobile layout changes; the terminal fills the host width in landscape
 - Reconnect with acknowledged output cursors and a fresh ticket
 - A system-keyboard accessory with **Esc**, **Tab**, sticky modifiers, arrow keys, and an expandable function/navigation/paste row
+- Active-terminal marking, inline opening rows, named close targets, and copy confirmation
+- The selected app theme, including its accent and code colors
 
 Opened terminals survive tab and terminal switches. The provider bounds pending output to avoid unbounded memory growth.
 

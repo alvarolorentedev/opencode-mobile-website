@@ -5,7 +5,7 @@ layout: ../layouts/MarketingLayout.astro
 prose: true
 last_update:
   author: Alvaro Lorente
-  date: 2026-10-19
+  date: 2026-11-06
 ---
 
 # About OpenCode Mobile
@@ -26,7 +26,7 @@ The project is built and maintained by [Alvaro Lorente](https://github.com/alvar
 
 ## Product scope
 
-OpenCode runs the agents, models, tools, sessions, and project operations. OpenCode Mobile is a focused control surface for starting, monitoring, and reviewing that work from your phone. It is deliberately not presented as a general chatbot, a complete mobile IDE, or a desktop terminal replacement.
+OpenCode runs the agents, models, tools, sessions, and project operations. OpenCode Mobile is a focused control surface for starting, monitoring, reviewing, and configuring that work from your phone, including extensions and plugin panels on OpenCode 2. It is deliberately not presented as a general chatbot, a complete mobile IDE, or a desktop terminal replacement.
 
 Optional managed remote access is available through [OpenCode Cloud Link](https://opencodecloud.link/), which runs a connector on the user's machine and pairs it with the mobile app.
 

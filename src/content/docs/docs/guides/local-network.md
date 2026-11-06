@@ -1,7 +1,7 @@
 ---
 title: Connect OpenCode Mobile on a Local Network
 description: Start an OpenCode 2 server on a private LAN, pair with a QR code, and connect the mobile app without exposing a public port.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Use a trusted local network when the phone and the OpenCode machine are on the same private Wi-Fi or LAN. This keeps the connection off the public internet, but it still requires authentication and a firewall rule that is limited to the private network.

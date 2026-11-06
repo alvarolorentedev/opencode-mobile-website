@@ -206,6 +206,14 @@ export default defineConfig({
               link: '/docs/guides/providers-and-models/',
             },
             {
+              label: 'Automatic model routing',
+              link: '/docs/guides/auto-model-routing/',
+            },
+            {
+              label: 'Extensions',
+              link: '/docs/guides/extensions/',
+            },
+            {
               label: 'MCP and diagnostics',
               link: '/docs/guides/mcp-and-diagnostics/',
             },

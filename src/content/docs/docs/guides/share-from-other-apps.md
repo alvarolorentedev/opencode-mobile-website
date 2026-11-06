@@ -1,7 +1,7 @@
 ---
 title: Share Files and Text into OpenCode Mobile
 description: Share text, links, images, and documents from Android apps into an OpenCode Mobile chat draft, with limits and privacy details.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 On Android, OpenCode Mobile can receive content from another app’s Share menu. Use it to send a screenshot, document, log excerpt, or link into a chat without copying and pasting.
@@ -40,7 +40,7 @@ Limits and behavior:
 
 ## Choose the destination
 
-The preview defaults to the current chat. You can change to another conversation on the active connection, or create a new chat in the current project.
+The preview defaults to the current chat and project. You can change the target project before adding the content, or create a new chat after it is staged.
 
 If the app is not fully onboarded when the share arrives, it shows a finish-setup state and keeps the staged content until it expires. Complete setup, then return to the preview or share again.
 
@@ -48,7 +48,7 @@ If the app is not fully onboarded when the share arrives, it shows a finish-setu
 
 Shared content is staged in memory on the device and then sent to the OpenCode server you selected. It is not uploaded to OpenCode Mobile infrastructure. The normal attachment and permission rules still apply.
 
-Avoid sharing secrets, customer data, or private URLs into sessions that are shared publicly.
+Avoid sharing secrets, customer data, or private URLs into sessions that other people can access.
 
 ## Troubleshooting
 

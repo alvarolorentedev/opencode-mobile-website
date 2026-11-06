@@ -26,6 +26,8 @@ Do not copy implementation docs into the website. Translate them into user-facin
 | `/docs/cloud-link/` | Canonical managed remote-access page |
 | `/docs/features/` | “What do you want to do?” router |
 | `/docs/user-manual/` | Operating hub; no repeated setup |
+| `/docs/guides/extensions/` | Canonical extension management: MCPs, plugins, agents, skills, commands, and plugin panels |
+| `/docs/guides/auto-model-routing/` | Canonical automatic model routing: classifiers, tiers, variants, and guards |
 | Focused guides | One workflow or problem each |
 | `/docs/changelog/` | Release highlights and compatibility |
 | `/docs/faq/` | Short answers with links to canonical guides |

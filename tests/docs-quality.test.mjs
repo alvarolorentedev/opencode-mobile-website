@@ -57,6 +57,14 @@ test('documentation does not contain known stale claims', async () => {
     'Workspace → Chats',
     'latest public release is **1.0.34**',
     'on first launch, onboarding guides you through **Welcome**, **Connect**, **Workspace**',
+    'Settings → Advanced',
+    'Settings → Voice & responses',
+    'remembered sessions',
+    'eight languages',
+    'Load earlier messages',
+    'Archive, restore, and share actions currently depend',
+    'LSP and formatter diagnostics are V1-only',
+    'Reset and the optional start command are available only',
   ];
   for (const page of pages) {
     const markdown = await readFile(page, 'utf8');
@@ -88,6 +96,8 @@ test('new documentation entry points exist and are linked from the hub', async (
     'for-ai-agents.md',
     'guides/projects.md',
     'guides/settings.md',
+    'guides/extensions.md',
+    'guides/auto-model-routing.md',
     'guides/share-from-other-apps.md',
     'guides/quick-actions-and-widgets.md',
     'guides/deep-links.md',
@@ -102,6 +112,8 @@ test('new documentation entry points exist and are linked from the hub', async (
     '/docs/cloud-link/',
     '/docs/for-ai-agents/',
     '/docs/guides/settings/',
+    '/docs/guides/extensions/',
+    '/docs/guides/auto-model-routing/',
   ]) {
     assert.ok(index.includes(link), `documentation hub is missing ${link}`);
   }
@@ -144,7 +156,7 @@ test('raw Markdown includes canonical frontmatter and is marked noindex', async 
   );
   assert.match(markdown, /^---\n/);
   assert.match(markdown, /^canonical: "https:\/\/getopencode\.app\/docs\/getting-started\/"/m);
-  assert.match(markdown, /^lastUpdated: "2026-10-19"/m);
+  assert.match(markdown, /^lastUpdated: "2026-11-06"/m);
 
   const headers = await readFile(
     new URL('../static/_headers', import.meta.url),

@@ -1,7 +1,7 @@
 ---
 title: Connect OpenCode Mobile Through a Reverse Proxy or API Prefix
 description: Point OpenCode Mobile at an OpenCode 2 server mounted behind a reverse proxy or under an API path prefix such as /api, with pair or manual setup.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 OpenCode Mobile accepts a base URL with a prefix, for example:

@@ -1,14 +1,14 @@
 ---
 title: OpenCode Session Usage on Mobile
 description: Interpret OpenCode session usage, context utilization, token activity, steps, cache activity, and provider cost estimates on mobile.
-lastUpdated: 2026-10-19
+lastUpdated: 2026-11-06
 ---
 
 Use session usage when a conversation is becoming long, a model feels expensive, or you want to understand how much context OpenCode is carrying.
 
 ## Open the usage sheet
 
-Tap the usage indicator in the Chat header. The sheet summarizes the current session and active model. If the app has only a partial transcript window loaded, totals may cover loaded history only; the sheet says so when that applies.
+Tap the usage indicator in the Chat header. The sheet summarizes the current session and active model. Each assistant reply also shows the model that produced it, including an auto-routed model. If the app has only a partial transcript window loaded, totals may cover loaded history only; the sheet says so when that applies.
 
 The usage sheet follows the website’s current color theme.
 
@@ -32,6 +32,6 @@ The usage sheet follows the website’s current color theme.
 - Keep one session focused on one outcome.
 - Choose a smaller model for routine follow-ups when appropriate.
 - Treat cost as an estimate and use the provider's billing dashboard as the source of truth.
-- Compact or reset a session before it becomes difficult to review.
+- Use `/compact` on OpenCode 2 when a session is becoming difficult to review, or start a fresh session.
 
 Next: [Manage sessions](/docs/guides/sessions/), [configure models](/docs/guides/providers-and-models/), or [start a focused task](/docs/guides/tasks/).
