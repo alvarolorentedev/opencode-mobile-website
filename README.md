@@ -85,11 +85,12 @@ Documentation lives in `src/content/docs/docs/` so Starlight serves it under `/d
 ## AI/agent discoverability
 
 - `llms.txt`, `llms-small.txt`, and `llms-full.txt` are generated at build time.
+- `llms.txt` leads with canonical facts, install links, and a quick start instead of requiring agents to open the docs first.
 - Topic-specific context files are generated under `/_llms-txt/`.
 - A post-build integration makes internal llms links absolute and replaces the plugin’s incorrect “official documentation” notes.
 - `/docs/for-ai-agents/` publishes canonical facts and machine-readable entry points for assistants.
-- Every documentation page is also available as raw Markdown at `<url>.md` (for example `/docs/getting-started.md`) with canonical frontmatter. Raw Markdown is marked `X-Robots-Tag: noindex` so the HTML page remains the search canonical.
-- Structured data is emitted for the site (`WebSite`, `Organization`, `Person`, `MobileApplication`), documentation (`TechArticle`), the docs hub (`CollectionPage`), breadcrumbs, and the FAQ (`FAQPage`).
+- Every documentation page is also available as raw Markdown at `<url>.md` (for example `/docs/getting-started.md`) with canonical frontmatter. The hub is `/docs.md`; `/docs/.md` and `/docs/index.md` redirect there. Raw Markdown is marked `X-Robots-Tag: noindex` so the HTML page remains the search canonical.
+- Structured data is emitted for the site (`WebSite`, `Organization`, `Person`, `MobileApplication`), marketing pages and documentation (`WebPage`, `TechArticle`), the docs hub (`CollectionPage`), breadcrumbs, and the FAQ (`FAQPage`). Marketing pages also link the `llms.txt` alternate.
 
 ## Content maintenance
 

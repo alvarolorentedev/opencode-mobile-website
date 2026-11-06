@@ -5,7 +5,12 @@ import '../styles/marketing.css';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ThemeScript from '../components/ThemeScript.astro';
-import { SITE, SOCIAL_CARD, siteStructuredData } from '../lib/site';
+import {
+  SITE,
+  SOCIAL_CARD,
+  siteStructuredData,
+  webPageStructuredData,
+} from '../lib/site';
 
 const fm = (Astro.props.frontmatter ?? {}) as {
   title?: string;
@@ -30,6 +35,7 @@ const GA_ID = 'G-WS6H4XMXGG';
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="text/plain" href={`${SITE}/llms.txt`} />
     <link rel="icon" href="/img/favicon.ico" />
     <meta name="theme-color" content="#131111" />
     <meta property="og:title" content={fullTitle} />
@@ -55,6 +61,16 @@ const GA_ID = 'G-WS6H4XMXGG';
     <script
       type="application/ld+json"
       set:html={JSON.stringify(siteStructuredData)}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(
+        webPageStructuredData({
+          title: title ?? 'OpenCode Mobile',
+          description,
+          url: canonical,
+        }),
+      )}
     />
     <slot name="head" />
   </head>

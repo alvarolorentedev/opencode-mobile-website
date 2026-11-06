@@ -55,12 +55,37 @@ export const siteStructuredData = {
         priceCurrency: 'USD',
       },
       downloadUrl: `${SITE}/download/`,
+      installUrl: PLAY_URL,
       codeRepository: GITHUB_URL,
-      sameAs: [GITHUB_URL],
+      license: 'https://www.apache.org/licenses/LICENSE-2.0',
+      screenshot: [
+        `${SITE}/img/product/promo-chat.webp`,
+        `${SITE}/img/product/promo-diff.webp`,
+        `${SITE}/img/product/promo-plugin-gui.webp`,
+      ],
+      sameAs: [GITHUB_URL, PLAY_URL],
       author: { '@id': `${SITE}/#maintainer` },
     },
   ],
 };
+
+export function webPageStructuredData(input: {
+  title: string;
+  description?: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${input.url}#webpage`,
+    url: input.url,
+    name: input.title,
+    description: input.description,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${SITE}/#website` },
+    about: { '@id': `${SITE}/#app` },
+  };
+}
 
 function articleDates(input: { lastUpdated?: Date }) {
   return input.lastUpdated

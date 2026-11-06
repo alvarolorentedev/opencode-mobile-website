@@ -3,6 +3,7 @@ import MarketingLayout from '../layouts/MarketingLayout.astro';
 import styles from './index.module.css';
 import {
   APK_URL,
+  faqStructuredData,
   GITHUB_URL,
   OPENCODE_URL,
   PLAY_URL,
@@ -96,6 +97,11 @@ const faqItems = [
 ---
 
 <MarketingLayout title={title} description={description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(faqStructuredData(faqItems))}
+  />
   <div class={styles.landingPage}>
     <header class={styles.hero}>
       <div class={styles.heroCopy}>

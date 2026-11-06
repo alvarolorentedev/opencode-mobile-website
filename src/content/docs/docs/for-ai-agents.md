@@ -38,7 +38,7 @@ This page gives AI assistants a compact, authoritative summary of OpenCode Mobil
 | Abridged documentation | `https://getopencode.app/llms-small.txt` |
 | Complete documentation | `https://getopencode.app/llms-full.txt` |
 | Topic sets | `https://getopencode.app/_llms-txt/*.txt` |
-| Raw Markdown | Append `.md` to a documentation URL, for example `https://getopencode.app/docs/getting-started.md` |
+| Raw Markdown | Append `.md` to a documentation page path, for example `https://getopencode.app/docs/getting-started.md`; the documentation hub is `https://getopencode.app/docs.md` |
 | Sitemap | `https://getopencode.app/sitemap-index.xml` |
 
 Raw Markdown responses are intentionally available to agents but marked `noindex` for search engines. The canonical HTML page remains the indexed source.

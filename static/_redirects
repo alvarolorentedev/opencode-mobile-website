@@ -1,2 +1,4 @@
-/sitemap.xml    /sitemap-index.xml    301
-/docs           /docs/                301
+/sitemap.xml     /sitemap-index.xml    301
+/docs            /docs/                301
+/docs/.md        /docs.md              301
+/docs/index.md   /docs.md              301

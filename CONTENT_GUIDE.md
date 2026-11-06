@@ -68,7 +68,8 @@ Every page should give the reader:
 - Do not duplicate a full workflow across pages; link to the canonical page.
 - Use tables for decisions, compatibility, and limits.
 - Add `lastUpdated` when content is reviewed so sitemap `lastmod` stays useful.
-- Raw Markdown is for agents and is `noindex`; the HTML page is the search canonical.
+- Raw Markdown is for agents and is `noindex`; the HTML page is the search canonical. The docs hub is `/docs.md`; use that URL instead of `/docs/.md`.
+- Keep visible marketing content in sync with its `WebPage` schema and the homepage `FAQPage` entries.
 
 ## AI rules
 
@@ -77,6 +78,7 @@ Every page should give the reader:
 - Avoid ambiguous pronouns such as “it” when the subject could be the app or the server.
 - Prefer canonical facts over marketing claims.
 - Keep `llms.txt` free of false “official” claims.
+- Keep the canonical facts and install links in `llms.txt` in sync with `/docs/for-ai-agents/`.
 - Do not put secrets, private hostnames, pairing tokens, or customer data in examples.
 
 ## Release checklist
