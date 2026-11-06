@@ -62,6 +62,7 @@ export const siteStructuredData = {
         `${SITE}/img/product/promo-chat.webp`,
         `${SITE}/img/product/promo-diff.webp`,
         `${SITE}/img/product/promo-plugin-gui.webp`,
+        `${SITE}/img/product/promo-voice.webp`,
       ],
       sameAs: [GITHUB_URL, PLAY_URL],
       author: { '@id': `${SITE}/#maintainer` },
