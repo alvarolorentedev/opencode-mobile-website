@@ -1,148 +1,438 @@
 ---
-title: Terms & Conditions
+title: Terms of Use
 description: Read the terms governing use of OpenCode Mobile, including its open-source license, acceptable use, liability, changes, and contact details.
 layout: ../layouts/MarketingLayout.astro
 prose: true
 ---
+# OpenCode Mobile — Terms of Use
 
-# Terms & Conditions
+**Effective date:** November 11, 2026
+**Last updated:** November 11, 2026
+**Version:** 1.0
+**Website:** https://getopencode.app  
+**Software repository:** https://github.com/alvarolorentedev/opencode-mobile
 
-These terms and conditions apply to the Opencode app for mobile devices, together with any related services operated by Alvaro Lorente (collectively, the "Application"). Alvaro Lorente is hereby referred to as the "Service Provider".
+## 1. Introduction
 
-By downloading or using the Application, you agree to these Terms and Conditions. You should read them carefully before using the Application.
+These Terms of Use ("Terms") govern the use of OpenCode Mobile (the "Application" or "App"), an independent, open-source mobile client for interacting with OpenCode servers.
 
-## Independent project
+The Application is maintained and distributed by Alvaro Lorente ("Maintainer", "Service Provider", "we", "us", or "our").
 
-OpenCode Mobile is an independent, community-built project. It is not built by
-the OpenCode team, is not endorsed by them, and is not affiliated with them in
-any way. "OpenCode" is used only to describe the software this app works with.
-OpenCode and its trademarks belong to their respective owners.
+By downloading, installing, or using an official distribution of the Application, you acknowledge these Terms and agree to comply with the applicable conditions of use.
 
-## License to use the Application
+If you do not agree with these Terms, you may stop using and uninstall the Application. Your rights under the applicable open-source license are not conditional on accepting these Terms.
 
-This Application is distributed as open source software under the applicable open source license. Your use, reproduction, and distribution of the Application are governed by the terms of that license.
+**Important:** OpenCode Mobile allows you to control development environments, execute instructions through AI agents, interact with terminals, and modify files on computers or servers. You are responsible for securing the systems you connect to and for managing the permissions and instructions that you provide.
 
-## Intellectual property
+Nothing in these Terms excludes rights or remedies that cannot lawfully be limited.
 
-The Service Provider retains all intellectual property rights in the Application, including its code, design, trademarks, service marks, trade names, logos, and branding (the "IP"). Nothing in these Terms grants you any license or right to use the Service Provider's trademarks, logos, or branding for any purpose. You agree not to remove, alter, or obscure any copyright, trademark, or other proprietary notices displayed in or on the Application.
+## 2. Independent project
 
-## Termination
+OpenCode Mobile is an independent, community-built project.
 
-The Service Provider may suspend your access to the Application or services if you materially breach these Terms. The Service Provider will provide you with written notice of the breach and, where the breach is capable of cure, you will have 14 days from receipt of notice to remedy the breach. If you fail to cure the breach within that period, the Service Provider may terminate your access.
+It is not developed, operated, endorsed, or officially supported by the OpenCode project or its maintainers.
 
-The Service Provider may suspend or terminate your access immediately without notice if you violate applicable law, infringe intellectual property rights, or engage in activity that could cause harm to other users or the Service Provider.
+References to OpenCode identify the software ecosystem with which the Application is designed to work. All third-party names and trademarks remain the property of their respective owners.
 
-Upon termination, your right to use the Application will end and you must delete all copies from your devices.
+The Application is provided independently from the OpenCode server, AI model providers, plugin developers, and other third-party software vendors.
 
-By accessing and using this Application, you represent that you are legally permitted to use it in your jurisdiction. You must be at least 16 years of age (the age of digital consent in your jurisdiction) to use the Application. If you are below 16, a parent or legal guardian must review and accept these Terms on your behalf.
+## 3. Open-source license
 
-## User-generated content and acceptable use
+### 3.1. Applicable license
 
-If this Application allows users to post, share, or upload content, you agree not to post content that:
+OpenCode Mobile is open-source software distributed under the Apache License, Version 2.0, except for components that identify a different applicable license.
 
-*   Is illegal or violates third-party intellectual property rights (copyright, trademark, patents)
-*   Is abusive, threatening, harassing, defamatory, or hate speech
-*   Contains discrimination or incitement to violence or illegal activity
-*   Is spam, phishing, or contains malware
-*   Violates the privacy or personal data rights of others
-*   Is misleading, false, or deceptive
-*   Contains explicit violence or sexual content (unless age-gated appropriately)
+The complete license is available at:
 
-The Service Provider reserves the right to:
+https://github.com/alvarolorentedev/opencode-mobile/blob/main/LICENSE
 
-*   Remove or disable access to content that violates these guidelines
-*   Suspend or terminate accounts of users who repeatedly violate these guidelines
-*   Cooperate with law enforcement if illegal content is reported
-*   Moderate, filter, or hide content that violates these Terms, applicable law, or the guidelines set out above
+The Apache 2.0 license governs your rights to use, reproduce, modify, distribute, and create derivative works of the covered software.
 
-Content submitted through the Application may be visible to other users or to the public, depending on how the Application functions.
+### 3.2. Relationship between license and Terms
 
-If you believe content violates these Terms, infringes your rights, or is unlawful, you may report it to the Service Provider at contact@getopencode.app. The report should include enough information for the Service Provider to identify the content, evaluate the complaint, and contact you if follow-up is required.
+These Terms address the official Application distribution, associated services, usage responsibilities, legal notices, and allocation of risks.
 
-Where the Application provides such features, you may also report content, block other users, or mute notifications directly through the Application's interface. The Service Provider will review in-app reports with the same standards described in these Terms.
+They do not replace, revoke, or restrict rights granted by the Apache 2.0 license.
 
-The Service Provider may review reported content, request additional information where necessary, remove or restrict access to content, and take action against the responsible account where appropriate. Users affected by moderation decisions may contact the Service Provider at contact@getopencode.app to request further review. The Service Provider will respond to appeals within a reasonable period and provide the reasons for any upheld moderation decision, subject to applicable law.
+If these Terms conflict with the applicable open-source license regarding the use, modification, or redistribution of licensed code, the open-source license controls those rights.
 
-By submitting User-Generated Content you grant the Service Provider a non-exclusive, worldwide, royalty-free license to use, reproduce, distribute, prepare derivative works of, display and perform the content in connection with the Application and the Service Provider's business. This license does not grant the Service Provider the right to sell or sublicense your content to third parties independently of the Application. You represent and warrant that you own or control all rights in the content you post and that use of the content does not violate these Terms or applicable law.
+### 3.3. Third-party components
 
-Your content may include personal data. Processing of personal data related to User-Generated Content is governed by the Privacy Policy. Do not post personal data of others without their consent.
+The Application may include software, libraries, or dependencies distributed under other open-source licenses.
 
-The Service Provider is dedicated to ensuring that the Application is as beneficial and efficient as possible. As such, they reserve the right to modify the Application or charge for their services at any time and for any reason. The Service Provider assures you that any charges for the Application or its services will be clearly communicated to you.
+Those components remain subject to their respective license conditions and notices.
 
-The Application stores and processes personal data that you have provided to the Service Provider in order to provide the Service. It is your responsibility to maintain the security of your phone and access to the Application. The Service Provider strongly advises against jailbreaking or rooting your phone, which involves removing software restrictions and limitations imposed by the official operating system of your device. Such actions could expose your phone to malware, viruses, malicious programs, compromise your phone's security features, and may result in the Application not functioning correctly or at all.
+## 4. Description of the Application
 
-Please be aware that the Service Provider does not assume responsibility for certain aspects. Some functions of the Application require an active internet connection, which can be Wi-Fi or provided by your mobile network provider. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.
+OpenCode Mobile is a client that connects to an OpenCode server selected by the user.
 
-If you are using the application outside of a Wi-Fi area, please be aware that your mobile network provider's agreement terms still apply. Consequently, you may incur charges from your mobile provider for data usage during the connection to the application, or other third-party charges. By using the application, you accept responsibility for any such charges, including roaming data charges if you use the application outside of your home territory (i.e., region or country) without disabling data roaming. If you are not the bill payer for the device on which you are using the application, they assume that you have obtained permission from the bill payer.
+Depending on the connected server, App version, and configuration, the Application may allow you to:
 
-Similarly, the Service Provider cannot always assume responsibility for your usage of the application. For instance, it is your responsibility to ensure that your device remains charged. If your device runs out of battery and you are unable to access the Service, the Service Provider cannot be held responsible.
+- Manage projects, sessions, worktrees, and conversations;
+- Send instructions to coding assistants and AI agents;
+- Review generated responses, file changes, and terminal output;
+- Approve or reject tool permissions;
+- Execute supported commands and workflows;
+- Browse, create, edit, or delete files;
+- Interact with server-side terminals;
+- Configure supported models, tools, and integrations;
+- Use speech input, speech output, and other device capabilities;
+- Receive local notifications about supported server events.
 
-Nothing in these Terms shall limit any rights you have under applicable consumer protection laws that cannot be lawfully excluded.
+The availability of these features may depend on the server version, installed integrations, device capabilities, operating system, and selected connection method.
 
-## Limitation of liability
+The Application is a client interface, not a substitute for the underlying OpenCode server.
 
-To the fullest extent permitted by law, the Service Provider shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to lost profits, data loss, or business interruption, even if advised of the possibility of such damages.
+Unless otherwise expressly stated, the Application does not host your development environment, execute server-side commands on its own infrastructure, or independently maintain your code repositories.
 
-However, the Service Provider retains full liability for:
+## 5. Connections to user-selected servers
 
-*   Death or personal injury caused by negligence
-*   Fraud or fraudulent misrepresentation
-*   Any other liability that cannot be excluded or limited under applicable law
+### 5.1. Server selection
 
-To the fullest extent permitted by law, the total liability of the Service Provider for any claim shall not exceed the amount paid by you to the Service Provider for the Application in the 12 months preceding the claim, or the minimum amount that must be paid under applicable law, whichever is greater. If the Application is provided free of charge, this means the Service Provider's liability is limited to the minimum amount permitted by applicable law.
+You determine which OpenCode server the Application connects to.
 
-The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying entirely on third-party information provided through this Application, or for inaccuracies in content provided by third parties.
+The server may operate on your own computer, a machine administered by your organization, or another system that you are authorized to access.
 
-## Indemnification
+### 5.2. Responsibility for connected infrastructure
 
-To the fullest extent permitted by law, you agree to indemnify and hold harmless the Service Provider, its affiliates, officers, directors, employees and agents from and against any claims, liabilities, damages, losses and expenses, including reasonable legal fees, arising out of or directly related to your breach of these Terms or your intentional misuse of the Application, including User-Generated Content you submit in violation of these Terms.
+You or the relevant system operator are responsible for:
 
-This indemnification does not apply to claims arising from the Service Provider's own negligence, breach of these Terms, or violation of applicable law. In jurisdictions where consumer indemnification is restricted by law, this clause shall be limited to the maximum extent permitted.
+- Installing and maintaining the OpenCode server;
+- Applying operating-system and software security updates;
+- Configuring appropriate authentication and authorization;
+- Protecting server credentials, API keys, and access tokens;
+- Managing network exposure, proxies, tunnels, and firewall rules;
+- Controlling file-system and process permissions;
+- Managing plugins, tools, dependencies, and server configuration;
+- Maintaining suitable backups, monitoring, and recovery procedures.
 
-The Service Provider may wish to update the application at some point. The application is currently available as per the requirements for the operating system (and for any additional systems they decide to extend the availability of the application to) may change, and you will need to download the updates if you want to continue using the application. The Service Provider does not guarantee that it will always update the application so that it is relevant to you and/or compatible with the particular operating system version installed on your device. You should accept updates when offered; if you choose not to, the Service Provider may cease to support earlier versions and the Application may not function properly. The Service Provider may also wish to cease providing the application and may terminate its use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the application, and (if necessary) delete it from your device.
+Connecting to a server through OpenCode Mobile does not transfer ownership, administration, or general security responsibility for that server to the Maintainer.
 
-## Governing law and jurisdiction
+### 5.3. Secure connection configuration
 
-These Terms and Conditions are governed by the laws of the jurisdiction in which the Service Provider is established, excluding conflict of law rules, except to the extent mandatory consumer protection laws provide otherwise.
+You should connect through authenticated and appropriately encrypted network connections.
 
-Any dispute arising out of or relating to these Terms will be brought before the courts that have jurisdiction under applicable law. Nothing in this clause limits any rights you may have to bring a claim in a court that is competent under mandatory law.
+You are responsible for evaluating the security of any VPN, reverse proxy, tunnel, authentication provider, custom certificate authority, or other connection infrastructure you configure.
 
-## DSA compliance (Digital Services Act)
+You should not expose an unauthenticated OpenCode server directly to the public internet.
 
-If the Application is an intermediary service as defined under the Digital Services Act (Regulation (EU) 2022/2065, "DSA"), the following provisions apply in addition to the terms above.
+### 5.4. Third-party or shared servers
 
-**Point of Contact:** The Service Provider maintains a single point of contact for direct communication with EU authorities and recipients of the service, reachable at contact@getopencode.app. Where the Service Provider is established outside the European Union, a legal representative in the EU has been designated in accordance with Article 13 of the DSA.
+If you connect to a server owned or administered by another person or organization, that operator may be able to access, retain, inspect, or process your activity and workspace data.
 
-**Content Moderation and Statement of Reasons:** When the Service Provider restricts access to content, suspends or terminates an account, or otherwise limits the availability of the Application's features, a clear and specific statement of reasons will be provided to the affected user. The statement will include the nature of the restriction, the legal or contractual basis for the decision, and information on available redress mechanisms, in accordance with Article 17 of the DSA.
+You are responsible for confirming that you are authorized to use the server and that its configuration and policies are suitable for your intended use.
 
-**Notice and Action:** Users and third parties may submit notices of allegedly illegal content through the contact details provided in these Terms. The Service Provider will process notices promptly, diligently, and without automated decision-making where the circumstances require human review. Notices will be acknowledged electronically and a decision communicated without undue delay, in accordance with Article 16 of the DSA.
+The Maintainer is not responsible for the independent operation or security of servers administered by third parties, except to the extent a loss is attributable to the Maintainer's own legally actionable conduct.
 
-**Out-of-Court Dispute Settlement:** Disputes regarding content moderation decisions, including decisions to restrict content or suspend accounts, may be submitted to an out-of-court dispute settlement body certified in accordance with Article 21 of the DSA. The Service Provider will engage with such bodies in good faith. Use of out-of-court dispute settlement does not affect your right to seek judicial remedy under applicable law.
+## 6. AI agents and automated execution
 
-**Transparency Reporting:** The Service Provider publishes periodic transparency reports covering content moderation activities, including the volume of notices received, actions taken, and automated means used, in accordance with Article 24 of the DSA. Reports are made available upon request at contact@getopencode.app.
+### 6.1. Capabilities and risks
 
-These DSA provisions apply to the extent that the Application qualifies as an intermediary service under the DSA and does not replace or limit any rights or obligations under applicable consumer protection or data protection law.
+Through a connected OpenCode server, the Application may enable AI agents, scripts, plugins, tools, and automated workflows to perform operations.
 
-## Severability
+Depending on configuration, such operations may:
 
-If any provision of these Terms and Conditions is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid and enforceable, and the remaining provisions of these Terms shall remain in full force and effect.
+- Read, edit, move, or delete files;
+- Execute shell commands;
+- Install or remove software;
+- Modify repositories and configurations;
+- Access network services and external APIs;
+- Read or transmit confidential information;
+- Use authentication credentials available in the execution environment;
+- Consume paid API services or computing resources;
+- Interact with production systems.
 
-## Entire agreement
+AI-generated instructions and actions may be incorrect, insecure, unpredictable, or unsuitable for your environment.
 
-These Terms and Conditions, together with the Privacy Policy, constitute the entire agreement between you and the Service Provider concerning your use of the Application, superseding any prior agreements or understandings.
+### 6.2. User oversight
 
-## Changes to these Terms and Conditions
+You are responsible for selecting your agents, configuring permissions, issuing instructions, and reviewing actions where appropriate.
 
-The Service Provider may periodically update their Terms and Conditions. Therefore, you are advised to review this page regularly for any changes. The Service Provider will notify you of any changes by posting the new Terms and Conditions on this page.
+You should use least-privilege permissions, isolated environments, version control, and independent backups for operations with material consequences.
 
-Previous versions of these Terms and Conditions will be maintained and made available upon request by contacting the Service Provider at contact@getopencode.app.
+Enabling automatic approvals, unattended execution, or elevated permissions may increase the potential impact of incorrect or malicious agent behavior.
 
-These terms and conditions are effective as of 2026-05-29
+### 6.3. Permission interfaces
 
-## Contact us
+The Application may display approval prompts and permission controls exposed by the connected server.
 
-If you have any questions or suggestions about the Terms and Conditions, please do not hesitate to contact the Service Provider at contact@getopencode.app.
+These controls do not guarantee that every operation will be safe or that an approved action will have only its expected consequences.
 
-* * *
+The connected server, installed tools, and configured execution environment ultimately determine which operations can be performed.
 
-This Terms & Conditions page was generated by [App Privacy Policy Generator](https://app-privacy-policy-generator.nisrulz.com/)
+### 6.4. Responsibility for execution
+
+To the extent permitted by law, the Maintainer is not responsible for damage or disclosure resulting from user instructions, user-approved actions, server-side execution, or independently operated AI models and plugins, unless the damage is attributable to the Maintainer's breach of an applicable legal or contractual duty.
+
+You remain responsible for reviewing, testing, and validating outputs before relying on them in security-sensitive, financial, operational, or production contexts.
+
+## 7. Data ownership and processing
+
+### 7.1. Your content
+
+You retain whatever rights you have in the source code, prompts, files, documents, and other content that you access through the Application.
+
+These Terms do not transfer ownership of your content to the Maintainer.
+
+You must have the necessary rights or permissions to access and process third-party materials.
+
+### 7.2. Workspace traffic
+
+For ordinary direct connections, prompts, messages, project files, terminal output, and other workspace traffic are sent to the OpenCode server that you configure.
+
+The Maintainer does not ordinarily receive or store that workspace traffic through an OpenCode Mobile-operated server.
+
+Your chosen server, AI providers, networking providers, and plugins may process data according to their own functionality and terms.
+
+### 7.3. Device storage and diagnostics
+
+The Application may maintain connection settings, credentials, local diagnostic information, and other information required to provide supported functionality.
+
+Local-first diagnostics, optional remote telemetry, voice functionality, and credential handling are described in the Privacy Policy.
+
+You are responsible for protecting your device and for reviewing diagnostic information before exporting or sharing it.
+
+### 7.4. Personal information
+
+Personal information is processed as described in the OpenCode Mobile Privacy Policy:
+
+https://getopencode.app/privacy-policy/
+
+The Privacy Policy describes the applicable processing purposes, service providers, user controls, and data-protection rights.
+
+These Terms do not replace that Policy or remove any rights granted by applicable data-protection law.
+
+## 8. Device security and credentials
+
+You are responsible for taking reasonable precautions to protect devices on which the Application is installed.
+
+These precautions may include:
+
+- Keeping the operating system updated;
+- Using a device passcode or biometric authentication;
+- Preventing unauthorized physical access;
+- Protecting credentials, recovery codes, and connection profiles;
+- Removing access when a device is lost, sold, or compromised;
+- Using suitable safeguards on shared devices;
+- Avoiding untrusted software and modified operating-system environments where they create unacceptable security risks.
+
+Device-level security features do not guarantee that credentials cannot be extracted or misused.
+
+If your device or credentials are compromised, you are responsible for taking appropriate action with the relevant server and authentication provider.
+
+The Application is not a managed endpoint-protection or credential-recovery service.
+
+## 9. Data loss and security incidents
+
+### 9.1. User-managed data
+
+The Application does not provide an independent backup, disaster-recovery, or data-loss-prevention service for repositories or files stored on your connected server.
+
+You should maintain adequate backups and recovery procedures before granting write or execution permissions to remote tools.
+
+### 9.2. Risks of remote operation
+
+You acknowledge that remote development operations may lead to:
+
+- Accidental deletion or modification of files;
+- Incorrect execution of commands;
+- Unauthorized disclosure of information;
+- Credential compromise;
+- Corrupted configurations or repositories;
+- Service interruption;
+- Damage caused by malicious or compromised software;
+- Unintended changes to systems.
+
+### 9.3. Allocation of responsibility
+
+**To the fullest extent permitted by applicable law, the Maintainer is not responsible for data leaks, unauthorized access, data loss, or security incidents arising from user-controlled or independently operated servers, unsafe configurations, compromised user credentials, user-authorized actions, or third-party software, except to the extent caused by the Maintainer's own breach of applicable obligations.**
+
+This provision does not exclude responsibility for vulnerabilities or failures legally attributable to the Application or its distribution.
+
+### 9.4. Incident response
+
+Where an incident affects a server outside the Maintainer's control, the relevant server operator is generally responsible for investigation, containment, recovery, and any required notifications concerning that system.
+
+The Maintainer remains responsible for legal obligations arising from incidents involving the Application or personal information processed under its responsibility.
+
+## 10. Optional OpenCode Cloud Link integration
+
+OpenCode Mobile can connect to compatible OpenCode servers without using OpenCode Cloud Link.
+
+OpenCode Cloud Link is a separate, optional commercial remote-connectivity service.
+
+Its operation, subscriptions, pairing, tunneling, and service-exposure functionality are governed by separate Terms of Service:
+
+https://opencodecloud.link/terms-and-conditions/
+
+Using the Application alone does not create a Cloud Link subscription or require acceptance of the Cloud Link commercial agreement.
+
+If you choose to activate Cloud Link, the Cloud Link Terms apply to that service in addition to these Application Terms.
+
+In the event of a conflict, the Cloud Link Terms govern Cloud Link connectivity, subscriptions, and its managed infrastructure, while these Terms and the applicable open-source licenses continue to govern the mobile Application.
+
+The independent open-source licensing of OpenCode Mobile is unaffected by purchasing, cancelling, or terminating Cloud Link.
+
+## 11. Third-party software and services
+
+The Application may interact with software and services supplied by other parties, including OpenCode, model providers, identity providers, code-hosting platforms, plugins, and MCP servers.
+
+You are responsible for reviewing the permissions, charges, data-handling practices, and terms associated with integrations you choose to enable.
+
+The Maintainer does not control independent third-party operations or guarantee their availability, security, output quality, or compatibility.
+
+This provision does not exclude any responsibility that applicable law places on the Maintainer for its own selection, distribution, or integration of third-party components.
+
+## 12. Acceptable use
+
+You may use the Application for lawful purposes, including legitimate software development, administration, research, and authorized automation.
+
+When using official distribution or support services, you must not:
+
+- Access systems without authorization;
+- Misuse credentials belonging to others;
+- Conduct unlawful intrusions or attacks;
+- Intentionally interfere with the Maintainer's infrastructure;
+- Abuse support or community services;
+- Use the Application to infringe another person's rights;
+- Circumvent security protections for unlawful purposes.
+
+These acceptable-use conditions do not withdraw rights granted by the Apache 2.0 license to use, study, modify, or redistribute the licensed software.
+
+Any restriction on associated online services applies to those services, not to independently exercising open-source license rights.
+
+## 13. Community contributions and support
+
+OpenCode Mobile is a community-developed project.
+
+You may report issues, propose features, or contribute through the project's public repository.
+
+Contributions are governed by applicable repository contribution terms, licenses, and policies.
+
+Public submissions may be visible to other users. Do not include passwords, API keys, private source code, or confidential information in public reports.
+
+Support and feature development are provided according to available resources. No individual response time or guaranteed maintenance schedule is promised unless expressly agreed.
+
+## 14. Updates and compatibility
+
+The Application may receive improvements, security updates, bug fixes, and compatibility changes.
+
+Supported functionality may evolve with the OpenCode ecosystem, operating systems, and external service interfaces.
+
+We do not guarantee compatibility with every existing or future server, extension, plugin, or device.
+
+Updates and changes to official distributions remain subject to any legally applicable conformity, security-update, and consumer-protection obligations.
+
+Users who modify or build the open-source code independently are responsible for those modifications, subject to applicable law.
+
+## 15. Warranties and disclaimers
+
+The Apache 2.0 license contains its own warranty and liability provisions for software distributed under that license.
+
+To the extent permitted by applicable law, and except for expressly assumed or non-excludable obligations, the Application is supplied without additional guarantees that it will:
+
+- Operate without defects or interruptions;
+- Prevent every security vulnerability or cyberattack;
+- Produce accurate AI-generated results;
+- Protect against unsafe remote-server configuration;
+- Maintain compatibility with every third-party integration;
+- Recover lost or damaged workspace data;
+- Prevent all unwanted command execution.
+
+Nothing in this section excludes mandatory statutory guarantees, product-safety responsibilities, consumer remedies, or other liabilities that cannot legally be excluded.
+
+## 16. Limitation of liability
+
+### 16.1. General principle
+
+Responsibility for a loss depends on the cause of that loss, the parties' applicable duties, and the extent to which the conduct or failure is legally attributable to the Maintainer.
+
+The Application's role as a client does not make the Maintainer the administrator of your selected server.
+
+### 16.2. User-controlled risks
+
+To the maximum extent permitted by law, the Maintainer is not liable for losses arising from:
+
+- Vulnerabilities or compromises in independently operated servers;
+- User-managed network configurations or exposed endpoints;
+- Actions initiated or approved through the connected server;
+- Third-party AI models, plugins, or integrations;
+- Failures to maintain suitable backups;
+- Unauthorized use of credentials not attributable to the Maintainer's conduct;
+- Modifications to the Application made by unrelated third parties.
+
+These exclusions apply only where the loss is not caused by a legally actionable failure of the Maintainer.
+
+### 16.3. Business losses
+
+For users acting in a business or professional capacity, indirect or consequential commercial losses, including lost profits and business opportunities, are excluded to the extent permitted by law, except where such exclusion would be unlawful.
+
+### 16.4. Mandatory rights
+
+Nothing in these Terms excludes or restricts liability for fraud, intentional misconduct, injury, mandatory product or consumer obligations, unlawful personal-data processing, or other matters for which applicable law prohibits exclusion or limitation.
+
+## 17. Suspension and termination
+
+You may stop using or uninstall the Application at any time.
+
+Uninstalling it does not remove files, sessions, configurations, or other data from your OpenCode server.
+
+You remain responsible for revoking server credentials or permissions when needed.
+
+The Maintainer may restrict access to official online services, distribution channels under its control, or community facilities where reasonably necessary to address abuse, security threats, or legal requirements.
+
+Such restrictions do not terminate rights already granted under the applicable open-source license, except according to that license's own terms.
+
+Termination of a separate Cloud Link subscription is governed by the Cloud Link Terms and applicable store requirements.
+
+## 18. Changes to these Terms
+
+We may update these Terms to reflect changes in the Application, its associated services, or legal requirements.
+
+Updated versions will be published with a revised effective date.
+
+Where required by law, material changes will be notified in advance and users will receive any applicable rights to reject or terminate a contractual service.
+
+Changes do not retroactively remove validly granted open-source rights or statutory protections.
+
+## 19. Governing law and disputes
+
+These Terms are governed by Spanish law, subject to mandatory rules that apply to users in other jurisdictions.
+
+Consumers retain the protection of mandatory laws applicable to them and may use courts or dispute-resolution procedures available under applicable law.
+
+No provision requires consumers to waive legally protected rights to seek remedies before competent courts or authorities.
+
+The parties are encouraged to attempt an informal resolution before pursuing formal proceedings, without making that a condition of exercising mandatory legal rights.
+
+## 20. General provisions
+
+If a provision is invalid or unenforceable, the remaining provisions continue to apply where legally possible.
+
+Failure to enforce a provision does not automatically waive the right to enforce it later.
+
+These Terms govern the use of the official Application and related services, without superseding the Apache 2.0 license or mandatory legal requirements.
+
+Any assignment of contractual obligations must comply with applicable law.
+
+Translated versions may be provided, subject to mandatory local-language and consumer-protection requirements.
+
+## 21. Legal information and contact
+
+**Service Provider:** Alvaro Lorente  
+**Project:** OpenCode Mobile  
+**Website:** https://getopencode.app  
+**Repository:** https://github.com/alvarolorentedev/opencode-mobile  
+**Privacy Policy:** https://getopencode.app/privacy-policy/  
+**Business/legal address:** [Insert required address]  
+**Tax identification:** [Insert if legally required]  
+**Legal contact email:** [Insert verified email]  
+**Registration information:** [Insert if applicable]
+
+Questions regarding the Application, these Terms, or legal rights may be directed to the published legal contact or the official support channels.
+
+Security vulnerabilities should be reported privately through the project's designated security-reporting process.
+
+---
+
+**End of OpenCode Mobile Terms of Use**
