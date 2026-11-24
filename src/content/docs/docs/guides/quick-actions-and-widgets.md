@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Quick Actions and Android Widgets
 description: Use launcher quick actions and Android home-screen widgets to reach recent OpenCode chats, approvals, and plan progress.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 OpenCode Mobile can surface recent work outside the app. Quick actions are available on iOS and Android; home-screen widgets are Android-only.
@@ -11,7 +11,7 @@ OpenCode Mobile can surface recent work outside the app. Quick actions are avail
 Long-press the app icon or open the launcher’s quick-action menu to see:
 
 - **New chat**;
-- up to three running or recently updated sessions from the active connection.
+- up to three running or recently updated sessions from connected servers.
 
 Session labels follow the app language and update when sessions change. Tapping a session opens the owning connection, project, and chat. Opening a session from another saved connection switches connections first.
 

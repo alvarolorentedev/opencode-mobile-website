@@ -1,10 +1,10 @@
 ---
 title: OpenCode Mobile vs OpenCode Web
 description: Compare the native OpenCode client for Android and iOS with OpenCode Web across installation, sessions, voice, notifications, sharing, widgets, and remote access.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
-Both interfaces can reach an OpenCode server from a phone. Choose based on the workflow, not on the assumption that an installed app is automatically better.
+Both interfaces can reach an OpenCode server from a phone. Choose based on the workflow, not on the assumption that an installed app is automatically better. OpenCode Desktop and the TUI are additional frontends to the same server, so their sessions appear in both clients when they use the same server.
 
 | Need | OpenCode Mobile | OpenCode Web |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ Both interfaces can reach an OpenCode server from a phone. Choose based on the w
 | Home-screen access | Quick actions; Android widgets | Bookmarks or installed browser shortcut |
 | Focused files and terminal | Native project surfaces, media previews, and file actions (V2) | Browser-provided surfaces |
 | Saved server profiles | Multiple connections with in-app switching | Usually one browser origin at a time |
-| Remote route | LAN, VPN, tunnel, proxy, SSH forward, or Cloud Link | Same network choices, without Cloud Link management |
+| Remote route | LAN, VPN, tunnel, proxy, SSH forward, or Cloud Link | Same route choices, without Cloud Link management |
 | Server requirement | OpenCode server/API | OpenCode 2 server; V1 `opencode web` |
 
 ## Choose OpenCode Mobile when

@@ -11,6 +11,8 @@ test('llms.txt leads with canonical facts and install links', async () => {
   assert.match(llms, /## Canonical facts/);
   assert.match(llms, /## Install/);
   assert.match(llms, /## Quick start/);
+  assert.match(llms, /OpenCode Desktop: Settings → Pairing/);
+  assert.match(llms, /Native pairing links are scanned, not pasted/);
   assert.match(llms, /not built by, endorsed by, or affiliated/);
   assert.match(
     llms,

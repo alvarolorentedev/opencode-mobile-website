@@ -84,9 +84,19 @@ const faqItems = [
       'Yes. OpenCode Mobile connects to an OpenCode server and works with its sessions and projects; it does not replace the server.',
   },
   {
-    question: 'How should I expose my OpenCode server?',
+    question: 'How should I connect if OpenCode is already running?',
     answer:
-      'Keep OpenCode bound locally, enable username and password authentication, and use a secure HTTPS tunnel or reverse proxy. The setup guide covers the recommended flow.',
+      'Use the setup you already have. OpenCode Desktop: Settings → Pairing → Show details. TUI: /pair. CLI or a reachable shared service: opencode pair or opencode pair --url. Standalone servers and OpenCode 1.x use a manual URL and password. You do not need a tunnel, a fixed port, or a password change when the phone can already reach the server.',
+  },
+  {
+    question: 'Can I continue sessions started in Desktop or the TUI?',
+    answer:
+      'Yes, when OpenCode Mobile connects to the same OpenCode server. Projects, sessions, progress, approvals, and changes live on the server. Local drafts, open tabs, and scroll position do not transfer.',
+  },
+  {
+    question: 'Do I need Cloud Link to use OpenCode Mobile remotely?',
+    answer:
+      'No. Cloud Link is optional managed remote access for store-installed builds. A local network, Tailscale, Cloudflare Tunnel, a reverse proxy, SSH forwarding, or native pairing can work instead.',
   },
   {
     question: 'Can I manage the server from the app?',
@@ -238,10 +248,10 @@ const faqItems = [
       <div class={styles.sectionIntro}>
         <p class={styles.sectionIndex}>02 / Setup</p>
         <div>
-          <h2 id="setup">Connect in three deliberate steps.</h2>
+          <h2 id="setup">Connect without rebuilding your setup.</h2>
           <p>
             Your code stays on your machine. The mobile app connects to the
-            OpenCode server you control.
+            OpenCode server you already run.
           </p>
         </div>
       </div>
@@ -249,26 +259,28 @@ const faqItems = [
       <ol class={styles.setupGrid}>
         <li>
           <span class={styles.stepNumber}>01</span>
-          <h3>Run OpenCode 2</h3>
-          <p>Start the shared service on the machine that owns your project.</p>
-          <code>opencode service start</code>
+          <h3>Pair from the app you use</h3>
+          <p>OpenCode Desktop: Settings → Pairing. TUI: /pair. CLI: opencode pair.</p>
+          <code>opencode pair</code>
         </li>
         <li>
           <span class={styles.stepNumber}>02</span>
-          <h3>Pair your phone</h3>
-          <p>Over Tailscale, point the one-time link at your tailnet address.</p>
-          <code>{'opencode pair --url http://<ip-or-domain>:49374'}</code>
+          <h3>Use a reachable address</h3>
+          <p>Already on Tailscale or another VPN? Point the pairing link at the address your phone can reach.</p>
+          <code>{'opencode pair --url http://<address>:<port>'}</code>
         </li>
         <li>
           <span class={styles.stepNumber}>03</span>
-          <h3>Connect the app</h3>
-          <p>Scan the QR code, choose a project, and keep working.</p>
+          <h3>Scan and start</h3>
+          <p>Scan the QR code, choose a project, and keep working. No tunnel is required if the phone can already connect.</p>
           <a href="/docs/getting-started/">Open the complete setup guide</a>
         </li>
       </ol>
       <nav class={styles.topicLinks} aria-label="OpenCode Mobile setup guides">
         <a href="/docs/opencode-android-app/">Mobile app setup and download</a>
+        <a href="/docs/guides/desktop-and-tui/">Connect from Desktop or TUI</a>
         <a href="/docs/guides/use-opencode-from-phone/">Use OpenCode from a phone</a>
+        <a href="/docs/guides/multiple-servers/">Use multiple servers</a>
         <a href="/docs/guides/tailscale/">Connect with Tailscale</a>
         <a href="/docs/guides/cloudflare-tunnel/">Connect with Cloudflare Tunnel</a>
         <a href="/docs/guides/mobile-vs-web/">Compare the app with OpenCode Web</a>

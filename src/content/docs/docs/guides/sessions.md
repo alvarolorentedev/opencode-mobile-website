@@ -1,7 +1,7 @@
 ---
 title: Manage OpenCode Sessions from Mobile
 description: Search, switch, favorite, rename, delete, fork, or revert OpenCode sessions from the mobile app, and review changes without losing context.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 Sessions separate different pieces of work. Use them like focused work threads: one goal, its discussion, and its resulting changes.
@@ -17,7 +17,9 @@ Tap the current chat title at the top of **Chat** to open the library. From ther
 - hide subagent chats;
 - rename or delete a session.
 
-The library groups sessions by server and project and shows each project's path, so two projects with similar names are distinguishable. The **Running & recent** group shows up to four sessions from the whole connection, running ones first. Selecting one switches to its project and opens it in one tap.
+The library groups sessions by server and project and shows each project's path, so two projects with similar names are distinguishable. When several servers are connected, it offers a server filter and labels each row with its server. The **Running & recent** group shows up to four sessions from the connected servers, running ones first. Selecting one switches to its server and project and opens it in one tap.
+
+Sessions are server-side, not local copies. A conversation started in OpenCode Desktop or the TUI appears here when mobile connects to the same server. Progress, permissions, questions, and changes stay synchronized while both clients are connected. Unsent drafts, open tabs, and scroll position are local to each client.
 
 ## Create, rename, and organize
 
@@ -64,4 +66,4 @@ Server-provided slash commands, `@` mentions, and `!` shell mode are documented 
 
 A session can be opened from a notification, quick action, widget, or deep link. See [Deep links](/docs/guides/deep-links/) for the link format and behavior.
 
-Next: [Start and monitor a task](/docs/guides/tasks/), [review approvals and changes](/docs/guides/approvals-and-changes/), or [understand session usage](/docs/guides/usage/).
+Next: [Start and monitor a task](/docs/guides/tasks/), [review approvals and changes](/docs/guides/approvals-and-changes/), [connect from Desktop or TUI](/docs/guides/desktop-and-tui/), or [use multiple servers](/docs/guides/multiple-servers/).

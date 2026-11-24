@@ -1,10 +1,10 @@
 ---
 title: OpenCode Mobile App — Setup and Download
-description: Download OpenCode Mobile for Android or iOS, install the APK or TestFlight beta, and connect it to your own OpenCode server.
-lastUpdated: 2026-11-06
+description: Download OpenCode Mobile for Android or iOS, install the APK or TestFlight beta, and connect it to the OpenCode server you already run.
+lastUpdated: 2026-11-24
 ---
 
-OpenCode Mobile is an independent Android and iOS client for an OpenCode server that you run. It lets you start and monitor coding tasks, review permissions and changes, manage projects and sessions, inspect files, and use a project terminal from a phone.
+OpenCode Mobile is an independent Android and iOS client for an OpenCode server that you run. It lets you start and monitor coding tasks, continue sessions from Desktop or the TUI, review permissions and changes, manage projects and sessions, inspect files, and use a project terminal from a phone.
 
 It is not an official OpenCode product, a hosted AI service, or a replacement for the OpenCode server.
 
@@ -24,9 +24,9 @@ You need:
 
 1. An Android device (64-bit ARM) or iPhone/iPad.
 2. A current OpenCode installation on a computer or server that owns the project.
-3. OpenCode running in server mode.
+3. OpenCode Desktop, the TUI, the shared service, or a standalone server running on that machine.
 4. A network route from the phone to that server.
-5. A one-time pairing link/QR from OpenCode 2, or a server URL and password for manual setup.
+5. A native pairing QR code for OpenCode 2, or a server URL and password for a manual connection.
 
 The complete setup is in [Set Up OpenCode Mobile](/docs/getting-started/). The in-app connection choices are explained in [Add or switch connections](/docs/connections/).
 
@@ -37,7 +37,7 @@ The complete setup is in [Set Up OpenCode Mobile](/docs/getting-started/). The i
 1. Open the [download page](/download/) and choose Google Play or the direct APK.
 2. Confirm the device is 64-bit ARM (arm64-v8a). Release artifacts do not support 32-bit-only Android devices.
 3. If Android asks, allow installation from your browser or file manager for the APK path.
-3. Open OpenCode Mobile and continue with onboarding.
+4. Open OpenCode Mobile and continue with onboarding.
 
 ### iOS
 
@@ -47,52 +47,24 @@ The complete setup is in [Set Up OpenCode Mobile](/docs/getting-started/). The i
 
 The iOS build is a beta. Features that depend on native iOS integrations may lag behind Android; see [Releases and compatibility](/docs/changelog/).
 
-## Start an OpenCode server
+## Connect to your existing OpenCode
 
-OpenCode 2 is the current primary target. Install it with the v2 installer:
+If OpenCode is already running, start with the shortest path for that setup:
 
-```bash
-curl -fsSL https://opencode.ai/v2/install | bash
-```
+- **OpenCode Desktop:** **Settings → Pairing → Show details**, then scan the QR code.
+- **TUI:** run `/pair`, then scan.
+- **CLI or a reachable shared service:** run `opencode pair` or `opencode pair --url <url>`, then scan.
+- **Standalone `opencode serve` or OpenCode 1.x:** choose **Manual** and enter the URL and password.
 
-Start the shared background service, set a password, and create a pairing link:
-
-```bash
-opencode service set password 'use-a-strong-password'
-opencode service set port 4096
-opencode service start
-opencode service status
-opencode pair
-```
-
-Scan the printed QR code in the app, or paste the pairing link. Pairing links expire after five minutes and work once.
-
-For access through [Tailscale](/docs/guides/tailscale/), [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), or a [reverse proxy](/docs/guides/reverse-proxy/), keep the service on loopback and pass the public URL to the pairing command:
-
-```bash
-opencode pair --url https://your-opencode-host.example
-```
-
-If you need a foreground server instead, use `opencode serve`:
-
-```bash
-OPENCODE_SERVER_PASSWORD='use-a-strong-password' \
-  opencode serve --hostname 127.0.0.1 --port 4096
-```
-
-Pairing requires the shared service; connect to a standalone `opencode serve` process manually with its URL and password. OpenCode 1.x uses `opencode serve` or `opencode web` and also connects manually.
-
-Never publish an unauthenticated OpenCode port to the internet.
-
-## Connect the app
+OpenCode 2 normally uses the shared service. You do not need to change its port or set a password before pairing. Desktop Pairing exposes only its local server; remote servers configured in Desktop must be added separately.
 
 On first launch, onboarding walks through **Welcome**, **Permissions**, **Connect**, **AI & providers**, **Project**, **General**, **Voice & responses**, **Privacy**, and **Ready**. The AI and Project steps appear after a connection exists, and every step can be skipped. In **Connect**, choose:
 
-- **Scan QR code** for a local OpenCode 2 pairing code created by `opencode pair`
+- **Scan QR code** for a native OpenCode 2 pairing code from Desktop, `/pair`, or `opencode pair`
 - **Manual** for a server URL, username, and password, with optional custom headers, a custom certificate, or OIDC
 - **Cloud Link** for a managed remote machine, when available in a store-installed build
 
-After onboarding, use **Settings → Connection** to add or switch saved servers. See [Add or switch connections](/docs/connections/).
+OpenCode Mobile scans native pairing codes; it does not accept a pasted pairing link. Use **Manual** if the camera is unavailable. After onboarding, use **Settings → Connection** to add or switch saved servers. See [Add or switch connections](/docs/connections/).
 
 ## App versus browser access
 
@@ -109,9 +81,9 @@ curl -u your-user:use-a-strong-password \
   https://your-opencode-host.example/global/health
 ```
 
-If the root URL serves HTML, the API may live below a prefix such as `/api`. Enter the complete API base in the app and verify `<base>/global/health` instead of guessing.
+If the root URL serves HTML, the API may live below a prefix such as `/api`. Enter the complete API base in the app and verify `<base>/global/health` instead of guessing. A path-prefixed API uses a manual connection.
 
-Use the [troubleshooting checklist](/docs/guides/troubleshooting/) for authentication, HTML responses, local QR pairing, Cloud Link, proxy, realtime, and project problems.
+Use the [troubleshooting checklist](/docs/guides/troubleshooting/) for authentication, HTML responses, native pairing, Cloud Link, proxy, realtime, and project problems.
 
 ## Update or remove the app
 

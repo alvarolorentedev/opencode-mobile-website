@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Features and Guides
 description: Choose an OpenCode Mobile workflow for tasks, sessions, approvals, voice, files, terminal, providers, extensions, Cloud Link, sharing, or remote access.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 Start with the outcome you need. Each guide explains when the capability is useful, the exact mobile workflow, what you should see, and the important limitations.
@@ -65,8 +65,11 @@ Use [Notifications](/docs/guides/notifications/) to enable completion and needs-
 
 ## I want to connect or switch servers
 
-- [Add or switch connections](/docs/connections/) — manual setup, local QR pairing on OpenCode 2, custom headers, custom certificates, OIDC, saved profiles, and Cloud Link.
-- [Remote access](/docs/remote-access/) — compare LAN, Tailscale, Cloudflare Tunnel, reverse proxy, SSH, and Cloud Link.
+- [Set up from your existing OpenCode](/docs/getting-started/) — Desktop, TUI/CLI, or an already reachable server.
+- [Add or switch connections](/docs/connections/) — native pairing, manual setup, custom headers, custom certificates, OIDC, saved profiles, and Cloud Link.
+- [Connect from Desktop or TUI](/docs/guides/desktop-and-tui/) — continue existing sessions and know which client must stay running.
+- [Use multiple OpenCode servers](/docs/guides/multiple-servers/) — connect several servers and understand the Desktop inventory limit.
+- [Remote access](/docs/remote-access/) — compare LAN, Tailscale, Cloudflare Tunnel, reverse proxy, SSH, native remote access, and Cloud Link.
 - [Cloud Link](/docs/cloud-link/) — managed remote access with a store subscription. See the [Cloud Link website](https://opencodecloud.link/) for connector downloads and pricing.
 
 ## I want to send content from another app
@@ -83,4 +86,4 @@ Use [Settings and customization](/docs/guides/settings/) for the searchable sett
 
 ## I cannot connect to the server
 
-Use [Troubleshooting](/docs/guides/troubleshooting/) to work through authentication, local QR, custom headers, certificates, OIDC, Cloud Link, HTML/404 responses, realtime updates, terminal WebSockets, and missing projects.
+Use [Troubleshooting](/docs/guides/troubleshooting/) to work through authentication, native pairing, Desktop/TUI sessions, multiple servers, custom headers, certificates, OIDC, Cloud Link, HTML/404 responses, realtime updates, terminal WebSockets, and missing projects.

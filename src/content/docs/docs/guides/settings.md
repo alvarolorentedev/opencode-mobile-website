@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Settings and Customization
 description: Understand every OpenCode Mobile setting for appearance, chat, voice, connections, providers, extensions, approvals, diagnostics, and updates.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 OpenCode Mobile groups configuration into three areas: **App preferences**, **Connections**, and the **Selected server**. This page is the map; follow the focused guides for details.
@@ -26,7 +26,8 @@ The settings map follows the website’s current color theme.
 
 - **Theme mode:** follow the system, or lock the app to light or dark.
 - **Theme:** choose Green, Blue, Red, Purple, Pink, or Gray. The accent changes surfaces, accents, chat bubbles, code blocks, and the terminal.
-- **Slim interface:** reduce control sizes, padding, and header heights so more of the transcript or output fits on screen.
+- **Chat text size:** adjust message text from small to large.
+- **Timeline detail:** choose how much activity appears in the feed.
 
 The app applies the theme immediately and remembers it across connections.
 
@@ -74,7 +75,7 @@ Update checks control the app's own prompts and reminders, not the store's autom
 
 ### Connection
 
-Add a manual server, scan a local QR code, switch saved profiles, or reconnect. Editing a profile does not reconnect automatically. See [Add or switch connections](/docs/connections/).
+Add a manual server, scan a native pairing QR code, connect saved profiles, or reconnect. Several servers can stay connected. Editing a profile does not reconnect automatically. See [Add or switch connections](/docs/connections/).
 
 ### Cloud Link
 

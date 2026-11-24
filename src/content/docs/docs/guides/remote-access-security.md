@@ -1,9 +1,22 @@
 ---
 title: Secure OpenCode Remote Access from Mobile
 description: Threat-model an OpenCode mobile connection, protect server credentials, compare private and public routes, and respond to a lost device or exposed endpoint.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 An OpenCode server may read and change source files, execute commands, and invoke configured AI providers. Remote access therefore creates a privileged path into a development machine. HTTPS alone does not make that path safe.
+
+## Pairing is not a network route
+
+Native OpenCode pairing is an authentication exchange. A one-time code becomes a 30-day session token for the server. It does not bind the server to an interface, open a firewall, or create a tunnel.
+
+That means:
+
+- Pairing an unreachable server still fails.
+- Binding OpenCode to `0.0.0.0` exposes it on every interface, not only the one you intended.
+- A VPN or tunnel controls reachability; OpenCode authentication still controls access.
+- A pairing link is a credential. Treat it like the server password.
+
+HTTP inside an encrypted VPN such as Tailscale is encrypted in transit, but it is not HTTPS/TLS for the OpenCode endpoint. Tailscale Serve adds HTTPS. In both cases, keep OpenCode authentication enabled and restrict who can reach the endpoint.
 
 ## Threats to plan for
 
@@ -17,7 +30,7 @@ An OpenCode server may read and change source files, execute commands, and invok
 
 ## Minimum controls
 
-1. Bind OpenCode to `127.0.0.1` when using a VPN, tunnel, or local reverse proxy.
+1. Bind OpenCode to `127.0.0.1` when using a VPN, tunnel, or local reverse proxy. When a direct LAN or tailnet bind is required, prefer the specific interface over `0.0.0.0`.
 2. Configure a unique username and strong password.
 3. Prefer a private [Tailscale route](/docs/guides/tailscale/) over a public hostname when possible.
 4. If using [Cloudflare Tunnel](/docs/guides/cloudflare-tunnel/), keep OpenCode authentication enabled and protect the Cloudflare account.

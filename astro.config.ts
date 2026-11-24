@@ -124,6 +124,10 @@ export default defineConfig({
               items: [
                 { label: 'Remote access overview', link: '/docs/remote-access/' },
                 {
+                  label: 'Connect from Desktop or TUI',
+                  link: '/docs/guides/desktop-and-tui/',
+                },
+                {
                   label: 'Use OpenCode from your phone',
                   link: '/docs/guides/use-opencode-from-phone/',
                 },
@@ -134,8 +138,13 @@ export default defineConfig({
               label: 'Connection methods',
               items: [
                 { label: 'Add or switch connections', link: '/docs/connections/' },
+                {
+                  label: 'Use multiple servers',
+                  link: '/docs/guides/multiple-servers/',
+                },
                 { label: 'Local network', link: '/docs/guides/local-network/' },
                 { label: 'Tailscale', link: '/docs/guides/tailscale/' },
+                { label: 'Cloud Link', link: '/docs/cloud-link/' },
                 {
                   label: 'Cloudflare Tunnel',
                   link: '/docs/guides/cloudflare-tunnel/',
@@ -145,7 +154,6 @@ export default defineConfig({
                   link: '/docs/guides/reverse-proxy/',
                 },
                 { label: 'SSH forwarding', link: '/docs/guides/ssh-forward/' },
-                { label: 'Cloud Link', link: '/docs/cloud-link/' },
               ],
             },
             {
@@ -253,7 +261,7 @@ export default defineConfig({
         starlightLlmsTxt({
           projectName: 'OpenCode Mobile',
           description:
-            'Community-built Android and iOS client for an OpenCode server you run. Covers installation, connections, Cloud Link, chats, projects, terminal, voice, notifications, security, and troubleshooting.',
+            'Community-built Android and iOS client for an OpenCode server you run. Covers Desktop and TUI sessions, native pairing, multiple servers, connections, Cloud Link, chats, projects, terminal, voice, notifications, security, and troubleshooting.',
           details: [
             'OpenCode Mobile is an independent, community-built Android and iOS client for an OpenCode server that you run. It is not built by, endorsed by, or affiliated with the OpenCode team.',
             '',
@@ -262,6 +270,8 @@ export default defineConfig({
             '- **What it is:** a mobile client for an OpenCode server; it is not a hosted AI service and does not replace the server.',
             '- **Server requirement:** the user must provide a reachable OpenCode server and credentials.',
             '- **OpenCode contracts:** 2.x (V2) is the current primary target; 1.x (V1) remains supported with manual connections for the core surface.',
+            '- **Pairing:** native OpenCode pairing is an authentication shortcut. It does not create network reachability. Desktop pairing exposes only its local server.',
+            '- **Multiple servers:** mobile can save and connect several servers; Desktop does not expose its configured server inventory to mobile.',
             '- **Platforms:** Android through Google Play or direct APK (arm64-v8a only), and iOS through the TestFlight beta.',
             '- **Cost and license:** the app is free and open source under Apache-2.0. Cloud Link is an optional paid managed remote-access service for store installs only; product details are at https://opencodecloud.link/.',
             '- **Current release:** use GitHub Releases for the version and release history: https://github.com/alvarolorentedev/opencode-mobile/releases',
@@ -276,8 +286,11 @@ export default defineConfig({
             '## Quick start',
             '',
             '1. Install the app on Android or iOS.',
-            '2. On the machine that runs OpenCode 2, run `opencode service start` and `opencode pair`.',
-            '3. Scan the QR code or enter the server URL and credentials in the app.',
+            '2. Connect with the OpenCode setup you already run:',
+            '   - OpenCode Desktop: Settings → Pairing → Show details.',
+            '   - TUI: `/pair`. CLI or a reachable shared service: `opencode pair` or `opencode pair --url <url>`.',
+            '   - Standalone server or OpenCode 1.x: use a manual URL and password.',
+            '3. Scan the QR code with the app. Native pairing links are scanned, not pasted.',
             '4. Select a project and send a small task.',
             '',
             'Start with the documentation hub at https://getopencode.app/docs/ for the complete setup path.',
@@ -315,6 +328,8 @@ export default defineConfig({
             'docs/introduction',
             'docs/connections',
             'docs/remote-access',
+            'docs/guides/desktop-and-tui',
+            'docs/guides/multiple-servers',
             'docs/cloud-link',
             'docs/user-manual',
           ],
@@ -339,6 +354,8 @@ export default defineConfig({
               paths: [
                 'docs/remote-access',
                 'docs/cloud-link',
+                'docs/guides/desktop-and-tui',
+                'docs/guides/multiple-servers',
                 'docs/guides/use-opencode-from-phone',
                 'docs/guides/local-network',
                 'docs/guides/tailscale',
@@ -349,7 +366,7 @@ export default defineConfig({
                 'docs/guides/mobile-vs-web',
               ],
               description:
-                'choose LAN, Tailscale, Cloudflare Tunnel, a reverse proxy, SSH, or Cloud Link and secure the route',
+                'continue Desktop or TUI sessions, use several servers, and choose LAN, Tailscale, Cloudflare Tunnel, a reverse proxy, SSH, native remote access, or Cloud Link',
             },
             {
               label: 'Using the app',

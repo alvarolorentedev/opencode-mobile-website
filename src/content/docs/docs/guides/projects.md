@@ -1,7 +1,7 @@
 ---
 title: Select and Manage OpenCode Projects on Mobile
 description: Choose, add, archive, and switch OpenCode projects from the mobile app, including server-archived projects, worktrees, and project files.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 A project is the OpenCode directory that owns the chats, files, and terminal sessions shown in the app. The **Projects** tab is the home for that context.
@@ -62,12 +62,11 @@ Selecting another project clears the current session selection and rehydrates or
 
 Switching projects changes:
 
-- which chats appear in the chat library;
 - which files and worktrees the Projects tab shows;
 - which terminal PTYs are available;
 - the scope used for diffs, approvals, and terminal requests.
 
-The active connection remains the same unless you switch servers in Settings.
+The chat library still lists sessions from connected servers and lets you filter by server and project. The focused server remains the same unless you connect or open a session from another one in Settings.
 
 ## Worktrees as projects
 

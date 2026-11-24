@@ -1,14 +1,14 @@
 ---
 title: "OpenCode Cloud Link: Remote Access from Mobile"
 description: Use Cloud Link to reach your OpenCode machine over the internet with a store subscription, connector QR pairing, and managed machines.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 Cloud Link is an optional managed remote-access service for OpenCode Mobile. It connects the app to a Cloud Link connector running on your computer, so you can reach an OpenCode machine without configuring your own VPN, tunnel, or reverse proxy.
 
 See the [OpenCode Cloud Link website](https://opencodecloud.link/) for connector downloads, platform support, pricing, and product documentation.
 
-Cloud Link is **not** an official OpenCode service. It is part of the independent OpenCode Mobile project. It is also different from the free local QR pairing flow: local QR works on the same network, while Cloud Link is designed for access over the internet.
+Cloud Link is **not** an official OpenCode service. It is part of the independent OpenCode Mobile project. It is also different from native OpenCode pairing: native pairing authenticates the app over a route the phone can already reach, while Cloud Link provides a managed route over the internet.
 
 ## Who Cloud Link is for
 
@@ -79,15 +79,16 @@ Changes apply to the running connector without restarting it. The connector vali
 
 Older connectors may support only path services on the legacy port. The app shows an update hint when a connector is too old for root services or port selection.
 
-## Cloud Link, local QR, and Tailscale
+## Native pairing and Tailscale
 
 | Option | Network scope | Cost | Setup | Best for |
 | --- | --- | --- | --- | --- |
-| Local QR | Same reachable network | Free | `opencode pair` + scan | Quick local setup |
-| Tailscale | Your tailnet | Free/paid Tailscale plan | Tailscale Serve + app URL | Private access between your devices |
+| Native pairing | Any route the phone can reach | Free | `opencode pair` + scan | Authentication shortcut for OpenCode 2 |
+| Tailscale direct | Your tailnet | Free/paid Tailscale plan | Bind + `opencode pair --url` | Private HTTP access between your devices |
+| Tailscale Serve | Your tailnet, HTTPS | Free/paid Tailscale plan | Tailscale Serve + `opencode pair --url` | Private access with an HTTPS `ts.net` address |
 | Cloud Link | Internet | Store subscription | Connector + subscription + QR | Managed access without your own tunnel |
 
-If you already run Tailscale successfully, you do not need Cloud Link.
+If you already run Tailscale or another reliable route successfully, you do not need Cloud Link.
 
 ## Cloud Link resources
 

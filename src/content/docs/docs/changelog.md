@@ -1,10 +1,10 @@
 ---
 title: OpenCode Mobile Releases and Compatibility
 description: Check the current OpenCode Mobile release, recent highlights, OpenCode 1.x and 2.x compatibility, and current app and platform support.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
-The latest public release at the time of this review is **v1.0.139**, published **November 6, 2026**. Use [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) as the authoritative source for the current version and complete release notes.
+The latest public release at the time of this review is **v1.0.170**, published **November 23, 2026**. Use [GitHub Releases](https://github.com/alvarolorentedev/opencode-mobile/releases) as the authoritative source for the current version and complete release notes.
 
 OpenCode 2 is the current primary target. It uses the shared background service and one-time `opencode pair` links for the quickest app setup. OpenCode 1.x (V1) remains supported with manual connections for the core chat, project, file, and terminal surface. Feature availability also depends on the capabilities the connected server exposes.
 
@@ -12,6 +12,7 @@ OpenCode 2 is the current primary target. It uses the shared background service 
 
 | Release | Focus |
 | --- | --- |
+| [v1.0.170](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.170) | Current release; see GitHub for the complete change list |
 | [v1.0.139](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.139) | Chat library grouped by server and project path, V2 `/compact` and `/btw`, direct update install |
 | [v1.0.137](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.137) | Onboarding privacy step, project search, per-agent model memory, Play update priority |
 | [v1.0.135](https://github.com/alvarolorentedev/opencode-mobile/releases/tag/v1.0.135) | Mention and command highlighting, device-local project archive |
@@ -23,7 +24,7 @@ OpenCode 2 is the current primary target. It uses the shared background service 
 
 ## Highlights since v1.0.81
 
-- **Settings and appearance:** searchable grouped settings, light/dark/system modes, six accent themes, and a slim interface.
+- **Settings and appearance:** searchable grouped settings, light/dark/system modes, and six accent themes.
 - **Voice:** System and On-device input modes, wake phrase, spoken confirmation, local speech models, speaker verification, and Piper/Kokoro playback.
 - **Models:** automatic model routing, variants, per-agent model memory, and the model used for each reply.
 - **Chat:** provider command suggestions, `@` mentions, `!` shell mode, `/compact`, `/btw`, live highlighting, and a two-level activity timeline.
@@ -38,11 +39,11 @@ OpenCode 2 is the current primary target. It uses the shared background service 
 
 | Component | Current declaration |
 | --- | --- |
-| Public app release | `v1.0.139` |
+| Public app release | `v1.0.170` |
 | OpenCode client contracts | OpenCode 1.x (V1) and 2.x (V2), detected at connection |
-| `@opencode-ai/sdk` | `^1.18.3` |
-| `@opencode/client` | `2.2.5` |
-| Expo | `58.0.22` |
+| `@opencode-ai/sdk` | `1.19.6` |
+| `@opencode/client` | `2.3.2` |
+| Expo | `58.0.26` |
 | React Native | `0.88.1` |
 | React | `19.3.0` |
 | License | Apache-2.0 |
@@ -68,7 +69,7 @@ These values describe the current source and recent release. Inspect the [applic
 | Worktrees | Yes | Yes | Create, select, remove; reset/start command unavailable |
 | MCP lifecycle | Yes | Yes | V1 runtime controls; V2 definitions in Extensions |
 | LSP and formatter diagnostics | No | No | Not part of the supported surface |
-| Local QR pairing | No | Yes | Same-network only; requires the shared service and native camera |
+| Native pairing | No | Yes | Requires a phone-reachable route, the shared service, and native camera for QR |
 | Cloud Link | Independent | Independent | Store installs only; subscription required |
 | Android inbound sharing | Yes | Yes | Android only |
 | Android home widgets | Yes | Yes | Android only |

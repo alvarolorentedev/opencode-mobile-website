@@ -1,20 +1,61 @@
 ---
 title: Connect OpenCode Mobile to Your Server
-description: Add, save, and switch OpenCode server connections with a URL, local QR pairing, custom headers or certificates, OIDC, or Cloud Link.
-lastUpdated: 2026-11-06
+description: Add and switch OpenCode servers with native pairing, a manual URL, custom headers, certificates, OIDC, Cloud Link, or several saved profiles.
+lastUpdated: 2026-11-24
 ---
 
-Use **Settings → Connection** to add a server, switch between saved servers, edit a profile, or reconnect. The app can keep multiple connection profiles, and every project, session, favorite, notification record, and terminal tab is scoped to the active connection.
+Use **Settings → Connection** to add a server, connect saved servers, edit a profile, or reconnect. The app can keep several connection profiles. Each profile has its own URL, credentials, projects, favorites, notification records, and terminal state.
 
 ## Choose how to add a connection
 
 | Method | Best for | Requirements |
 | --- | --- | --- |
-| **Manual** | Any reachable server | Server URL, optional username, password, and optional headers, certificate, or OIDC |
-| **Scan QR code** | Fast setup on the same network | `opencode pair`, camera, reachable server |
+| **Scan QR code** | Fast OpenCode 2 setup over any reachable route | Shared service, camera, phone-reachable address |
+| **Manual** | Any reachable server, including standalone or OpenCode 1.x | Server URL, optional username, password, and optional headers, certificate, or OIDC |
 | **Cloud Link** | Managed access over the internet | Store-installed app, active subscription, desktop connector |
 
-These are different from the network route. A manual connection can use a LAN, Tailscale, Cloudflare Tunnel, or reverse proxy. Cloud Link is its own managed route. See [Remote access](/docs/remote-access/).
+These are authentication choices, not network routes. A manual connection can use a LAN, Tailscale, Cloudflare Tunnel, or reverse proxy. Native pairing works over any route the phone can already reach. Pairing does not create that route. See [Remote access](/docs/remote-access/).
+
+## Add a native pairing connection
+
+Native pairing is the free OpenCode 2 flow. It requires the shared background service.
+
+Create the code from one of these entry points:
+
+- **OpenCode Desktop:** **Settings → Pairing → Show details**.
+- **TUI:** `/pair` (the older `/web` alias also works).
+- **CLI:** `opencode pair`.
+
+The command prints links and, when a reachable address exists, a QR code. In the app, open **Settings → Connection → Add connection → Scan QR code** and scan it. A successful scan saves the profile and connects automatically.
+
+OpenCode Mobile scans native pairing codes; it does not accept a pasted native pairing link. To connect without the camera, use **Manual** with the service URL and password. Print the generated password with `opencode service get password`.
+
+The server must listen on an address the phone can reach. If the phone is on the same trusted LAN, bind the shared service before pairing:
+
+```bash
+opencode service set hostname 0.0.0.0
+opencode service start
+opencode service status
+opencode pair
+```
+
+A link containing only `localhost` or `127.0.0.1` cannot work from another device. Only expose the server on a trusted network, and restrict the port with a firewall or tailnet ACL.
+
+For a public Tailscale, Cloudflare, or reverse-proxy origin, keep the service on loopback and create the link with that origin:
+
+```bash
+opencode service set hostname 127.0.0.1
+opencode service start
+opencode pair --url https://your-opencode-host.example
+```
+
+Use the port from `opencode service status`; do not assume a fixed port. `--url` changes the address in the pairing link; it does not verify reachability.
+
+Pairing links expire after five minutes and work once. The connection lasts 30 days; pair again when it expires. Changing the server password signs every session out.
+
+Pairing requires the shared service. A standalone `opencode serve` process must be connected manually. If the code is invalid or expired, run `opencode pair` again. A failed save or connection keeps the redeemed credential so you can retry without pairing again.
+
+If OpenCode is mounted under an API prefix such as `/api`, use a manual connection. The current pairing link uses `/auth/connect` at the origin and does not preserve the prefix.
 
 ## Add a manual connection
 
@@ -38,7 +79,7 @@ Manual connections can add header name/value pairs for gateways and proxies such
 - Values are stored in Keychain/Keystore-backed secure storage, not in plain profile metadata.
 - Headers are sent on probes, REST requests, SSE, terminal connect-token requests, and native terminal WebSocket upgrades.
 - Attachment previews may load arbitrary hosts without the connection headers, so a server-hosted attachment behind Access can fail to preview.
-- Local QR and Cloud Link profiles cannot carry custom headers; configure those routes at the gateway or use a manual connection.
+- Native pairing and Cloud Link profiles cannot carry custom headers; configure those routes at the gateway or use a manual connection.
 
 ### Custom CA certificate
 
@@ -64,42 +105,6 @@ With a password set, requests keep Basic `Authorization` and add the JWT header.
 
 OIDC requires HTTPS, except for explicit loopback development. Access and refresh tokens are encrypted at rest and never appear in profile metadata. Cloud Link connections do not offer this option.
 
-## Add a local QR connection
-
-Local QR pairing is an OpenCode 2 flow and requires the shared background service. On the computer running OpenCode:
-
-```bash
-opencode service set password 'use-a-strong-password'
-opencode service set port 4096
-opencode service start
-opencode service status
-opencode pair
-```
-
-`opencode pair` prints a one-time link and QR code. In the app, open **Settings → Connection → Add connection → Scan QR code** and scan it. A successful scan saves the profile and connects automatically. Links expire after five minutes and work once.
-
-The server must listen on an address the phone can reach. If the phone is on the same trusted LAN, bind the shared service before pairing:
-
-```bash
-opencode service set hostname 0.0.0.0
-opencode service start
-opencode pair
-```
-
-A link containing only `localhost` or `127.0.0.1` cannot work from another device. Only expose the server on a trusted network. Local QR pairing does not require a Cloud Link subscription. Camera scanning is available on native builds; FOSS builds omit the camera module and keep manual entry.
-
-For a public Tailscale, Cloudflare, or reverse-proxy URL, keep the service on loopback and create the link with that origin:
-
-```bash
-opencode service set hostname 127.0.0.1
-opencode service start
-opencode pair --url https://your-opencode-host.example
-```
-
-Pairing requires the shared service. A standalone `opencode serve` process must be connected manually. If the code is invalid or expired, run `opencode pair` again. A failed save or connection keeps the redeemed credential so you can retry without pairing again.
-
-Local QR and Cloud Link profiles cannot carry custom headers or a custom CA. Use a manual connection when the route needs them.
-
 ## Add a Cloud Link machine
 
 Cloud Link is the managed option. It requires an app installed from the App Store or Google Play, an active subscription, and the Cloud Link connector running on the computer. Download the connector and review platform support at the [OpenCode Cloud Link website](https://opencodecloud.link/). Direct APK and web builds do not show the Cloud Link section.
@@ -110,13 +115,14 @@ Open **Settings → Cloud Link**, then follow the guided steps to subscribe or r
 
 Each saved connection appears as a collapsible row in **Settings → Connection**:
 
-- **Connect** switches to that server.
-- **Edit** updates the saved profile. Editing the active connection does not reconnect automatically; use **Reconnect** to apply it.
-- **Delete** removes a saved profile after confirmation. The active connection cannot be deleted.
+- **Connect** makes that server available. Connecting a second server does not remove the first.
+- **Disconnect** stops using that profile without deleting it.
+- **Edit** updates the saved profile. Editing an active connection does not reconnect automatically; use **Reconnect** to apply it.
+- **Delete** removes a saved profile after confirmation after disconnecting it.
 - The active row shows an **Active** or **Connecting** badge.
 - The current unsaved connection appears as **Current connection** until you save it.
 
-Switching connections saves the outgoing profile's model selection, restores the target profile's selection, clears server-derived state, and reconnects. A session running on the previous server is not transferred; favorites and notification records stay per connection.
+Several connected servers can appear together in the chat library, which groups sessions by server and project and offers a server filter. Projects, files, worktrees, and the terminal follow the focused server and project. Opening a session from another server switches the focus there. See [Use multiple OpenCode servers](/docs/guides/multiple-servers/).
 
 ## Credentials and privacy
 
@@ -140,12 +146,13 @@ A web page at the root is not proof that the API is reachable. If the app sees H
 ## Troubleshooting
 
 - **The server is unreachable:** confirm the URL, network route, VPN/tunnel, and firewall.
-- **Authentication is rejected:** confirm `OPENCODE_SERVER_USERNAME` and `OPENCODE_SERVER_PASSWORD`; reconnect after editing.
+- **Authentication is rejected:** confirm the username and password; reconnect after editing. For the shared service, use `opencode service get password` or the password you set.
 - **A gateway returns 401 or 403:** confirm the custom header names and values, then reconnect.
 - **A certificate is rejected:** confirm the certificate covers the same `host:port`, re-import it, and check its expiry.
 - **OIDC loops or expires:** confirm the issuer, client ID, scopes, and redirect URI; sign in again after a revoked refresh grant.
 - **The app connects but no project appears:** refresh **Projects** and check diagnostics.
-- **Local QR says the address is loopback-only:** bind the server to a reachable interface on a trusted network.
+- **Native pairing says the address is loopback-only:** bind the service to a reachable interface on a trusted network.
+- **A Desktop or TUI session is missing:** confirm the same server and project, then read [Connect from Desktop or TUI](/docs/guides/desktop-and-tui/).
 - **Cloud Link is missing:** confirm the app came from the App Store or Google Play and the subscription is available.
 
 Continue with [Troubleshooting](/docs/guides/troubleshooting/) or review the [remote-access security guide](/docs/guides/remote-access-security/).

@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile Deep Links and Session Links
 description: Open a specific OpenCode Mobile session from a custom-scheme or web link, understand connection scoping, and handle errors.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 OpenCode Mobile can open a specific session from a deep link. Notifications, quick actions, and some shared links use the same resolver.
@@ -52,6 +52,8 @@ Common causes:
 ## Pairing links
 
 Cloud Link pairing links use a different format and include a pairing identifier and token. Treat them as credentials. Do not paste them into public issues, logs, or screenshots. See [Cloud Link](/docs/cloud-link/).
+
+Native OpenCode pairing links are HTTP links or QR codes handled by the app's scanner, not `opencodemobile://` deep links. OpenCode Mobile scans the QR code; use a manual connection if the camera is unavailable. See [Add or switch connections](/docs/connections/).
 
 ## Session links in the app
 

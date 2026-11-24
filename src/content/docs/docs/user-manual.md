@@ -1,7 +1,7 @@
 ---
 title: OpenCode Mobile User Manual
 description: Navigate OpenCode Mobile chats, projects, approvals, voice, usage, terminal, providers, extensions, settings, notifications, sharing, and widgets.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 This manual is the navigation hub for operating OpenCode Mobile after installation. It deliberately avoids repeating every control documented in the focused guides. If the app is not connected yet, start with [Set Up OpenCode Mobile](/docs/getting-started/).
@@ -30,7 +30,7 @@ Confirm three pieces of context:
 2. **Project:** Projects shows the repository that should receive the task.
 3. **Session:** Chat shows the intended work thread.
 
-This prevents the most expensive mobile mistake: sending a valid instruction to the wrong project or session.
+This prevents the most expensive mobile mistake: sending a valid instruction to the wrong project or session. If sessions from Desktop or another server are missing, confirm that mobile is connected to the same server. See [Connect from Desktop or TUI](/docs/guides/desktop-and-tui/) and [Use multiple OpenCode servers](/docs/guides/multiple-servers/).
 
 ## Everyday work
 
@@ -61,7 +61,9 @@ This prevents the most expensive mobile mistake: sending a valid instruction to 
 - [Automatic model routing](/docs/guides/auto-model-routing/) — classify prompts and map each tier to a model.
 - [Extensions](/docs/guides/extensions/) — manage MCPs, plugins, agents, skills, commands, and plugin panels.
 - [MCP and diagnostics](/docs/guides/mcp-and-diagnostics/) — manage runtime MCP state and inspect server health.
-- [Add or switch connections](/docs/connections/) — manage multiple servers, custom headers, certificates, and OIDC.
+- [Add or switch connections](/docs/connections/) — manage multiple servers, native pairing, custom headers, certificates, and OIDC.
+- [Connect from Desktop or TUI](/docs/guides/desktop-and-tui/) — continue existing sessions and understand which client keeps state.
+- [Use multiple OpenCode servers](/docs/guides/multiple-servers/) — connect several servers and understand Desktop's inventory limit.
 - [Cloud Link](/docs/cloud-link/) — optional managed remote access.
 
 ## Remote access and connection failures
