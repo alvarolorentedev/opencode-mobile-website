@@ -156,7 +156,7 @@ test('raw Markdown includes canonical frontmatter and is marked noindex', async 
   );
   assert.match(markdown, /^---\n/);
   assert.match(markdown, /^canonical: "https:\/\/getopencode\.app\/docs\/getting-started\/"/m);
-  assert.match(markdown, /^lastUpdated: "2026-11-06"/m);
+  assert.match(markdown, /^lastUpdated: "2026-11-24"/m);
 
   const headers = await readFile(
     new URL('../static/_headers', import.meta.url),

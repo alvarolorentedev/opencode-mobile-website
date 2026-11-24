@@ -1,7 +1,7 @@
 ---
 title: Set Up OpenCode Mobile
 description: Install OpenCode Mobile, start an OpenCode 2 server, pair with a QR code, connect from Android or iOS, and complete your first task.
-lastUpdated: 2026-11-06
+lastUpdated: 2026-11-24
 ---
 
 This guide covers the shortest safe path from an OpenCode server to your first completed mobile task. OpenCode 2 is the current primary target; the app also supports OpenCode 1.x servers with manual connections for the core surface.
@@ -47,21 +47,42 @@ If you deliberately use an OpenCode 1.x server, install it with the 1.x installe
 
 ## 3. Start OpenCode
 
-### Recommended: OpenCode 2 shared service and pairing
+### Fastest path: pair with a reachable service
 
-OpenCode 2 normally runs a shared background server. Start it explicitly, confirm its address, and create a pairing link:
+If the OpenCode 2 shared service is already running and reachable from your phone, pairing is one command:
 
 ```bash
-opencode service set password 'use-a-strong-password'
-opencode service set port 4096
+opencode pair --url http://<server-address>:<port>
+```
+
+Over Tailscale, use the computer's Tailscale IP or MagicDNS name:
+
+```bash
+opencode pair --url http://<tailscale-ip-or-magicdns>:49374
+```
+
+Use the port printed by `opencode service status`: `49374` is the default on macOS, Linux, and WSL, and `28894` on Windows. Scan the QR code or paste the link into the app. Pairing links expire after five minutes and work once. The connection lasts 30 days; when it expires, run `opencode pair` again and scan the new link. Changing the server password signs every session out.
+
+### Recommended: OpenCode 2 shared service and pairing
+
+OpenCode 2 normally runs a shared background server. Start it and confirm its address:
+
+```bash
 opencode service start
 opencode service status
 opencode pair
 ```
 
-`opencode pair` prints a one-time link and a QR code. Scan the QR code from OpenCode Mobile, or paste the pairing link into the app. Pairing links expire after five minutes and work once.
+The service generates its own password. To use one you choose instead, set it before starting:
 
-If the phone is on the same trusted LAN, bind the service to a reachable interface before pairing:
+```bash
+opencode service set password 'use-a-strong-password'
+opencode service start
+```
+
+Print the generated password with `opencode service get password`.
+
+On a phone on the same trusted LAN, bind the service to a reachable interface before pairing:
 
 ```bash
 opencode service set hostname 0.0.0.0
@@ -69,13 +90,15 @@ opencode service start
 opencode pair
 ```
 
-Only do this on a trusted network and protect the server with a password. For access through Tailscale, Cloudflare Tunnel, or a reverse proxy, keep the service on loopback and pair with the public URL. If you changed the hostname for LAN access, set it back and restart before pairing:
+Only use `0.0.0.0` on a trusted network; it also listens on your other interfaces. For access through Tailscale Serve, Cloudflare Tunnel, or a reverse proxy, keep the service on loopback and pair with the public URL:
 
 ```bash
 opencode service set hostname 127.0.0.1
 opencode service start
 opencode pair --url https://your-opencode-host.example
 ```
+
+`--url` changes the address in the pairing link; it does not verify that the phone can reach it. See the [Tailscale guide](/docs/guides/tailscale/) for the direct tailnet route and the optional HTTPS setup.
 
 OpenCode 2 also supports `opencode pair --remote`, which exposes the server through an OpenTunnel address after an explicit confirmation. This is separate from Cloud Link. Treat the tunnel like any other public endpoint and review the [remote-access security guidance](/docs/guides/remote-access-security/).
 

@@ -249,20 +249,20 @@ const faqItems = [
       <ol class={styles.setupGrid}>
         <li>
           <span class={styles.stepNumber}>01</span>
-          <h3>Run OpenCode</h3>
-          <p>Start a headless server on the machine that owns your project.</p>
-          <code>opencode serve --port 4096</code>
+          <h3>Run OpenCode 2</h3>
+          <p>Start the shared service on the machine that owns your project.</p>
+          <code>opencode service start</code>
         </li>
         <li>
           <span class={styles.stepNumber}>02</span>
-          <h3>Expose it securely</h3>
-          <p>Add authentication and route it through an HTTPS tunnel or proxy.</p>
-          <code>cloudflared tunnel --url localhost:4096</code>
+          <h3>Pair your phone</h3>
+          <p>Over Tailscale, point the one-time link at your tailnet address.</p>
+          <code>{'opencode pair --url http://<ip-or-domain>:49374'}</code>
         </li>
         <li>
           <span class={styles.stepNumber}>03</span>
           <h3>Connect the app</h3>
-          <p>Enter the protected server URL, choose a project, and continue.</p>
+          <p>Scan the QR code, choose a project, and keep working.</p>
           <a href="/docs/getting-started/">Open the complete setup guide</a>
         </li>
       </ol>
